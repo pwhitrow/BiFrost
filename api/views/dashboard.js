@@ -2,6 +2,9 @@
  * Dashboard
  */
 
+_bf_loadscript('api/plugins/lionbars/jQuery.lionbars.0.2.1.min.js');
+_bf_loadscript('api/plugins/lionbars/lionbars.css');
+
 _bf.cleanUp($('._bf_dashboard'));
 
 var _bf_dashboard = {

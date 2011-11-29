@@ -36,6 +36,8 @@ if(_bf.loggedIn())
                         {
                             _bf_userreviews.renderReview(reviews[i]);
                         }
+                        
+                        $(this).lionbars('light', true, true);
                     });
 
                 }

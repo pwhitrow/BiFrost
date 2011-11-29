@@ -118,14 +118,6 @@ var _bf_itemreviews = {
         .appendTo($('._bf_itemreviews'))
         .each(function()
         {
-            $('<h2 />').attr(
-            {
-                'class': '_bf_itemreviews_item_title',
-                title: review.title
-            })
-            .html(review.title)
-            .appendTo($(this));
-
             // show tags
             if(review.tags)
             {
@@ -190,6 +182,14 @@ var _bf_itemreviews = {
             .appendTo($(this))
             .each(function()
             {
+                $('<h2 />').attr(
+                {
+                    'class': '_bf_itemreviews_item_title',
+                    title: review.title
+                })
+                .html(review.title)
+                .prependTo($(this));
+
                 // call expander plugin
                 $(this).expander();
             });
@@ -260,16 +260,14 @@ var _bf_itemreviews = {
                     {
                         if(media[i] == _bf.no_image)
                         {
-                            var image = _bf.host + 'images/' + _bf.no_image;
-                            var thumb = _bf.host + 'images/' + _bf.no_image;                      
+                            continue;
                         }
-                        else
-                        {
-                            var image = _bf.host + _bf.uploads + '/' + media[i]
-                            var ext = media[i].substr((media[i].lastIndexOf('.') +1));
-                            var tmp = media[i].split('.');
-                            var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext;                         
-                        }
+
+                        var image = _bf.host + _bf.uploads + '/' + media[i]
+                        var ext = media[i].substr((media[i].lastIndexOf('.') +1));
+                        var tmp = media[i].split('.');
+                        var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext;     
+                        
                         
                         $('<a />').attr(
                         {
