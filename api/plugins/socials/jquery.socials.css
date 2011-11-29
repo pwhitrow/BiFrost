@@ -1,0 +1,40 @@
+/*
+ * Socials - jQuery Plugin
+ * Simple social contsnt share
+ *
+ * Copyright (c) 2011 Paul Whitrow
+ *
+ * Version: 1.0 (27/11/2011)
+ *
+ */
+
+._bf_social_bookmarks
+{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+
+._bf_social_bookmark
+{
+    display:inline;
+    margin:0px 0px 0px 0px;
+    padding:0px;
+    float:left;
+}
+
+._bf_social_bookmark_link
+{
+    cursor: pointer;
+    margin:0px;
+    padding:0px;
+    border:0px;
+    text-decoration:none;
+}
+
+._bf_social_bookmark_image
+{
+    margin:0px;
+    padding:0px;
+    border:0px;
+}

@@ -1,0 +1,247 @@
+/*
+ * item discussions
+ */
+
+var _bf_itemdiscussions = {
+
+    init: function()
+    {
+        // post to api
+        _bf.post(
+        {
+            action: 'itemdiscussions',
+            parentid: $('._bf_discussions').attr('rel')
+        });
+    },
+
+    showDiscussions: function(data)
+    {
+        $('._bf_itemdiscussions').remove();
+            
+        var discussions = $.parseJSON(data.itemdiscussions);
+        var comments = $.parseJSON(data.itemcomments);
+
+        if(typeof discussions.id != 'undefined')
+        {
+            $('<ul />').attr(
+            {
+                'class': '_bf_itemdiscussions'
+            })
+            .html(
+                $('<li />').attr(
+                {
+                    'class': '_bf_itemdiscussions_header'
+                })
+                .html(_bf.t('Discussions:'))
+                .each(function()
+                {
+                })
+            )
+            .appendTo($('._bf_discussions'))
+            .each(function()
+            {
+                var i = 0;
+
+                $(discussions.id).each(function()
+                {
+                    _bf_itemdiscussions.renderDiscussion(
+                    {
+                        id: discussions.id[i],
+                        gname: discussions.gname[i],
+                        fname: discussions.fname[i],
+                        avatar: discussions.avatar[i],
+                        content: discussions.content[i],
+                        fdate: discussions.fdate[i]
+                    }, comments);
+                    i++;
+                });
+            });
+        }
+        else
+        {
+            $('<h2 />').attr(
+            {
+                'class': '_bf_no_discussions _bf_itemdiscussions'
+            })
+            .html(_bf.t('Why not be the first to post a discussion?'))
+            .appendTo($('._bf_discussions'));
+        }
+    },
+
+    renderDiscussion: function(discussion, comments)
+    {
+        $('<li />').attr(
+        {
+            'class': '_bf_itemdiscussions_item',
+            id: 'discussion_' + discussion.id
+        })
+        .appendTo($('._bf_itemdiscussions'))
+        .each(function()
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_itemdiscussions_arrow_up'
+            })
+            .appendTo($(this));
+
+            $('<p />').attr(
+            {
+                'class': '_bf_itemdiscussions_item_synopsis _bf_itemdiscussions_item_synopsis_' + discussion.id
+            })
+            .html(discussion.content)
+            .appendTo($(this))
+            .each(function()
+            {
+                var el = $(this);
+                var c = 0;
+
+                $('<ul />').attr(
+                {
+                    'class': '_bf_itemdiscussions_item_comment_holder _bf_comment_' + discussion.id
+                })
+                .appendTo($(el).parent())
+                .each(function()
+                {
+                    $('<li />').attr(
+                    {
+                        'class': '_bf_itemdiscussions_item_controls'
+                    })
+                    .appendTo($(this))
+                    .each(function()
+                    {
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_itemdiscussions_item_reply_button _bf_button'
+                        })
+                        .html(_bf.t('Reply'))
+                        .appendTo($(this))
+                        .click(function()
+                        {
+                            if(_bf.loggedIn())
+                            {
+                                _bf.openPanel(333, 600, function()
+                                {
+                                    $('._bf_dashboard').remove();
+
+                                    _bf.getForm(
+                                    {
+                                        form: 'comment',
+                                        parentid: discussion.id
+                                    });
+                                });
+                            }
+                            else
+                            {
+                                _bf_widgets.cannotPost();
+                            }
+                        });
+
+                        // more link!
+                        $(this).expander(
+                        {
+                            'expand': $('._bf_itemdiscussions_item_synopsis_' + discussion.id)
+                        });
+                        
+                    });
+                    
+
+                });
+                
+                $(comments.id).each(function()
+                {
+                    if(comments.parentid[c] == discussion.id)
+                    {
+                        $('<li />').attr(
+                        {
+                            'class': '_bf_itemdiscussions_item_comment'
+                        })
+                        .appendTo($('._bf_comment_' + discussion.id))
+                        .each(function()
+                        {
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_itemdiscussions_arrow_right'
+                            })
+                            .appendTo($(this));
+
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_itemdiscussions_item_comment_content'
+                            })
+                            .html(comments.content[c])
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                // more link!
+                                $(this).expander();
+                            });
+
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_itemdiscussions_item_comment_username'
+                            })
+                            .html(comments.gname[c] + ' ' + comments.fname[c])
+                            .appendTo($(this));
+
+                            $('<img />').attr(
+                            {
+                                'class': '_bf_itemdiscussions_item_comment_useravatar',
+                                src: comments.avatar[c],
+                                height: '40',
+                                width: '40',
+                                title: comments.gname[c] + ' ' + comments.fname[c],
+                                alt: comments.gname[c] + ' ' + comments.fname[c]
+                            })
+                            .appendTo($(this));
+
+                            $('<em />').attr(
+                            {
+                                'class': '_bf_itemdiscussions_item_comment_posted',
+                                title: _bf.t('This discussion was posted ') + ': ' + comments.fdate[c]
+                            })
+                            .html(comments.fdate[c])
+                            .appendTo($(this));
+                        });
+                    }
+                    c++;
+                });
+            });
+
+            $('<h3 />').attr(
+            {
+                'class': '_bf_itemdiscussions_item_username',
+                title: discussion.gname + ' ' + discussion.fname
+            })
+            .html(discussion.gname + ' ' + discussion.fname + ' <em>' + _bf.t('says') + ':</em>')
+            .appendTo($(this));
+
+            $('<img />').attr(
+            {
+                'class': '_bf_itemdiscussions_item_useravatar',
+                src: discussion.avatar,
+                height: '50',
+                width: '50',
+                title: discussion.gname + ' ' + discussion.fname,
+                alt: discussion.gname + ' ' + discussion.fname
+            })
+            .appendTo($(this));
+            
+            $('<em />').attr(
+            {
+                'class': '_bf_itemdiscussions_item_posted',
+                title: _bf.t('This discussion was posted ') + ': ' + discussion.fdate
+            })
+            .html(_bf.t('Posted') + ': ' + discussion.fdate)
+            .appendTo($(this));
+
+            $('<div />').attr(
+            {
+                'class': '_bf_clear'
+            })
+            .appendTo($(this));
+
+        });
+    }
+}
+
+_bf_itemdiscussions.init();

@@ -1,0 +1,80 @@
+/*
+ * my comments
+ */
+
+var formname = 'usercomments';
+
+if(_bf.loggedIn())
+{
+    if(!$('._bf_' + formname + '_form').length)
+    {
+        var _bf_usercomments = {
+
+            init: function()
+            {
+                // post to api
+                _bf.post(
+                {
+                    action: formname
+                });
+            },
+
+            showComments: function(data)
+            {
+                var comments = $.parseJSON(data.usercomments);
+
+                if(comments.length)
+                {
+                    $('<ul />').attr(
+                    {
+                        'class': '_bf_usercomments'
+                    })
+                    .appendTo($('._bf_dashboard'))
+                    .each(function()
+                    {
+                        for(i = 0; i < comments.length; i++)
+                        {
+                            _bf_usercomments.renderComment(comments[i]);
+                        }
+                    });
+
+                }
+                else
+                {
+                    // no comments!
+                }
+            },
+    
+            renderComment: function(comment)
+            {
+                $('<li />').attr(
+                {
+                    'class': '_bf_usercomments_item'
+                })
+                .appendTo($('._bf_usercomments'))
+                .each(function()
+                {
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_usercomments_content'
+                    })
+                    .html(comment.content.substring(0, 100) + '...')
+                    .appendTo($(this));
+
+                    $('<em />').attr(
+                    {
+                        'class': '_bf_usercomments_posted'
+                    })
+                    .html(_bf.t('Posted') + ': ' + comment.fdate)
+                    .appendTo($(this));
+                    
+                });
+                
+            }
+        }
+        
+        _bf_usercomments.init();
+    }
+}
+
+

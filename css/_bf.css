@@ -1,0 +1,1154 @@
+/* 
+    Application: BiFrost
+    Document   : _bf.css
+    Created on : 27-Oct-2011, 21:37:22
+    Author     : Paul Whitrow
+    Description: main CSS
+*/
+
+._bf_me
+{
+/*    main place holder */
+}
+
+._bf_state
+{
+    height:35px;
+    width:100px;
+
+    margin:0px;
+    padding:0px;
+
+    background:#454545 url(../images/bg.png) 0 0 repeat;
+/*    
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(80%, #343434), color-stop(100%, #313131));
+    background-image: -webkit-linear-gradient(top, #343434 0%,#343434 80%,#313131 100%);
+    background-image: linear-gradient(top, #343434 0%,#343434 80%,#313131 100%);
+*/
+    -webkit-box-shadow: 0px 2px 7px rgba(50, 50, 50, 0.54);
+    -moz-box-shadow:    0px 2px 7px rgba(50, 50, 50, 0.54);
+    box-shadow:         0px 2px 7px rgba(50, 50, 50, 0.54);
+
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+._bf_topleft
+{
+    position:fixed;
+    top:-2px;
+    left:30px;
+}
+
+._bf_topright
+{
+    position:fixed;
+    top:-2px;
+    right:30px;
+}
+
+._bf_state_closed
+{
+    background:#222;
+}
+
+._bf_state_overlay
+{
+    text-align: center;
+    
+    background:transparent url(../images/overlay.png) 0 0 repeat !important;
+/*
+    background:
+        -moz-radial-gradient(
+            center center,
+            rgba(190,190,190,0.1) 5%,
+            rgba(225,225,225,0.9) 95%
+        );
+    background: -webkit-gradient(
+        radial,
+        left bottom,
+        left top,
+        color-stop(0.05, rgba(190,190,190,0.1)),
+        color-stop(0.95, rgba(225,225,225,0.9))
+    );    
+*/
+    display:none;
+    z-index:1;
+}
+
+._bf_state_overlay_msg
+{
+    position:relative;
+    top:40%;
+    margin: auto auto auto auto;
+    text-align:center;
+    color: #eeeeee;
+    font:normal 14px Helvetica, Arial, sans-serif;
+}
+
+._bf_state_actions
+{
+    margin:0px;
+    padding:5px 0px 5px 0px;
+    text-align: center;
+    position:absolute;
+    bottom:4px;
+    right:0px;
+    left:0px;
+    display:block;
+    list-style:none;
+}
+
+._bf_state_action
+{
+    font:normal 16px Tahoma, Helvetica, Arial, sans-serif;
+    cursor:pointer;
+    display: inline;
+    padding: 0px 10px 0px 10px;
+    color: #999;
+    text-shadow: 0px 3px 8px #2A2A2A;
+}
+
+._bf_state_action:hover,
+._bf_state_action:focus
+{
+    color:#ffffff;
+}
+
+/*
+FORMS
+*/
+
+._bf_state_form
+{
+    display:none;
+    position:absolute;
+    top:20px;
+    left:20px;
+    width: 270px;
+    margin: 0 auto;
+    background: #222 url(../images/background.png) 0px 0px repeat;
+    padding: 20px;
+    color: #555;
+    text-shadow: 0px 2px 3px #000;
+    -webkit-box-shadow: 0px 2px 3px #555;
+    -moz-box-shadow: 0px 2px 3px #555;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+._bf_form_row
+{
+    position:relative;
+    float:left;
+    clear:both;
+}
+
+._bf_form_label
+{
+    float:left;
+    clear:both;
+    display: block;
+    padding: 0px 0px 5px 0px;
+    margin: 0px;
+    color: #777;
+    font:normal 16px Tahoma, Helvetica, Arial, sans-serif;
+    text-shadow:none;
+}
+
+._bf_input 
+{
+    resize: none;
+    float:left;
+    clear:both;
+    font-size: 16px;
+    width: 200px;
+    padding: 5px 5px 5px 30px;
+    margin: 0px 0px 10px 0px;
+    width: 232px; 
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #f1f1f1 url(../images/form-sprite.png) no-repeat;
+    font:normal 16px Helvitica, Arial, sans-serif;
+    color:#333;
+}
+
+._bf_placeholder
+{
+    color:#aaa;
+}
+
+_bf_input:focus
+{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+}
+
+._bf_validation_error
+{
+    background-color: #F5E1E1;
+    border: 1px solid #ED6D6D;
+}
+
+._bf_register_gname,
+._bf_register_fname
+{
+    background-position: 5px 4px !important;
+}
+
+._bf_input_email,
+._bf_input_newemail,
+._bf_input_confirmemail
+{
+    background-position: 5px -64px !important;
+}
+
+._bf_input_password,
+._bf_input_password2
+{
+    background-position: 5px -31px !important;
+}
+
+._bf_input_tags,
+._bf_input_newtag
+{
+    background-position: 5px -98px !important;
+}
+
+._bf_input_title
+{
+    background-position: 5px -777px !important;
+}
+
+._bf_review_content
+{
+    background-position: 5px -137px !important;
+}
+
+._bf_discuss_content,
+._bf_comment_content
+{
+    background-position: 5px -476px !important;
+}
+
+._bf_button
+{
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
+    position:relative;
+    float: left;
+    height: 25px;
+    padding: 7px 0px 0px 0px;
+    width: 120px;
+    cursor: pointer;
+    font: bold 15px Helvetica, Arial, sans-serif;
+    color: #8f5a0a;
+    margin:10px 0px 0px 0px;
+    text-align:center;
+    clear:both;
+}
+
+._bf_button:hover,
+._bf_button:focus
+{
+    color: #7C4400;
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+}
+
+._bf_submit_button_image
+{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    border: none;
+    height:32px;
+    width:32px;
+    background:transparent url(../images/button.png) 0 0 no-repeat;
+}
+
+._bf_register_form ._bf_button
+{
+    margin-top: 20px;
+}
+
+._bf_forgottenpassword_form ._bf_button
+{
+}
+
+._bf_login_store,
+._bf_tandc
+{
+    font:normal 10px Helvetica, Arial, sans-serif;
+    color:#999;
+    width:266px;
+    float:left;
+}
+
+._bf_register_terms,
+._bf_login_storeemail
+{
+    float:left;
+    width:20px;
+    background:none;
+    border:none;
+    margin: 3px 0px 0px 0px;
+}
+
+._bf_login_label,
+._bf_register_label
+{
+    position:relative;
+    top:3px;
+    left:5px;
+    padding:0px 0px 0px 10px;
+    background:transparent url(../images/arrow.png) 0px -19px no-repeat;
+}
+
+._bf_tandc
+{
+    margin-top:10px;
+}
+
+._bf_tandc a
+{
+    font:normal 10px Helvetica, Arial, sans-serif !important;
+    color:#bbb;
+    float:none !important;
+    clear:both;
+}
+
+._bf_tandc a:hover
+{
+    color: #fff;
+}
+
+._bf_register_terms
+{
+}
+
+._bf_forgottenpassword_msg
+{
+    float:left;
+    font:normal 11px Helvetica, Arial, sans-serif;
+    color: #999;
+    width:266px;
+    margin:10px 0px 10px 0px;
+}
+
+/*
+FORM LINKS
+*/
+._bf_form_links
+{
+    position:absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+._bf_form_links li
+{
+    background:transparent url(../images/arrow.png) 0px 3px no-repeat;
+    padding-left:10px;
+}
+
+._bf_login_links
+{
+    left:160px;
+    top:127px;
+}
+
+._bf_register_links
+{
+    left:160px;
+    top:278px;
+}
+
+._bf_forgottenpassword_links
+{
+    left:160px;
+    top:116px;
+}
+
+._bf_form_link
+{
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    margin: 0px 0px 7px 0px;
+    padding: 0;
+    cursor: pointer;
+}
+
+._bf_form_link:hover
+{
+    color:#bbb;
+}
+
+/*
+AUTHENTICATORS
+*/
+._bf_login_authenticators
+{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+._bf_login_authenticator
+{
+    float:left;
+    clear:both;
+    width:68px;
+    height:16px;
+    margin:0px 0px 10px 0px;
+    cursor:pointer;
+    background:transparent url(../images/auths/buttons.png) 0 0 no-repeat;
+    
+    -webkit-box-shadow: 1px 1px 3px rgba(30, 30, 30, 0.6);
+    -moz-box-shadow:    1px 1px 3px rgba(30, 30, 30, 0.6);
+    box-shadow:         1px 1px 3px rgba(30, 30, 30, 0.6);
+}
+
+._bf_login_authenticator:hover
+{
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 1);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+._bf_login_facebook
+{
+    background-position: 0px 0px;
+}
+._bf_login_google
+{
+    background-position: 0px -16px;
+}
+._bf_login_twitter
+{
+    background-position: 0px -32px;
+}
+._bf_login_openid
+{
+    background-position: 0px -48px;
+}
+._bf_login_linkedin
+{
+    background-position: 0px -64px;
+}
+
+/*
+DASHBOARD
+*/
+._bf_dashboard
+{
+    position:absolute;
+    top:20px;
+    left:20px;
+    right: 20px;
+    bottom:40px;
+    margin: 0 auto;
+    background: #222 url(../images/background.png) 0px 0px repeat;
+    padding: 20px;
+    color: #555;
+    text-shadow: 0px 2px 3px #171717;
+    -webkit-box-shadow: 0px 2px 3px #555;
+    -moz-box-shadow: 0px 2px 3px #555;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+._bf_dashboard_actions
+{
+    position:absolute;
+    right:-1px;
+    top:20px;
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+
+._bf_dashboard_action
+{
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    
+    text-transform: uppercase;
+    
+    padding:10px 10px 10px 10px;
+    margin:0px 0px 10px 0px;
+    background:transparent url(../images/bg.png) 0 0 repeat;
+    
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+    text-shadow: none;
+    cursor:pointer;
+    
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    /* IE 5-7 */
+    filter: alpha(opacity=50);
+    /* Netscape */
+    -moz-opacity: 0.5;
+    /* Safari 1.x */
+    -khtml-opacity: 0.5;
+    /* Good browsers */
+    opacity: 0.5;
+
+    -webkit-transition:opacity .2s ease-in;
+    -moz-transition:opacity .2s ease-in;
+    -o-transition:opacity .2s ease-in;
+    transition:opacity .2s ease-in;
+}
+
+._bf_dashboard_action:hover,
+._bf_dashboard_action.active_action
+{
+    color:#fff;
+    text-shadow: 0px 2px 3px #171717;
+    
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    /* IE 5-7 */
+    filter: alpha(opacity=100);
+    /* Netscape */
+    -moz-opacity: 1;
+    /* Safari 1.x */
+    -khtml-opacity: 1;
+    /* Good browsers */
+    opacity: 1;
+
+    -webkit-transition:opacity .2s ease-in;
+    -moz-transition:opacity .2s ease-in;
+    -o-transition:opacity .2s ease-in;
+    transition:opacity .2s ease-in;
+}
+
+._bf_changeemail_text
+{
+    float:left;
+    clear:both;
+    width:280px;
+    margin-top:30px;
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color:#999;
+}
+
+._bf_dashboard_avatar
+{
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 1);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 1);
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    
+    background:#ccc;
+    
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+
+._bf_newavatar_holder
+{
+    position:absolute;
+    top:130px;
+    left:20px;
+}
+
+._bf_newavatar_holder input
+{
+    position:absolute;
+    top:-1000px;
+    left:0px;
+}
+
+._bf_newavatar_holder object
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+.uploadifyQueueItem 
+{
+    position:absolute;
+    top:50px;
+    left:0px;
+    font: 11px Helvetica, Arial, sans-serif;
+    width: 200px;
+    color: #999;
+    text-shadow: 0px 3px 8px #2A2A2A;
+}
+.uploadifyError 
+{
+    background-color: #FDE5DD !important;
+    border: 2px solid #FBCBBC !important;
+}
+.uploadifyQueueItem .cancel 
+{
+    float: right;
+}
+.uploadifyQueue .completed 
+{
+    margin-top:10px;
+}
+
+.uploadifyProgress 
+{
+    background-color: #555;
+    margin-top: 20px;
+    width: 100%;
+}
+.uploadifyProgressBar 
+{
+    background-color: #0099FF;
+    height: 3px;
+    width: 1px;
+}
+.uploadifyQueueItem .fileName
+{
+    text-align:left !important;
+    float:left;
+}
+
+/*
+POST REVIEW
+*/
+._bf_review_form
+{
+    width:520px;
+}
+
+._bf_review_form ._bf_input
+{
+    width:350px;
+}
+
+._bf_review_tags
+{
+    width:218px !important;
+}
+
+._bf_multi_tags
+{
+    position:absolute;
+    left:285px;
+    bottom:73px;
+    list-style:none;
+}
+
+._bf_multiselect_holder
+{
+    position: absolute;
+    right:-30px;
+    top:-218px;
+    width:auto;
+    width: 300px;
+    height:342px;
+    margin: 0px;
+    padding: 0px;
+    background: url("../images/bg.png") repeat scroll 0 0 #454545;
+    border:5px solid #666;
+    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    z-index:1;
+}
+
+._bf_multiselect_items_holder
+{
+    overflow:auto;
+    position: absolute;
+    top:52px;
+    left:0px;
+    right:0px;
+    bottom:50px;
+}
+
+._bf_multiselect_items
+{
+    list-style:none;
+    margin:0px 0px 0px 0px;
+    padding:0px;
+}
+
+._bf_multiselect_item
+{
+    margin:0px 0px 0px 0px;
+    padding:3px 7px 3px 7px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    background:transparent;
+}
+
+._bf_multiselect_item:hover
+{
+    background: #666;
+    color:#eee;
+}
+
+._bf_multiselect_item_label
+{
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    position: relative;
+    left:10px;
+    top:-2px;
+}
+
+._bf_multiselect_item_new
+{
+    position:fixed;
+    margin:0px 0px 0px 0px;
+    padding-top:10px;
+    padding-left:10px;
+    z-index:1;
+    width:289px;
+    background:#333;
+    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
+}
+
+._bf_input_newtag_done
+{
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    right:0px;
+    height:50px;
+    background:#333;
+    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
+}
+
+._bf_input_newtag_done_button
+{
+    position:absolute;
+    bottom: 7px;
+    left: 10px;
+}
+
+._bf_input_newtag
+{
+    width:160px !important;
+}
+
+._bf_input_newtag_label
+{
+    top:5px !important;
+}
+
+._bf_input_newtag_add
+{
+    position: absolute;
+    right: -68px;
+    top: -11px;
+    width: 56px !important;
+}
+
+._bf_review_rating_set
+{
+    position:absolute;
+    bottom:16px;
+    left:312px;
+}
+
+._bf_rater_prompt
+{
+    position:absolute;
+    bottom:23px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+}
+
+._bf_newfile_holder
+{
+    position:absolute;
+    top:10px;
+    right:20px;
+}
+
+._bf_newfile_holder input
+{
+    position:absolute;
+    top:-1000px;
+    left:0px;
+}
+
+._bf_newfile_holder object
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+._bf_newfile_holder .uploadifyQueue
+{
+
+}
+
+._bf_newfile_holder .uploadifyQueueItem
+{
+    width:122px;
+    top:200px;
+}
+
+.uploadifyError
+{
+    color: #cc0000;
+    background: none !important;
+    border: none !important;
+}
+
+._bf_review_file_thumb
+{
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2);
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+    float:left;
+    margin:10px 10px 0px 0px;
+    cursor:pointer;
+}
+
+._bf_review_file_thumb_actions
+{
+    position:absolute;
+    bottom:12px;
+    left:230px;
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+._bf_review_file_thumb_action
+{
+    font: normal 15px Helvetica, Arial, sans-serif;
+    color: #aaa;
+    cursor:pointer;
+    display:inline;
+    float:left;
+    margin:0px 10px 0px 10px;
+    padding:0px;
+}
+
+._bf_review_file_thumb_action:hover
+{
+    color:#fff;
+}
+._bf_newfile_holder .uploadifyQueueItem .fileName
+{
+    position:absolute;
+    top:30px;
+}
+
+._bf_review_filestack
+{
+    position:absolute;
+    top:65px;
+    right:20px;
+    width:120px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+}
+
+._bf_review_img_preview
+{
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2);
+
+    border:2px solid #aaa;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    
+    margin: 0px auto 0px auto;
+    position: relative;
+    top: -120px;
+    max-width:70%;
+    max-height:70%;
+    cursor: default;
+}
+
+/*
+POST DISCUSSION, COMMENT FORM
+*/
+
+._bf_discuss_form,
+._bf_comment_form
+{
+    width:520px;
+}
+
+._bf_discuss_form ._bf_input,
+._bf_comment_form ._bf_input
+{
+    width:482px;
+}
+
+/*
+Dashboard Show Reviews etc
+*/
+
+._bf_userreviews,
+._bf_userdiscussions,
+._bf_usercomments
+{
+    float:left;
+    padding:0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
+    list-style:none;
+    width:380px;
+    height:305px;
+    overflow:auto;
+}
+
+._bf_userreviews_item,
+._bf_userdiscussions_item,
+._bf_usercomments_item
+{
+    padding:5px 0px 10px 0px;
+    margin:0px 0px 0px 0px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    border-bottom: 1px dotted #333;
+    float:left;
+    clear: both;
+    text-shadow: 0 2px 1px #000;
+}
+
+._bf_userreviews_item_title,
+._bf_userdiscussions_item_synopsis,
+._bf_usercomments_content
+{
+    font: bold 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    padding:5px 0px 5px 30px;
+    margin:0px 0px 0px 0px;
+    font-size:14px;
+    float:left;
+    clear: both;
+    text-decoration: none;
+    background: transparent url(../images/form-sprite.png) no-repeat;
+    background-position: 5px -136px;
+}
+
+._bf_userreviews_item_synopsis
+{
+    margin-left: 30px;
+}
+
+._bf_userdiscussions_item_title
+{
+    background-position: 5px -476px !important;
+}
+
+._bf_userdiscussions_item_synopsis
+{
+    background-position: 5px -476px !important;
+}
+
+._bf_usercomments_content
+{
+    background-position: 5px -476px !important;
+}
+
+._bf_userreviews_item_title:hover,
+._bf_userdiscussions_item_title:hover
+{
+    color: #d5d5d5;
+}
+
+._bf_userreviews_item_synopsis,
+._bf_userdiscussions_item_synopsis,
+._bf_usercomments_content
+{
+    font-size:11px;
+    float:left;
+    clear: both;
+}
+
+._bf_userreviews_item_posted,
+._bf_userdiscussions_item_posted,
+._bf_usercomments_posted
+{
+    padding:5px 0px 5px 0px;
+    margin:0px 0px 0px 30px;
+    font-size:10px;
+    float:left;
+    clear: both;
+}
+
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+        left: 0;
+	width: 16px;
+	height: 100%;
+	background: red;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: red;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: #dde;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #bbd;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
