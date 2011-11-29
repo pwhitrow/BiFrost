@@ -115,8 +115,8 @@ function _bf_go()
         // create namespace
         _bf = {
 
-            //host: 'http://localhost/bifrost/',
-            host: 'http://dev.pw/bifrost/',
+            host: 'http://localhost/bifrost/',
+            //host: 'http://dev.pw/bifrost/',
             api_key: BiFrost.api_key,
             api_token: false,
             uploads: false,
