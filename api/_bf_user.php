@@ -19,7 +19,9 @@ function registerUser()
     
     if(!userExists($_POST['email']))
     {
-        $sql = "INSERT INTO users (email, password, gname, fname, joined) VALUES('".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
+        $sql = "INSERT INTO users (user_id, email, password, gname, fname, joined) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
+        
+        logger($sql);
     
         if(mysql_query($sql))
         {
