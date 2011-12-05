@@ -87,13 +87,11 @@ var _bf_itemreviews = {
                     i++;
                 });
                 
-                $("a._bf_itemreviews_media_link").fancybox(
+                $("a._bf_itemreviews_media_link").showBox(
                 {
-                    'transitionIn'  :   'elastic',
-                    'transitionOut' :   'elastic',
-                    'speedIn'       :   _bf.ani_speed, 
-                    'speedOut'      :   _bf.ani_speed, 
-                    'closeBtn'      :   true
+                  'path': _bf.host,
+                  'speed': _bf.ani_speed,
+                  'default_img': _bf.host + 'images/' + _bf.no_image
                 });
             });
         }
@@ -265,9 +263,16 @@ var _bf_itemreviews = {
 
                         var image = _bf.host + _bf.uploads + '/' + media[i]
                         var ext = media[i].substr((media[i].lastIndexOf('.') +1));
-                        var tmp = media[i].split('.');
-                        var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext;     
                         
+                        if($.inArray(ext, ['jpeg', 'jpg', 'gif', 'png']) > -1)
+                        {
+                            var tmp = media[i].split('.');
+                            var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext;     
+                        }
+                        else
+                        {
+                            var thumb = _bf.host + 'images/' + _bf.vid_image;
+                        }
                         
                         $('<a />').attr(
                         {

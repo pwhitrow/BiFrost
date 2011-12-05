@@ -218,10 +218,13 @@ if(_bf.loggedIn())
                         'fileDataName'  : 'Filedata',
                         'hideButton'    : true,
                         'auto'          : true,
-                        'fileExt'       : '*.jpeg;*.jpg;*.gif;*.png',
-                        'fileDesc'      : 'Web Image Files (.JPEG, .JPG, .GIF, .PNG)',
-                        'sizeLimit'     : 1048576, // 1MB,
-                        'onSelect'      : function(){_bf.hideMultiSelect()},
+                        'fileExt'       : _bf.filetypes,
+                        'fileDesc'      : _bf.t('Media Files') + ' (' + _bf.filetypes + ')',
+                        'sizeLimit'     : _bf.maxfilesize,
+                        'onSelect'      : function()
+                                          {
+                                              _bf.hideMultiSelect()
+                                          },
                         'onComplete'    : function(event,queueID,fileObj,response,data)
                                           {
                                                _bf_review.addFile(response);

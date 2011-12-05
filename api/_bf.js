@@ -79,10 +79,11 @@ function _bf_loadScripts()
         'api/plugins/expander/jquery.expander.js',
         'api/plugins/socials/jquery.socials.js',
         'api/plugins/socials/jquery.socials.css',
+        'api/plugins/showbox/jquery.showbox.js',
         'api/plugins/multiselect/jquery.multiselect.js',
-        'api/plugins/raty/js/jquery.raty.min.js',
-        'api/plugins/fancybox/jquery.fancybox-1.3.4.js',
-        'api/plugins/fancybox/jquery.fancybox-1.3.4.css'
+        'api/plugins/player/jwplayer.js',
+        'api/plugins/player/swfobject.js',
+        'api/plugins/raty/js/jquery.raty.min.js'
     ];
     
     for(i = 0; i < scripts.length; i++)
@@ -122,6 +123,11 @@ function _bf_go()
             uploads: false,
             can_create_tags: true,
             no_image: 'coming_soon_image.jpg',
+            vid_image: 'video.png',
+            maxfilesize: 10485760, // 10MB,
+            imagetypes: '*.jpeg;*.jpg;*.gif;*.png;',
+            videotypes: '*.flv;*.mov;*.avi;*.mpg;*.mpeg;',
+            filetypes: '',
             authenticators: ['Facebook', 'Google', 'Twitter', 'OpenID', 'LinkedIn'],
             vrme: false,
             state: false,
@@ -138,6 +144,7 @@ function _bf_go()
             // initialise VR
             init: function()
             {
+                _bf.filetypes = _bf.imagetypes + _bf.videotypes;
                 // get the token if set
                 if(_bf.cookie('api_token'))
                 {

@@ -35,7 +35,7 @@ switch($s[0])
         break;
 }
 
-mysql_pconnect($site['host'],$site['username'],$site['password']);
+mysql_connect($site['host'],$site['username'],$site['password']);
 @mysql_select_db($site['db']) or die(mysql_error());
 
 

@@ -20,7 +20,6 @@ function postReview()
         // store review
         $sql1 = "INSERT INTO reviews (parent_id, api_key, user_id, title, content, posted, tags) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['title']."', '".$prep['content']."', NOW(), '".trim($prep['tagsid'], ',')."')";
         
-        
         if(mysql_query($sql1))
         {
             $linkedID = mysql_insert_id();
@@ -39,8 +38,15 @@ function postReview()
                 {
                     $source = '../'.MEDIA_LOCATION.'/'.$img;
                     $ext = _getFileExtension($img);
-                    $thumb = str_replace('.'.$ext, '_thumb.'.$ext, $source);
-                    _imageResize($source, $thumb, 100, 100);
+                    
+                    //.jpeg;*.jpg;*.gif;*.png;*.mov;*.avi;*.mpg;*.mpeg;*.flv;
+                    
+                    if(in_array($ext, array('jpeg', 'jpg', 'gif', 'png')))
+                    {
+                        $thumb = str_replace('.'.$ext, '_thumb.'.$ext, $source);
+                        _imageResize($source, $thumb, 100, 100);
+                    }
+                    
                 }
 
                 $sql3 = "INSERT INTO media (parent_id, parent_type, media, user_id, linked_id) VALUES('".$prep['parentid']."', 'review', '".$prep['media']."', '".$_SESSION['user']['id']."', '".$linkedID."')";

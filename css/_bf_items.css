@@ -283,6 +283,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-radius: 5px;
     margin:0px 0px 20px 0px;
     padding:0px 0px 0px 0px;
+    border:2px solid #fff;
 }
 
 ._bf_itemdiscussions_arrow_right
@@ -311,6 +312,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-radius: 5px;
     margin:0px 0px 20px 0px;
     padding:0px 0px 0px 0px;
+    border:2px solid #fff;
 }
 
 ._bf_itemreviews_item_username,
@@ -399,6 +401,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-radius: 3px;
 
     margin:0px 0px 0px 10px;
+    border:2px solid #fff;
 }
 
 ._bf_itemreviews_media_item:hover
