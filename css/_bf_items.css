@@ -26,6 +26,17 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     padding: 0px 0px 0px 0px;
 }
 
+._bf_reviews_fetching,
+._bf_discussionss_fetching
+{
+    font: bold 12px Helvetica, Arial, sans-serif;
+    text-shadow: 0 2px 2px #eee;
+    color:#888;
+    background:transparent url(../images/wait.gif) 0px 0px no-repeat;
+    height:40px;
+    padding:4px 0px 0px 35px;
+}
+
 ._bf_itemreviews_item,
 ._bf_itemdiscussions_item
 {
@@ -488,7 +499,7 @@ WIDGETS
 
 ._bf_widget_button
 {
-    color: #555;
+    color: #8f5a0a;
     font:bold 13px Helvetica, Arial, sans-serif;
     padding-top: 10px;
     padding-right: 15px;
@@ -497,14 +508,29 @@ WIDGETS
     margin:0px 20px 0px 0px;
     cursor:pointer;
     text-decoration: none;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-box-shadow: 0px 1px 3px #666;
-    -moz-box-shadow: 0px 1px 3px #666;
-    border: solid #858585 1px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#e8e8e8), to(#ccc));
-    background: -moz-linear-gradient(top, #e8e8e8, #ccc);
-    text-shadow: 1px 1px 3px #fff;
+    
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
 }
 
 ._bf_widget_button_disabled
@@ -520,29 +546,22 @@ WIDGETS
     text-decoration: none;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -webkit-box-shadow: 0px 1px 3px #666;
-    -moz-box-shadow: 0px 1px 3px #666;
     border: solid #bbb 1px;
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#e8e8e8), to(#ccc));
     background: -moz-linear-gradient(top, #e8e8e8, #ccc);
-    text-shadow: 1px 1px 3px #fff;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 
 ._bf_widget_button:hover {
-    background: rgb(181,189,200); /* Old browsers */
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I1YmRjOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM2JSIgc3RvcC1jb2xvcj0iIzgyOGM5NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyODM0M2IiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(181,189,200,1)), color-stop(36%,rgba(130,140,149,1)), color-stop(100%,rgba(40,52,59,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-8 */
-
-    color: #fff;
-    text-shadow: 1px 1px 3px #333;
+    color: #7C4400;
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
 }
 
 ._bf_widget_socials

@@ -6,6 +6,25 @@ var _bf_itemreviews = {
 
     init: function()
     {
+        // inform the user
+        if(!$('._bf_reviews_fetching').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_reviews_fetching'
+            })
+            .html(_bf.t('Fetching reviews') + '...')
+            .css(
+            {
+                
+            })
+            .appendTo($('._bf_reviews'))
+        }
+        else
+        {
+            $('._bf_reviews_fetching').show();
+        }
+        
         // post to api
         _bf.post(
         {
@@ -18,6 +37,8 @@ var _bf_itemreviews = {
 
     showReviews: function(data)
     {
+        $('._bf_reviews_fetching').hide();
+        
         $('._bf_itemreviews').remove();
             
         var reviews = $.parseJSON(data.itemreviews);

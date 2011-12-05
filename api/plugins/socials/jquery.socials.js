@@ -46,32 +46,32 @@
                 })
                 .each(function()
                 {
-                    $('<span />').attr(
-                    {
-                        'class': '_bf_social_bookmark'
-                    })
-                    .each(function()
-                    {
-//                $(this).append('<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script><div><a href="https://twitter.com/share?url=' + _bf.host + '" class="twitter-share-button">Tweet</a></div>');
-//                $(this).append("<span  class='st_linkedin_hcount' displayText='LinkedIn'></span><span  class='st_twitter_hcount' displayText='Tweet'></span><span  class='st_facebook_hcount' displayText='Facebook'></span>");
-//                $(this).append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:\'4a2145e0-6211-42ee-b46f-2072b75cdd6a\'});</script>');
-
-                        // Facebook
-                        $(this).append('<iframe src="http://www.facebook.com/plugins/like.php?href=' + _bf.host + '&amp;layout=button_count" scrolling="no" frameborder="0" style="border:none; width:90px; height:25px"></iframe>');
-                    })
-                    .appendTo($(this));
-                    
-                     $('<span />').attr(
-                    {
-                        'class': '_bf_social_bookmark'
-                    })
-                    .each(function()
-                    {
-                        // Twitter       
-                        $(this).append('<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script><div><a href="https://twitter.com/share?url=' + _bf.host + '" class="twitter-share-button">Tweet</a></div>');
-                    })
-                    .appendTo($(this));
-
+//                    $('<span />').attr(
+//                    {
+//                        'class': '_bf_social_bookmark'
+//                    })
+//                    .each(function()
+//                    {
+////                $(this).append('<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script><div><a href="https://twitter.com/share?url=' + _bf.host + '" class="twitter-share-button">Tweet</a></div>');
+////                $(this).append("<span  class='st_linkedin_hcount' displayText='LinkedIn'></span><span  class='st_twitter_hcount' displayText='Tweet'></span><span  class='st_facebook_hcount' displayText='Facebook'></span>");
+////                $(this).append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:\'4a2145e0-6211-42ee-b46f-2072b75cdd6a\'});</script>');
+//
+//                        // Facebook
+//                        $(this).append('<iframe src="http://www.facebook.com/plugins/like.php?href=' + _bf.host + '&amp;layout=button_count" scrolling="no" frameborder="0" style="border:none; width:90px; height:25px"></iframe>');
+//                    })
+//                    .appendTo($(this));
+//                    
+//                     $('<span />').attr(
+//                    {
+//                        'class': '_bf_social_bookmark'
+//                    })
+//                    .each(function()
+//                    {
+//                        // Twitter       
+//                        $(this).append('<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script><div><a href="https://twitter.com/share?url=' + _bf.host + '" class="twitter-share-button">Tweet</a></div>');
+//                    })
+//                    .appendTo($(this));
+//
                })
                //.appendTo($(this));
                 

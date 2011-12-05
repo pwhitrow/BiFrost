@@ -19,7 +19,7 @@
                 path: './',
                 obj: this,
                 default_img: '',
-                speed: 350,
+                speed: 400,
                 margin: 20
             }, options);
             
@@ -73,17 +73,18 @@
             {
                 $('<dv />').attr(
                 {
-                    'class': '_showbox_close'
+                    'class': '_showbox_close',
+                    'title': _bf.t('Close')
                 })
                 .css(
                 {
                     'position': 'absolute',
                     'top': '-20px',
                     'right': '-20px',
-                    'height': '20px',
-                    'width': '20px',
+                    'height': '32px',
+                    'width': '32px',
                     'cursor': 'pointer',
-                    'background': 'red'
+                    'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/close.png) 0 0 no-repeat'
                 })
                 .click(function()
                 {
@@ -124,6 +125,22 @@
                 
                 return false;
             },
+            
+            showBoxSize = function(W, H)
+            {
+                var port = get_viewport();
+                var canvasWidth = parseInt(port[0]);
+                var canvasHeight = parseInt(port[1]);
+                    
+                var sizes = new Array();
+                var minRatio = Math.min(canvasWidth / W, canvasHeight / H);
+                sizes['newWidth'] = minRatio * (W / 1.3);
+                sizes['newHeight'] = minRatio * (H / 1.3);
+                sizes['newX'] = (canvasWidth - sizes['newWidth']) / 2;
+                sizes['newY'] = (canvasHeight - sizes['newHeight']) / 2;
+                
+                return sizes
+            },
                                 
             settings.obj.each(function()
             {
@@ -137,10 +154,7 @@
                     
                     var extension = filename.substr( (filename.lastIndexOf('.') +1) );
 
-                    var port = get_viewport();
-                    var canvasWidth = parseInt(port[0]);
-                    var canvasHeight = parseInt(port[1]);
-                    
+                    // are we an image?
                     if(fileType('image', extension))
                     {
                         var img = new Image();
@@ -162,27 +176,23 @@
                         {
                             $(img).load(function()
                             {
-                                var minRatio = Math.min(canvasWidth / img.width, canvasHeight / img.height);
-                                var newImgWidth = minRatio * (img.width / 1.3);
-                                var newImgHeight = minRatio * (img.height / 1.3);
-                                var newImgX = (canvasWidth - newImgWidth) / 2;
-                                var newImgY = (canvasHeight - newImgHeight) / 2;
+                                var box = showBoxSize(img.width, img.height);
 
                                 $('._showbox_img').attr(
                                 {
                                     'src': $(this).attr('src'),
-                                    'height': newImgHeight,
-                                    'width': newImgWidth
+                                    'height': box['newHeight'],
+                                    'width': box['newWidth']
                                 })
                                 .load(function()
                                 {
                                     $('._showbox_main').css(
                                     {
                                         'position': 'absolute',
-                                        'height': newImgHeight,
-                                        'width': newImgWidth,                                
-                                        'top': newImgY + 'px',
-                                        'left': newImgX + 'px'
+                                        'height': box['newHeight'],
+                                        'width': box['newWidth'],                                
+                                        'top': box['newY'] + 'px',
+                                        'left': box['newX'] + 'px'
                                     })
                                     .each(function()
                                     {
@@ -196,29 +206,23 @@
                         img.src = filename;
                     }
                     
+                    // are we a video?
                     if(fileType('video', extension))
                     {
-                        var vidHeight = 400;
-                        var vidWidth = 500;
-                        
-                        var minRatio = Math.min(canvasWidth / vidWidth, canvasHeight / vidHeight);
-                        var newImgWidth = minRatio * (vidWidth / 1.3);
-                        var newImgHeight = minRatio * (vidHeight / 1.3);
-                        var newImgX = (canvasWidth - newImgWidth) / 2;
-                        var newImgY = (canvasHeight - newImgHeight) / 2;
+                        var box = showBoxSize(500, 400);
 
                         $('._showbox_main').css(
                         {
                             'position': 'absolute',
-                            'height': newImgHeight,
-                            'width': newImgWidth,                                
-                            'top': newImgY + 'px',
-                            'left': newImgX + 'px'
+                            'height': box['newHeight'],
+                            'width': box['newWidth'],                                
+                            'top': box['newY'] + 'px',
+                            'left': box['newX'] + 'px'
                         });
 
                         var skin = _bf.host + 'api/plugins/player/skins/glow.zip';
 
-                        var s1 = new SWFObject(_bf.host + 'api/plugins/player/player.swf', '_bf_MediaPlayer', newImgWidth, newImgHeight, '9.0.124');
+                        var s1 = new SWFObject(_bf.host + 'api/plugins/player/player.swf', '_bf_MediaPlayer', box['newWidth'], box['newHeight'], '9.0.124');
                         s1.addParam('quality', 'best');
                         s1.addParam('allowfullscreen', 'true');
                         s1.addParam('allownetworking', 'all');

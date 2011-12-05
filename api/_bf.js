@@ -641,6 +641,7 @@ function _bf_go()
                 params['api_key'] = _bf.api_key;
                 params['api_token'] = _bf.api_token;
                 params['dataType'] = 'jsonp';
+                params['host'] = _bf.host;
                 //params['callback'] = _bf.test();
 
                 // post the form

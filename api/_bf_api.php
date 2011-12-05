@@ -256,19 +256,37 @@ function permitted()
 
 function checkAvatar($avatar)
 {
-    $defaultAvatar = '../images/avatar.jpg';
+    $defaultAvatar = $_POST['host'].'images/avatar.jpg';
 
     if($avatar == '')
     {
         return $defaultAvatar;
     }
 
-    if(!fopen($avatar, 'r'))
+    if(!remoteFileExists($avatar))
     {
         return $defaultAvatar;
     }
 
     return $avatar;
 }
+
+function remoteFileExists($url)
+{
+	$handle = @fopen($url, "r");
+
+        if ($handle === false)
+        {
+            return false;
+        }
+        else
+        {
+            fclose($handle);
+            return true;            
+        }
+        
+}
+
+
 
 ?>

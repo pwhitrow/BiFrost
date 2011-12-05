@@ -6,6 +6,25 @@ var _bf_itemdiscussions = {
 
     init: function()
     {
+        // inform the user
+        if(!$('._bf_discussions_fetching').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_reviews_fetching'
+            })
+            .html(_bf.t('Fetching discussions') + '...')
+            .css(
+            {
+                
+            })
+            .appendTo($('._bf_discussions'))
+        }
+        else
+        {
+            $('._bf_reviews_fetching').show();
+        }
+        
         // post to api
         _bf.post(
         {
@@ -16,6 +35,8 @@ var _bf_itemdiscussions = {
 
     showDiscussions: function(data)
     {
+        $('._bf_reviews_fetching').hide();
+
         $('._bf_itemdiscussions').remove();
             
         var discussions = $.parseJSON(data.itemdiscussions);
