@@ -226,6 +226,11 @@ if(_bf.loggedIn())
 
             createObj: function(response)
             {
+                if(_bf.mediaType('video', response))
+                {
+                    response = _bf.host + 'images/' + _bf.vid_image;
+                }
+                    
                 // add file to the display, including the hover effect
                 $('._bf_review_filestack').append
                 (

@@ -147,6 +147,7 @@ function _bf_go()
             init: function()
             {
                 _bf.filetypes = _bf.imagetypes + _bf.videotypes;
+                
                 // get the token if set
                 if(_bf.cookie('api_token'))
                 {
@@ -1253,6 +1254,26 @@ function _bf_go()
             basename: function(path)
             {
                 return path.replace(/\\/g,'/').replace( /.*\//, '' );
+            },
+
+            // check media type
+            mediaType: function(type, filename)
+            {
+                var extension = filename.substr( (filename.lastIndexOf('.') +1) );
+                
+                if(type == 'image') var tmp = _bf.imagetypes.split(';');
+                if(type == 'video') var tmp = _bf.videotypes.split(';');
+                
+                for(i = 0; i < tmp.length; i++)
+                {
+                    var ext = tmp[i].split('*.');
+                    if(ext[1] == extension)
+                    {
+                        return true;
+                    }
+                }
+                
+                return false;
             },
 
             // cookies, yummy!

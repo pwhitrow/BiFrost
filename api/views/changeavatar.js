@@ -73,17 +73,17 @@ if(!$('._bf_' + formname + '_form').length)
                 // kick off uploadify
                 $('#newavatar').uploadify(
                 {
-                    'uploader'      : 'api/plugins/uploadify/uploadify.swf',
-                    'script'        : 'api/plugins/uploadify/uploadify.php',
-                    'cancelImg'     : 'api/plugins/uploadify/cancel.png',
+                    'uploader'      : _bf.host + 'api/plugins/uploadify/uploadify.swf',
+                    'script'        : _bf.host + 'api/plugins/uploadify/uploadify.php',
+                    'cancelImg'     : _bf.host + 'api/plugins/uploadify/cancel.png',
                     'folder'        : _bf.uploads,
                     'wmode'         : 'transparent',
                     'fileDataName'  : 'Filedata',
                     'hideButton'    : true,
                     'auto'          : true,
-                    'fileExt'       : '*.jpeg;*.jpg;*.gif;*.png',
-                    'fileDesc'      : 'Web Image Files (.JPEG, .JPG, .GIF, .PNG)',
-                    'sizeLimit'     : 1048576,
+                    'fileExt'       : _bf.imagetypes,
+                    'fileDesc'      : _bf.t('Image Files') + ' (' + _bf.imagetypes + ')',
+                    'sizeLimit'     : _bf.maxfilesize,
                     'onComplete': function(event,queueID,fileObj,response,data)
                                   {
                                        _bf_changeavatar.setNewAvatar(response);

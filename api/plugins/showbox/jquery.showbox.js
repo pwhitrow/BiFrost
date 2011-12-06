@@ -109,22 +109,6 @@
                 ];
             },
             
-            fileType = function(type, extension)
-            {
-                if(type == 'image') var tmp = _bf.imagetypes.split(';');
-                if(type == 'video') var tmp = _bf.videotypes.split(';');
-                
-                for(i = 0; i < tmp.length; i++)
-                {
-                    var ext = tmp[i].split('*.');
-                    if(ext[1] == extension)
-                    {
-                        return true;
-                    }
-                }
-                
-                return false;
-            },
             
             showBoxSize = function(W, H)
             {
@@ -152,10 +136,9 @@
                     
                     var filename = $(this).attr('href');
                     
-                    var extension = filename.substr( (filename.lastIndexOf('.') +1) );
-
+                    
                     // are we an image?
-                    if(fileType('image', extension))
+                    if(_bf.mediaType('image', filename))
                     {
                         var img = new Image();
 
@@ -207,7 +190,7 @@
                     }
                     
                     // are we a video?
-                    if(fileType('video', extension))
+                    if(_bf.mediaType('video', filename))
                     {
                         var box = showBoxSize(500, 400);
 
