@@ -76,13 +76,15 @@ function _bf_loadScripts()
     var scripts = [
         'css/_bf.css',
         'css/_bf_items.css',
+        //'api/plugins/uploadify/swfobject.js',
+        'api/plugins/player/swfobject.js',
         'api/plugins/expander/jquery.expander.js',
         'api/plugins/socials/jquery.socials.js',
         'api/plugins/socials/jquery.socials.css',
         'api/plugins/showbox/jquery.showbox.js',
         'api/plugins/multiselect/jquery.multiselect.js',
+        'api/plugins/uploadify/jquery.uploadify.v2.1.4.min.js',
         'api/plugins/player/jwplayer.js',
-        'api/plugins/player/swfobject.js',
         'api/plugins/raty/js/jquery.raty.min.js'
     ];
     

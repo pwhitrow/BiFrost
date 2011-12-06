@@ -218,19 +218,36 @@
                             'width': box['newWidth'],                                
                             'top': box['newY'] + 'px',
                             'left': box['newX'] + 'px'
+                        })
+                        .each(function()
+                        {
+                            $('<div />').attr(
+                            {
+                                'id': '_showbox_player',
+                                'class': '_showbox_player'
+                            })
+                            .appendTo($(this));
                         });
 
-                        var skin = _bf.host + 'api/plugins/player/skins/glow.zip';
-
-                        var s1 = new SWFObject(_bf.host + 'api/plugins/player/player.swf', '_bf_MediaPlayer', box['newWidth'], box['newHeight'], '9.0.124');
-                        s1.addParam('quality', 'best');
-                        s1.addParam('allowfullscreen', 'true');
-                        s1.addParam('allownetworking', 'all');
-                        s1.addParam('allowscriptaccess', 'always');
-                        s1.addVariable('enablejs', 'true');
-                        s1.addVariable('javascriptid', '_bf_MediaPlayer');
-                        s1.addParam('flashvars', 'file=' + filename + '&image=' + _bf.host + 'images/' + _bf.no_image + '&skin=' + skin + '&autostart=true');
-                        s1.write('_showbox_main');
+                        // http://code.google.com/p/swfobject/wiki/documentation
+                        var flashvars = {
+                            file: filename,
+                            image: _bf.host + 'images/' + _bf.no_image,
+                            skin: _bf.host + 'api/plugins/player/skins/glow.zip'
+                        };
+                        var params = {
+                            quality: 'best',
+                            play: true,
+                            allowfullscreen: true,
+                            allownetworking: 'all',
+                            allowscriptaccess: 'always'
+                        };
+                        var attributes = {
+                            enablejs: true,
+                            javascriptid: '_bf_MediaPlayer'
+                        };
+                        
+                        swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", box['newWidth'], box['newHeight'], "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
                         
                         $('._showbox').fadeIn(settings.speed);   
                         

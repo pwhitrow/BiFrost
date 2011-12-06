@@ -2,10 +2,6 @@
  * change avatar
  */
 
-// we need the uploadify scripts!
-_bf_loadscript('api/plugins/uploadify/swfobject.js');
-_bf_loadscript('api/plugins/uploadify/jquery.uploadify.v2.1.4.min.js');
-
 var formname = 'changeavatar';
 
 if(!$('._bf_' + formname + '_form').length)

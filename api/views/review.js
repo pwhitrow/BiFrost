@@ -91,38 +91,29 @@ if(_bf.loggedIn())
                 })
                 .appendTo(form);
 
-                // add scripts
-                $.get('api/plugins/uploadify/swfobject.js')
-                .success(function()
+                var div = $('<div />').attr(
                 {
-                    $.get('api/plugins/uploadify/jquery.uploadify.v2.1.4.min.js')
-                    .success(function()
-                    {
-                        var div = $('<div />').attr(
-                        {
-                            'class': '_bf_newfile_holder _bf_button'
-                        })
-                        .html(_bf.t('Add a file'))
-                        .appendTo(form);
+                    'class': '_bf_newfile_holder _bf_button'
+                })
+                .html(_bf.t('Add a file'))
+                .appendTo(form);
 
-                        var file = $('<input />').attr(
-                        {
-                            type: 'file',
-                            id: 'newfile',
-                            name: 'newfile',
-                            'class': '_bf_' + formname + '_newfile _bf_ignore_validation'
-                        }
-                        ).appendTo(div);
+                var file = $('<input />').attr(
+                {
+                    type: 'file',
+                    id: 'newfile',
+                    name: 'newfile',
+                    'class': '_bf_' + formname + '_newfile _bf_ignore_validation'
+                }
+                ).appendTo(div);
 
-                        $('<div />').attr(
-                        {
-                            'class': '_bf_review_filestack'
-                        })
-                        .html(_bf_review.filesTxt)
-                        .appendTo(form);
-                    });
-                });
-
+                $('<div />').attr(
+                {
+                    'class': '_bf_review_filestack'
+                })
+                .html(_bf_review.filesTxt)
+                .appendTo(form);
+                        
                 _bf.state_panel.append(form)
                 .each(function()
                 {
