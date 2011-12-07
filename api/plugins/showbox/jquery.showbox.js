@@ -215,7 +215,7 @@
                         // http://code.google.com/p/swfobject/wiki/documentation
                         var flashvars = {
                             file: filename,
-                            image: _bf.host + 'images/' + _bf.no_image,
+                            image: _bf.host + 'images/video.png',
                             skin: _bf.host + 'api/plugins/player/skins/glow.zip'
                         };
                         var params = {
