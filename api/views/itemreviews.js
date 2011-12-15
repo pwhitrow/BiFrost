@@ -71,7 +71,8 @@ var _bf_itemreviews = {
                 var el = $('<li />').attr(
                 {
                     'class': _bf_itemreviews.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
-                    'rel': (i > 1 ? _bf_itemreviews.limitqty * (i - 1) : 0)
+                    'rel': (i > 1 ? _bf_itemreviews.limitqty * (i - 1) : 0),
+                    'title': _bf.t('Go to page') + ' ' + i + ' ' + _bf.t('of') + ' ' + qty
                 })
                 .html(i)
                 .appendTo($(this));
@@ -80,6 +81,11 @@ var _bf_itemreviews = {
                 {
                     el.click(function()
                     {
+                        $('._bf_itemreviews').css(
+                        {
+                            'opacity': 0.6
+                        });
+                        
                         var x = parseInt($(this).html());
                         
                         _bf_itemreviews.pagenum = x;

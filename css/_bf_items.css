@@ -213,6 +213,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemreviews_item_synopsis
 {
     font-family: Georgia;
+    line-height:20px;
     color:#666;
     margin:36px 0px 40px 70px;
     padding:20px 20px 35px 20px;
@@ -262,6 +263,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_item_comment_content
 {
     font-family: Georgia;
+    line-height:18px;
     position: relative;
     width:63%;
     
@@ -288,14 +290,17 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_item_comment_content:first-letter
 {
     color:#777;
-    font-size:150%;
-    text-transform:uppercase;
-    font-style: italic;
+    font-size:400%;
+    display:block;
+    float:left;
+    margin: 5px 10px 10px 0px;
+    height:3.5em;
 }
 
 ._bf_itemdiscussions_item_synopsis
 {
     font-family: Georgia;
+    line-height:18px;
     color:#666;
     margin:76px 0px 40px 70px;
     padding:20px 20px 30px 20px;
@@ -320,9 +325,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_item_synopsis:first-letter
 {
     color:#777;
-    font-size:150%;
-    text-transform:uppercase;
-    font-style: italic;
+    font-size:400%;
+    display:block;
+    float:left;
+    margin: 5px 10px 10px 0px;
+    height:3.5em;
 }
 
 ._bf_itemdiscussions_arrow_up

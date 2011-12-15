@@ -20,8 +20,8 @@ var _bf_widgets = {
         .appendTo($('._bf_widgets'))
         .each(function()
         {
-            _bf_widgets.renderButton('review', 'Review', 'Post a review', 425, 600);
-            _bf_widgets.renderButton('discuss', 'Discuss', 'Start a discussion', 335, 600);
+            _bf_widgets.renderButton('review', 'Post a review', 'Post a review', 425, 600);
+            _bf_widgets.renderButton('discuss', 'Start a discussion', 'Start a discussion', 335, 600);
             //_bf_widgets.renderButton('watch', 'Watch', 'Watch this item', 500, 500);
             
             $('<li />').attr(
