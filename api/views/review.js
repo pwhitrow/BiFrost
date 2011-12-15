@@ -16,7 +16,7 @@ if(_bf.loggedIn())
 
             fileStack: [],
             fileLimit: 6,
-            filesTxt: _bf.t('Add images and videos to your review.') + '<br />',
+            filesTxt: _bf.t('Add images and videos to your review.') + '<br />' + _bf.imagetypes + _bf.videotypes + '<br /><br />',
 
             init: function()
             {
@@ -237,11 +237,16 @@ if(_bf.loggedIn())
                     $('<img />').attr(
                     {
                         'class': '_bf_review_file_thumb',
-                        src: response,
+                        src: _bf.host + 'images/wait-grey-mini.gif',
                         alt: response,
                         height: '30px',
                         width: '30px'
-                    }).click(function()
+                    })
+                    .load(function()
+                    {
+                        $(this).attr('src', response);
+                    })
+                    .click(function()
                     {
                         // display a clone of the image in state overlay
                         // and add controls

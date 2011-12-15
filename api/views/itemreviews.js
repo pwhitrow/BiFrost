@@ -3,6 +3,11 @@
  */
 
 var _bf_itemreviews = {
+    
+    limitfrom: 0,
+    limitqty: 3,
+    pagenum: 1,
+    recordqty: 0,
 
     init: function()
     {
@@ -19,20 +24,73 @@ var _bf_itemreviews = {
                 
             })
             .appendTo($('._bf_reviews'))
+            .each(function()
+            {
+                _bf_itemreviews.getReviews();                
+            });
         }
         else
         {
-            $('._bf_reviews_fetching').show();
+            $('._bf_reviews_fetching')
+            .show()
+            .each(function()
+            {
+                _bf_itemreviews.getReviews();                
+            });
         }
         
-        // post to api
+        
+    },
+    
+    getReviews: function()
+    {
         _bf.post(
         {
             action: 'itemreviews',
+            limitfrom: _bf_itemreviews.limitfrom,
+            limit: _bf_itemreviews.limitqty,
             uploads: _bf.uploads,
             noimage: _bf.no_image,
             parentid: $('._bf_reviews').attr('rel')
-        });
+        });        
+    },
+    
+    paginator: function()
+    {
+        $('<ul />').attr(
+        {
+            'class': '_bf_items_paginator'
+        })
+        .prependTo($('._bf_itemreviews'))
+        .each(function()
+        {
+            var qty = Math.ceil(_bf_itemreviews.recordqty / _bf_itemreviews.limitqty);
+
+            for(i = 1; i < qty + 1; i++)
+            {
+                var el = $('<li />').attr(
+                {
+                    'class': _bf_itemreviews.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
+                    'rel': (i > 1 ? _bf_itemreviews.limitqty * (i - 1) : 0)
+                })
+                .html(i)
+                .appendTo($(this));
+                
+                if(_bf_itemreviews.pagenum != i)
+                {
+                    el.click(function()
+                    {
+                        var x = parseInt($(this).html());
+                        
+                        _bf_itemreviews.pagenum = x;
+                        
+                        _bf_itemreviews.limitfrom = $(this).attr('rel');
+                        
+                        _bf_itemreviews.getReviews();
+                    });
+                }
+            }
+        })
     },
 
     showReviews: function(data)
@@ -42,6 +100,8 @@ var _bf_itemreviews = {
         $('._bf_itemreviews').remove();
             
         var reviews = $.parseJSON(data.itemreviews);
+        
+        _bf_itemreviews.recordqty = reviews.recordqty;
 
         if(typeof reviews.id != 'undefined')
         {
@@ -85,7 +145,7 @@ var _bf_itemreviews = {
             )
             .appendTo($('._bf_reviews'))
             .each(function()
-            {
+            {                
                 var i = 0;
 
                 $(reviews.id).each(function()
@@ -114,6 +174,8 @@ var _bf_itemreviews = {
                   'speed': _bf.ani_speed,
                   'default_img': _bf.host + 'images/' + _bf.no_image
                 });
+                
+                _bf_itemreviews.paginator();
             });
         }
         else

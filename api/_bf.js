@@ -128,7 +128,7 @@ function _bf_go()
             vid_image: 'video.png',
             maxfilesize: 10485760, // 10MB,
             imagetypes: '*.jpeg;*.jpg;*.gif;*.png;',
-            videotypes: '*.flv;*.mov;*.avi;*.mpg;*.mpeg;',
+            videotypes: '*.flv;',
             filetypes: '',
             authenticators: ['Facebook', 'Google', 'Twitter', 'OpenID', 'LinkedIn'],
             vrme: false,

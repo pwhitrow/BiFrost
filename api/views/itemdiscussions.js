@@ -4,6 +4,11 @@
 
 var _bf_itemdiscussions = {
 
+    limitfrom: 0,
+    limitto: 5,
+    limitinc: 5,
+    recordqty: 0,
+
     init: function()
     {
         // inform the user
@@ -11,31 +16,44 @@ var _bf_itemdiscussions = {
         {
             $('<div />').attr(
             {
-                'class': '_bf_reviews_fetching'
+                'class': '_bf_discussions_fetching'
             })
             .html(_bf.t('Fetching discussions') + '...')
-            .css(
-            {
-                
-            })
             .appendTo($('._bf_discussions'))
+            .each(function()
+            {
+                _bf_itemdiscussions.getDiscussions();                
+            });
         }
         else
         {
-            $('._bf_reviews_fetching').show();
+            $('._bf_reviews_fetching')
+            .show()
+            .each(function()
+            {
+                _bf_itemdiscussions.getDiscussions();                
+            });
         }
-        
-        // post to api
+    },
+
+    getDiscussions: function()
+    {
         _bf.post(
         {
             action: 'itemdiscussions',
+            limitfrom: this.limitfrom,
+            limitto: this.limitto,
             parentid: $('._bf_discussions').attr('rel')
         });
+        
+        this.limitfrom = this.limitto + 1;
+        this.limitto = this.limitto + this.limitinc + 1;
+        
     },
 
     showDiscussions: function(data)
     {
-        $('._bf_reviews_fetching').hide();
+        $('._bf_discussions_fetching').hide();
 
         $('._bf_itemdiscussions').remove();
             

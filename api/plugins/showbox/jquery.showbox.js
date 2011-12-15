@@ -33,6 +33,7 @@
                 {
                     'display': 'none',
                     'position': 'fixed',
+                    'z-index': 10000,
                     'top': '0px',
                     'left': '0px',
                     'bottom': '0px',
@@ -45,7 +46,7 @@
             
             create_main = function()
             {
-                 $('<div />').attr(
+                $('<div />').attr(
                 {
                     'class': '_showbox_main',
                     'id': '_showbox_main'

@@ -23,37 +23,60 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-if (!empty($_FILES)) {
-	$tempFile = $_FILES['Filedata']['tmp_name'];
-	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $_REQUEST['folder'] . '/';
-	//$targetFile =  str_replace('//','/',$targetPath) . $_FILES['Filedata']['name'];
-        
-        $ext = strtolower(strrchr($_FILES['Filedata']['name'],'.'));
+function file_upload_error_message($error_code) 
+{
+    switch ($error_code) 
+    {
+        case UPLOAD_ERR_INI_SIZE:
+            return 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+        case UPLOAD_ERR_FORM_SIZE:
+            return 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form';
+        case UPLOAD_ERR_PARTIAL:
+            return 'The uploaded file was only partially uploaded';
+        case UPLOAD_ERR_NO_FILE:
+            return 'No file was uploaded';
+        case UPLOAD_ERR_NO_TMP_DIR:
+            return 'Missing a temporary folder';
+        case UPLOAD_ERR_CANT_WRITE:
+            return 'Failed to write file to disk';
+        case UPLOAD_ERR_EXTENSION:
+            return 'File upload stopped by extension';
+        default:
+            return 'Unknown upload error';
+    }
+}
+
+if (!empty($_FILES)) 
+{
+    $tempFile = $_FILES['Filedata']['tmp_name'];
+    $targetPath = $_SERVER['DOCUMENT_ROOT'] . $_REQUEST['folder'] . '/';
+    //$targetFile =  str_replace('//','/',$targetPath) . $_FILES['Filedata']['name'];
+
+    $ext = strtolower(strrchr($_FILES['Filedata']['name'],'.'));
+    srand(time());
+    $random = (rand()%99999999);
+    $targetFile =  str_replace('//','/',$targetPath) . $random . $ext;
+
+    while(is_file($targetFile))
+    {
         srand(time());
         $random = (rand()%99999999);
-        $targetFile =  str_replace('//','/',$targetPath) . $random . $ext;
-        
-        while(is_file($targetFile))
-        {
-            srand(time());
-            $random = (rand()%99999999);
-            $targetFile = str_replace($ext, $random.$ext, $targetFile);
-        }
+        $targetFile = str_replace($ext, $random.$ext, $targetFile);
+    }
 
-	
-	// $fileTypes  = str_replace('*.','',$_REQUEST['fileext']);
-	// $fileTypes  = str_replace(';','|',$fileTypes);
-	// $typesArray = split('\|',$fileTypes);
-	// $fileParts  = pathinfo($_FILES['Filedata']['name']);
-	
-	// if (in_array($fileParts['extension'],$typesArray)) {
-		// Uncomment the following line if you want to make the directory if it doesn't exist
-		// mkdir(str_replace('//','/',$targetPath), 0755, true);
-		
-		move_uploaded_file($tempFile,$targetFile);
-		echo str_replace($_SERVER['DOCUMENT_ROOT'],'',$targetFile);
-	// } else {
-	// 	echo 'Invalid file type.';
-	// }
+    move_uploaded_file($tempFile,$targetFile);
+
+
+    if ($_FILES['Filedata']['error'] === UPLOAD_ERR_OK)
+    {
+        echo str_replace($_SERVER['DOCUMENT_ROOT'],'',$targetFile);
+    }
+    else
+    {
+        $error_message = file_upload_error_message($_FILES['Filedata']['error']);
+
+        echo $error_message;
+    }
 }
+
 ?>

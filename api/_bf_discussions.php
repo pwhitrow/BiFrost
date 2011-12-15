@@ -41,14 +41,16 @@ function postDiscussion()
 
 function getUserDiscussions()
 {
-    global $result;
-
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
+    
     $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM discussions WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
 
     $sql = mysql_query($sql);
 
     $rows = array();
     
+    $rows['recordqty'] = $sqlQty['qty'];
+
     while($r = mysql_fetch_assoc($sql))
     {
         $rows[] = $r;

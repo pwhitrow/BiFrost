@@ -27,7 +27,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 }
 
 ._bf_reviews_fetching,
-._bf_discussionss_fetching
+._bf_discussions_fetching
 {
     font: bold 12px Helvetica, Arial, sans-serif;
     text-shadow: 0 2px 2px #eee;
@@ -35,6 +35,63 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     background:transparent url(../images/wait.gif) 0px 0px no-repeat;
     height:40px;
     padding:4px 0px 0px 35px;
+}
+
+._bf_items_paginator
+{
+    position:absolute;
+    right:20px;
+    top:20px;
+    list-style:none;
+    z-index:1;
+}
+
+._bf_items_pager,
+._bf_items_pager_disabled
+{
+    display:inline;
+    border-radius:2px;
+    font-family:arial,sans-serif;
+    font-size:11px;
+    font-weight:bold;
+    height:29px;
+    line-height:27px;
+    margin:0px 3px;
+    min-width:54px;
+    padding:8px;
+    text-align:center
+}
+._bf_items_pager
+{
+    background-color:#f8f8f8;
+    background-image:linear-gradient(top,#f8f8f8,#f1f1f1);
+    background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1);
+    border:1px solid #dcdcdc;
+    border:1px solid rgba(0, 0, 0, 0.1);
+    color:#666;
+    cursor:pointer;
+}
+
+._bf_items_pager_disabled
+{
+    background-color:#f5f5f5;
+    background-image:linear-gradient(top,#f5f5f5,#f1f1f1);
+    background-image:-o-linear-gradient(top,#f5f5f5,#f1f1f1);
+    border:1px solid #dedede;
+    border:1px solid rgba(0, 0, 0, 0.1);
+    border-radius:2px;
+    color:#bbb;
+    cursor:default;
+}
+
+._bf_items_pager:hover
+{
+    background-color:#fbfbfb;
+    background-image:linear-gradient(top,#fbfbfb,#f1f1f1);
+    background-image:-o-linear-gradient(top,#fbfbfb,#f1f1f1);
+    border:1px solid #c6c6c6;
+    box-shadow:0 1px 1px rgba(0,0,0,0.1);
+    color:#333
 }
 
 ._bf_itemreviews_item,

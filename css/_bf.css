@@ -836,7 +836,14 @@ POST REVIEW
 ._bf_newfile_holder .uploadifyQueueItem
 {
     width:122px;
-    top:200px;
+    top:219px;
+}
+
+._bf_newfile_holder .uploadifyQueueItem .fileName
+{
+    position:absolute;
+    top:30px;
+    left:0px;
 }
 
 .uploadifyError
@@ -886,11 +893,6 @@ POST REVIEW
 {
     color:#fff;
 }
-._bf_newfile_holder .uploadifyQueueItem .fileName
-{
-    position:absolute;
-    top:30px;
-}
 
 ._bf_review_filestack
 {
@@ -898,8 +900,9 @@ POST REVIEW
     top:65px;
     right:20px;
     width:120px;
-    font: normal 12px Helvetica, Arial, sans-serif;
+    font: normal 11px Helvetica, Arial, sans-serif;
     color: #999;
+    word-wrap: break-word;
 }
 
 ._bf_review_img_preview

@@ -111,11 +111,17 @@ function mediaExists($media)
 
 function getItemReviews()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
+    
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    
+    logger($sql);
 
     $sql = mysql_query($sql);
 
     $rows = array();
+    
+    $rows['recordqty'] = $sqlQty['qty'];
 
     while($r = mysql_fetch_array($sql))
     {
