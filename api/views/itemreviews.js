@@ -182,6 +182,12 @@ var _bf_itemreviews = {
                 });
                 
                 _bf_itemreviews.paginator();
+
+                $('<div />').attr(
+                {
+                    'class': '_bf_clear'
+                })
+                .appendTo($('._bf_reviews'));
             });
         }
         else
@@ -193,6 +199,20 @@ var _bf_itemreviews = {
             .html(_bf.t('Why not be the first to post a review?'))
             .appendTo($('._bf_reviews'));
         }
+        
+        if(!$('._bf_reviews_control').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_reviews_control'
+            })
+            .html(_bf.t('Reviews'))
+            .appendTo($('._bf_widgets_controller'))
+            .click(function()
+            {
+                _bf.widgetSwitch('reviews')
+            });            
+        }                    
     },
 
     renderReview: function(review)

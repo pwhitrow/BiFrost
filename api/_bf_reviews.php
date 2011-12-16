@@ -115,8 +115,6 @@ function getItemReviews()
     
     $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
     
-    logger($sql);
-
     $sql = mysql_query($sql);
 
     $rows = array();

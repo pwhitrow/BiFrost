@@ -196,30 +196,59 @@ function _bf_go()
                 .each(function()
                 {
                     _bf_loadscript('api/views/widgets.js');
-
+                    
+                        
                     $('<div />').attr(
                     {
-                        'class': '_bf_reviews',
-                        rel: BiFrost.relation
+                        'class': '_bf_widgets_holder'
                     })
                     .appendTo($(this).parent())
                     .each(function()
                     {
-                        _bf_loadscript('api/views/itemreviews.js');
-                    });
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_widgets_controller'
+                        })
+                        .appendTo($(this));
+                        
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_reviews',
+                            rel: BiFrost.relation
+                        })
+                        .appendTo($(this))
+                        .each(function()
+                        {
+                            _bf_loadscript('api/views/itemreviews.js');
+                        });
 
-                    $('<div />').attr(
-                    {
-                        'class': '_bf_discussions',
-                        rel: BiFrost.relation
-                    })
-                    .appendTo($(this).parent())
-                    .each(function()
-                    {
-                        _bf_loadscript('api/views/itemdiscussions.js');
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_discussions',
+                            rel: BiFrost.relation
+                        })
+                        .appendTo($(this))
+                        .each(function()
+                        {
+                            _bf_loadscript('api/views/itemdiscussions.js');
+                        });                        
                     });
                 });
-           },
+            },
+            
+            widgetSwitch: function(type)
+            {
+                if(type == 'reviews')
+                {
+                    $('._bf_itemdiscussions').fadeOut(_bf.ani_speed);
+                    $('._bf_itemreviews').fadeIn(_bf.ani_speed);
+                }    
+                if(type == 'discussions')
+                {
+                    $('._bf_itemreviews').fadeOut(_bf.ani_speed);
+                    $('._bf_itemdiscussions').fadeIn(_bf.ani_speed);
+                }    
+            },
 
             // currently a placeholder for translating text
             t: function(txt)

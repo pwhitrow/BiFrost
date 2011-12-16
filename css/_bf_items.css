@@ -10,12 +10,30 @@
 ITEM REVIEWS, DISCUSSIONS & COMMENTS
 */
 
-._bf_reviews
+._bf_reviews,
+._bf_discussions
 {
     position:relative;
+    left:0px;
+    right:0px;
     clear:both;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+}
+
+._bf_clear
+{
+    clear:both;
+}
+
+._bf_reviews_control,
+._bf_discussions_control
+{
+    position:relative;
+    float: left;
+    padding: 10px;
+    cursor:pointer;
+    
 }
 
 ._bf_itemreviews,
@@ -538,6 +556,21 @@ span._bf_social_bookmark
 /*
 WIDGETS
 */
+._bf_widgets_holder
+{
+    margin:30px 0px 30px 0px;
+    padding:0px 0px 0px 0px;
+    width:100%;
+}
+
+._bf_widgets_controller
+{
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    float:left;
+    width:100%;
+}
+
 
 ._bf_widgets
 {

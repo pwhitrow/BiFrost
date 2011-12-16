@@ -94,6 +94,12 @@ var _bf_itemdiscussions = {
                     }, comments);
                     i++;
                 });
+
+                $('<div />').attr(
+                {
+                    'class': '_bf_clear'
+                })
+                .appendTo($('._bf_discussions'));
             });
         }
         else
@@ -105,6 +111,20 @@ var _bf_itemdiscussions = {
             .html(_bf.t('Why not be the first to post a discussion?'))
             .appendTo($('._bf_discussions'));
         }
+
+        if(!$('._bf_discussions_control').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_discussions_control'
+            })
+            .html(_bf.t('Discussions'))
+            .appendTo($('._bf_widgets_controller'))
+            .click(function()
+            {
+                _bf.widgetSwitch('discussions')
+            });            
+        }            
     },
 
     renderDiscussion: function(discussion, comments)
