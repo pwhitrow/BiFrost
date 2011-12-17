@@ -109,6 +109,20 @@ var _bf_itemreviews = {
         
         _bf_itemreviews.recordqty = reviews.recordqty;
 
+        if(!$('._bf_reviews_control').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_reviews_control'
+            })
+            .html(_bf.t('Reviews'))
+            .prependTo($('._bf_widgets_controller'))
+            .click(function()
+            {
+                _bf.widgetSwitch('reviews')
+            });            
+        }                    
+
         if(typeof reviews.id != 'undefined')
         {
             $('<ul />').attr(
@@ -120,9 +134,10 @@ var _bf_itemreviews = {
                 {
                     'class': '_bf_itemreviews_header'
                 })
-                .html(_bf.t('Reviews:'))
                 .each(function()
                 {
+                    _bf.widgetButton('review', 'Post a review', 'Post a review', 425, 600, $(this));
+        
                     var itemrating = $.parseJSON(data.itemrating);
                     
                     $('<p />').attr(
@@ -145,7 +160,16 @@ var _bf_itemreviews = {
                             'class': '_bf_itemreviews_avg_rating_text'
                         })
                         .html('(' + _bf.t('averaged from') + ' ' + itemrating.num_ratings + ' ' + _bf.t('review') + (itemrating.num_ratings == 1 ? '' : 's') + ')')
-                        .appendTo($(this));
+                        .appendTo($(this))
+                        .each(function()
+                        {
+                            $('<em />').attr(
+                            {
+                                'class': '_bf_widget_control_subtxt'
+                            })
+                            .html('(' + itemrating.num_ratings + ')')
+                            .appendTo($('._bf_reviews_control'))
+                        });
                     });
                 })
             )
@@ -198,21 +222,10 @@ var _bf_itemreviews = {
             })
             .html(_bf.t('Why not be the first to post a review?'))
             .appendTo($('._bf_reviews'));
-        }
+        }        
         
-        if(!$('._bf_reviews_control').length)
-        {
-            $('<div />').attr(
-            {
-                'class': '_bf_reviews_control'
-            })
-            .html(_bf.t('Reviews'))
-            .appendTo($('._bf_widgets_controller'))
-            .click(function()
-            {
-                _bf.widgetSwitch('reviews')
-            });            
-        }                    
+        _bf.widgetSwitch('reviews');
+        
     },
 
     renderReview: function(review)
@@ -328,13 +341,6 @@ var _bf_itemreviews = {
             })
             .html(_bf.t('Posted') + ': ' + review.fdate)
             .appendTo($(this));
-
-            $('<div />').attr(
-            {
-                'class': '_bf_clear'
-            })
-            .appendTo($(this));
-
 
             $('<p />').attr(
             {

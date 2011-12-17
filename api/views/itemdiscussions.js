@@ -10,7 +10,7 @@ var _bf_itemdiscussions = {
     recordqty: 0,
 
     init: function()
-    {
+    {        
         // inform the user
         if(!$('._bf_discussions_fetching').length)
         {
@@ -60,6 +60,20 @@ var _bf_itemdiscussions = {
         var discussions = $.parseJSON(data.itemdiscussions);
         var comments = $.parseJSON(data.itemcomments);
 
+        if(!$('._bf_discussions_control').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_discussions_control'
+            })
+            .html(_bf.t('Discussions'))
+            .appendTo($('._bf_widgets_controller'))
+            .click(function()
+            {
+                _bf.widgetSwitch('discussions')
+            });            
+        }            
+
         if(typeof discussions.id != 'undefined')
         {
             $('<ul />').attr(
@@ -71,9 +85,16 @@ var _bf_itemdiscussions = {
                 {
                     'class': '_bf_itemdiscussions_header'
                 })
-                .html(_bf.t('Discussions:'))
                 .each(function()
                 {
+                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 335, 600, $(this));
+                    
+                    $('<em />').attr(
+                    {
+                        'class': '_bf_widget_control_subtxt'
+                    })
+                    .html('(' + discussions.recordqty + ')')
+                    .appendTo($('._bf_discussions_control'))
                 })
             )
             .appendTo($('._bf_discussions'))
@@ -111,20 +132,15 @@ var _bf_itemdiscussions = {
             .html(_bf.t('Why not be the first to post a discussion?'))
             .appendTo($('._bf_discussions'));
         }
-
-        if(!$('._bf_discussions_control').length)
+        
+        if($('._bf_reviews').length)
         {
-            $('<div />').attr(
-            {
-                'class': '_bf_discussions_control'
-            })
-            .html(_bf.t('Discussions'))
-            .appendTo($('._bf_widgets_controller'))
-            .click(function()
-            {
-                _bf.widgetSwitch('discussions')
-            });            
-        }            
+            _bf.widgetSwitch('reviews');
+        }
+        else
+        {
+            _bf.widgetSwitch('discussions');
+        }
     },
 
     renderDiscussion: function(discussion, comments)

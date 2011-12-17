@@ -118,8 +118,7 @@ function _bf_go()
         // create namespace
         _bf = {
 
-            host: 'http://localhost/bifrost/',
-            //host: 'http://dev.pw/bifrost/',
+            host: 'http://localhost:56870/',
             api_key: BiFrost.api_key,
             api_token: false,
             uploads: false,
@@ -195,7 +194,7 @@ function _bf_go()
                 .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
                 .each(function()
                 {
-                    _bf_loadscript('api/views/widgets.js');
+                    //_bf_loadscript('api/views/widgets.js');
                     
                         
                     $('<div />').attr(
@@ -240,16 +239,107 @@ function _bf_go()
             {
                 if(type == 'reviews')
                 {
+                    $('._bf_discussions_control').removeClass('active');
+                    $('._bf_reviews_control').addClass('active');
                     $('._bf_itemdiscussions').fadeOut(_bf.ani_speed);
                     $('._bf_itemreviews').fadeIn(_bf.ani_speed);
                 }    
                 if(type == 'discussions')
                 {
+                    $('._bf_discussions_control').addClass('active');
+                    $('._bf_reviews_control').removeClass('active');
                     $('._bf_itemreviews').fadeOut(_bf.ani_speed);
                     $('._bf_itemdiscussions').fadeIn(_bf.ani_speed);
                 }    
             },
 
+            widgetButton: function(type, txt1, txt2, h, w, where)
+            {
+                $('<li />').attr(
+                {
+                    'class': '_bf_widget_button_holder',
+                    title: _bf.t(txt2)
+                })
+                .html(function()
+                {
+
+                    $('<button />').attr(
+                    {
+                        'class': '_bf_widget_butts _bf_widget_button _bf_widget_' + type
+                    })
+                    .html(_bf.t(txt1))
+                    .appendTo($(this))
+                    .click(function()
+                    {
+                        if(_bf.loggedIn())
+                        {
+                            _bf.openPanel(h, w, function()
+                            {
+                                $('._bf_dashboard').remove();
+
+                                _bf.getForm(
+                                {
+                                    form: type,
+                                    parentid: $('._bf_widget_buttons').parent().attr('rel')
+                                });
+                            });
+                        }
+                        else
+                        {
+                            _bf.cannotPost();
+                        }
+                    })
+                    .each(function()
+                    {
+                        if(!_bf.loggedIn())
+                        {
+                            $(this)
+                            .removeClass('_bf_widget_button')
+                            .addClass('_bf_widget_button_disabled')
+                            .attr(
+                            {
+                                disabled: 'disabled'
+                            });                            
+                        }
+                    });
+                })
+                .appendTo(where);        
+            },
+            
+            buttonState: function()
+            {
+                $('._bf_widget_butts').each(function()
+                {
+                    if(_bf.loggedIn())
+                    {
+                        $(this)
+                        .addClass('_bf_widget_button')
+                        .removeClass('_bf_widget_button_disabled')
+                        .removeAttr('disabled');
+                    }
+                    else
+                    {
+                        $(this)
+                        .removeClass('_bf_widget_button')
+                        .addClass('_bf_widget_button_disabled')
+                        .attr(
+                        {
+                            disabled: 'disabled'
+                        });
+                    }           
+                })
+            },
+
+            cannotPost: function()
+            {
+                _bf.openPanel(75, 300, function()
+                {
+                    _bf.showStateOverlay(_bf.t('Oops, please login!'), 2000, function()
+                    {
+                        _bf.closePanel();
+                    });
+                });       
+            },
             // currently a placeholder for translating text
             t: function(txt)
             {
@@ -760,7 +850,7 @@ function _bf_go()
 
                     case('logout'):
                         // update widget buttons state
-                        _bf_widgets.init();
+                        _bf.buttonState();
 
                         _bf.showStateActions();
                         break;
@@ -775,7 +865,7 @@ function _bf_go()
                             }
 
                             // update widget buttons state
-                            _bf_widgets.init();
+                            _bf.buttonState();
 
                             _bf.showStateActions();
                         }
