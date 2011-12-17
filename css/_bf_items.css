@@ -166,6 +166,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-bottom:1px dotted #ccc;
     background: #f1f1f1;
     height:40px;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.05);
 }
 
 ._bf_reviews_control,
@@ -214,8 +215,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     margin:0px 0px 0px 0px;
     padding:0px 0px 0px 0px;
     position:relative;
-    left:10px;
-    top:-3px;
+    left:-10px;
+    top:-5px;
 }
 
 ._bf_itemreviews_tags
@@ -333,12 +334,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemdiscussions_item_comment_content:first-letter
 {
-    color:#777;
+    color:#888;
     font-size:400%;
     display:block;
     float:left;
     margin: 5px 10px 10px 0px;
-    height:3.5em;
 }
 
 ._bf_itemdiscussions_item_synopsis
@@ -368,12 +368,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemdiscussions_item_synopsis:first-letter
 {
-    color:#777;
+    color:#888;
     font-size:400%;
     display:block;
     float:left;
     margin: 5px 10px 10px 0px;
-    height:3.5em;
 }
 
 ._bf_itemdiscussions_arrow_up
@@ -386,6 +385,19 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     position: absolute;
     left: 90px;
     top: 72px;
+}
+
+._bf_itemdiscussions_arrow_up:after
+{
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #F2F5F6;
+    position: absolute;
+    left: -15px;
+    top: 1px;
 }
 
 ._bf_itemreviews_item_useravatar,
@@ -412,11 +424,25 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
     border-left: 15px solid #aaa;
-
     position: absolute;
     left: 69%;
     top: 7px;
 }
+
+._bf_itemdiscussions_arrow_right:after
+{
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #F8FBED;
+    left: -16px;
+    position: absolute;
+    top: -15px;
+    z-index: 1;
+}
+
 
 ._bf_itemdiscussions_item_comment_useravatar
 {

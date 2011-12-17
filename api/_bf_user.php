@@ -91,6 +91,8 @@ function loadUserSession($user)
 function login($email, $password)
 {
     global $defaultAvatar;
+    
+    $org = getOrgDetails($_POST["api_key"]);
 
     if(userExists($email))
     {
@@ -100,42 +102,45 @@ function login($email, $password)
         {
             $user = mysql_fetch_array($sql);
             
-            // try gravatar
-            $grav = checkGravatar($user['email']);
-
-            // test avatar
-            $user['avatar'] = checkAvatar($grav);
-
-            mysql_query("UPDATE users SET avatar = '".$user['avatar']."' WHERE email = '".$email."'");
-
-            loadUserSession($user);
-            
             if($user['verified'])
             {
-                setSuccessMsg(t('Login Successful'));
-                $_SESSION['state'] = true;
-                mysql_query("UPDATE users SET lastlogin = NOW() WHERE email = '".$email."'");
-                return true;
+                if($user['enabled'])
+                {
+                    setSuccessMsg(t('Login Successful'));
+                    $_SESSION['state'] = true;
+                    $grav = checkGravatar($user['email']);
+                    $user['avatar'] = checkAvatar($grav);
+                    mysql_query("UPDATE users SET avatar = '".$user['avatar']."' WHERE email = '".$email."'");
+                    loadUserSession($user);           
+                    mysql_query("UPDATE users SET lastlogin = NOW() WHERE email = '".$email."'");
+                    return true;                    
+                }
+                else
+                {
+                    logout();
+                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                    return false;                    
+                }
             }
             else
             {
-                $_SESSION['user'] = false;
-                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.'));
+                logout();
+                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
                 return false;
             }
             
         }
         else
         {
-           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.'));
-           $_SESSION['state'] = false;
-           $_SESSION['user'] = false;
+           logout();
+           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
            return false;
         }
     }
     else
     {
-        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email'));
+        logout();
+        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
         return false;
     }
 }

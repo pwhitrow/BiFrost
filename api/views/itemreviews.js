@@ -163,9 +163,11 @@ var _bf_itemreviews = {
                         .appendTo($(this))
                         .each(function()
                         {
+                            $('._bf_reviews_qty').remove();
+                            
                             $('<em />').attr(
                             {
-                                'class': '_bf_widget_control_subtxt'
+                                'class': '_bf_widget_control_subtxt _bf_reviews_qty'
                             })
                             .html('(' + itemrating.num_ratings + ')')
                             .appendTo($('._bf_reviews_control'))

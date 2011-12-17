@@ -89,9 +89,11 @@ var _bf_itemdiscussions = {
                 {
                     _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 335, 600, $(this));
                     
+                    $('._bf_discussions_qty').remove();
+                    
                     $('<em />').attr(
                     {
-                        'class': '_bf_widget_control_subtxt'
+                        'class': '_bf_widget_control_subtxt _bf_discussions_qty'
                     })
                     .html('(' + discussions.recordqty + ')')
                     .appendTo($('._bf_discussions_control'))
