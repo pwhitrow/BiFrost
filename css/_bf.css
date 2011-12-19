@@ -174,8 +174,10 @@ FORMS
     width: 232px; 
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    -webkit-box-shadow:inset 0px 2px 3px #aaa;
+    -moz-box-shadow:inset 0px 2px 3px #aaa;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #aaa;
     background: #f1f1f1 url(../images/form-sprite.png) no-repeat;
     font:normal 16px Helvitica, Arial, sans-serif;
     color:#333;
@@ -390,7 +392,7 @@ FORM LINKS
 ._bf_login_links
 {
     left:160px;
-    top:127px;
+    top:113px;
 }
 
 ._bf_register_links

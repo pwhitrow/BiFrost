@@ -209,7 +209,7 @@ var _bf_itemdiscussions = {
                             }
                             else
                             {
-                                _bf_widgets.cannotPost();
+                                _bf.cannotPost();
                             }
                         });
 

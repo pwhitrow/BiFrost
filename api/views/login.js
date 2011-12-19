@@ -48,35 +48,6 @@ if(!$('._bf_' + formname + '_form').length)
             }
             ).appendTo(form);
 
-            var terms = $('<input />').attr(
-            {
-                type: 'checkbox',
-                name: 'storeemail',
-                id: 'storeemail',
-                'class': '_bf_' + formname + '_storeemail',
-                value: 'store',
-                checked: true
-            }
-            ).click(function()
-            {
-                if($(this).prop("checked"))
-                {
-                    $(this).attr({value:'store'});
-                }
-                else
-                {
-                    $(this).attr({value:'nostore'});
-                }
-            })
-            .prependTo(store);
-
-            var label = $('<label />').attr(
-            {
-                'class': '_bf_' + formname + '_label',
-                'for': 'storeemail'
-            })
-            .html(_bf.t('Keep my email'))
-            .appendTo(store);
 
             // create the submit button
             var submit = $('<div />').attr(

@@ -76,7 +76,6 @@ function _bf_loadScripts()
     var scripts = [
         'css/_bf.css',
         'css/_bf_items.css',
-        //'api/plugins/uploadify/swfobject.js',
         'api/plugins/player/swfobject.js',
         'api/plugins/expander/jquery.expander.js',
         'api/plugins/socials/jquery.socials.js',
@@ -194,9 +193,6 @@ function _bf_go()
                 .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
                 .each(function()
                 {
-                    //_bf_loadscript('api/views/widgets.js');
-                    
-                        
                     $('<div />').attr(
                     {
                         'class': '_bf_widgets_holder'
@@ -296,10 +292,6 @@ function _bf_go()
                             $(this)
                             .removeClass('_bf_widget_button')
                             .addClass('_bf_widget_button_disabled')
-                            .attr(
-                            {
-                                disabled: 'disabled'
-                            });                            
                         }
                     });
                 })
@@ -314,32 +306,40 @@ function _bf_go()
                     {
                         $(this)
                         .addClass('_bf_widget_button')
-                        .removeClass('_bf_widget_button_disabled')
-                        .removeAttr('disabled');
+                        .removeClass('_bf_widget_button_disabled');
                     }
                     else
                     {
                         $(this)
                         .removeClass('_bf_widget_button')
-                        .addClass('_bf_widget_button_disabled')
-                        .attr(
-                        {
-                            disabled: 'disabled'
-                        });
+                        .addClass('_bf_widget_button_disabled');
                     }           
-                })
+                });
+                
+                if(_bf.loggedIn())
+                {
+                    $('._bf_itemdiscussions_item_reply_button')
+                    .removeClass('_bf_widget_button_disabled');
+                }
+                else
+                {
+                    $('._bf_itemdiscussions_item_reply_button')
+                    .addClass('_bf_widget_button_disabled');
+                }           
+                
             },
 
             cannotPost: function()
             {
                 _bf.openPanel(75, 300, function()
                 {
-                    _bf.showStateOverlay(_bf.t('Oops, please login!'), 2000, function()
+                    _bf.showStateOverlay(_bf.t('Please register or login'), 2000, function()
                     {
                         _bf.closePanel();
                     });
                 });       
             },
+            
             // currently a placeholder for translating text
             t: function(txt)
             {
@@ -858,12 +858,6 @@ function _bf_go()
                     case('login'):
                         if(!result.api_error)
                         {
-                            // store the login email for future use
-                            if(result.storeemail == 'store')
-                            {
-                                _bf.cookie('_bf_login_email', result.email);
-                            }
-
                             // update widget buttons state
                             _bf.buttonState();
 

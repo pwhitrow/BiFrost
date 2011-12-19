@@ -83,7 +83,7 @@ var _bf_itemreviews = {
                     {
                         $('._bf_itemreviews').css(
                         {
-                            'opacity': 0.6
+                            'opacity': 0.3
                         });
                         
                         var x = parseInt($(this).html());

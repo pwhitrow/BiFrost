@@ -139,7 +139,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     padding: 10px 10px 10px 10px;
     
     font: normal 12px Helvetica, Arial, sans-serif;
-    text-shadow: 0 2px 2px #eee;
+    text-shadow: 1px 1px 1px #FFFFFF;
 }
 
 ._bf_itemdiscussions_item
@@ -229,7 +229,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia;
     position:absolute;
     top:105px;
-    left:20px;
+    left:25px;
 }
 
 ._bf_itemreviews_tag_link
@@ -260,7 +260,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia;
     line-height:20px;
     color:#666;
-    margin:36px 0px 40px 70px;
+    margin:36px 0px 40px 75px;
     padding:20px 20px 35px 20px;
 
     background: rgb(251,253,251); /* Old browsers */
@@ -278,6 +278,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+	box-shadow: 1px 1px 6px #aaa;
 }
 
 ._bf_itemreviews_item_synopsis:first-letter
@@ -318,6 +319,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+	box-shadow: 1px 1px 6px #888888;
 
     color:#666;
     background: #fcfff4; /* Old browsers */
@@ -364,6 +366,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+	box-shadow: 1px 1px 6px #888888;
 }
 
 ._bf_itemdiscussions_item_synopsis:first-letter

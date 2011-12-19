@@ -8,9 +8,19 @@
 
 function getOrgDetails($api_key)
 {
-    $org = mysql_fetch_array(mysql_query("SELECT * FROM organisations WHERE api_key = '".$api_key."'"));
+    $sql = mysql_query("SELECT * FROM organisations WHERE api_key = '".$api_key."'");
     
-    return $org;
+    if(mysql_num_rows > 0)
+    {
+        $org = mysql_fetch_array($sql);
+    
+        return $org;
+    }
+    else
+    {
+        setErrorMsg(t('No organisation found for key'));
+        return false;        
+    }
 }
 
 ?>
