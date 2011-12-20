@@ -5,7 +5,7 @@
 var _bf_itemreviews = {
     
     limitfrom: 0,
-    limitqty: 3,
+    limitqty: 1,
     pagenum: 1,
     recordqty: 0,
 
@@ -264,7 +264,7 @@ var _bf_itemreviews = {
                         'class': '_bf_itemreviews_tags'
                     })
                     .html(_bf.t('Tagged') + ': ')
-                    .appendTo($(this))
+                    .prependTo($(this))
                     .css(
                     {
                         opacity: 0.45
@@ -316,7 +316,7 @@ var _bf_itemreviews = {
                 {
                     'class': '_bf_itemreviews_arrow_left'
                 })
-                .appendTo($(this));
+                .prependTo($(this));
                 
                 // call expander plugin
                 $(this).expander();
@@ -355,7 +355,8 @@ var _bf_itemreviews = {
                 {
                     readOnly:  true,
                     start:     parseInt(review.rated),
-                    path: _bf.host + 'api/plugins/raty/img'
+                    path: _bf.host + 'api/plugins/raty/img',
+                    half:      true
                 });
             });
 

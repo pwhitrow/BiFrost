@@ -1039,12 +1039,12 @@ Dashboard Show Reviews etc
 
 ._bf_powered_by
 {
-    color: #444;
+    color: #888;
     font: 10px arial;
     position: relative;
     right: 10px;
     text-align: right;
-    top: 0;
+    top: 0px;
 }
 ._bf_powered_by a
 {

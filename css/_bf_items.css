@@ -248,7 +248,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemreviews_item_title
 {
-    color:#666;
+    color:#888;
     font-family: Georgia;
     font-size:18px;
     margin:20px 0px 45px 0px;
@@ -531,8 +531,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemreviews_item_rating
 {
     position:absolute;
-    left:105px;
-    top:14px;
+    left:110px;
+    top:35px;
     margin:0px 0px 0px 0px;
     padding:0px 0px 0px 0px;
 }
