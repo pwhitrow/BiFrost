@@ -55,6 +55,7 @@ session_start();
 if(empty($_SESSION['state']))
 {
     $_SESSION['state'] = false;
+    $_SESSION['org'] = false;
     $_SESSION['user'] = false;
 }
 

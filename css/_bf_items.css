@@ -221,14 +221,14 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemreviews_tags
 {
-    margin:10px 0px 0px 70px;
+    margin:10px 0px 0px 78px;
     padding:0px 10px 0px 10px;
     color:#666;
     font-size:11px;
     font-style:italic;
     font-family: Georgia;
     position:absolute;
-    top:105px;
+    top:76px;
     left:25px;
 }
 
@@ -260,7 +260,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia;
     line-height:20px;
     color:#666;
-    margin:36px 0px 40px 75px;
+    margin:10px 0px 40px 83px;
     padding:20px 20px 35px 20px;
 
     background: rgb(251,253,251); /* Old browsers */
@@ -274,11 +274,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     background: linear-gradient(top,  rgba(251,253,251,1) 0%,rgba(234,238,230,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfdfb', endColorstr='#eaeee6',GradientType=0 ); /* IE6-8 */
 
-    border:1px solid #ddd;
+    border:1px solid #aaa;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-	box-shadow: 1px 1px 6px #aaa;
+    box-shadow: 1px 1px 6px #aaa;
 }
 
 ._bf_itemreviews_item_synopsis:first-letter
@@ -420,6 +420,31 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border:2px solid #fff;
 }
 
+._bf_itemreviews_arrow_left
+{
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #aaa;
+    position: absolute;
+    left: 79px;
+    top: 34px;   
+}
+._bf_itemreviews_arrow_left:after
+{
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #F8FBED;
+    left: 1px;
+    position: absolute;
+    top: -15px;
+    z-index: 1;
+}
+
 ._bf_itemdiscussions_arrow_right
 {
     width: 0;
@@ -477,6 +502,13 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     padding:0px 0px 0px 0px;
 }
 
+._bf_itemreviews_item_username
+{
+    left:97px;
+    bottom:16px;   
+    top:auto;
+}
+
 ._bf_itemdiscussions_item_username
 {
     left:90px;
@@ -499,8 +531,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemreviews_item_rating
 {
     position:absolute;
-    left:97px;
-    top:40px;
+    left:105px;
+    top:14px;
     margin:0px 0px 0px 0px;
     padding:0px 0px 0px 0px;
 }
@@ -535,7 +567,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     position:absolute;
     right:20px;
-    top:21px;
+    top:5px;
 }
 
 ._bf_itemreviews_media_item

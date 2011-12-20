@@ -1037,6 +1037,24 @@ Dashboard Show Reviews etc
     clear: both;
 }
 
+._bf_powered_by
+{
+    color: #444;
+    font: 10px arial;
+    position: relative;
+    right: 10px;
+    text-align: right;
+    top: 0;
+}
+._bf_powered_by a
+{
+    color:#777;
+}
+._bf_powered_by a:hover
+{
+    color:#aaa;
+}
+
 
 /*
  * CSS Styles that are needed by jScrollPane for it to operate correctly.

@@ -120,6 +120,7 @@ function _bf_go()
             host: 'http://localhost:56870/',
             api_key: BiFrost.api_key,
             api_token: false,
+            appname: '',
             uploads: false,
             can_create_tags: true,
             no_image: 'coming_soon_image.jpg',
@@ -129,7 +130,7 @@ function _bf_go()
             videotypes: '*.flv;',
             filetypes: '',
             authenticators: ['Facebook', 'Google', 'Twitter', 'OpenID', 'LinkedIn'],
-            vrme: false,
+            bfme: false,
             state: false,
             state_panel: false,
             state_width_default: 200,
@@ -141,7 +142,7 @@ function _bf_go()
             msg_display_time: 2000,
             content_character_limit: 300,
 
-            // initialise VR
+            // initialise
             init: function()
             {
                 _bf.filetypes = _bf.imagetypes + _bf.videotypes;
@@ -152,10 +153,10 @@ function _bf_go()
                     _bf.api_token = _bf.cookie('api_token');
                 }
 
-                 // create VR container if it doesn't exists
+                 // create main container if it doesn't exists
                 if(!$('._bf_me').length)
                 {
-                    _bf.vrme = $('<div />').attr(
+                    _bf.bfme = $('<div />').attr(
                     {
                         'class': '_bf_me'
                     }
@@ -163,7 +164,7 @@ function _bf_go()
                 }
                 else
                 {
-                    _bf.vrme = $('._bf_me');
+                    _bf.bfme = $('._bf_me');
                     _bf.custom_css = {position:'relative', top:'0px', left:'0px'};
                 }
 
@@ -172,7 +173,7 @@ function _bf_go()
                 {
                     'class': '_bf_state'
                 })
-                .appendTo(_bf.vrme)
+                .appendTo(_bf.bfme)
                 .hide();
 
                 // cement state's position in document
@@ -182,53 +183,54 @@ function _bf_go()
                 _bf.getState(function()
                 {
                     _bf.showStateActions();
-                });
-
-                // create widgets
-                $('<div />').attr(
-                {
-                    'class': '_bf_widgets',
-                    rel: BiFrost.relation
-                })
-                .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
-                .each(function()
-                {
+                    
+                    // create widgets
                     $('<div />').attr(
                     {
-                        'class': '_bf_widgets_holder'
+                        'class': '_bf_widgets',
+                        rel: BiFrost.relation
                     })
-                    .appendTo($(this).parent())
+                    .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
                     .each(function()
                     {
                         $('<div />').attr(
                         {
-                            'class': '_bf_widgets_controller'
+                            'class': '_bf_widgets_holder'
                         })
-                        .appendTo($(this));
-                        
-                        $('<div />').attr(
-                        {
-                            'class': '_bf_reviews',
-                            rel: BiFrost.relation
-                        })
-                        .appendTo($(this))
+                        .appendTo($(this).parent())
                         .each(function()
                         {
-                            _bf_loadscript('api/views/itemreviews.js');
-                        });
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_widgets_controller'
+                            })
+                            .appendTo($(this));
 
-                        $('<div />').attr(
-                        {
-                            'class': '_bf_discussions',
-                            rel: BiFrost.relation
-                        })
-                        .appendTo($(this))
-                        .each(function()
-                        {
-                            _bf_loadscript('api/views/itemdiscussions.js');
-                        });                        
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_reviews',
+                                rel: BiFrost.relation
+                            })
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                _bf_loadscript('api/views/itemreviews.js');
+                            });
+
+                            $('<div />').attr(
+                            {
+                                'class': '_bf_discussions',
+                                rel: BiFrost.relation
+                            })
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                _bf_loadscript('api/views/itemdiscussions.js');
+                            });                        
+                        });
                     });
                 });
+
             },
             
             widgetSwitch: function(type)
@@ -787,6 +789,18 @@ function _bf_go()
                 //console.log(result);
 
                 _bf.uploads = result.uploads;
+
+                if(_bf.appname == '')
+                {
+                    _bf.appname = result.appname;
+                    
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_powered_by'
+                    })
+                    .html(_bf.t('Powered by ') + '<a href="' + _bf.host + '" title="' + _bf.appname + '" target="_new">' + _bf.appname + '</a>')
+                    .appendTo($('._bf_widgets_holder'));
+                }
 
                 // have we set the API token?
                 if(!_bf.api_token)
