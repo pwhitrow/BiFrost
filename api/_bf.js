@@ -239,15 +239,19 @@ function _bf_go()
                 {
                     $('._bf_discussions_control').removeClass('active');
                     $('._bf_reviews_control').addClass('active');
-                    $('._bf_itemdiscussions').fadeOut(_bf.ani_speed);
-                    $('._bf_itemreviews').fadeIn(_bf.ani_speed);
+                    $('._bf_itemdiscussions').fadeOut(_bf.ani_speed, function()
+                    {
+                        $('._bf_itemreviews').fadeIn(_bf.ani_speed);
+                    });
                 }    
                 if(type == 'discussions')
                 {
                     $('._bf_discussions_control').addClass('active');
                     $('._bf_reviews_control').removeClass('active');
-                    $('._bf_itemreviews').fadeOut(_bf.ani_speed);
-                    $('._bf_itemdiscussions').fadeIn(_bf.ani_speed);
+                    $('._bf_itemreviews').fadeOut(_bf.ani_speed, function()
+                    {
+                        $('._bf_itemdiscussions').fadeIn(_bf.ani_speed);
+                    });
                 }    
             },
 
@@ -278,7 +282,7 @@ function _bf_go()
                                 _bf.getForm(
                                 {
                                     form: type,
-                                    parentid: $('._bf_widget_buttons').parent().attr('rel')
+                                    parentid: BiFrost.relation
                                 });
                             });
                         }

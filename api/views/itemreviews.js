@@ -301,6 +301,11 @@ var _bf_itemreviews = {
                             })
                             .html(tagnames[i])
                             .appendTo($(this))
+                            .click(function(event)
+                            {
+                                event.preventDefault();
+                                console.log($(this).attr('rel'))
+                            })
                             .each(function()
                             {
                                 if(i < (tags.length - 1))
