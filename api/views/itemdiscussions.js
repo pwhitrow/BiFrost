@@ -113,7 +113,8 @@ var _bf_itemdiscussions = {
                         fname: discussions.fname[i],
                         avatar: discussions.avatar[i],
                         content: discussions.content[i],
-                        fdate: discussions.fdate[i]
+                        fdate: discussions.fdate[i],
+                        isodate: discussions.isodate[i]
                     }, comments);
                     i++;
                 });
@@ -124,6 +125,8 @@ var _bf_itemdiscussions = {
                 })
                 .appendTo($('._bf_discussions'));
             });
+            
+            $('.postdate').timeago();
         }
         else
         {
@@ -273,8 +276,8 @@ var _bf_itemdiscussions = {
 
                             $('<em />').attr(
                             {
-                                'class': '_bf_itemdiscussions_item_comment_posted',
-                                title: _bf.t('This discussion was posted ') + ': ' + comments.fdate[c]
+                                'class': '_bf_itemdiscussions_item_comment_posted postdate',
+                                title: comments.isodate[c]
                             })
                             .html(comments.fdate[c])
                             .appendTo($(this));
@@ -305,8 +308,8 @@ var _bf_itemdiscussions = {
             
             $('<em />').attr(
             {
-                'class': '_bf_itemdiscussions_item_posted',
-                title: _bf.t('This discussion was posted ') + ': ' + discussion.fdate
+                'class': '_bf_itemdiscussions_item_posted postdate',
+                title: discussion.isodate
             })
             .html(_bf.t('Posted') + ': ' + discussion.fdate)
             .appendTo($(this));

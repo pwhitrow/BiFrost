@@ -38,7 +38,7 @@
                     'left': '0px',
                     'bottom': '0px',
                     'right': '0px',
-                    'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/pattern.png) bottom left repeat-x'
+                    'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/bg.png) 0 0 repeat'
                 })
                 .appendTo($('body'));
             }

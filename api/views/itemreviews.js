@@ -5,7 +5,7 @@
 var _bf_itemreviews = {
     
     limitfrom: 0,
-    limitqty: 1,
+    limitqty: 5,
     pagenum: 1,
     recordqty: 0,
 
@@ -193,6 +193,7 @@ var _bf_itemreviews = {
                         title: reviews.title[i],
                         content: reviews.content[i],
                         fdate: reviews.fdate[i],
+                        isodate: reviews.isodate[i],
                         tags: reviews.tags[i],
                         tagnames: reviews.tagnames[i]
                     });
@@ -214,6 +215,8 @@ var _bf_itemreviews = {
                     'class': '_bf_clear'
                 })
                 .appendTo($('._bf_reviews'));
+                
+                $('.postdate').timeago();
             });
         }
         else
@@ -332,8 +335,12 @@ var _bf_itemreviews = {
                 'class': '_bf_itemreviews_item_username',
                 title: review.gname + ' ' + review.fname
             })
-            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em>' + _bf.t('on') + ' ' + review.fdate + '</em>')
-            .appendTo($(this));
+            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="postdate" title="'+review.isodate+'">' + review.fdate + '</em>')
+            .appendTo($(this))
+            .each(function()
+            {
+                
+            });
 
             $('<img />').attr(
             {
@@ -422,6 +429,7 @@ var _bf_itemreviews = {
                 .appendTo($(this));
             }      
             
+            // social networks
             $(this).socials(
             {
                 path: _bf.host + 'api/plugins/socials/',

@@ -166,6 +166,7 @@ function getItemReviews()
         $rows['title'][] = $r['title'];
         $rows['content'][] = nl2br($r['content']);
         $rows['fdate'][] = $r['fdate'];
+        $rows['isodate'][] = date('c', strtotime($r['posted']));
         
         // fetch tag data
         $tags = explode(',', $r['tags']);

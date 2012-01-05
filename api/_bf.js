@@ -84,6 +84,7 @@ function _bf_loadScripts()
         'api/plugins/multiselect/jquery.multiselect.js',
         'api/plugins/uploadify/jquery.uploadify.v2.1.4.min.js',
         'api/plugins/player/jwplayer.js',
+        'api/plugins/timeago/jquery.timeago.js',
         'api/plugins/raty/js/jquery.raty.min.js'
     ];
     

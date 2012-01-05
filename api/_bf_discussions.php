@@ -94,6 +94,7 @@ function getItemDiscussions()
                 $comments['user'][] = $c['user_id'];
                 $comments['content'][] = nl2br($c['content']);
                 $comments['fdate'][] = $c['fdate'];
+                $comments['isodate'][] = date('c', strtotime($c['posted']));
 
                 // fetch user data for comment
                 $user = mysql_query("SELECT * FROM users WHERE user_id = '".$c['user_id']."'");
@@ -112,6 +113,7 @@ function getItemDiscussions()
         $rows['id'][] = $r['id'];
         $rows['content'][] = nl2br($r['content']);
         $rows['fdate'][] = $r['fdate'];
+        $rows['isodate'][] = date('c', strtotime($r['posted']));
     }
 
     setResponse('itemdiscussions', json_encode($rows));
