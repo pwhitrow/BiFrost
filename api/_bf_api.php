@@ -117,6 +117,11 @@ switch($_POST['action'])
                     respond();
                     break;
 
+    case('itemreviewsbytag'): // get item reviews
+                    getItemReviewsByTag();
+                    respond();
+                    break;
+
     case('comment'): // post comment
                     postComment();
                     respond();

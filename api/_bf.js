@@ -321,19 +321,7 @@ function _bf_go()
                         .removeClass('_bf_widget_button')
                         .addClass('_bf_widget_button_disabled');
                     }           
-                });
-                
-                if(_bf.loggedIn())
-                {
-                    $('._bf_itemdiscussions_item_reply_button')
-                    .removeClass('_bf_widget_button_disabled');
-                }
-                else
-                {
-                    $('._bf_itemdiscussions_item_reply_button')
-                    .addClass('_bf_widget_button_disabled');
-                }           
-                
+                });                
             },
 
             cannotPost: function()
@@ -868,18 +856,14 @@ function _bf_go()
                         break;
 
                     case('logout'):
-                        // update widget buttons state
                         _bf.buttonState();
-
                         _bf.showStateActions();
                         break;
 
                     case('login'):
                         if(!result.api_error)
                         {
-                            // update widget buttons state
                             _bf.buttonState();
-
                             _bf.showStateActions();
                         }
                         break;
@@ -933,12 +917,19 @@ function _bf_go()
                         break;
 
                     default:
-                        _bf.showStateOverlay(_bf.t('Post Successful'), 1000);                                     
+                        if(_bf.state)
+                        {
+                            _bf.showStateOverlay(_bf.t('Post Successful'), 1000);                                     
+                        }
+                        else
+                        {
+                            // something here?
+                        }
                         break;
                 }                   
             },
 
-            // Huston, we have a problem!
+            // Houston, we have a problem!
             postFailed: function(data)
             {
                 _bf.showStateOverlay(_bf.t('Something went wrong!'));

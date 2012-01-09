@@ -55,6 +55,20 @@ var _bf_itemreviews = {
         });        
     },
     
+    getReviewsByTag: function(tag)
+    {
+        _bf.post(
+        {
+            action: 'itemreviewsbytag',
+            limitfrom: _bf_itemreviews.limitfrom,
+            limit: _bf_itemreviews.limitqty,
+            uploads: _bf.uploads,
+            noimage: _bf.no_image,
+            parentid: $('._bf_reviews').attr('rel'),
+            tag: tag
+        });        
+    },
+    
     paginator: function()
     {
         $('<ul />').attr(
@@ -152,7 +166,8 @@ var _bf_itemreviews = {
                         {
                             readOnly:  true,
                             start:     parseInt(itemrating.avg_rating),
-                            path: _bf.host + 'api/plugins/raty/img'
+                            path: _bf.host + 'api/plugins/raty/img',
+                            half: false
                         });
                         
                         $('<em />').attr(
@@ -297,7 +312,7 @@ var _bf_itemreviews = {
                         {
                             $('<a />').attr(
                             {
-                                href: _bf.host + '/' + tags[i],
+                                href: _bf.host + tags[i],
                                 title: _bf.t('Find more reviews tagged with') + tagnames[i],
                                 rel: 'tag_' + tags[i],
                                 'class': '_bf_itemreviews_tag_link'
@@ -307,7 +322,7 @@ var _bf_itemreviews = {
                             .click(function(event)
                             {
                                 event.preventDefault();
-                                console.log($(this).attr('rel'))
+                                _bf_itemreviews.getReviewsByTag($(this).attr('rel'))
                             })
                             .each(function()
                             {
@@ -336,11 +351,7 @@ var _bf_itemreviews = {
                 title: review.gname + ' ' + review.fname
             })
             .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="postdate" title="'+review.isodate+'">' + review.fdate + '</em>')
-            .appendTo($(this))
-            .each(function()
-            {
-                
-            });
+            .appendTo($(this));
 
             $('<img />').attr(
             {
@@ -368,7 +379,7 @@ var _bf_itemreviews = {
                     readOnly:  true,
                     start:     parseInt(review.rated),
                     path: _bf.host + 'api/plugins/raty/img',
-                    half:      true
+                    half:      false
                 });
             });
 

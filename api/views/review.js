@@ -58,7 +58,6 @@ if(_bf.loggedIn())
                     title: _bf.t('Review')
                 });
 
-
                 _bf.createFormElement(form,
                 {
                     obj: 'input',
@@ -164,10 +163,11 @@ if(_bf.loggedIn())
                     // create the rater
                     $('._bf_review_rating_set').raty(
                     {
-                        half: true,
+                        half: false,
                         scoreName: 'score',
                         path: _bf.host + 'api/plugins/raty/img/'
-                    }).each(function()
+                    })
+                    .each(function()
                     {
                         // attach our own requirements to the hidden field
                         $('input[name=score]').attr(

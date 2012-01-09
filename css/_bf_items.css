@@ -249,7 +249,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemreviews_item_title
 {
     color:#888;
-    font-family: Georgia;
+    font-family: Arial;
     font-size:18px;
     margin:30px 0px 45px 0px;
     padding:0px 0px 0px 0px;
@@ -279,14 +279,6 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     -webkit-border-radius: 5px;
     border-radius: 5px;
     box-shadow: 1px 1px 6px #aaa;
-}
-
-._bf_itemreviews_item_synopsis:first-letter
-{
-    color:#777;
-    font-size:150%;
-    text-transform:uppercase;
-    font-style: italic;
 }
 
 ._bf_itemdiscussions_item_controls
@@ -334,15 +326,6 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#e9e9ce',GradientType=0 ); /* IE6-8 */    
 }
 
-._bf_itemdiscussions_item_comment_content:first-letter
-{
-    color:#888;
-    font-size:400%;
-    display:block;
-    float:left;
-    margin: 5px 10px 10px 0px;
-}
-
 ._bf_itemdiscussions_item_synopsis
 {
     font-family: Georgia;
@@ -367,15 +350,6 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     -webkit-border-radius: 5px;
     border-radius: 5px;
 	box-shadow: 1px 1px 6px #888888;
-}
-
-._bf_itemdiscussions_item_synopsis:first-letter
-{
-    color:#888;
-    font-size:400%;
-    display:block;
-    float:left;
-    margin: 5px 10px 10px 0px;
 }
 
 ._bf_itemdiscussions_arrow_up
@@ -414,7 +388,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:         1px 1px 3px rgba(90, 90, 90, 2);    
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 30px;
     margin:0px 0px 20px 0px;
     padding:0px 0px 0px 0px;
     border:2px solid #fff;
@@ -482,7 +456,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:         1px 1px 3px rgba(90, 90, 90, 2);
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 30px;
     margin:0px 0px 20px 0px;
     padding:0px 0px 0px 0px;
     border:2px solid #fff;
@@ -495,9 +469,10 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     position:absolute;
     left:97px;
     top:20px;
-    color:#666;
+    color:#888;
     font-weight:bold;
     font-size:11px;
+    font-family: arial;
     margin:0px 0px 0px 0px;
     padding:0px 0px 0px 0px;
 }

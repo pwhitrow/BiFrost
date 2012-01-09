@@ -292,7 +292,7 @@ var _bf_itemdiscussions = {
                 'class': '_bf_itemdiscussions_item_username',
                 title: discussion.gname + ' ' + discussion.fname
             })
-            .html(discussion.gname + ' ' + discussion.fname + ' <em>' + _bf.t('says') + ':</em>')
+            .html(discussion.gname + ' ' + discussion.fname)
             .appendTo($(this));
 
             $('<img />').attr(

@@ -16,9 +16,25 @@ function postReview()
         {
             $prep[$k] = prepForDB($v);
         }
+        
+        // sort out the tags!
+        $tmp = explode(',', trim($prep['tagsid'], ','));
+        $tags = '[';
+        if(count($tmp) > 1)
+        {
+            foreach($tmp as $t)
+            {
+                $tags .= $t . '][';
+            }
+        }
+        else
+        {
+            $tags .= $tmp[0];
+        }
+        $tags .= ']';
 
         // store review
-        $sql1 = "INSERT INTO reviews (parent_id, api_key, user_id, title, content, posted, tags) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['title']."', '".$prep['content']."', NOW(), '".trim($prep['tagsid'], ',')."')";
+        $sql1 = "INSERT INTO reviews (parent_id, api_key, user_id, title, content, posted, tags) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['title']."', '".$prep['content']."', NOW(), '".$tags."')";
         
         if(mysql_query($sql1))
         {
@@ -109,11 +125,28 @@ function mediaExists($media)
     return rtrim($str, ',');
 }
 
+function getItemReviewsByTag()
+{
+    $tag = str_replace('tag_', '', $_POST['tag']);
+    
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%'"));
+
+    processSQL($sql, $sqlQty);       
+}
+
 function getItemReviews()
 {
-    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
-    
     $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
+
+    processSQL($sql, $sqlQty);   
+}
+
+function processSQL($sql, $sqlQty)
+{
     
     $sql = mysql_query($sql);
 
@@ -169,7 +202,7 @@ function getItemReviews()
         $rows['isodate'][] = date('c', strtotime($r['posted']));
         
         // fetch tag data
-        $tags = explode(',', $r['tags']);
+        $tags = explode(']', str_replace('[', '', $r['tags']));
         $tagdata = mysql_query("SELECT * FROM tags WHERE api_key = '".$_POST['api_key']."'");
         $tmp = array();
         
@@ -184,13 +217,13 @@ function getItemReviews()
             }
         }
                         
-        $rows['tags'][] = $r['tags'];
+        $rows['tags'][] = trim(str_replace('[', '', str_replace(']', ',', $r['tags'])), ',');
         $rows['tagnames'][] = implode(',', $tmp);
     }
 
     setResponse('itemreviews', json_encode($rows));
     
-    getItemRating($_POST['parentid']);
+    getItemRating($_POST['parentid']);    
 }
 
 function getItemRating($id)
