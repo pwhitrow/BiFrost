@@ -290,12 +290,14 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     position:relative;
     list-style:none;
+    padding:0px;
+    margin:0px;
 }
 
 ._bf_itemdiscussions_item_comment
 {
     position:relative;
-    margin:0px 0px 20px 30px;
+    margin:0px 0px 20px 0px;
 }
 
 ._bf_itemdiscussions_item_comment_content
@@ -303,16 +305,13 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia;
     line-height:18px;
     position: relative;
-    width:63%;
-    
+    width:64%;
     padding:20px 20px 30px 20px;
-
     border:1px solid #aaa;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-	box-shadow: 1px 1px 6px #888888;
-
+    box-shadow: 1px 1px 6px #888888;
     color:#666;
     background: #fcfff4; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -331,7 +330,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia;
     line-height:18px;
     color:#666;
-    margin:76px 0px 40px 70px;
+    margin:76px 0px 40px 0px;
     padding:20px 20px 30px 20px;
 
     background: rgb(242,245,246); /* Old browsers */
@@ -360,7 +359,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     border-right: 15px solid transparent;
     border-bottom: 15px solid #aaa;
     position: absolute;
-    left: 90px;
+    left: 23px;
     top: 72px;
 }
 
@@ -377,21 +376,36 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     top: 1px;
 }
 
+._bf_itemreviews_avatarholder,
+._bf_itemdiscussions_item_avatarholder,
 ._bf_itemreviews_item_useravatar,
 ._bf_itemdiscussions_item_useravatar
 {
+    height:50px;
+    width:50px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 30px;
+}
+
+._bf_itemreviews_avatarholder,
+._bf_itemdiscussions_item_avatarholder
+{
+    border:2px solid #fff;
     position:absolute;
     left:20px;
     top:20px;
     -webkit-box-shadow: 1px 1px 3px rgba(90, 90, 90, 2);
     -moz-box-shadow:    1px 1px 3px rgba(90, 90, 90, 2);
     box-shadow:         1px 1px 3px rgba(90, 90, 90, 2);    
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 30px;
     margin:0px 0px 20px 0px;
-    padding:0px 0px 0px 0px;
-    border:2px solid #fff;
+    padding:0px 0px 0px 0px;   
+}
+
+._bf_itemdiscussions_item_avatarholder
+{
+    left:10px;
+    top:8px;
 }
 
 ._bf_itemreviews_arrow_left
@@ -446,20 +460,27 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 }
 
 
+._bf_itemdiscussions_item_comment_avatarholder,
 ._bf_itemdiscussions_item_comment_useravatar
 {
-    position:absolute;
-    left:516px;
-    top:0px;
-    -webkit-box-shadow: 1px 1px 3px rgba(90, 90, 90, 2);
-    -moz-box-shadow:    1px 1px 3px rgba(90, 90, 90, 2);
-    box-shadow:         1px 1px 3px rgba(90, 90, 90, 2);
+    height:40px;
+    width:40px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 30px;
-    margin:0px 0px 20px 0px;
-    padding:0px 0px 0px 0px;
+}
+
+._bf_itemdiscussions_item_comment_avatarholder
+{
     border:2px solid #fff;
+    position:absolute;
+    left:562px;
+    top:0px;
+    -webkit-box-shadow: 1px 1px 3px rgba(90, 90, 90, 2);
+    -moz-box-shadow:    1px 1px 3px rgba(90, 90, 90, 2);
+    box-shadow:         1px 1px 3px rgba(90, 90, 90, 2);    
+    margin:0px 0px 20px 0px;
+    padding:0px 0px 0px 0px;   
 }
 
 ._bf_itemreviews_item_username,
@@ -492,7 +513,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_item_comment_username
 {
     position:absolute;
-    left:570px;
+    left:615px;
     top:0px;
 }
 
@@ -534,7 +555,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemdiscussions_item_comment_posted
 {
-    left:570px;
+    left:615px;
     top:23px;
 }
 

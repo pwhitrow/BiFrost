@@ -263,16 +263,24 @@ var _bf_itemdiscussions = {
                             .html(comments.gname[c] + ' ' + comments.fname[c])
                             .appendTo($(this));
 
-                            $('<img />').attr(
+                            $('<div />').attr(
                             {
-                                'class': '_bf_itemdiscussions_item_comment_useravatar',
-                                src: comments.avatar[c],
-                                height: '40',
-                                width: '40',
-                                title: comments.gname[c] + ' ' + comments.fname[c],
-                                alt: comments.gname[c] + ' ' + comments.fname[c]
+                                'class': '_bf_itemdiscussions_item_comment_avatarholder'
                             })
-                            .appendTo($(this));
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                $('<img />').attr(
+                                {
+                                    'class': '_bf_itemdiscussions_item_comment_useravatar',
+                                    src: comments.avatar[c],
+                                    height: '40',
+                                    width: '40',
+                                    title: comments.gname[c] + ' ' + comments.fname[c],
+                                    alt: comments.gname[c] + ' ' + comments.fname[c]
+                                })
+                                .appendTo($(this));
+                            });
 
                             $('<em />').attr(
                             {
@@ -295,17 +303,25 @@ var _bf_itemdiscussions = {
             .html(discussion.gname + ' ' + discussion.fname)
             .appendTo($(this));
 
-            $('<img />').attr(
+            $('<div />').attr(
             {
-                'class': '_bf_itemdiscussions_item_useravatar',
-                src: discussion.avatar,
-                height: '50',
-                width: '50',
-                title: discussion.gname + ' ' + discussion.fname,
-                alt: discussion.gname + ' ' + discussion.fname
+                'class': '_bf_itemdiscussions_item_avatarholder'
             })
-            .appendTo($(this));
-            
+            .appendTo($(this))
+            .each(function()
+            {
+                $('<img />').attr(
+                {
+                    'class': '_bf_itemdiscussions_item_useravatar',
+                    src: discussion.avatar,
+                    height: '50',
+                    width: '50',
+                    title: discussion.gname + ' ' + discussion.fname,
+                    alt: discussion.gname + ' ' + discussion.fname
+                })
+                .appendTo($(this));
+            });
+
             $('<em />').attr(
             {
                 'class': '_bf_itemdiscussions_item_posted postdate',

@@ -352,19 +352,26 @@ var _bf_itemreviews = {
             })
             .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="postdate" title="'+review.isodate+'">' + review.fdate + '</em>')
             .appendTo($(this));
-
-            $('<img />').attr(
+            
+            $('<div />').attr(
             {
-                'class': '_bf_itemreviews_item_useravatar',
-                src: review.avatar,
-                height: '50',
-                width: '50',
-                border: 0,
-                title: review.gname + ' ' + review.fname,
-                alt: review.gname + ' ' + review.fname
+                'class': '_bf_itemreviews_avatarholder'
             })
-            .appendTo($(this));
-
+            .appendTo($(this))
+            .each(function()
+            {
+                $('<img />').attr(
+                {
+                    'class': '_bf_itemreviews_item_useravatar',
+                    src: review.avatar,
+                    height: '50',
+                    width: '50',
+                    border: 0,
+                    title: review.gname + ' ' + review.fname,
+                    alt: review.gname + ' ' + review.fname
+                })
+                .appendTo($(this));
+            });
 
             $('<p />').attr(
             {
