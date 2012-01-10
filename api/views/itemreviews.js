@@ -313,7 +313,7 @@ var _bf_itemreviews = {
                             $('<a />').attr(
                             {
                                 href: _bf.host + tags[i],
-                                title: _bf.t('Find more reviews tagged with') + tagnames[i],
+                                title: _bf.t('Find more reviews tagged with') + ' ' + tagnames[i],
                                 rel: 'tag_' + tags[i],
                                 'class': '_bf_itemreviews_tag_link'
                             })
@@ -321,8 +321,9 @@ var _bf_itemreviews = {
                             .appendTo($(this))
                             .click(function(event)
                             {
+alert($(this).attr('rel'));
                                 event.preventDefault();
-                                _bf_itemreviews.getReviewsByTag($(this).attr('rel'))
+                                _bf_itemreviews.getReviewsByTag($(this).attr('rel'));
                             })
                             .each(function()
                             {

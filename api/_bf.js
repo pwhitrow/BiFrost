@@ -884,6 +884,10 @@ function _bf_go()
                         _bf_itemreviews.showReviews(result);
                         break;
 
+                    case('itemreviewsbytag'):
+                        _bf_itemreviews.showReviews(result);
+                        break;
+
                     case('discuss'):
                         _bf.closePanel(function()
                         {
