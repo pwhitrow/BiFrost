@@ -44,6 +44,8 @@ var _bf_itemreviews = {
     
     getReviews: function()
     {
+        $('._bf_itemreviews').remove();
+
         _bf.post(
         {
             action: 'itemreviews',
@@ -57,6 +59,8 @@ var _bf_itemreviews = {
     
     getReviewsByTag: function(tag)
     {
+        $('._bf_itemreviews').remove();
+
         _bf.post(
         {
             action: 'itemreviewsbytag',
@@ -120,7 +124,7 @@ var _bf_itemreviews = {
         $('._bf_itemreviews').remove();
             
         var reviews = $.parseJSON(data.itemreviews);
-        
+
         _bf_itemreviews.recordqty = reviews.recordqty;
 
         if(!$('._bf_reviews_control').length)
@@ -232,6 +236,8 @@ var _bf_itemreviews = {
                 .appendTo($('._bf_reviews'));
                 
                 $('.postdate').timeago();
+                
+                _bf_itemreviews.renderCrumbs(reviews);
             });
         }
         else
@@ -246,10 +252,125 @@ var _bf_itemreviews = {
         
         _bf.widgetSwitch('reviews');
         
+        
+        
+    },
+    
+    renderCrumbs: function(reviews)
+    {
+        $('._bf_itemreviews_crumbs').remove();
+        
+        $('<p />').attr(
+        {
+            'class': '_bf_itemreviews_crumbs'
+        })
+        .html(_bf.t('Viewing' + ': '))
+        .prependTo($('._bf_itemreviews_header'))
+        .each(function()
+        {
+            $('<a />').attr(
+            {
+                'class': '_bf_itemreviews_crumb_all',
+                'href': 'javascript:void(0)',
+                'title': _bf.t('Show all reviews')
+            })
+            .html(_bf.t('all reviews'))
+            .on(
+            {
+                click: function()
+                {
+                    _bf_itemreviews.getReviews();
+                }
+            })
+            .appendTo($(this))
+            
+            if(typeof reviews.tagsearch != 'undefined')
+            {
+                $('<em />').attr(
+                {
+                    'class': '_bf_itemreviews_crumb_tag'
+                })
+                .html(" &#187; " + reviews.tagsearch)
+                .appendTo($(this))
+            }
+        })
+        
+    },
+    
+    renderTags: function(review, obj)
+    {
+        // show tags
+        if(review.tags)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_itemreviews_tags'
+            })
+            .on(
+            {
+                mouseover: function()
+                {                      
+                    $(this).stop().animate(
+                    {
+                        opacity: 1
+                    }, 
+                    _bf.ani_speed)
+                },
+                mouseout: function()
+                {
+                    $(this).stop().animate(
+                    {
+                        opacity: 0.45
+                    }, 
+                    _bf.ani_speed)
+                }                    
+            })
+            .html(_bf.t('Tagged') + ': ')
+            .css(
+            {
+                opacity: 0.45
+            })
+            .each(function()
+            {
+                var tags = review.tags.split(',');
+                var tagnames = review.tagnames.split(',');
+
+                for(i = 0; i < tags.length; i++)
+                {
+                    $('<a />').attr(
+                    {
+                        href: 'javascript:void(0)',
+                        title: _bf.t('Find more reviews tagged with') + ' ' + tagnames[i],
+                        rel: 'tag_' + tags[i],
+                        'class': '_bf_itemreviews_tag_link'
+                    })
+                    .html(tagnames[i])
+                    .appendTo($(this))
+                    .on(
+                    {
+                        click:function()
+                        {
+                            _bf_itemreviews.getReviewsByTag($(this).attr('rel'));
+                        }
+                    })
+                    .each(function()
+                    {
+                        if(i < (tags.length - 1))
+                        {
+                            $(this).append(',');
+                        }
+                    });
+                }
+            })
+            .prependTo(obj);
+        }
+
     },
 
     renderReview: function(review)
     {
+        var review = review;
+        
         $('<li />').attr(
         {
             'class': '_bf_itemreviews_item',
@@ -274,67 +395,6 @@ var _bf_itemreviews = {
                 .html(review.title)
                 .prependTo($(this));
 
-                // show tags
-                if(review.tags)
-                {
-                    $('<div />').attr(
-                    {
-                        'class': '_bf_itemreviews_tags'
-                    })
-                    .html(_bf.t('Tagged') + ': ')
-                    .prependTo($(this))
-                    .css(
-                    {
-                        opacity: 0.45
-                    })
-                    .mouseover(function()
-                    {
-                        $(this).stop().animate(
-                        {
-                            opacity: 1
-                        }, 
-                        _bf.ani_speed)
-                    })
-                    .mouseout(function()
-                    {
-                        $(this).stop().animate(
-                        {
-                            opacity: 0.45
-                        }, 
-                        _bf.ani_speed)
-                    })
-                    .each(function()
-                    {
-                        var tags = review.tags.split(',');
-                        var tagnames = review.tagnames.split(',');
-
-                        for(i = 0; i < tags.length; i++)
-                        {
-                            $('<a />').attr(
-                            {
-                                href: _bf.host + tags[i],
-                                title: _bf.t('Find more reviews tagged with') + ' ' + tagnames[i],
-                                rel: 'tag_' + tags[i],
-                                'class': '_bf_itemreviews_tag_link'
-                            })
-                            .html(tagnames[i])
-                            .appendTo($(this))
-                            .click(function(event)
-                            {
-alert($(this).attr('rel'));
-                                event.preventDefault();
-                                _bf_itemreviews.getReviewsByTag($(this).attr('rel'));
-                            })
-                            .each(function()
-                            {
-                                if(i < (tags.length - 1))
-                                {
-                                    $(this).append(',');
-                                }
-                            });
-                        }
-                    });
-                }
 
                 $('<div />').attr(
                 {
@@ -344,6 +404,8 @@ alert($(this).attr('rel'));
                 
                 // call expander plugin
                 $(this).expander();
+                
+                _bf_itemreviews.renderTags(review, $(this));
             });
 
             $('<h3 />').attr(

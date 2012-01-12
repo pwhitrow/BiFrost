@@ -203,7 +203,7 @@ function processSQL($sql, $sqlQty)
         
         // fetch tag data
         $tags = explode(']', str_replace('[', '', $r['tags']));
-        $tagdata = mysql_query("SELECT * FROM tags WHERE api_key = '".$_POST['api_key']."'");
+        $tagdata = mysql_query("SELECT id,tagname FROM tags WHERE api_key = '".$_POST['api_key']."'");
         $tmp = array();
         
         while($row = mysql_fetch_array($tagdata))
@@ -214,11 +214,22 @@ function processSQL($sql, $sqlQty)
                 {
                     $tmp[] = $row['tagname'];
                 }
+                
+                if(!empty($_POST['tag']))
+                {
+                    $tag = str_replace('tag_', '', $_POST['tag']);
+                    
+                    if($row['id'] == $tag)
+                    {
+                        $rows['tagsearch'] = $row['tagname'];
+                    }
+                }
             }
         }
-                        
+        
         $rows['tags'][] = trim(str_replace('[', '', str_replace(']', ',', $r['tags'])), ',');
         $rows['tagnames'][] = implode(',', $tmp);
+        
     }
 
     setResponse('itemreviews', json_encode($rows));

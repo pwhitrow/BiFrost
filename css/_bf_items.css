@@ -167,6 +167,10 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     background: #f1f1f1;
     height:40px;
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
+    color:#888;
+    text-shadow:1px 1px 1px #fff;
+    font-family: arial;
+    font-size:20px;
 }
 
 ._bf_reviews_control,
@@ -201,11 +205,39 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     color:#888;
 }
 
+._bf_itemreviews_crumbs
+{
+    color: #bbb;
+    font:italic 12px arial;
+    left: 155px;
+    position: absolute;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    top: 0;
+    z-index: 1;
+}
+
+._bf_itemreviews_crumbs a
+{
+    color:#888;
+    text-decoration:none;
+    border-bottom:1px dotted #888;
+}
+
+._bf_itemreviews_crumbs a:hover
+{
+    color:#444;
+    border-bottom:1px dotted #444;
+}
+._bf_itemreviews_crumb_tag
+{
+    font:italic 12px arial;
+    color:#666;
+}
 ._bf_itemreviews_avg_rating
 {
     float: left;
     position: relative;
-    top: -2px;
+    top: 2px;
 }
 
 ._bf_itemreviews_avg_rating_text
