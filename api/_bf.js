@@ -305,6 +305,78 @@ function _bf_go()
                 .appendTo(where);        
             },
             
+            widgetLoading: function(type)
+            {
+                if(type == 'reviews')
+                {
+                    if(!$('._bf_reviews_fetching').length)
+                    {
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_reviews_fetching'
+                        })
+                        .html(_bf.t('Fetching reviews') + '...')
+                        .css(
+                        {
+
+                        })
+                        .appendTo($('._bf_widgets_holder'))
+                        .each(function()
+                        {
+                            _bf_itemreviews.getReviews();                
+                        });
+                    }
+                    else
+                    {
+                        $('._bf_reviews_fetching')
+                        .show()
+                        .each(function()
+                        {
+                            _bf_itemreviews.getReviews();                
+                        });
+                    }        
+                }
+                
+                if(type == 'discussions')
+                {
+                    if(!$('._bf_discussions_fetching').length)
+                    {
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_discussions_fetching'
+                        })
+                        .html(_bf.t('Fetching discussions') + '...')
+                        .appendTo($('._bf_widgets_holder'))
+                        .each(function()
+                        {
+                            _bf_itemdiscussions.getDiscussions();                
+                        });
+                    }
+                    else
+                    {
+                        $('._bf_discussions_fetching')
+                        .show()
+                        .each(function()
+                        {
+                            _bf_itemdiscussions.getDiscussions();                
+                        });
+                    }
+                }
+            },
+    
+            widgetLoaded: function(type)
+            {
+                if(type == 'reviews')
+                {
+                    $('._bf_reviews_fetching').hide();
+                }
+                
+                if(type == 'discussions')
+                {
+                    $('._bf_discussions_fetching').hide();
+                }
+            },
+            
             buttonState: function()
             {
                 $('._bf_widget_butts').each(function()
@@ -365,6 +437,59 @@ function _bf_go()
                 }   
             },
 
+            paginator: function(obj, holder)
+            {
+                if(typeof obj.recordqty == 'undefined')
+                {
+                    obj.recordqty = 0;
+                }
+                if(typeof obj.pagenum == 'undefined')
+                {
+                    obj.pagenum = 1;
+                }
+
+                $('<ul />').attr(
+                {
+                    'class': '_bf_items_paginator'
+                })
+                .prependTo(holder)
+                .each(function()
+                {
+                    var qty = Math.ceil(obj.recordqty / obj.limitqty);
+
+                    for(i = 1; i < qty + 1; i++)
+                    {
+                        var el = $('<li />').attr(
+                        {
+                            'class': obj.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
+                            'rel': (i > 1 ? obj.limitqty * (i - 1) : 0),
+                            'title': _bf.t('Go to page') + ' ' + i + ' ' + _bf.t('of') + ' ' + qty
+                        })
+                        .html(i)
+                        .appendTo($(this));
+
+                        if(obj.pagenum != i)
+                        {
+                            el.click(function()
+                            {
+                                $('._bf_itemreviews').css(
+                                {
+                                    'opacity': 0.3
+                                });
+
+                                var x = parseInt($(this).html());
+
+                                obj.pagenum = x;
+
+                                obj.limitfrom = $(this).attr('rel');
+
+                                obj.getReviews();
+                            });
+                        }
+                    }
+                })
+            },
+    
             // where should we put the state bar?
             statePosition: function(el)
             {

@@ -5,35 +5,11 @@
 var _bf_itemdiscussions = {
 
     limitfrom: 0,
-    limitto: 5,
-    limitinc: 5,
-    recordqty: 0,
+    limitqty: 5,
 
     init: function()
     {        
-        // inform the user
-        if(!$('._bf_discussions_fetching').length)
-        {
-            $('<div />').attr(
-            {
-                'class': '_bf_discussions_fetching'
-            })
-            .html(_bf.t('Fetching discussions') + '...')
-            .appendTo($('._bf_discussions'))
-            .each(function()
-            {
-                _bf_itemdiscussions.getDiscussions();                
-            });
-        }
-        else
-        {
-            $('._bf_reviews_fetching')
-            .show()
-            .each(function()
-            {
-                _bf_itemdiscussions.getDiscussions();                
-            });
-        }
+        _bf.widgetLoading('discussions');
     },
 
     getDiscussions: function()
@@ -42,19 +18,13 @@ var _bf_itemdiscussions = {
         {
             action: 'itemdiscussions',
             limitfrom: this.limitfrom,
-            limitto: this.limitto,
+            limitqty: this.limitqty,
             parentid: $('._bf_discussions').attr('rel')
         });
-        
-        this.limitfrom = this.limitto + 1;
-        this.limitto = this.limitto + this.limitinc + 1;
-        
     },
 
     showDiscussions: function(data)
     {
-        $('._bf_discussions_fetching').hide();
-
         $('._bf_itemdiscussions').remove();
             
         var discussions = $.parseJSON(data.itemdiscussions);
@@ -124,6 +94,8 @@ var _bf_itemdiscussions = {
                     'class': '_bf_clear'
                 })
                 .appendTo($('._bf_discussions'));
+                
+                _bf.widgetLoaded('discussions');
             });
             
             $('.postdate').timeago();

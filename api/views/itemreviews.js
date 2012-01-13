@@ -6,45 +6,15 @@ var _bf_itemreviews = {
     
     limitfrom: 0,
     limitqty: 5,
-    pagenum: 1,
-    recordqty: 0,
 
     init: function()
     {
-        // inform the user
-        if(!$('._bf_reviews_fetching').length)
-        {
-            $('<div />').attr(
-            {
-                'class': '_bf_reviews_fetching'
-            })
-            .html(_bf.t('Fetching reviews') + '...')
-            .css(
-            {
-                
-            })
-            .appendTo($('._bf_reviews'))
-            .each(function()
-            {
-                _bf_itemreviews.getReviews();                
-            });
-        }
-        else
-        {
-            $('._bf_reviews_fetching')
-            .show()
-            .each(function()
-            {
-                _bf_itemreviews.getReviews();                
-            });
-        }
-        
-        
+        _bf.widgetLoading('reviews');       
     },
     
     getReviews: function()
     {
-        $('._bf_itemreviews').remove();
+        _bf_itemreviews.hideReviews();
 
         _bf.post(
         {
@@ -59,7 +29,7 @@ var _bf_itemreviews = {
     
     getReviewsByTag: function(tag)
     {
-        $('._bf_itemreviews').remove();
+        _bf_itemreviews.hideReviews();
 
         _bf.post(
         {
@@ -73,54 +43,13 @@ var _bf_itemreviews = {
         });        
     },
     
-    paginator: function()
+    hideReviews: function()
     {
-        $('<ul />').attr(
-        {
-            'class': '_bf_items_paginator'
-        })
-        .prependTo($('._bf_itemreviews'))
-        .each(function()
-        {
-            var qty = Math.ceil(_bf_itemreviews.recordqty / _bf_itemreviews.limitqty);
-
-            for(i = 1; i < qty + 1; i++)
-            {
-                var el = $('<li />').attr(
-                {
-                    'class': _bf_itemreviews.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
-                    'rel': (i > 1 ? _bf_itemreviews.limitqty * (i - 1) : 0),
-                    'title': _bf.t('Go to page') + ' ' + i + ' ' + _bf.t('of') + ' ' + qty
-                })
-                .html(i)
-                .appendTo($(this));
-                
-                if(_bf_itemreviews.pagenum != i)
-                {
-                    el.click(function()
-                    {
-                        $('._bf_itemreviews').css(
-                        {
-                            'opacity': 0.3
-                        });
-                        
-                        var x = parseInt($(this).html());
-                        
-                        _bf_itemreviews.pagenum = x;
-                        
-                        _bf_itemreviews.limitfrom = $(this).attr('rel');
-                        
-                        _bf_itemreviews.getReviews();
-                    });
-                }
-            }
-        })
+        $('._bf_itemreviews_item').fadeTo(_bf.ani_speed, 0.2)
     },
-
+    
     showReviews: function(data)
     {
-        $('._bf_reviews_fetching').hide();
-        
         $('._bf_itemreviews').remove();
             
         var reviews = $.parseJSON(data.itemreviews);
@@ -227,7 +156,7 @@ var _bf_itemreviews = {
                   'default_img': _bf.host + 'images/' + _bf.no_image
                 });
                 
-                _bf_itemreviews.paginator();
+                _bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
 
                 $('<div />').attr(
                 {
@@ -238,6 +167,8 @@ var _bf_itemreviews = {
                 $('.postdate').timeago();
                 
                 _bf_itemreviews.renderCrumbs(reviews);
+                
+                _bf.widgetLoaded('reviews');
             });
         }
         else
