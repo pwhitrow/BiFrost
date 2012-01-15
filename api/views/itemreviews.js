@@ -6,6 +6,7 @@ var _bf_itemreviews = {
     
     limitfrom: 0,
     limitqty: 5,
+    lazyloading:false,
 
     init: function()
     {
@@ -14,7 +15,7 @@ var _bf_itemreviews = {
     
     getReviews: function()
     {
-        _bf_itemreviews.hideReviews();
+        _bf_itemreviews.fadeReviews();
 
         _bf.post(
         {
@@ -29,7 +30,7 @@ var _bf_itemreviews = {
     
     getReviewsByTag: function(tag)
     {
-        _bf_itemreviews.hideReviews();
+        _bf_itemreviews.fadeReviews();
 
         _bf.post(
         {
@@ -43,148 +44,213 @@ var _bf_itemreviews = {
         });        
     },
     
-    hideReviews: function()
+    getLazyReviews: function()
+    {
+        _bf.post(
+        {
+            action: 'itemreviews',
+            limitfrom: _bf_itemreviews.limitfrom,
+            limit: _bf_itemreviews.limitqty,
+            uploads: _bf.uploads,
+            noimage: _bf.no_image,
+            parentid: $('._bf_reviews').attr('rel')
+        });        
+    },
+    
+    fadeReviews: function()
     {
         $('._bf_itemreviews_item').fadeTo(_bf.ani_speed, 0.2)
     },
     
     showReviews: function(data)
     {
-        $('._bf_itemreviews').remove();
-            
         var reviews = $.parseJSON(data.itemreviews);
-
+        
         _bf_itemreviews.recordqty = reviews.recordqty;
 
-        if(!$('._bf_reviews_control').length)
+        if(_bf_itemreviews.lazyloading)
         {
-            $('<div />').attr(
-            {
-                'class': '_bf_reviews_control'
-            })
-            .html(_bf.t('Reviews'))
-            .prependTo($('._bf_widgets_controller'))
-            .click(function()
-            {
-                _bf.widgetSwitch('reviews')
-            });            
-        }                    
-
-        if(typeof reviews.id != 'undefined')
-        {
-            $('<ul />').attr(
-            {
-                'class': '_bf_itemreviews'
-            })
-            .html(
-                $('<li />').attr(
-                {
-                    'class': '_bf_itemreviews_header'
-                })
-                .each(function()
-                {
-                    _bf.widgetButton('review', 'Post a review', 'Post a review', 425, 600, $(this));
-        
-                    var itemrating = $.parseJSON(data.itemrating);
-                    
-                    $('<p />').attr(
-                    {
-                        'class': '_bf_itemreviews_avg_rating',
-                        id: '_bf_itemreviews_avg_rating'
-                    })
-                    .appendTo($(this))
-                    .each(function()
-                    {
-                        $(this).raty(
-                        {
-                            readOnly:  true,
-                            start:     parseInt(itemrating.avg_rating),
-                            path: _bf.host + 'api/plugins/raty/img',
-                            half: false
-                        });
-                        
-                        $('<em />').attr(
-                        {
-                            'class': '_bf_itemreviews_avg_rating_text'
-                        })
-                        .html('(' + _bf.t('averaged from') + ' ' + itemrating.num_ratings + ' ' + _bf.t('review') + (itemrating.num_ratings == 1 ? '' : 's') + ')')
-                        .appendTo($(this))
-                        .each(function()
-                        {
-                            $('._bf_reviews_qty').remove();
-                            
-                            $('<em />').attr(
-                            {
-                                'class': '_bf_widget_control_subtxt _bf_reviews_qty'
-                            })
-                            .html('(' + itemrating.num_ratings + ')')
-                            .appendTo($('._bf_reviews_control'))
-                        });
-                    });
-                })
-            )
-            .appendTo($('._bf_reviews'))
-            .each(function()
-            {                
-                var i = 0;
-
-                $(reviews.id).each(function()
-                {
-                    _bf_itemreviews.renderReview(
-                    {
-                        id: reviews.id[i],
-                        gname: reviews.gname[i],
-                        fname: reviews.fname[i],
-                        avatar: reviews.avatar[i],
-                        rated: reviews.rated[i],
-                        media: reviews.media[i],
-                        title: reviews.title[i],
-                        content: reviews.content[i],
-                        fdate: reviews.fdate[i],
-                        isodate: reviews.isodate[i],
-                        tags: reviews.tags[i],
-                        tagnames: reviews.tagnames[i]
-                    });
-                    
-                    i++;
-                });
-                
-                $("a._bf_itemreviews_media_link").showBox(
-                {
-                  'path': _bf.host,
-                  'speed': _bf.ani_speed,
-                  'default_img': _bf.host + 'images/' + _bf.no_image
-                });
-                
-                _bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
-
-                $('<div />').attr(
-                {
-                    'class': '_bf_clear'
-                })
-                .appendTo($('._bf_reviews'));
-                
-                $('.postdate').timeago();
-                
-                _bf_itemreviews.renderCrumbs(reviews);
-                
-                _bf.widgetLoaded('reviews');
-            });
+            _bf_itemreviews.processReviews(reviews);
+            return false;           
         }
         else
         {
-            $('<h2 />').attr(
+            $('._bf_itemreviews').remove();
+
+            if(!$('._bf_reviews_control').length)
             {
-                'class': '_bf_no_reviews _bf_itemreviews'
+                $('<div />').attr(
+                {
+                    'class': '_bf_reviews_control'
+                })
+                .html(_bf.t('Reviews'))
+                .prependTo($('._bf_widgets_controller'))
+                .click(function()
+                {
+                    _bf.widgetSwitch('reviews')
+                });            
+            }                    
+
+            if(typeof reviews.id != 'undefined')
+            {
+                $('<ul />').attr(
+                {
+                    'class': '_bf_itemreviews'
+                })
+                .html(
+                    $('<li />').attr(
+                    {
+                        'class': '_bf_itemreviews_header'
+                    })
+                    .each(function()
+                    {
+                        _bf.widgetButton('review', 'Post a review', 'Post a review', 425, 600, $(this));
+
+                        var itemrating = $.parseJSON(data.itemrating);
+
+                        $('<p />').attr(
+                        {
+                            'class': '_bf_itemreviews_avg_rating',
+                            id: '_bf_itemreviews_avg_rating'
+                        })
+                        .appendTo($(this))
+                        .each(function()
+                        {
+                            $(this).raty(
+                            {
+                                readOnly:  true,
+                                start:     parseInt(itemrating.avg_rating),
+                                path: _bf.host + 'api/plugins/raty/img',
+                                half: false
+                            });
+
+                            $('<em />').attr(
+                            {
+                                'class': '_bf_itemreviews_avg_rating_text'
+                            })
+                            .html('(' + _bf.t('averaged from') + ' ' + itemrating.num_ratings + ' ' + _bf.t('review') + (itemrating.num_ratings == 1 ? '' : 's') + ')')
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                $('._bf_reviews_qty').remove();
+
+                                $('<em />').attr(
+                                {
+                                    'class': '_bf_widget_control_subtxt _bf_reviews_qty'
+                                })
+                                .html('(' + itemrating.num_ratings + ')')
+                                .appendTo($('._bf_reviews_control'))
+                            });
+                        });
+                    })
+                )
+                .appendTo($('._bf_reviews'))
+                .each(function()
+                {                
+                    _bf_itemreviews.processReviews(reviews);                
+                });
+            }
+            else
+            {
+                if(!_bf_itemreviews.lazyloading)
+                {
+                    $('<h2 />').attr(
+                    {
+                        'class': '_bf_no_reviews _bf_itemreviews'
+                    })
+                    .html(_bf.t('Why not be the first to post a review?'))
+                    .appendTo($('._bf_reviews'));
+                }
+                
+                _bf.widgetLoaded('reviews');
+            }        
+
+            _bf.widgetSwitch('reviews');
+        }
+    },
+    
+    processReviews: function(reviews)
+    {
+        var i = 0;
+
+        $(reviews.id)
+        .each(function()
+        {
+            _bf_itemreviews.renderReview(
+            {
+                id: reviews.id[i],
+                gname: reviews.gname[i],
+                fname: reviews.fname[i],
+                avatar: reviews.avatar[i],
+                rated: reviews.rated[i],
+                media: reviews.media[i],
+                title: reviews.title[i],
+                content: reviews.content[i],
+                fdate: reviews.fdate[i],
+                isodate: reviews.isodate[i],
+                tags: reviews.tags[i],
+                tagnames: reviews.tagnames[i]
+            });
+
+            i++;
+        })
+       
+        $("a._bf_itemreviews_media_link").showBox(
+        {
+          'path': _bf.host,
+          'speed': _bf.ani_speed,
+          'default_img': _bf.host + 'images/' + _bf.no_image
+        });
+
+        $('.postdate').timeago();
+
+        _bf_itemreviews.renderCrumbs(reviews);
+
+        _bf.widgetLoaded('reviews');
+
+        $('<div />').attr(
+        {
+            'class': '_bf_clear'
+        })
+        .appendTo($('._bf_reviews'));                
+
+        //_bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
+        _bf_itemreviews.setLazyLoader();
+    },
+    
+    setLazyLoader: function()
+    {
+        // lazy load?
+        $(window).scroll(function()
+        {
+            if  ($(window).scrollTop() == $(document).height() - $(window).height())
+            {
+               _bf_itemreviews.lazyLoad();
+            }
+        });
+
+        $('._bf_reviews_lazyloading').remove();
+        _bf_itemreviews.lazyloading = false;                    
+    },
+    
+    lazyLoad: function() 
+    {
+        _bf_itemreviews.lazyloading = true;
+        
+        if(!$('._bf_reviews_lazyloading').length)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_reviews_lazyloading'
             })
-            .html(_bf.t('Why not be the first to post a review?'))
-            .appendTo($('._bf_reviews'));
-        }        
-        
-        _bf.widgetSwitch('reviews');
-        
-        
-        
+            .html(_bf.t('Loading') + '...')
+            .appendTo($('._bf_reviews'))
+            .each(function()
+            {
+                _bf_itemreviews.limitfrom += _bf_itemreviews.limitqty;
+                _bf_itemreviews.getLazyReviews();
+            });            
+        }                    
     },
     
     renderCrumbs: function(reviews)

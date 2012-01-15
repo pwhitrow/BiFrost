@@ -57,6 +57,16 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     margin-right:30px;
 }
 
+._bf_reviews_lazyloading
+{
+    background:transparent url(../images/wait.gif) center center no-repeat;
+    text-shadow: 1px 1px 1px #fff;
+    font:bold 16px arial;
+    color:#888;
+    height:70px;
+    text-align:center;
+}
+
 ._bf_items_paginator
 {
     position:absolute;

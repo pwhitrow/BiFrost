@@ -472,7 +472,7 @@ function _bf_go()
                         {
                             el.click(function()
                             {
-                                $('._bf_itemreviews').css(
+                                holder.css(
                                 {
                                     'opacity': 0.3
                                 });

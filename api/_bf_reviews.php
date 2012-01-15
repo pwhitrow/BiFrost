@@ -147,7 +147,6 @@ function getItemReviews()
 
 function processSQL($sql, $sqlQty)
 {
-    
     $sql = mysql_query($sql);
 
     $rows = array();

@@ -1,72 +1,15 @@
-Thursday 12th of January 2012 03:18:34 AM
+Sunday 15th of January 2012 07:25:00 AM
 *********************************************
 
-Array
-(
-    [0] => Tag 3
-    [1] => Tag 4
-    [2] => Some Tag
-)
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 0, 5
 
-
-Thursday 12th of January 2012 03:18:34 AM
+Sunday 15th of January 2012 07:25:06 AM
 *********************************************
 
-Array
-(
-    [0] => Another Tag
-)
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 5, 5
 
-
-Thursday 12th of January 2012 03:18:34 AM
+Sunday 15th of January 2012 07:26:24 AM
 *********************************************
 
-Array
-(
-    [0] => Tag 3
-)
-
-
-Thursday 12th of January 2012 03:18:34 AM
-*********************************************
-
-Array
-(
-    [0] => Tag 3
-)
-
-
-Thursday 12th of January 2012 03:18:34 AM
-*********************************************
-
-Array
-(
-    [0] => Tag 4
-)
-
-
-Thursday 12th of January 2012 03:19:07 AM
-*********************************************
-
-Tag 3,Tag 4,Some Tag
-
-Thursday 12th of January 2012 03:19:07 AM
-*********************************************
-
-Another Tag
-
-Thursday 12th of January 2012 03:19:07 AM
-*********************************************
-
-Tag 3
-
-Thursday 12th of January 2012 03:19:08 AM
-*********************************************
-
-Tag 3
-
-Thursday 12th of January 2012 03:19:08 AM
-*********************************************
-
-Tag 4
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 10, 5
 
