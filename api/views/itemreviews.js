@@ -193,8 +193,8 @@ var _bf_itemreviews = {
             });
 
             i++;
-        })
-       
+        });
+        
         $("a._bf_itemreviews_media_link").showBox(
         {
           'path': _bf.host,
@@ -215,7 +215,7 @@ var _bf_itemreviews = {
         .appendTo($('._bf_reviews'));                
 
         //_bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
-        _bf_itemreviews.setLazyLoader();
+        _bf_itemreviews.setLazyLoader();            
     },
     
     setLazyLoader: function()

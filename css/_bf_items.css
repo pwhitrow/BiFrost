@@ -167,9 +167,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#dee2de',GradientType=0 ); /* IE6-8 */
 }
 
-._bf_no_reviews,
 ._bf_itemreviews_header,
-._bf_no_discussions,
 ._bf_itemdiscussions_header
 {
     position:relative;
@@ -179,10 +177,22 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     background: #f1f1f1;
     height:40px;
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
+}
+
+._bf_no_reviews,
+._bf_no_discussions
+{
+    position:relative;
+    margin:0px 0px 0px 0px;
+    padding:30px 0px 30px 30px;
+    border-bottom:1px dotted #ccc;
+    background: #f1f1f1;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.05);
+    text-align:center;
+    font-size:20px;
     color:#888;
     text-shadow:1px 1px 1px #fff;
     font-family: arial;
-    font-size:20px;
 }
 
 ._bf_reviews_control,
@@ -194,7 +204,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     margin:0px 0px 0px 0px;
     padding:10px 30px 10px 40px;
     border-right:1px dotted #ccc;
-    background: #f1f1f1 url(../images/form-sprite.png) 10px -128px no-repeat;
+    background: #EAEAEA url(../images/form-sprite.png) 10px -128px no-repeat;
 }
 
 ._bf_discussions_control
@@ -215,6 +225,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_discussions_control.active
 {
     color:#888;
+    background-color:#f1f1f1;
 }
 
 ._bf_itemreviews_crumbs
