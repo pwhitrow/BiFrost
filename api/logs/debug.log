@@ -1,15 +1,40 @@
-Sunday 15th of January 2012 07:25:00 AM
+Sunday 15th of January 2012 10:59:53 PM
 *********************************************
 
 SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 0, 5
 
-Sunday 15th of January 2012 07:25:06 AM
+Sunday 15th of January 2012 11:00:00 PM
 *********************************************
 
-SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 5, 5
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[4]%' ORDER BY id DESC LIMIT 0, 5
 
-Sunday 15th of January 2012 07:26:24 AM
+Sunday 15th of January 2012 11:00:04 PM
 *********************************************
 
-SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' ORDER BY id DESC LIMIT 10, 5
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[4]%' ORDER BY id DESC LIMIT 5, 5
+
+Sunday 15th of January 2012 11:00:04 PM
+*********************************************
+
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[4]%' ORDER BY id DESC LIMIT 10, 5
+
+Sunday 15th of January 2012 11:00:06 PM
+*********************************************
+
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[4]%' ORDER BY id DESC LIMIT 15, 5
+
+Sunday 15th of January 2012 11:00:07 PM
+*********************************************
+
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[4]%' ORDER BY id DESC LIMIT 20, 5
+
+Sunday 15th of January 2012 11:00:10 PM
+*********************************************
+
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[3]%' ORDER BY id DESC LIMIT 20, 5
+
+Sunday 15th of January 2012 11:00:10 PM
+*********************************************
+
+SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '0123456789' AND api_key = '3a50fc16-d89d-11e0-a26b-4040b2058987' AND tags LIKE '%[3]%' ORDER BY id DESC LIMIT 25, 5
 

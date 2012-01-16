@@ -58,7 +58,7 @@
                     'width': '0px',
                     'position': 'relative',
                     'padding': '5px',
-                    'background': '#ddd',
+                    'background': '#fff',
                     '-moz-border-radius': '5px',
                     '-webkit-border-radius': '5px',
                     'border-radius': '5px',

@@ -258,7 +258,7 @@ function _bf_go()
 
             widgetButton: function(type, txt1, txt2, h, w, where)
             {
-                $('<li />').attr(
+                $('<div />').attr(
                 {
                     'class': '_bf_widget_button_holder',
                     title: _bf.t(txt2)

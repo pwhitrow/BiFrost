@@ -260,7 +260,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     float: left;
     position: relative;
-    top: 2px;
+    top: 4px;
 }
 
 ._bf_itemreviews_avg_rating_text
@@ -271,7 +271,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     padding:0px 0px 0px 0px;
     position:relative;
     left:-10px;
-    top:-5px;
+    top:0px;
 }
 
 ._bf_itemreviews_tags

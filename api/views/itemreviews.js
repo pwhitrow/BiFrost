@@ -6,6 +6,7 @@ var _bf_itemreviews = {
     
     limitfrom: 0,
     limitqty: 5,
+    tagging: false,
     lazyloading:false,
 
     init: function()
@@ -15,46 +16,38 @@ var _bf_itemreviews = {
     
     getReviews: function()
     {
-        _bf_itemreviews.fadeReviews();
+        if(!_bf_itemreviews.lazyloading)
+        {
+            _bf_itemreviews.fadeReviews();
+        }
+        
+        if(_bf_itemreviews.tagging)
+        {
+            _bf.post(
+            {
+                action: 'itemreviewsbytag',
+                limitfrom: _bf_itemreviews.limitfrom,
+                limit: _bf_itemreviews.limitqty,
+                uploads: _bf.uploads,
+                noimage: _bf.no_image,
+                parentid: $('._bf_reviews').attr('rel'),
+                tag: _bf_itemreviews.tagging
+            });                    
+        }
+        else
+        {
+            _bf_itemreviews.tagging = false;
 
-        _bf.post(
-        {
-            action: 'itemreviews',
-            limitfrom: _bf_itemreviews.limitfrom,
-            limit: _bf_itemreviews.limitqty,
-            uploads: _bf.uploads,
-            noimage: _bf.no_image,
-            parentid: $('._bf_reviews').attr('rel')
-        });        
-    },
-    
-    getReviewsByTag: function(tag)
-    {
-        _bf_itemreviews.fadeReviews();
-
-        _bf.post(
-        {
-            action: 'itemreviewsbytag',
-            limitfrom: _bf_itemreviews.limitfrom,
-            limit: _bf_itemreviews.limitqty,
-            uploads: _bf.uploads,
-            noimage: _bf.no_image,
-            parentid: $('._bf_reviews').attr('rel'),
-            tag: tag
-        });        
-    },
-    
-    getLazyReviews: function()
-    {
-        _bf.post(
-        {
-            action: 'itemreviews',
-            limitfrom: _bf_itemreviews.limitfrom,
-            limit: _bf_itemreviews.limitqty,
-            uploads: _bf.uploads,
-            noimage: _bf.no_image,
-            parentid: $('._bf_reviews').attr('rel')
-        });        
+            _bf.post(
+            {
+                action: 'itemreviews',
+                limitfrom: _bf_itemreviews.limitfrom,
+                limit: _bf_itemreviews.limitqty,
+                uploads: _bf.uploads,
+                noimage: _bf.no_image,
+                parentid: $('._bf_reviews').attr('rel')
+            });                   
+        }
     },
     
     fadeReviews: function()
@@ -128,7 +121,7 @@ var _bf_itemreviews = {
                             {
                                 'class': '_bf_itemreviews_avg_rating_text'
                             })
-                            .html('(' + _bf.t('averaged from') + ' ' + itemrating.num_ratings + ' ' + _bf.t('review') + (itemrating.num_ratings == 1 ? '' : 's') + ')')
+                            .html('(' + _bf.t('averaged from') + ' ' + _bf_itemreviews.recordqty + ' ' + _bf.t('review') + (_bf_itemreviews.recordqty == 1 ? '' : 's') + ')')
                             .appendTo($(this))
                             .each(function()
                             {
@@ -138,7 +131,7 @@ var _bf_itemreviews = {
                                 {
                                     'class': '_bf_widget_control_subtxt _bf_reviews_qty'
                                 })
-                                .html('(' + itemrating.num_ratings + ')')
+                                .html('(' + _bf_itemreviews.recordqty + ')')
                                 .appendTo($('._bf_reviews_control'))
                             });
                         });
@@ -248,7 +241,7 @@ var _bf_itemreviews = {
             .each(function()
             {
                 _bf_itemreviews.limitfrom += _bf_itemreviews.limitqty;
-                _bf_itemreviews.getLazyReviews();
+                _bf_itemreviews.getReviews();
             });            
         }                    
     },
@@ -276,6 +269,8 @@ var _bf_itemreviews = {
             {
                 click: function()
                 {
+                    _bf_itemreviews.limitfrom = 0;
+                    _bf_itemreviews.tagging = false;
                     _bf_itemreviews.getReviews();
                 }
             })
@@ -347,7 +342,9 @@ var _bf_itemreviews = {
                     {
                         click:function()
                         {
-                            _bf_itemreviews.getReviewsByTag($(this).attr('rel'));
+                            _bf_itemreviews.limitfrom = 0;
+                            _bf_itemreviews.tagging = $(this).attr('rel');
+                            _bf_itemreviews.getReviews();
                         }
                     })
                     .each(function()
