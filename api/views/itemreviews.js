@@ -55,6 +55,18 @@ var _bf_itemreviews = {
         $('._bf_itemreviews_item').fadeTo(_bf.ani_speed, 0.2)
     },
     
+    getAvgRating: function(reviews)
+    {
+        var rated = 0;
+        
+        for(i = 0; i < reviews.rated.length; i++)
+        {
+            rated += parseInt(reviews.rated[i]);
+        }
+        
+        return Math.ceil(rated/reviews.recordqty);
+    },
+    
     showReviews: function(data)
     {
         var reviews = $.parseJSON(data.itemreviews);
@@ -109,10 +121,12 @@ var _bf_itemreviews = {
                         .appendTo($(this))
                         .each(function()
                         {
+                            var avg = _bf_itemreviews.getAvgRating(reviews);
+                            
                             $(this).raty(
                             {
                                 readOnly:  true,
-                                start:     parseInt(itemrating.avg_rating),
+                                start:     avg,
                                 path: _bf.host + 'api/plugins/raty/img',
                                 half: false
                             });
@@ -121,7 +135,7 @@ var _bf_itemreviews = {
                             {
                                 'class': '_bf_itemreviews_avg_rating_text'
                             })
-                            .html('(' + _bf.t('averaged from') + ' ' + _bf_itemreviews.recordqty + ' ' + _bf.t('review') + (_bf_itemreviews.recordqty == 1 ? '' : 's') + ')')
+                            .html('(' + _bf.t('averaged') + ' ' + avg + ' ' + _bf.t('from') + ' ' + _bf_itemreviews.recordqty + ' ' + _bf.t('review') + (_bf_itemreviews.recordqty == 1 ? '' : 's') + ')')
                             .appendTo($(this))
                             .each(function()
                             {
@@ -345,6 +359,11 @@ var _bf_itemreviews = {
                             _bf_itemreviews.limitfrom = 0;
                             _bf_itemreviews.tagging = $(this).attr('rel');
                             _bf_itemreviews.getReviews();
+                            $('html, body').animate(
+                            {
+                                scrollTop: $('._bf_widgets_holder').offset().top
+                            }, 
+                            _bf.ani_speed);
                         }
                     })
                     .each(function()

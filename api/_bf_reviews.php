@@ -129,8 +129,9 @@ function getItemReviewsByTag()
 {
     $tag = str_replace('tag_', '', $_POST['tag']);
     
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM reviews LEFT JOIN ratings ON reviews.id = ratings.linked_id WHERE reviews.parent_id = '".$_POST['parentid']."' AND reviews.api_key = '".$_POST['api_key']."' AND reviews.tags LIKE '%[".$tag."]%' ORDER BY reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
 
+    // we need this to calculate the correct number of ALL rows
     $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%'"));
 
     processSQL($sql, $sqlQty);       
@@ -138,8 +139,9 @@ function getItemReviewsByTag()
 
 function getItemReviews()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM reviews LEFT JOIN ratings ON reviews.id = ratings.linked_id WHERE reviews.parent_id = '".$_POST['parentid']."' AND reviews.api_key = '".$_POST['api_key']."' ORDER BY reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
     
+    // we need this to calculate the correct number of ALL rows
     $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
 
     processSQL($sql, $sqlQty);   
@@ -169,17 +171,7 @@ function processSQL($sql, $sqlQty)
         }
 
         // fetch ratings data
-        $ratings = mysql_query("SELECT * FROM ratings WHERE parent_id = '".$r['parent_id']."' AND linked_id = '".$r['id']."'");
-        
-        if(mysql_num_rows($ratings) > 0)
-        {
-            $ratings = mysql_fetch_array($ratings);
-            $rows['rated'][] = $ratings['rating'];           
-        }
-        else
-        {
-            $rows['rated'][] = 0;
-        }
+        $rows['rated'][] = $r['rating'];  
 
         // fetch media data
         $media = mysql_query("SELECT * FROM media WHERE parent_id = '".$r['parent_id']."' AND linked_id = '".$r['id']."'");
@@ -233,19 +225,5 @@ function processSQL($sql, $sqlQty)
     }
 
     setResponse('itemreviews', json_encode($rows));
-    
-    getItemRating($_POST['parentid']);    
 }
-
-function getItemRating($id)
-{
-    $sql = "SELECT SUM(rating) AS total_rating, COUNT(rating) AS num_ratings, FLOOR(SUM(rating)/COUNT(rating)) AS avg_rating FROM ratings WHERE parent_id = '".$id."'";
-    
-    $sql = mysql_query($sql);
-    
-    $avg = mysql_fetch_array($sql);
-    
-    setResponse('itemrating', json_encode($avg));
-}
-
 ?>
