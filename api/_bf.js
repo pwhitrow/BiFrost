@@ -244,8 +244,7 @@ function _bf_go()
                         $('._bf_discussions_control').removeClass('active');
                         $('._bf_reviews_control').addClass('active');
                         $('._bf_itemreviews').fadeIn(_bf.ani_speed);
-                    });
-                    
+                    });                    
                 }    
                 if(type == 'discussions')
                 {
@@ -257,6 +256,7 @@ function _bf_go()
                     });
                 }    
                 
+                $('._bf_itemreviews_header').removeClass('stick');
                 _bf.current_widget = type;
             },
 

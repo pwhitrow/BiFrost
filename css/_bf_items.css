@@ -283,6 +283,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     position:relative;
     left:-10px;
     top:0px;
+    text-shadow:1px 1px 1px #fff;
 }
 
 ._bf_itemreviews_tags
