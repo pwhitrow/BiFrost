@@ -46,28 +46,31 @@
             
             create_main = function()
             {
-                $('<div />').attr(
+                if(!$('._showbox_main').length)
                 {
-                    'class': '_showbox_main',
-                    'id': '_showbox_main'
-                })
-                .css(
-                {
-                    'margin': 'auto',
-                    'height': '0px',
-                    'width': '0px',
-                    'position': 'relative',
-                    'padding': '5px',
-                    'background': '#fff',
-                    '-moz-border-radius': '5px',
-                    '-webkit-border-radius': '5px',
-                    'border-radius': '5px',
-                    '-webkit-box-shadow': '0px 2px 7px rgba(0, 0, 0, 0.54)',
-                    '-moz-box-shadow':    '0px 2px 7px rgba(0, 0, 0, 0.54)',
-                    'box-shadow':         '0px 2px 7px rgba(0, 0, 0, 0.54)'
+                    $('<div />').attr(
+                    {
+                        'class': '_showbox_main',
+                        'id': '_showbox_main'
+                    })
+                    .css(
+                    {
+                        'margin': 'auto',
+                        'height': '0px',
+                        'width': '0px',
+                        'position': 'relative',
+                        'padding': '5px',
+                        'background': '#fff',
+                        '-moz-border-radius': '5px',
+                        '-webkit-border-radius': '5px',
+                        'border-radius': '5px',
+                        '-webkit-box-shadow': '0px 2px 7px rgba(0, 0, 0, 0.54)',
+                        '-moz-box-shadow':    '0px 2px 7px rgba(0, 0, 0, 0.54)',
+                        'box-shadow':         '0px 2px 7px rgba(0, 0, 0, 0.54)'
 
-                })
-                .appendTo($('._showbox'));
+                    })
+                    .appendTo($('._showbox'));                    
+                }
             },
             
             add_close = function()
@@ -141,53 +144,57 @@
                     // are we an image?
                     if(_bf.mediaType('image', filename))
                     {
-                        var img = new Image();
+                        if(!$('._showbox_img').length)
+                        {
+                            var img = new Image();
 
-                        $('<img />').attr(
-                        {
-                            'class': '_showbox_img',
-                            'src': '',
-                            'height': 0,
-                            'width': 0,
-                            'alt': ''
-                        })
-                        .click(function()
-                        {
-                            close_showbox();
-                        })
-                        .appendTo($('._showbox_main'))
-                        .each(function()
-                        {
-                            $(img).load(function()
+                            $('<img />').attr(
                             {
-                                var box = showBoxSize(img.width, img.height);
+                                'class': '_showbox_img',
+                                'src': '',
+                                'height': 0,
+                                'width': 0,
+                                'alt': ''
+                            })
+                            .click(function()
+                            {
+                                close_showbox();
+                            })
+                            .appendTo($('._showbox_main'))
+                            .each(function()
+                            {
+                                $(img).load(function()
+                                {
+                                    var box = showBoxSize(img.width, img.height);
 
-                                $('._showbox_img').attr(
-                                {
-                                    'src': $(this).attr('src'),
-                                    'height': box['newHeight'],
-                                    'width': box['newWidth']
-                                })
-                                .load(function()
-                                {
-                                    $('._showbox_main').css(
+                                    $('._showbox_img').attr(
                                     {
-                                        'position': 'absolute',
+                                        'src': $(this).attr('src'),
                                         'height': box['newHeight'],
-                                        'width': box['newWidth'],                                
-                                        'top': box['newY'] + 'px',
-                                        'left': box['newX'] + 'px'
+                                        'width': box['newWidth']
                                     })
-                                    .each(function()
+                                    .load(function()
                                     {
-                                        $('._showbox').fadeIn(settings.speed);  
-                                        add_close();
-                                    })
+                                        $('._showbox_main').css(
+                                        {
+                                            'position': 'absolute',
+                                            'height': box['newHeight'],
+                                            'width': box['newWidth'],                                
+                                            'top': box['newY'] + 'px',
+                                            'left': box['newX'] + 'px'
+                                        })
+                                        .each(function()
+                                        {
+                                            $('._showbox').fadeIn(settings.speed);  
+                                            add_close();
+                                        })
+                                    });
                                 });
+
                             });
+                            img.src = filename;
                             
-                        });
-                        img.src = filename;
+                        }
                     }
                     
                     // are we a video?
