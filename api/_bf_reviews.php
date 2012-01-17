@@ -149,7 +149,6 @@ function getItemReviews()
 
 function processSQL($sql, $sqlQty)
 {
-    //logger($sql);
     $sql = mysql_query($sql);
 
     $rows = array();
@@ -194,33 +193,27 @@ function processSQL($sql, $sqlQty)
         $rows['isodate'][] = date('c', strtotime($r['posted']));
         
         // fetch tag data
-        $tags = explode(']', str_replace('[', '', $r['tags']));
-        $tagdata = mysql_query("SELECT id,tagname FROM tags WHERE api_key = '".$_POST['api_key']."'");
-        $tmp = array();
-        
+        $tags = trim(str_replace(']', ',', str_replace('[', '', $r['tags'])), ',');
+        $tagdata = mysql_query("SELECT id,tagname FROM tags WHERE id IN (".$tags.") AND api_key = '".$_POST['api_key']."' ORDER BY id DESC");
+        $tmp = '';
+                
+        // have to sent it back as a string, json had problems with objects!
         while($row = mysql_fetch_array($tagdata))
         {
-            foreach($tags as $t)
+            $tmp .= $row['id'].':'.$row['tagname'].',';
+            
+            if(!empty($_POST['tag']))
             {
-                if($row['id'] == $t)
-                {
-                    $tmp[] = $row['tagname'];
-                }
+                $tag = str_replace('tag_', '', $_POST['tag']);
                 
-                if(!empty($_POST['tag']))
+                if($row['id'] == $tag)
                 {
-                    $tag = str_replace('tag_', '', $_POST['tag']);
-                    
-                    if($row['id'] == $tag)
-                    {
-                        $rows['tagsearch'] = $row['tagname'];
-                    }
+                    $rows['tagsearch'] = $row['tagname'];                                
                 }
             }
         }
         
-        $rows['tags'][] = trim(str_replace('[', '', str_replace(']', ',', $r['tags'])), ',');
-        $rows['tagnames'][] = implode(',', $tmp);
+        $rows['tags'][] = trim($tmp, ',');
         
     }
 

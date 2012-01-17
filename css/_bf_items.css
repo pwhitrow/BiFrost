@@ -633,6 +633,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
     margin:0px 0px 0px 10px;
     border:2px solid #fff;
+    
+    background:#444 url(../images/wait-grey-mini.gif) center center no-repeat;
 }
 
 ._bf_itemreviews_media_item:hover

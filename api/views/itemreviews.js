@@ -195,8 +195,7 @@ var _bf_itemreviews = {
                 content: reviews.content[i],
                 fdate: reviews.fdate[i],
                 isodate: reviews.isodate[i],
-                tags: reviews.tags[i],
-                tagnames: reviews.tagnames[i]
+                tags: reviews.tags[i]
             });
 
             i++;
@@ -337,20 +336,21 @@ var _bf_itemreviews = {
                 opacity: 0.45
             })
             .each(function()
-            {
+            {                
                 var tags = review.tags.split(',');
-                var tagnames = review.tagnames.split(',');
-
+                
                 for(i = 0; i < tags.length; i++)
                 {
+                    var tag = tags[i].split(':');
+                    
                     $('<a />').attr(
                     {
                         href: 'javascript:void(0)',
-                        title: _bf.t('Find more reviews tagged with') + ' ' + tagnames[i],
-                        rel: 'tag_' + tags[i],
+                        title: _bf.t('Find more reviews tagged with') + ' ' + tag[1],
+                        rel: 'tag_' + tag[0],
                         'class': '_bf_itemreviews_tag_link'
                     })
-                    .html(tagnames[i])
+                    .html(tag[1])
                     .appendTo($(this))
                     .on(
                     {
