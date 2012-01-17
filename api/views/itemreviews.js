@@ -221,7 +221,7 @@ var _bf_itemreviews = {
         .appendTo($('._bf_reviews'));                
 
         //_bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
-        _bf_itemreviews.setLazyLoader();            
+        _bf_itemreviews.setLazyLoader();  
     },
     
     setLazyLoader: function()
@@ -229,10 +229,15 @@ var _bf_itemreviews = {
         // lazy load?
         $(window).scroll(function()
         {
-            if  ($(window).scrollTop() == $(document).height() - $(window).height())
+            if(_bf.current_widget == 'reviews')
             {
-               _bf_itemreviews.lazyLoad();
+                if  ($(window).scrollTop() == $(document).height() - $(window).height())
+                {
+                   _bf_itemreviews.lazyLoad();
+                }
             }
+            
+            _bf.sticky();
         });
 
         $('._bf_reviews_lazyloading').remove();

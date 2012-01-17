@@ -179,6 +179,17 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
 }
 
+._bf_itemreviews_header.stick,
+._bf_itemdiscussions_header.stick
+{
+    position:fixed;
+    top:0px;
+    z-index:10000;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 ._bf_no_reviews,
 ._bf_no_discussions
 {

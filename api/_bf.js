@@ -142,6 +142,7 @@ function _bf_go()
             ani_speed: 200,
             msg_display_time: 2000,
             content_character_limit: 300,
+            current_widget: 'reviews',
 
             // initialise
             init: function()
@@ -244,6 +245,7 @@ function _bf_go()
                         $('._bf_reviews_control').addClass('active');
                         $('._bf_itemreviews').fadeIn(_bf.ani_speed);
                     });
+                    
                 }    
                 if(type == 'discussions')
                 {
@@ -254,6 +256,8 @@ function _bf_go()
                         $('._bf_itemdiscussions').fadeIn(_bf.ani_speed);
                     });
                 }    
+                
+                _bf.current_widget = type;
             },
 
             widgetButton: function(type, txt1, txt2, h, w, where)
@@ -302,7 +306,10 @@ function _bf_go()
                         }
                     });
                 })
-                .appendTo(where);        
+                .appendTo(where)
+                .each(function()
+                {
+                });        
             },
             
             widgetLoading: function(type)
@@ -375,6 +382,21 @@ function _bf_go()
                 {
                     $('._bf_discussions_fetching').hide();
                 }
+                
+            },
+            
+            sticky: function()
+            {
+                var window_top = $(window).scrollTop() +1;
+                var div_top = $('._bf_itemreviews').offset().top;
+                if (window_top > div_top)
+                {
+                    $('._bf_itemreviews_header').addClass('stick')
+                }
+                else
+                {
+                    $('._bf_itemreviews_header').removeClass('stick');
+                }                                    
             },
             
             buttonState: function()
@@ -904,8 +926,6 @@ function _bf_go()
                 // grab the JSON response
                 var result = $.parseJSON(data);
 
-                //console.log(result);
-
                 _bf.uploads = result.uploads;
 
                 if(_bf.appname == '')
@@ -917,7 +937,7 @@ function _bf_go()
                         'class': '_bf_powered_by'
                     })
                     .html(_bf.t('Powered by ') + '<a href="' + _bf.host + '" title="' + _bf.appname + '" target="_new">' + _bf.appname + '</a>')
-                    .appendTo($('._bf_widgets_holder'));
+                    .prependTo($('._bf_widgets_holder'));
                 }
 
                 // have we set the API token?
