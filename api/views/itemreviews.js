@@ -520,7 +520,15 @@ var _bf_itemreviews = {
                                 border: 0,
                                 src: thumb
                             })
-                            .appendTo($(this));
+                            .css(
+                            {
+                                display: 'none'
+                            })
+                            .appendTo($(this))
+                            .load(function()
+                            {
+                                $(this).fadeIn();
+                            });
                         })
                         .appendTo($(this));
                     }
