@@ -143,9 +143,10 @@ var _bf_itemreviews = {
 
                                 $('<em />').attr(
                                 {
-                                    'class': '_bf_widget_control_subtxt _bf_reviews_qty'
+                                    'class': '_bf_widget_control_subtxt _bf_reviews_qty',
+                                    'title': _bf_itemreviews.recordqty + ' ' + (_bf_itemreviews.recordqty == 1 ? _bf.t('entry') : _bf.t('entries'))
                                 })
-                                .html('(' + _bf_itemreviews.recordqty + ')')
+                                .html(_bf_itemreviews.recordqty)
                                 .appendTo($('._bf_reviews_control'))
                             });
                         });

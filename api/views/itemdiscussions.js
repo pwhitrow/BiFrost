@@ -63,9 +63,10 @@ var _bf_itemdiscussions = {
                     
                     $('<em />').attr(
                     {
-                        'class': '_bf_widget_control_subtxt _bf_discussions_qty'
+                        'class': '_bf_widget_control_subtxt _bf_discussions_qty',
+                        'title': discussions.recordqty + ' ' + (discussions.recordqty == 1 ? _bf.t('entry') : _bf.t('entries'))
                     })
-                    .html('(' + discussions.recordqty + ')')
+                    .html(discussions.recordqty)
                     .appendTo($('._bf_discussions_control'))
                 })
             )

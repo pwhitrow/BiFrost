@@ -226,11 +226,34 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_widget_control_subtxt
 {
-    color:#bbb;
-    float:right;
-    font-size:11px;
+    position: absolute;
+    top:-17px;
+    z-index: 1;
+    color:#888;
+    text-shadow: 1px 1px 1px #fff;
+    font-size:9px;
     margin:7px 0px 0px 10px;
-    padding:0px 0px 0px 0px;
+    padding:0px;
+    height:22px;
+    width:22px;
+    text-align:center;
+    line-height:22px;
+    border:2px solid #F7F5F5;
+    background-color: #F1F1F1;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#F1F1F1), to(#CBCBCB));
+    background-image: -webkit-linear-gradient(top, #F1F1F1, #CBCBCB);
+    background-image: -moz-linear-gradient(top, #F1F1F1, #CBCBCB);
+    background-image: -ms-linear-gradient(top, #F1F1F1, #CBCBCB);
+    background-image: -o-linear-gradient(top, #F1F1F1, #CBCBCB);
+    background-image: linear-gradient(top, #F1F1F1, #CBCBCB);
+
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+
+     -moz-box-shadow: 2px 2px 2px #C9C9C9;
+     -webkit-box-shadow: 2px 2px 2px #C9C9C9;
+     box-shadow: 2px 2px 2px #C9C9C9;
 }
 
 ._bf_reviews_control.active,
