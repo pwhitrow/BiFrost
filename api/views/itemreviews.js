@@ -71,6 +71,12 @@ var _bf_itemreviews = {
     {
         var reviews = $.parseJSON(data.itemreviews);
         
+        if(typeof reviews.content == 'undefined')
+        {
+            _bf_itemreviews.clearLazyLoader();
+            return false;
+        }
+        
         _bf_itemreviews.recordqty = reviews.recordqty;
 
         if(_bf_itemreviews.lazyloading)
@@ -240,9 +246,14 @@ var _bf_itemreviews = {
             
             _bf.sticky();
         });
-
+        
+        _bf_itemreviews.clearLazyLoader();
+    },
+    
+    clearLazyLoader: function()
+    {
         $('._bf_reviews_lazyloading').remove();
-        _bf_itemreviews.lazyloading = false;                    
+        _bf_itemreviews.lazyloading = false;                            
     },
     
     lazyLoad: function() 
