@@ -109,7 +109,7 @@ var _bf_itemreviews = {
                     })
                     .each(function()
                     {
-                        _bf.widgetButton('review', 'Post a review', 'Post a review', 425, 600, $(this));
+                        _bf.widgetButton('review', 'Post a review', 'Post a review', 380, 593, $(this));
 
                         var itemrating = $.parseJSON(data.itemrating);
 

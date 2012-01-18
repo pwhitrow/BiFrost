@@ -23,7 +23,7 @@ var _bf_formlinks = {
         ).html(_bf.t('Register'))
         .click(function(event)
         {
-            _bf.openPanel(393, 440, function()
+            _bf.openPanel(374, 440, function()
             {
                 _bf.getForm({form: 'register'});
             });
@@ -37,7 +37,7 @@ var _bf_formlinks = {
         ).html(_bf.t('Login'))
         .click(function(event)
         {
-            _bf.openPanel(246, 440, function()
+            _bf.openPanel(207, 440, function()
             {
                 _bf.getForm({form:'login'});
             });
@@ -51,7 +51,7 @@ var _bf_formlinks = {
         ).html(_bf.t('Forgotten Password?'))
         .click(function(event)
         {
-            _bf.openPanel(230, 440, function()
+            _bf.openPanel(213, 440, function()
             {
                 _bf.getForm({form:'forgottenpassword'});
             });

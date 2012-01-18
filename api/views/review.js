@@ -16,7 +16,7 @@ if(_bf.loggedIn())
 
             fileStack: [],
             fileLimit: 6,
-            filesTxt: _bf.t('Add images and videos to your review.') + '<br />' + _bf.imagetypes + _bf.videotypes + '<br /><br />',
+            filesTxt: _bf.t('Add media to your review.') + '<br />' + _bf.imagetypes + _bf.videotypes + '<br /><br />',
 
             init: function()
             {
@@ -90,28 +90,38 @@ if(_bf.loggedIn())
                 })
                 .appendTo(form);
 
+
                 var div = $('<div />').attr(
                 {
-                    'class': '_bf_newfile_holder _bf_button'
+                    'class': '_bf_dashright_panel'
                 })
-                .html(_bf.t('Add a file'))
-                .appendTo(form);
-
-                var file = $('<input />').attr(
+                .appendTo(form)
+                .each(function()
                 {
-                    type: 'file',
-                    id: 'newfile',
-                    name: 'newfile',
-                    'class': '_bf_' + formname + '_newfile _bf_ignore_validation'
-                }
-                ).appendTo(div);
+                    var div = $('<div />').attr(
+                    {
+                        'class': '_bf_newfile_holder _bf_button'
+                    })
+                    .html(_bf.t('Add media'))
+                    .appendTo($(this));
 
-                $('<div />').attr(
-                {
-                    'class': '_bf_review_filestack'
-                })
-                .html(_bf_review.filesTxt)
-                .appendTo(form);
+                    var file = $('<input />').attr(
+                    {
+                        type: 'file',
+                        id: 'newfile',
+                        name: 'newfile',
+                        'class': '_bf_' + formname + '_newfile _bf_ignore_validation'
+                    }
+                    ).appendTo(div);
+
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_review_filestack'
+                    })
+                    .html(_bf_review.filesTxt)
+                    .appendTo($(this));                   
+                });
+                
                         
                 _bf.state_panel.append(form)
                 .each(function()

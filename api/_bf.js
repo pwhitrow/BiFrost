@@ -135,7 +135,7 @@ function _bf_go()
             state: false,
             state_panel: false,
             state_width_default: 200,
-            state_height_default: 35,
+            state_height_default: 45,
             state_panel_width: (typeof _bf_panel_text != 'undefined' ? _bf_panel_text[1] : 170),
             state_actions: false,
             custom_css: false,
@@ -422,7 +422,7 @@ function _bf_go()
             {
                 _bf.openPanel(75, 300, function()
                 {
-                    _bf.showStateOverlay(_bf.t('Please register or login'), 2000, function()
+                    _bf.showStateOverlay(_bf.t('Please login or register'), 2000, function()
                     {
                         _bf.closePanel();
                     });
@@ -752,7 +752,7 @@ function _bf_go()
                     .toggle(
                     function()
                     {
-                        _bf.openPanel(246, 440, function()
+                        _bf.openPanel(207, 440, function()
                         {
                             _bf.state_action.html(_bf.t('Close'))
                             .attr('title', _bf.t('Click to close'));
@@ -1393,7 +1393,7 @@ function _bf_go()
                         label.css(
                         {
                             position: 'absolute',
-                            top: pos.top - offSet + 'px',
+                            top: '0px',
                             left: pos.left + 31 + 'px'
                         })
                         .addClass('pos-fixed')

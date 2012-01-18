@@ -57,7 +57,7 @@ var _bf_itemdiscussions = {
                 })
                 .each(function()
                 {
-                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 335, 600, $(this));
+                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 302, 556, $(this));
                     
                     $('._bf_discussions_qty').remove();
                     
