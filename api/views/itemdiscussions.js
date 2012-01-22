@@ -23,10 +23,13 @@ var _bf_itemdiscussions = {
         // do we need to load any more?
         if($('._bf_discussions_qty').length)
         {
-            if(_bf_itemdiscussions.itemqty >= parseInt($('._bf_discussions_qty').html()))
+            if(_bf_itemdiscussions.lazyloading)
             {
-                _bf_itemdiscussions.clearLazyLoader();
-                return false;
+                if(_bf_itemdiscussions.itemqty >= parseInt($('._bf_discussions_qty').html()))
+                {
+                    _bf_itemdiscussions.clearLazyLoader();
+                    return false;
+                }
             }
         }
         

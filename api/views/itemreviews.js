@@ -21,21 +21,24 @@ var _bf_itemreviews = {
     
     getReviews: function()
     {
-        // do we need to load any more?
-        if($('._bf_reviews_qty').length)
-        {
-            if(_bf_itemreviews.itemqty >= parseInt($('._bf_reviews_qty').html()))
-            {
-                _bf_itemreviews.clearLazyLoader();
-                return false;
-            }
-        }
-
         if(!_bf_itemreviews.lazyloading)
         {
             _bf_itemreviews.fadeReviews();
         }
         
+        // do we need to load any more?
+        if($('._bf_reviews_qty').length)
+        {
+            if(_bf_itemreviews.lazyloading)
+            {
+                if(_bf_itemreviews.itemqty >= parseInt($('._bf_reviews_qty').html()))
+                {
+                    _bf_itemreviews.clearLazyLoader();
+                    return false;
+                }
+            }
+        }
+
         if(_bf_itemreviews.tagging)
         {
             _bf.post(
@@ -315,6 +318,7 @@ var _bf_itemreviews = {
             {
                 click: function()
                 {
+                    _bf_itemreviews.itemqty = 0;
                     _bf_itemreviews.limitfrom = 0;
                     _bf_itemreviews.tagging = false;
                     _bf_itemreviews.getReviews();
@@ -389,6 +393,7 @@ var _bf_itemreviews = {
                     {
                         click:function()
                         {
+                            _bf_itemreviews.itemqty = 0;
                             _bf_itemreviews.limitfrom = 0;
                             _bf_itemreviews.tagging = $(this).attr('rel');
                             _bf_itemreviews.getReviews();
