@@ -11,7 +11,7 @@ if(!$('._bf_' + formname + '_form').length)
         init: function()
         {
             // create the form
-            var form = $('<form></form>').attr(
+            var form = $('<form />').attr(
             {
                 method: 'post',
                 action: formname,
@@ -52,14 +52,19 @@ if(!$('._bf_' + formname + '_form').length)
             })
             .appendTo(form);
 
-            $('._bf_dashboard').append(form);
+            $('._bf_dashboard')
+            .append(form)
+            .each(function()
+            {
+                $(this).fadeIn(_bf.ani_speed);
+            });
 
             $('<p />').attr(
             {
                 'class': '_bf_changeemail_text'
             })
             .html(_bf.t('Please note: If you change your email address you will need you use this new one to login.'))
-            .appendTo($('._bf_' + formname + '_form'));
+            .appendTo($('._bf_' + formname + '_form'))
 
         }
     }

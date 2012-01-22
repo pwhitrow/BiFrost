@@ -2,8 +2,8 @@
  * Dashboard
  */
 
-_bf_loadscript('api/plugins/lionbars/jQuery.lionbars.0.2.1.min.js');
-_bf_loadscript('api/plugins/lionbars/lionbars.css');
+//_bf_loadscript('api/plugins/lionbars/jQuery.lionbars.0.2.1.min.js');
+//_bf_loadscript('api/plugins/lionbars/lionbars.css');
 
 _bf.cleanUp($('._bf_dashboard'));
 
@@ -43,7 +43,7 @@ var _bf_dashboard = {
 
                     for(i = 0; i < items.length; i++)
                     {
-                        $('<li />')
+                        var el = $('<li />')
                         .text(_bf.t(items[i][0]))
                         .attr(
                         {
@@ -56,6 +56,11 @@ var _bf_dashboard = {
                             _bf.changeDashboardView($(this));
                         })
                         .appendTo($('._bf_dashboard_actions'));
+                        
+                        if(i == items.length -1)
+                        {
+                            el.addClass('last')
+                        }
                     }
                 });
             }

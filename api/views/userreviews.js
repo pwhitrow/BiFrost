@@ -29,6 +29,10 @@ if(_bf.loggedIn())
                     {
                         'class': '_bf_userreviews'
                     })
+                    .css(
+                    {
+                        'display': 'none'
+                    })
                     .appendTo($('._bf_dashboard'))
                     .each(function()
                     {
@@ -37,7 +41,9 @@ if(_bf.loggedIn())
                             _bf_userreviews.renderReview(reviews[i]);
                         }
                         
-                        $(this).lionbars('light', true, true);
+                        //$(this).lionbars('light', true, true);
+                        
+                        $(this).fadeIn(_bf.ani_speed);
                     });
 
                 }

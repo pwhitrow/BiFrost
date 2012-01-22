@@ -1,6 +1,10 @@
-/*
- * item reviews
- */
+/* 
+    Application: BiFrost
+    Document   : itemreviews.js
+    Created on : 27-Oct-2011
+    Author     : Paul Whitrow
+    Description: Grab and render the reviews
+*/
 
 var _bf_itemreviews = {
     
@@ -8,6 +12,7 @@ var _bf_itemreviews = {
     limitqty: 5,
     tagging: false,
     lazyloading:false,
+    itemqty: 0,
 
     init: function()
     {
@@ -16,6 +21,16 @@ var _bf_itemreviews = {
     
     getReviews: function()
     {
+        // do we need to load any more?
+        if($('._bf_reviews_qty').length)
+        {
+            if(_bf_itemreviews.itemqty >= parseInt($('._bf_reviews_qty').html()))
+            {
+                _bf_itemreviews.clearLazyLoader();
+                return false;
+            }
+        }
+
         if(!_bf_itemreviews.lazyloading)
         {
             _bf_itemreviews.fadeReviews();
@@ -206,6 +221,7 @@ var _bf_itemreviews = {
             });
 
             i++;
+            _bf_itemreviews.itemqty++;
         });
         
         $("a._bf_itemreviews_media_link").showBox(

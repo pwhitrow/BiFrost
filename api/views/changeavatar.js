@@ -17,6 +17,10 @@ if(!$('._bf_' + formname + '_form').length)
                 action: formname,
                 name: formname,
                 'class': ' _bf_' + formname + '_form'
+            })
+            .css(
+            {
+                'display':'none'
             });
 
             var user = $.parseJSON(_bf.cookie('_bf_data'));
@@ -53,6 +57,7 @@ if(!$('._bf_' + formname + '_form').length)
             .append(form)
             .each(function()
             {
+                $(this).fadeIn(_bf.ani_speed);
                 _bf_changeavatar.uploaderReady();
             });
             

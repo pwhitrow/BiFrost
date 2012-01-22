@@ -890,6 +890,16 @@ function _bf_go()
 
                     // submit the form
                     _bf.post(params);
+                    
+                    // reset item counters
+                    if(_bf_itemreviews.itemqty)
+                    {
+                        _bf_itemreviews.itemqty = 0;
+                    }
+                    if(_bf_itemdiscussions.itemqty)
+                    {
+                        _bf_itemdiscussions.itemqty = 0;
+                    }
                 }
             },
 

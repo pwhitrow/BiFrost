@@ -3,7 +3,7 @@
     Document   : _bf_discussions.php
     Created on : 16-Nov-2011, 01:06:32
     Author     : Paul Whitrow
-    Description: Visitor Review - get and post discussions
+    Description: Get and post discussions
 */
 
 function postDiscussion()
@@ -59,8 +59,8 @@ function getItemDiscussions()
 {
     $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
     
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
-
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+        
     $sql = mysql_query($sql);
 
     $rows = array();
@@ -82,8 +82,10 @@ function getItemDiscussions()
             $rows['avatar'][] = checkAvatar($user['avatar']);
         }
 
+        $sqlComments = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM comments WHERE parent_id = '".$r['id']."'";
+
         // fetch comments for item
-        $q = mysql_query("SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM comments WHERE parent_id = '".$r['id']."'");
+        $q = mysql_query($sqlComments);
 
         if(mysql_num_rows($q) > 0)
         {

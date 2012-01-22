@@ -3,7 +3,7 @@
     Document   : _bf_reviews.php
     Created on : 14-Nov-2011, 20:12:22
     Author     : Paul Whitrow
-    Description: Visitor Review - get and post reviews
+    Description: Get and post reviews
 */
 
 function postReview()

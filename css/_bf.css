@@ -20,6 +20,7 @@
     padding:0px;
 
     background:#454545 url(../images/dashbg.png) 0 0 repeat;
+    background:#1D1D1D url(../images/wait-grey-mini.gif) center center no-repeat;
 /*    
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(80%, #343434), color-stop(100%, #313131));
     background-image: -webkit-linear-gradient(top, #343434 0%,#343434 80%,#313131 100%);
@@ -100,20 +101,25 @@
 ._bf_state_actions
 {
     margin:0px;
-    padding:5px 0px 5px 0px;
-    text-align: center;
+    padding:5px 10px 0px 0px;
+    text-align: right;
     position:absolute;
-    bottom:4px;
+    bottom:0px;
     right:0px;
     left:0px;
+    height:41px;
     display:block;
     list-style:none;
-    border-top:1px dotted #4E4E4E;
+    -moz-box-shadow: 0px 0px 8px #232323;
+    -webkit-box-shadow: 0px 0px 8px #232323;
+    box-shadow: 0px 0px 8px #232323;
 }
 
 ._bf_state_action
 {
-    color: #fff;
+    color: #eee;
+    text-shadow: -1px -1px 1px #0D0D0D;
+    
     background-color: #383d40;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#585f63), to(#383d40));
     background-image: -webkit-linear-gradient(top, #585f63, #383d40);
@@ -122,27 +128,23 @@
     background-image: -o-linear-gradient(top, #585f63, #383d40);
     background-image: linear-gradient(top, #585f63, #383d40);
 
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    border:1px solid #25282a;
 
-    text-shadow: 1px 1px 1px #204b73;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 
      -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
      -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
      box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 
-    border:1px solid #25282a;
-
     height: 22px;
     padding: 7px 10px 0px 10px;
     cursor: pointer;
     font: bold 12px Helvetica, Arial, sans-serif;
-    color: #fff;
     margin:0px 5px 0px 5px;
     text-align:center;
     clear:both;
-
     display: inline-block;
 }
 
@@ -257,15 +259,29 @@ FORMS
     background-position: 5px -777px !important;
 }
 
+._bf_itemreviews_header.stick,
+._bf_itemdiscussions_header.stick
+{
+    position:fixed;
+    top:0px;
+    z-index:10000;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.2);
+}
+
 ._bf_review_content
 {
     background-position: 5px -137px !important;
+    height:152px;
 }
 
 ._bf_discuss_content,
 ._bf_comment_content
 {
     background-position: 5px -476px !important;
+    height:152px;
 }
 
 ._bf_button
@@ -279,11 +295,11 @@ FORMS
     background-image: -o-linear-gradient(top, #4689db, #205885);
     background-image: linear-gradient(top, #4689db, #205885);
 
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 
-    text-shadow: 1px 1px 1px #204b73;
+    text-shadow: -1px -1px 1px #204b73;
 
      -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
      -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
@@ -297,7 +313,7 @@ FORMS
     padding: 7px 0px 0px 0px;
     width: 120px;
     cursor: pointer;
-    font: bold 12px Helvetica, Arial, sans-serif;
+    font: bold 11px Helvetica, Arial, sans-serif;
     color: #fff;
     margin:10px 0px 0px 0px;
     text-align:center;
@@ -316,7 +332,35 @@ FORMS
     background-image: linear-gradient(top, #205885, #4689db);
 }
 
-
+._bf_button._bf_button_silver
+{
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    border:1px solid #ccc;
+    color:#555;
+    background:#f6f6f6;
+    background-image:-moz-linear-gradient(top,#ffffff,#efefef);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#efefef));
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#efefef);
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    white-space:nowrap;
+    vertical-align:middle;
+    cursor:pointer;
+    overflow:visible
+}
+._bf_button._bf_button_silver:hover
+{
+    border-color:#999;
+    background:#f3f3f3;
+    background-image:-moz-linear-gradient(top,#ffffff,#ebebeb);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ebebeb));
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#ebebeb);
+    outline:0;
+    -moz-box-shadow:0 0 3px #999;
+    -webkit-box-shadow:0 0 3px #999;
+    box-shadow:0 0 3px #999;    
+}
 
 ._bf_submit_button_image
 {
@@ -506,84 +550,91 @@ DASHBOARD
 ._bf_dashboard
 {
     position:absolute;
-    top:20px;
-    left:20px;
-    right: 20px;
+    top:0px;
+    left:0px;
+    right: 0px;
     bottom:40px;
     margin: 0 auto;
     color: #555;
     text-shadow: 0px 2px 3px #171717;
 }
 
-._bf_dashboard_actions
+._bf_changeemail_form
 {
     position:absolute;
-    right:-1px;
-    top:20px;
+    left:200px;
+    top:100px;
+    background:#1D1D1D;
+}
+._bf_changepassword_form
+{
+    position:absolute;
+    left:200px;
+    top:105px;
+    background:#1D1D1D;
+}
+._bf_changeavatar_form
+{
+    position:absolute;
+    left:200px;
+    top:105px;
+    background:#1D1D1D;
+}
+ 
+._bf_dashboard_actions
+{
+    text-shadow: 0px 2px 3px #171717;
+    position:absolute;
+    left:0px;
+    top:1px;
+    bottom:-45px;
+    width:137px;
     list-style:none;
     padding:0px;
     margin:0px;
+    border: none;
+    -moz-box-shadow: 0px 0px 8px #232323;
+    -webkit-box-shadow: 0px 0px 8px #232323;
+    box-shadow: 0px 0px 8px #232323;
+    z-index:10;
+    background: url("../images/dashbg.png") 0 0 #454545 repeat;
+    border-bottom-left-radius: 10px;
+}
+
+._bf_dashboard_actions .last 
+{
+    border-bottom-left-radius: 10px;
 }
 
 ._bf_dashboard_action
 {
     font:normal 12px Helvetica, Arial, sans-serif;
-    color: #999;
-    
-    text-transform: uppercase;
-    
-    padding:10px 10px 10px 10px;
-    margin:0px 0px 10px 0px;
-    background:transparent url(../images/bg.png) 0 0 repeat;
-    
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    
-    text-shadow: none;
+    color: #999;    
+    text-shadow: 1px 1px 1px #171717;
+    padding:10px 10px 10px 18px;
+    background:transparent;
     cursor:pointer;
-    
-    /* IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    /* IE 5-7 */
-    filter: alpha(opacity=50);
-    /* Netscape */
-    -moz-opacity: 0.5;
-    /* Safari 1.x */
-    -khtml-opacity: 0.5;
-    /* Good browsers */
-    opacity: 0.5;
-
-    -webkit-transition:opacity .2s ease-in;
-    -moz-transition:opacity .2s ease-in;
-    -o-transition:opacity .2s ease-in;
-    transition:opacity .2s ease-in;
+    border-bottom: 1px solid #343434;
+    border-top: 1px solid #444444;
+    height:36px;
+    line-height:36px;
 }
 
 ._bf_dashboard_action:hover,
 ._bf_dashboard_action.active_action
 {
+    background:#373737;
     color:#fff;
+    border-top:1px solid transparent;
     text-shadow: 0px 2px 3px #171717;
-    
-    /* IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    /* IE 5-7 */
-    filter: alpha(opacity=100);
-    /* Netscape */
-    -moz-opacity: 1;
-    /* Safari 1.x */
-    -khtml-opacity: 1;
-    /* Good browsers */
-    opacity: 1;
+     -moz-box-shadow: 0px 0px 8px #232323 inset;
+     -webkit-box-shadow: 0px 0px 8px #232323 inset;
+     box-shadow: 0px 0px 8px #232323 inset;
+}
 
-    -webkit-transition:opacity .2s ease-in;
-    -moz-transition:opacity .2s ease-in;
-    -o-transition:opacity .2s ease-in;
-    transition:opacity .2s ease-in;
+._bf_dashboard_action.active_action
+{
+    background: url("../images/dash-button-tip.png") right center #373737 no-repeat;    
 }
 
 ._bf_changeemail_text
@@ -707,7 +758,7 @@ POST REVIEW
     height:342px;
     margin: 0px;
     padding: 0px;
-    background: url("../images/bg.png") repeat scroll 0 0 #454545;
+    background:#454545 url(../images/dashbg.png) 0 0 repeat;
     border:5px solid #666;
     -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
     -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
@@ -746,7 +797,7 @@ POST REVIEW
 
 ._bf_multiselect_item:hover
 {
-    background: #666;
+    background: #2B2E31;
     color:#eee;
 }
 
@@ -767,7 +818,6 @@ POST REVIEW
     padding-left:10px;
     z-index:1;
     width:289px;
-    background:#333;
     -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
     -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
     box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
@@ -780,10 +830,9 @@ POST REVIEW
     left: 0px;
     right:0px;
     height:50px;
-    background:#333;
-    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
-    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
-    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
+    -webkit-box-shadow: 0px -2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px -2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px -2px 7px rgba(20, 20, 20, 0.8);
 }
 
 ._bf_input_newtag_done_button
@@ -880,10 +929,10 @@ POST REVIEW
     -webkit-border-radius: 20px;
     border-radius: 20px;
     
-    border:1px solid #fff;
+    border:2px solid #fff;
 
     float:left;
-    margin:10px 7px 0px 0px;
+    margin:10px 4px 0px 2px;
     cursor:pointer;
 }
 
@@ -966,13 +1015,15 @@ Dashboard Show Reviews etc
 ._bf_userdiscussions,
 ._bf_usercomments
 {
-    float:left;
-    padding:0px 0px 0px 0px;
-    margin:0px 0px 0px 0px;
+    background: #F7F7F7;
+    bottom: -10px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: -14px;
+    width: 462px;
     list-style:none;
-    width:380px;
-    height:305px;
-    overflow:auto;
 }
 
 ._bf_userreviews_item,
@@ -980,13 +1031,15 @@ Dashboard Show Reviews etc
 ._bf_usercomments_item
 {
     padding:5px 0px 10px 0px;
-    margin:0px 0px 0px 20px;
+    margin:0px 0px 0px 0px;
     font: normal 12px Helvetica, Arial, sans-serif;
-    color: #999;
-    border-bottom: 1px dotted #333;
+    color: #888;
+    text-shadow:1px 1px 1px #fff;
+    border-top: 1px solid #F9F9F9;
+    border-bottom:1px solid #EAEAEA;
     float:left;
+    width:100%;
     clear: both;
-    text-shadow: 0 2px 1px #000;
 }
 
 ._bf_userreviews_item_title,
@@ -994,7 +1047,7 @@ Dashboard Show Reviews etc
 ._bf_usercomments_content
 {
     font: bold 12px Helvetica, Arial, sans-serif;
-    color: #999;
+    color: #555;
     padding:5px 0px 5px 30px;
     margin:0px 0px 0px 0px;
     font-size:14px;
@@ -1028,7 +1081,7 @@ Dashboard Show Reviews etc
 ._bf_userreviews_item_title:hover,
 ._bf_userdiscussions_item_title:hover
 {
-    color: #d5d5d5;
+    color: #333;
 }
 
 ._bf_userreviews_item_synopsis,

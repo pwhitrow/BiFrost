@@ -29,6 +29,10 @@ if(_bf.loggedIn())
                     {
                         'class': '_bf_userdiscussions'
                     })
+                    .css(
+                    {
+                        'display': 'none'
+                    })
                     .appendTo($('._bf_dashboard'))
                     .each(function()
                     {
@@ -36,6 +40,8 @@ if(_bf.loggedIn())
                         {
                             _bf_userdiscussions.renderDiscussion(reviews[i]);
                         }
+                        
+                        $(this).fadeIn(_bf.ani_speed);
                     });
 
                 }

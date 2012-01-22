@@ -58,14 +58,24 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     margin-right:30px;
 }
 
-._bf_reviews_lazyloading
+._bf_reviews_lazyloading,
+._bf_discussions_lazyloading
 {
-    background:transparent url(../images/wait.gif) center center no-repeat;
-    text-shadow: 1px 1px 1px #fff;
-    font:bold 16px arial;
-    color:#888;
-    height:70px;
-    text-align:center;
+    background:url("../images/wait-grey-mini.gif") no-repeat scroll center center #1D1D1D;
+    bottom: 0;
+    color: #DEDEDE;
+    font: 10px arial;
+    height: 30px;
+    left: 0;
+    padding-top: 14px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-shadow: 1px 1px 1px #323232;
+    z-index:1000;
+    -moz-opacity:.60; 
+    filter:alpha(opacity=60); 
+    opacity:.60;
 }
 
 ._bf_items_paginator
@@ -180,18 +190,6 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
 }
 
-._bf_itemreviews_header.stick,
-._bf_itemdiscussions_header.stick
-{
-    position:fixed;
-    top:0px;
-    z-index:10000;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow:0px 3px 3px rgba(0,0,0,0.2);
-}
-
 ._bf_no_reviews,
 ._bf_no_discussions
 {
@@ -235,10 +233,10 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-size:9px;
     margin:7px 0px 0px 10px;
     padding:0px;
-    height:22px;
-    width:22px;
+    height:20px;
+    width:20px;
+    line-height:20px;
     text-align:center;
-    line-height:22px;
     border:2px solid #F7F5F5;
     background-color: #F1F1F1;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#F1F1F1), to(#CBCBCB));
@@ -255,6 +253,20 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
      -moz-box-shadow: 2px 2px 2px #C9C9C9;
      -webkit-box-shadow: 2px 2px 2px #C9C9C9;
      box-shadow: 2px 2px 2px #C9C9C9;
+}
+
+._bf_reviews_control.active ._bf_widget_control_subtxt,
+._bf_discussions_control.active ._bf_widget_control_subtxt
+{
+    color:#fff;
+    text-shadow: -1px -1px 0px #000;
+    background-color: #b3b3b3;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b3b3b3), to(#3E3E3E));
+    background-image: -webkit-linear-gradient(top, #b3b3b3, #3E3E3E);
+    background-image: -moz-linear-gradient(top, #b3b3b3, #3E3E3E);
+    background-image: -ms-linear-gradient(top, #b3b3b3, #3E3E3E);
+    background-image: -o-linear-gradient(top, #b3b3b3, #3E3E3E);
+    background-image: linear-gradient(top, #b3b3b3, #3E3E3E);
 }
 
 ._bf_reviews_control.active,
