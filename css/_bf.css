@@ -175,6 +175,7 @@ FORMS
     margin: 0 auto;
     color: #555;
     text-shadow: 0px 2px 3px #000;
+    background:#1D1D1D;
 }
 
 ._bf_form_row
@@ -1040,6 +1041,15 @@ Dashboard Show Reviews etc
     float:left;
     width:100%;
     clear: both;
+}
+
+._bf_userreviews_item:hover,
+._bf_userdiscussions_item:hover,
+._bf_usercomments_item:hover
+{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-color:#eee;
 }
 
 ._bf_userreviews_item_title,

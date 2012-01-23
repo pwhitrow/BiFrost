@@ -256,7 +256,7 @@ function _bf_go()
                     });
                 }    
                 
-                $('._bf_itemreviews_header').removeClass('stick');
+                $('._bf_item'+type+'_header').removeClass('stick');
                 _bf.current_widget = type;
             },
 
@@ -385,17 +385,17 @@ function _bf_go()
                 
             },
             
-            sticky: function()
+            sticky: function(widget)
             {
                 var window_top = $(window).scrollTop() +1;
-                var div_top = $('._bf_itemreviews').offset().top;
+                var div_top = $('._bf_item'+widget).offset().top;
                 if (window_top > div_top)
                 {
-                    $('._bf_itemreviews_header').addClass('stick')
+                    $('._bf_item'+widget+'_header').addClass('stick')
                 }
                 else
                 {
-                    $('._bf_itemreviews_header').removeClass('stick');
+                    $('._bf_item'+widget+'_header').removeClass('stick');
                 }                                    
             },
             

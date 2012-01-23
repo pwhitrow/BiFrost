@@ -196,7 +196,7 @@ var _bf_itemdiscussions = {
                 }
             }
             
-            _bf.sticky();
+            _bf.sticky('discussions');
         });
         
         _bf_itemdiscussions.clearLazyLoader();

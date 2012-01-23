@@ -220,7 +220,8 @@ var _bf_itemreviews = {
                 content: reviews.content[i],
                 fdate: reviews.fdate[i],
                 isodate: reviews.isodate[i],
-                tags: reviews.tags[i]
+                tags: reviews.tags[i],
+                number: _bf_itemreviews.itemqty + 1
             });
 
             i++;
@@ -263,7 +264,7 @@ var _bf_itemreviews = {
                 }
             }
             
-            _bf.sticky();
+            _bf.sticky('reviews');
         });
         
         _bf_itemreviews.clearLazyLoader();
@@ -430,6 +431,13 @@ var _bf_itemreviews = {
         .appendTo($('._bf_itemreviews'))
         .each(function()
         {
+            $('<span />').attr(
+            {
+                'class': '_bf_itemreviews_item_number'
+            })
+            .html(review.number)
+            .appendTo($(this))
+            
             $('<p />').attr(
             {
                 'class': '_bf_itemreviews_item_synopsis'
