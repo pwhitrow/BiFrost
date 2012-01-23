@@ -38,3 +38,11 @@
     padding:0px;
     border:0px;
 }
+
+._bf_social_bookmark_text
+{
+    float:left;
+    font:normal 11px arial;
+    color:#B1B1B1;
+    line-height:27px;
+}

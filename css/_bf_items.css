@@ -628,14 +628,21 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-weight: normal;
 }
 
-._bf_itemreviews_item_number
+._bf_itemreviews_item_number,
+._bf_itemdiscussions_item_number
 {
     bottom: 0;
-    color: #DADADA;
+    color: #EBEBEB;
     font-size: 40px;
     left: 5px;
     position: absolute;
-    text-shadow: 1px 1px 1px #E7E7E7;
+    text-shadow: none;
+}
+
+._bf_itemdiscussions_item_number
+{
+    left:auto;
+    right:5px;
 }
 
 ._bf_itemreviews_item_rating

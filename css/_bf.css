@@ -336,7 +336,7 @@ FORMS
 ._bf_button._bf_button_silver
 {
     text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
-    border:1px solid #ccc;
+    border:1px solid #999;
     color:#555;
     background:#f6f6f6;
     background-image:-moz-linear-gradient(top,#ffffff,#efefef);
@@ -349,18 +349,18 @@ FORMS
     vertical-align:middle;
     cursor:pointer;
     overflow:visible
+    -moz-box-shadow:0 0 3px #999;
+    -webkit-box-shadow:0 0 3px #999;
+    box-shadow:0 0 3px #999;    
 }
 ._bf_button._bf_button_silver:hover
 {
-    border-color:#999;
+    border:1px solid #999;
     background:#f3f3f3;
     background-image:-moz-linear-gradient(top,#ffffff,#ebebeb);
     background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ebebeb));
     filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#ebebeb);
     outline:0;
-    -moz-box-shadow:0 0 3px #999;
-    -webkit-box-shadow:0 0 3px #999;
-    box-shadow:0 0 3px #999;    
 }
 
 ._bf_submit_button_image
@@ -1116,7 +1116,7 @@ Dashboard Show Reviews etc
 
 ._bf_powered_by
 {
-    color: #888;
+    color: #BCBCBC;
     font: 10px arial;
     position: relative;
     right: 10px;
@@ -1125,11 +1125,11 @@ Dashboard Show Reviews etc
 }
 ._bf_powered_by a
 {
-    color:#777;
+    color:#bbb;
 }
 ._bf_powered_by a:hover
 {
-    color:#aaa;
+    color:#999;
 }
 
 

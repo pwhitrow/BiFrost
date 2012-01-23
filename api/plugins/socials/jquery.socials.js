@@ -42,6 +42,13 @@
             {
                 $('<li />').attr(
                 {
+                    'class': '_bf_social_bookmark_text'
+                })
+                .html(_bf.t('Share') + ':')
+                .appendTo($(this))
+                
+                $('<li />').attr(
+                {
                     'class': '_bf_social_bookmark _bf_social_bookmarks_likes'
                 })
                 .each(function()

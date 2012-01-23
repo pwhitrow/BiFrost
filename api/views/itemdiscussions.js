@@ -162,7 +162,8 @@ var _bf_itemdiscussions = {
                 avatar: discussions.avatar[i],
                 content: discussions.content[i],
                 fdate: discussions.fdate[i],
-                isodate: discussions.isodate[i]
+                isodate: discussions.isodate[i],
+                number: _bf_itemdiscussions.itemqty + 1
             }, comments);
             
             i++;
@@ -238,6 +239,13 @@ var _bf_itemdiscussions = {
         .appendTo($('._bf_itemdiscussions'))
         .each(function()
         {
+            $('<span />').attr(
+            {
+                'class': '_bf_itemdiscussions_item_number'
+            })
+            .html(discussion.number)
+            .appendTo($(this))
+            
             $('<div />').attr(
             {
                 'class': '_bf_itemdiscussions_arrow_up'
@@ -271,7 +279,7 @@ var _bf_itemdiscussions = {
                     {
                         $('<div />').attr(
                         {
-                            'class': '_bf_itemdiscussions_item_reply_button _bf_button'
+                            'class': '_bf_itemdiscussions_item_reply_button _bf_button _bf_button_silver'
                         })
                         .html(_bf.t('Reply'))
                         .appendTo($(this))
