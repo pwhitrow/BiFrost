@@ -34,15 +34,41 @@
 
 ._bf_social_bookmark_image
 {
-    margin:0px;
+    float:left;
+    margin:0px 0px 0px 5px;
     padding:0px;
     border:0px;
+    height:30px;
+    width:30px;
+    background:transparent url(socials.png) 0px -15px no-repeat;
 }
 
-._bf_social_bookmark_text
+._bf_social_bookmark_image_facebook
 {
-    float:left;
-    font:normal 11px arial;
-    color:#B1B1B1;
-    line-height:27px;
+    background-position: 0px -70px;
 }
+._bf_social_bookmark_image_twitter
+{
+    background-position: 0px -125px;
+}
+._bf_social_bookmark_image_reddit
+{
+    background-position: 0px -295px;
+}
+._bf_social_bookmark_image_stumbleupon
+{
+    background-position: 0px -352px;
+}
+._bf_social_bookmark_image_newsvine
+{
+    background-position: 0px -408px;
+}
+._bf_social_bookmark_image_digg
+{
+    background-position: 0px -239px;
+}
+._bf_social_bookmark_image_delicious
+{
+    background-position: 0px -180px;
+}
+
