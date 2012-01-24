@@ -137,6 +137,15 @@ var _bf_itemreviews = {
 
                         var itemrating = $.parseJSON(data.itemrating);
 
+                        $('<a />').attr(
+                        {
+                            'class': '_bf_items_rss',
+                            'href': _bf.host + 'api/rss.php?type=reviews&apikey=' + data.api_key,
+                            'title': _bf.t("Subscribe to this item's reviews feed")
+                        })
+                        .html(_bf.t('Subscribe via') + '<br /><acronym title="Really Simple Syndication">RSS</acronym>')
+                        .appendTo($(this))
+                        
                         $('<p />').attr(
                         {
                             'class': '_bf_itemreviews_avg_rating',

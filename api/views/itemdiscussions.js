@@ -105,6 +105,15 @@ var _bf_itemdiscussions = {
                     {
                         _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 302, 556, $(this));
 
+                        $('<a />').attr(
+                        {
+                            'class': '_bf_items_rss',
+                            'href': _bf.host + 'api/rss.php?type=discussions&apikey=' + data.api_key,
+                            'title': _bf.t("Subscribe to this item's reviews feed")
+                        })
+                        .html(_bf.t('Subscribe via') + '<br /><acronym title="Really Simple Syndication">RSS</acronym>')
+                        .appendTo($(this))
+                        
                         $('._bf_discussions_qty').remove();
 
                         $('<em />').attr(

@@ -190,6 +190,24 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
 }
 
+._bf_items_rss
+{
+    float:right;
+    font:normal 10px Helvetica, Arial, sans-serif;
+    color:#888;
+    position:relative;
+    height:35px;
+    padding-right: 40px;
+    margin-left:30px;
+    text-align:left;
+    background:transparent url(../images/rss.png) right 0px no-repeat;
+}
+._bf_items_rss:hover
+{
+    color:#444;
+    background-position:right -34px;
+}
+
 ._bf_no_reviews,
 ._bf_no_discussions
 {

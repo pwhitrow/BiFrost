@@ -204,6 +204,10 @@ function respond()
     
     setResponse('appname', APP_NAME);
     
+    $org = getOrgDetails($_REQUEST['api_key']);
+    setResponse('orgName', $org['name']);
+    setResponse('orgURL', $org['url']);
+    
     setResponse('api_token', $_SESSION['api_token']);
     setResponse('state', $_SESSION['state']);
     setResponse('uploads', MEDIA_LOCATION);
