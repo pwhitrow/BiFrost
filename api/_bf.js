@@ -20,7 +20,6 @@ function _bf_loadscript(src)
         if(_bf_scriptrequired('script', src))
         {
             var script = document.createElement('script');
-            //script.src = '_bf_.php?src=' + src;
             script.src = src;
             script.defer = 'defer';
             script.type = 'text/javascript';
