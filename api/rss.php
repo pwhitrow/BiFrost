@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: text/xml');
 
+require('_bf_defines.php');
 require('_bf_dbconnect.php');
 
 $org = "SELECT name, description, url FROM ".TABLEPRENAME."organisations WHERE api_key='".$_REQUEST["apikey"]."'";
