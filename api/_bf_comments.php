@@ -18,7 +18,7 @@ function postComment()
         }
         
         // store comment
-        $sql1 = "INSERT INTO comments (parent_id, api_key, user_id, content, posted) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['content']."', NOW())";
+        $sql1 = "INSERT INTO ".TABLEPRENAME."comments (parent_id, api_key, user_id, content, posted) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['content']."', NOW())";
         
         if(mysql_query($sql1))
         {
@@ -43,7 +43,7 @@ function getUserComments()
 {
     global $result;
 
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM comments WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."comments WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
 
     $sql = mysql_query($sql);
 
@@ -59,7 +59,7 @@ function getUserComments()
 
 function getItemComments()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM comments WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."comments WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
 
     $sql = mysql_query($sql);
 
@@ -68,7 +68,7 @@ function getItemComments()
     while($r = mysql_fetch_array($sql))
     {
         // fetch user data
-        $user = mysql_query("SELECT * FROM users WHERE user_id = '".$r['user_id']."'");
+        $user = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$r['user_id']."'");
 
         if(mysql_num_rows($user) > 0)
         {

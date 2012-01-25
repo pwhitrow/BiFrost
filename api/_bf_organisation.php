@@ -8,7 +8,7 @@
 
 function getOrgDetails($api_key)
 {
-    $sql = mysql_query("SELECT * FROM organisations WHERE api_key = '".$api_key."'");
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."organisations WHERE api_key = '".$api_key."'");
     
     if(mysql_num_rows($sql) > 0)
     {

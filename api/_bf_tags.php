@@ -8,7 +8,7 @@
 
 function getTags()
 {
-    $sql = mysql_query("SELECT * FROM tags WHERE api_key = '".$_POST['api_key']."' ORDER BY tagname ASC");
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."tags WHERE api_key = '".$_POST['api_key']."' ORDER BY tagname ASC");
 
     $rows = array();
 
@@ -23,7 +23,7 @@ function getTags()
 
 function addTag()
 {
-    $sql = mysql_query("INSERT INTO tags (tagname, api_key) VALUES('".prepForDB($_POST['newtag'])."', '".$_POST['api_key']."')");
+    $sql = mysql_query("INSERT INTO ".TABLEPRENAME."tags (tagname, api_key) VALUES('".prepForDB($_POST['newtag'])."', '".$_POST['api_key']."')");
 
     getTags();
     

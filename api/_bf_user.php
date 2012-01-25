@@ -19,7 +19,7 @@ function registerUser()
     
     if(!userExists($_POST['email']))
     {
-        $sql = "INSERT INTO users (user_id, email, password, gname, fname, joined) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, joined) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
         
         logger($sql);
     
@@ -44,7 +44,7 @@ function registerUser()
 
 function userExists($email)
 {
-    $sql = mysql_query("SELECT user_id FROM users WHERE email='".$email."'");
+    $sql = mysql_query("SELECT user_id FROM ".TABLEPRENAME."users WHERE email='".$email."'");
 
     if(mysql_num_rows($sql) != 0)
     {
@@ -58,7 +58,7 @@ function userExists($email)
 
 function getUser($email)
 {
-    $sql = mysql_query("SELECT * FROM users WHERE email='".$email."'");
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."'");
 
     if(mysql_num_rows($sql) != 0)
     {
@@ -98,7 +98,7 @@ function login($email, $password)
 
     if(userExists($email))
     {
-        $sql = mysql_query("SELECT * FROM users WHERE email='".$email."' AND password = '".$password."'");
+        $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".$password."'");
         
         if(mysql_num_rows($sql) > 0)
         {
@@ -112,9 +112,8 @@ function login($email, $password)
                     $_SESSION['state'] = true;
                     $grav = checkGravatar($user['email']);
                     $user['avatar'] = checkAvatar($grav);
-                    mysql_query("UPDATE users SET avatar = '".$user['avatar']."' WHERE email = '".$email."'");
+                    mysql_query("UPDATE ".TABLEPRENAME."users SET avatar = '".$user['avatar']."', lastlogin = NOW() WHERE email = '".$email."'");
                     loadUserSession($user);           
-                    mysql_query("UPDATE users SET lastlogin = NOW() WHERE email = '".$email."'");
                     return true;                    
                 }
                 else
@@ -157,7 +156,7 @@ function changeEmail()
 {
     if(permitted())
     {
-        $sql = "UPDATE users SET email = '".$_POST['newemail']."' WHERE email = '".$_SESSION['user']['email']."'";
+        $sql = "UPDATE ".TABLEPRENAME."users SET email = '".$_POST['newemail']."' WHERE email = '".$_SESSION['user']['email']."'";
 
         if(mysql_query($sql))
         {
@@ -182,13 +181,13 @@ function changePassword()
 {
     if(permitted())
     {
-        $sql = "SELECT user_id FROM users WHERE password = '".$_POST['currentpassword']."' AND email = '".$_SESSION['user']['email']."'";
+        $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE password = '".$_POST['currentpassword']."' AND email = '".$_SESSION['user']['email']."'";
         
         $query = mysql_query($sql);
         
         if(mysql_num_rows($query) > 0)
         {
-            $sql = "UPDATE users SET password = '".$_POST['newpassword']."' WHERE email = '".$_SESSION['user']['email']."'";
+            $sql = "UPDATE ".TABLEPRENAME."users SET password = '".$_POST['newpassword']."' WHERE email = '".$_SESSION['user']['email']."'";
 
             if(mysql_query($sql))
             {
@@ -222,7 +221,7 @@ function changeAvatar()
         
         _imageResize($img, $img, 100, 100);
         
-        $sql = "UPDATE users SET avatar = '".$_POST['avatar']."' WHERE email = '".$_SESSION['user']['email']."'";
+        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."' WHERE email = '".$_SESSION['user']['email']."'";
         
         if(mysql_query($sql))
         {

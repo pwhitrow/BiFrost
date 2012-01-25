@@ -18,7 +18,7 @@ function postDiscussion()
         }
         
         // store discussion
-        $sql1 = "INSERT INTO discussions (parent_id, api_key, user_id, content, posted) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['content']."', NOW())";
+        $sql1 = "INSERT INTO ".TABLEPRENAME."discussions (parent_id, api_key, user_id, content, posted) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['content']."', NOW())";
         
         if(mysql_query($sql1))
         {
@@ -41,7 +41,7 @@ function postDiscussion()
 
 function getUserDiscussions()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM discussions WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."discussions WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
 
     $sql = mysql_query($sql);
 
@@ -57,9 +57,9 @@ function getUserDiscussions()
 
 function getItemDiscussions()
 {
-    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM ".TABLEPRENAME."discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
     
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."discussions WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
         
     $sql = mysql_query($sql);
 
@@ -71,7 +71,7 @@ function getItemDiscussions()
     while($r = mysql_fetch_array($sql))
     {
         // fetch user data
-        $user = mysql_query("SELECT * FROM users WHERE user_id = '".$r['user_id']."'");
+        $user = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$r['user_id']."'");
 
         if(mysql_num_rows($user) > 0)
         {
@@ -82,7 +82,7 @@ function getItemDiscussions()
             $rows['avatar'][] = checkAvatar($user['avatar']);
         }
 
-        $sqlComments = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM comments WHERE parent_id = '".$r['id']."'";
+        $sqlComments = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."comments WHERE parent_id = '".$r['id']."'";
 
         // fetch comments for item
         $q = mysql_query($sqlComments);
@@ -99,7 +99,7 @@ function getItemDiscussions()
                 $comments['isodate'][] = date('c', strtotime($c['posted']));
 
                 // fetch user data for comment
-                $user = mysql_query("SELECT * FROM users WHERE user_id = '".$c['user_id']."'");
+                $user = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$c['user_id']."'");
 
                 if(mysql_num_rows($user) > 0)
                 {

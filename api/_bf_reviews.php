@@ -34,14 +34,14 @@ function postReview()
         $tags .= ']';
 
         // store review
-        $sql1 = "INSERT INTO reviews (parent_id, api_key, user_id, title, content, posted, tags) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['title']."', '".$prep['content']."', NOW(), '".$tags."')";
+        $sql1 = "INSERT INTO ".TABLEPRENAME."reviews (parent_id, api_key, user_id, title, content, posted, tags) VALUES('".$prep['parentid']."', '".$prep['api_key']."', '".$_SESSION['user']['id']."', '".$prep['title']."', '".$prep['content']."', NOW(), '".$tags."')";
         
         if(mysql_query($sql1))
         {
             $linkedID = mysql_insert_id();
             
             // store rating
-            $sql2 = "INSERT INTO ratings (parent_id, rating, user_id, linked_id) VALUES('".$prep['parentid']."', '".$prep['score']."', '".$_SESSION['user']['id']."', '".$linkedID."')";
+            $sql2 = "INSERT INTO ".TABLEPRENAME."ratings (parent_id, rating, user_id, linked_id) VALUES('".$prep['parentid']."', '".$prep['score']."', '".$_SESSION['user']['id']."', '".$linkedID."')";
             
             mysql_query($sql2);
         
@@ -65,7 +65,7 @@ function postReview()
                     
                 }
 
-                $sql3 = "INSERT INTO media (parent_id, parent_type, media, user_id, linked_id) VALUES('".$prep['parentid']."', 'review', '".$prep['media']."', '".$_SESSION['user']['id']."', '".$linkedID."')";
+                $sql3 = "INSERT INTO ".TABLEPRENAME."media (parent_id, parent_type, media, user_id, linked_id) VALUES('".$prep['parentid']."', 'review', '".$prep['media']."', '".$_SESSION['user']['id']."', '".$linkedID."')";
             }
             
             mysql_query($sql3);
@@ -89,7 +89,7 @@ function postReview()
 
 function getUserReviews()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM reviews WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate FROM ".TABLEPRENAME."reviews WHERE user_id = '".$_SESSION['user']['id']."' AND api_key = '".$_POST['api_key']."' ORDER BY id DESC";
 
     $sql = mysql_query($sql);
 
@@ -129,20 +129,20 @@ function getItemReviewsByTag()
 {
     $tag = str_replace('tag_', '', $_POST['tag']);
     
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM reviews LEFT JOIN ratings ON reviews.id = ratings.linked_id WHERE reviews.parent_id = '".$_POST['parentid']."' AND reviews.api_key = '".$_POST['api_key']."' AND reviews.tags LIKE '%[".$tag."]%' ORDER BY reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM ".TABLEPRENAME."reviews LEFT JOIN ".TABLEPRENAME."ratings ON ".TABLEPRENAME."reviews.id = ".TABLEPRENAME."ratings.linked_id WHERE ".TABLEPRENAME."reviews.parent_id = '".$_POST['parentid']."' AND ".TABLEPRENAME."reviews.api_key = '".$_POST['api_key']."' AND ".TABLEPRENAME."reviews.tags LIKE '%[".$tag."]%' ORDER BY ".TABLEPRENAME."reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
 
     // we need this to calculate the correct number of ALL rows
-    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%'"));
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM ".TABLEPRENAME."reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."' AND tags LIKE '%[".$tag."]%'"));
 
     processSQL($sql, $sqlQty);       
 }
 
 function getItemReviews()
 {
-    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM reviews LEFT JOIN ratings ON reviews.id = ratings.linked_id WHERE reviews.parent_id = '".$_POST['parentid']."' AND reviews.api_key = '".$_POST['api_key']."' ORDER BY reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
+    $sql = "SELECT *, DATE_FORMAT(posted,'%b %d %Y, %h:%i %p') AS fdate, rating FROM ".TABLEPRENAME."reviews LEFT JOIN ".TABLEPRENAME."ratings ON ".TABLEPRENAME."reviews.id = ".TABLEPRENAME."ratings.linked_id WHERE ".TABLEPRENAME."reviews.parent_id = '".$_POST['parentid']."' AND ".TABLEPRENAME."reviews.api_key = '".$_POST['api_key']."' ORDER BY ".TABLEPRENAME."reviews.id DESC LIMIT ".$_POST['limitfrom'].", ".$_POST['limit']."";
     
     // we need this to calculate the correct number of ALL rows
-    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
+    $sqlQty = mysql_fetch_array(mysql_query("SELECT COUNT(id) AS qty FROM ".TABLEPRENAME."reviews WHERE parent_id = '".$_POST['parentid']."' AND api_key = '".$_POST['api_key']."'"));
 
     processSQL($sql, $sqlQty);   
 }
@@ -158,7 +158,7 @@ function processSQL($sql, $sqlQty)
     while($r = mysql_fetch_array($sql))
     {
         // fetch user data
-        $user = mysql_query("SELECT * FROM users WHERE user_id = '".$r['user_id']."'");
+        $user = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$r['user_id']."'");
         
         if(mysql_num_rows($user) > 0)
         {
@@ -173,7 +173,7 @@ function processSQL($sql, $sqlQty)
         $rows['rated'][] = $r['rating'];  
 
         // fetch media data
-        $media = mysql_query("SELECT * FROM media WHERE parent_id = '".$r['parent_id']."' AND linked_id = '".$r['id']."'");
+        $media = mysql_query("SELECT * FROM ".TABLEPRENAME."media WHERE parent_id = '".$r['parent_id']."' AND linked_id = '".$r['id']."'");
         
         if(mysql_num_rows($media) > 0)
         {
@@ -194,7 +194,7 @@ function processSQL($sql, $sqlQty)
         
         // fetch tag data
         $tags = trim(str_replace(']', ',', str_replace('[', '', $r['tags'])), ',');
-        $tagdata = mysql_query("SELECT id,tagname FROM tags WHERE id IN (".$tags.") AND api_key = '".$_POST['api_key']."' ORDER BY id DESC");
+        $tagdata = mysql_query("SELECT id,tagname FROM ".TABLEPRENAME."tags WHERE id IN (".$tags.") AND api_key = '".$_POST['api_key']."' ORDER BY id DESC");
         $tmp = '';
                 
         // have to sent it back as a string, json had problems with objects!
