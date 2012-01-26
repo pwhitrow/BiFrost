@@ -41,6 +41,31 @@
                     'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/bg.png) 0 0 repeat'
                 })
                 .appendTo($('body'));
+
+                if(!$('._showbox_loader').length)
+                {
+                    $('<div />').attr(
+                    {
+                        'class': '_showbox_loader',
+                        'id': '_showbox_loader'
+                    })
+                    .css(
+                    {
+                        'margin': '0px 0px 0px -30px',
+                        'height': '100%',
+                        'width': '100%',
+                        'position': 'absolute',
+                        'top': '0px',
+                        'left': '0px',
+                        'overflow':'hidden',
+                        'float': 'left',  
+                        'padding': '0px',
+                        'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/156.gif) center center no-repeat'
+                    })
+                    .fadeTo(10, 0.3)
+                    .appendTo($('._showbox')); 
+                }
+                    
             }
             
             
@@ -66,7 +91,8 @@
                         'border-radius': '5px',
                         '-webkit-box-shadow': '0px 2px 7px rgba(0, 0, 0, 0.54)',
                         '-moz-box-shadow':    '0px 2px 7px rgba(0, 0, 0, 0.54)',
-                        'box-shadow':         '0px 2px 7px rgba(0, 0, 0, 0.54)'
+                        'box-shadow':         '0px 2px 7px rgba(0, 0, 0, 0.54)',
+                        'display': 'none'
 
                     })
                     .appendTo($('._showbox'));                    
@@ -140,6 +166,7 @@
                     
                     var filename = $(this).attr('href');
                     
+                    $('._showbox').fadeIn(settings.speed);
                     
                     // are we an image?
                     if(_bf.mediaType('image', filename))
@@ -185,7 +212,7 @@
                                         })
                                         .each(function()
                                         {
-                                            $('._showbox').fadeIn(settings.speed);  
+                                            $('._showbox_main').fadeIn(settings.speed);  
                                             add_close();
                                         })
                                     });
@@ -240,14 +267,21 @@
                         
                         swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", box['newWidth'], box['newHeight'], "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
                         
-                        $('._showbox').fadeIn(settings.speed);   
+                        $('._showbox_main').fadeIn(settings.speed);   
                         
                         add_close();
                         
                     }
                 });
             });
-
+            
+            $(document).keyup(function(e) 
+            {
+              if (e.keyCode == 27) 
+              { 
+                  close_showbox(); 
+              }
+            });
         }
     });
 })(jQuery);
