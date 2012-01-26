@@ -42,7 +42,7 @@ echo '</channel>
 function cleanRSS($str)
 {
     $str = stripslashes($str);
-    $str = str_replace("&", "&amp;", $str);
+    //$str = str_replace("&", "&amp;", $str);
     $str = htmlentities($str,ENT_QUOTES,'UTF-8');
     return $str;
 }
