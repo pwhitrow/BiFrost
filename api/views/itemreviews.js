@@ -133,18 +133,11 @@ var _bf_itemreviews = {
                     })
                     .each(function()
                     {
+                        var itemrating = $.parseJSON(data.itemrating);
+                        
                         _bf.widgetButton('review', 'Post a review', 'Post a review', 380, 593, $(this));
 
-                        var itemrating = $.parseJSON(data.itemrating);
-
-                        $('<a />').attr(
-                        {
-                            'class': '_bf_items_rss',
-                            'href': _bf.host + 'api/rss.php?type=reviews&apikey=' + data.api_key,
-                            'title': _bf.t("Subscribe to this item's reviews feed")
-                        })
-                        .html(_bf.t('Subscribe via') + '<br /><acronym title="Really Simple Syndication">RSS</acronym>')
-                        .appendTo($(this))
+                        _bf.showSubscribes($(this), 'reviews', data.api_key);
                         
                         $('<p />').attr(
                         {

@@ -190,22 +190,53 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     box-shadow:0px 3px 3px rgba(0,0,0,0.05);
 }
 
+._bf_items_subscribe
+{
+    color: #BCBCBC;
+    float: right;
+    font: 10px Helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: -23px;
+    text-align: center;
+    top: -8px;
+    width: 100px;
+    text-shadow:1px 1px 1px #fff;
+}
+
+._bf_items_rss,
+._bf_items_email
+{
+    font:normal 10px Helvetica, Arial, sans-serif;
+    color:#BCBCBC;
+    position:absolute;
+    top: 14px;
+    width:40px;
+    padding-bottom: 35px;
+    text-align:center;
+    cursor:pointer;
+    background:url("../images/icons.png") no-repeat 0 0 transparent;
+}
 ._bf_items_rss
 {
-    float:right;
-    font:normal 10px Helvetica, Arial, sans-serif;
-    color:#888;
-    position:relative;
-    height:35px;
-    padding-right: 40px;
-    margin-left:30px;
-    text-align:left;
-    background:transparent url(../images/rss.png) right 0px no-repeat;
+    right:10px;
+    background-position:7px 16px;
+}
+._bf_items_email
+{
+    right: 45px;
+    background-position:-38px 16px;
 }
 ._bf_items_rss:hover
 {
     color:#444;
-    background-position:right -34px;
+    background-position:7px -33px;
+}
+._bf_items_email:hover
+{
+    color:#444;
+    background-position:-38px -33px;
 }
 
 ._bf_no_reviews,

@@ -147,13 +147,18 @@ switch($_POST['action'])
                     respond();
                     break;
 
-    case('tags'): // translate some text
+    case('tags'): // get reviews by tag
                     getTags();
                     respond();
                     break;
 
-    case('addtag'): // translate some text
+    case('addtag'): // add a tag
                     addTag();
+                    respond();
+                    break;
+
+    case('watchviaemail'): // watch via email
+                    watchViaEmail();
                     respond();
                     break;
 

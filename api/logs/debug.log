@@ -1,0 +1,10 @@
+Friday 27th of January 2012 12:41:39 AM
+*********************************************
+
+INSERT INTO _bf_watches (userid, relation, api_key) VALUES('', '0123456789', '3a50fc16-d89d-11e0-a26b-4040b2058987')
+
+Friday 27th of January 2012 12:43:30 AM
+*********************************************
+
+INSERT INTO _bf_watches (userid, relation, api_key) VALUES('1', '0123456789', '3a50fc16-d89d-11e0-a26b-4040b2058987')
+

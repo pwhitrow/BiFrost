@@ -259,4 +259,32 @@ function checkGravatar($email)
     return $has_valid_avatar;
 }
 
+function watchViaEmail()
+{
+    if(!empty($_SESSION['user']['id']))
+    {
+        $sql = "SELECT userid FROM ".TABLEPRENAME."watches WHERE userid='".$_SESSION['user']['id']."' AND type='".$_REQUEST['type']."' AND relation='".$_REQUEST['relation']."' AND api_key='".$_REQUEST['api_key']."'";
+        
+        $sql = mysql_query($sql);
+        if(mysql_num_rows($sql))
+        {
+            setErrorMsg(t('Watch already set'));
+        }
+        else
+        {
+            $sql = "INSERT INTO ".TABLEPRENAME."watches (userid, relation, api_key, type) VALUES('".$_SESSION['user']['id']."', '".$_REQUEST['relation']."', '".$_REQUEST['api_key']."', '".$_REQUEST['type']."')";
+            mysql_query($sql);
+            setSuccessMsg(t('Watch set'));
+        }        
+    }
+    else
+    {
+        setErrorMsg(t('Please Login'));
+    }
+    
+    
+    
+    
+}
+
 ?>

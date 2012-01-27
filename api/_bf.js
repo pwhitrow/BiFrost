@@ -1284,6 +1284,44 @@ function _bf_go()
                     });
                 }
             },
+            
+            showSubscribes: function(el, type, api_key)
+            {
+                $('<div />').attr(
+                {
+                    'class': '_bf_items_subscribe'
+                })
+                .html(_bf.t('Subscribe'))
+                .appendTo(el)
+                .each(function()
+                {
+                    $('<a />').attr(
+                    {
+                        'class': '_bf_items_rss',
+                        'href': _bf.host + 'api/rss.php?type=' + type + '&apikey=' + api_key,
+                        'title': _bf.t("Subscribe to this item's feed")
+                    })
+                    .html('<acronym title="Really Simple Syndication">RSS</acronym>')
+                    .appendTo($(this))
+
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_items_email',
+                        'title': _bf.t("Subscribe to this item via Email")
+                    })
+                    .html(_bf.t('Email'))
+                    .click(function()
+                    {
+                        _bf.post(
+                        {
+                            action: 'watchviaemail',
+                            relation: BiFrost.relation,
+                            type: type
+                        });                    
+                    })
+                    .appendTo($(this))                            
+                })                
+            },
 
             createFormElement: function(form, params, callback)
             {
