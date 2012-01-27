@@ -1074,6 +1074,10 @@ function _bf_go()
                         _bf_usercomments.showComments(result);
                         break;
 
+                    case('userwatches'):
+                        _bf_userwatches.showWatches(result);
+                        break;
+
                     default:
                         if(_bf.state)
                         {
@@ -1316,7 +1320,8 @@ function _bf_go()
                         {
                             action: 'watchviaemail',
                             relation: BiFrost.relation,
-                            type: type
+                            type: type,
+                            title: document.title
                         });                    
                     })
                     .appendTo($(this))                            

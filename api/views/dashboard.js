@@ -32,7 +32,7 @@ var _bf_dashboard = {
                         ['Reviews', 'View all your reviews for this site', 'userreviews'],
                         ['Discussions', 'View all your discussions for this site', 'userdiscussions'],
                         ['Comments', 'View all your comments for this site', 'usercomments'],
-                        ['Watches', 'Wiew items you are watching', 'mywatches'],
+                        ['Watches', 'Wiew items you are watching', 'userwatches'],
                         ['Update Email', 'Change your email address', 'changeemail'],
                         ['Update Password', 'Change your registered password', 'changepassword'],
                         ['Update Avatar', 'Change your account picture', 'changeavatar']
