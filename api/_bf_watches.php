@@ -44,7 +44,7 @@ function watchViaEmail()
     }
     else
     {
-        setErrorMsg(t('Please Login'));
+        setErrorMsg(t('Please login or register'));
     }  
 }
 

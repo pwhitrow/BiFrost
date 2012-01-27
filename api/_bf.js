@@ -419,13 +419,12 @@ function _bf_go()
 
             cannotPost: function()
             {
-                _bf.openPanel(75, 300, function()
+                _bf.showStateActions();
+                
+                _bf.showStateOverlay(_bf.t('Please login or register'), 2000, function()
                 {
-                    _bf.showStateOverlay(_bf.t('Please login or register'), 2000, function()
-                    {
-                        _bf.closePanel();
-                    });
-                });       
+                    _bf.closePanel();
+                });
             },
             
             // currently a placeholder for translating text
@@ -650,6 +649,8 @@ function _bf_go()
             // open the state panel
             openPanel: function(H, W, callback)
             {
+                _bf.hideSocialAuthenticators();
+                
                 _bf.removeForms();
 
                 _bf.state_panel
