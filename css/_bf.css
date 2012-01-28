@@ -42,8 +42,6 @@
 
 ._bf_dashright_panel
 {
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     -webkit-box-shadow:inset 0px 1px 1px #151617;
     -moz-box-shadow:inset 0px 1px 1px #151617;
     border: none;
@@ -101,7 +99,7 @@
 {
     background:transparent url(../images/state_bg.png) 0 0 repeat;
     margin:0px;
-    padding:5px 10px 0px 0px;
+    padding:5px 14px 0px 0px;
     text-align: right;
     position:absolute;
     bottom:0px;
@@ -474,7 +472,7 @@ FORM LINKS
 
 ._bf_register_links
 {
-    top:275px;
+    top:274px;
 }
 
 ._bf_forgottenpassword_links
@@ -748,7 +746,7 @@ POST REVIEW
 ._bf_multi_tags
 {
     position:absolute;
-    left:283px;
+    left:284px;
     top:224px;
     list-style:none;
 }
@@ -866,10 +864,9 @@ POST REVIEW
 
 ._bf_review_rating_set
 {
-    left: 178px;
+    left: 179px;
     position: absolute;
-    top: 302px;
-}
+    top: 301px;}
 
 ._bf_rater_prompt
 {
