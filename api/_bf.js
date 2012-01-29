@@ -916,6 +916,7 @@ function _bf_go()
                 params['api_token'] = _bf.api_token;
                 params['dataType'] = 'jsonp';
                 params['host'] = _bf.host;
+                params['pageURL'] = location.href;
                 //params['callback'] = _bf.test();
 
                 // post the form
@@ -1077,6 +1078,10 @@ function _bf_go()
 
                     case('userwatches'):
                         _bf_userwatches.showWatches(result);
+                        break;
+
+                    case('removewatch'):
+                        _bf.changeDashboardView('userwatches');
                         break;
 
                     default:
@@ -1563,6 +1568,8 @@ function _bf_go()
             // load the required dashboard form
             changeDashboardView: function(obj)
             {
+                var obj = $('._bf_dbaction_' + obj);
+                
                 $('._bf_dashboard_action').each(function()
                 {
                     var rel = $(this).attr('rel');

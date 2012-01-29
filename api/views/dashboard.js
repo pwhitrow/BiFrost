@@ -32,11 +32,12 @@ var _bf_dashboard = {
                         ['Reviews', 'View all your reviews for this site', 'userreviews'],
                         ['Discussions', 'View all your discussions for this site', 'userdiscussions'],
                         ['Comments', 'View all your comments for this site', 'usercomments'],
-                        ['Watches', 'Wiew items you are watching', 'userwatches'],
+                        ['Watching', 'Wiew items you are watching', 'userwatches'],
                         ['Update Email', 'Change your email address', 'changeemail'],
                         ['Update Password', 'Change your registered password', 'changepassword'],
                         ['Update Avatar', 'Change your account picture', 'changeavatar']
                     ];
+                    
 
                     for(i = 0; i < items.length; i++)
                     {
@@ -44,13 +45,13 @@ var _bf_dashboard = {
                         .text(_bf.t(items[i][0]))
                         .attr(
                         {
-                            'class': '_bf_dashboard_action' + (i == 0 ? ' active_action' : ''),
+                            'class': '_bf_dashboard_action _bf_dbaction_' + items[i][2] + (i == 0 ? ' active_action' : ''),
                             'title': _bf.t(_bf.t(items[i][1])),
-                            'rel': _bf.t(items[i][2])
+                            'rel': items[i][2]
                         })
                         .click(function()
                         {
-                            _bf.changeDashboardView($(this));
+                            _bf.changeDashboardView($(this).attr('rel'));
                         })
                         .appendTo($('._bf_dashboard_actions'));
                         

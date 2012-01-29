@@ -35,7 +35,7 @@ if(_bf.loggedIn())
                     {
                         for(i = 0; i < watches.length; i++)
                         {
-                            _bf_userwatches.renderWatch(watches[i]);
+                            _bf_userwatches.renderWatch(watches[i], data.pageURL);
                         }
                         
                         $(this).fadeIn(_bf.ani_speed);
@@ -44,11 +44,21 @@ if(_bf.loggedIn())
                 }
                 else
                 {
-                    // no watches!
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_userwatches _bf_empty_dashboard'
+                    })
+                    .html(_bf.t('You are not currently watching anything.'))
+                    .hide()
+                    .appendTo($('._bf_dashboard'))
+                    .each(function()
+                    {
+                        $(this).fadeIn(_bf.ani_speed);
+                    });
                 }
             },
     
-            renderWatch: function(watch)
+            renderWatch: function(watch, url)
             {
                 $('<li />').attr(
                 {
@@ -62,7 +72,41 @@ if(_bf.loggedIn())
                         'class': '_bf_userwatches_content'
                     })
                     .html(watch.title)
-                    .appendTo($(this));                    
+                    .appendTo($(this))
+                    .each(function()
+                    {
+                        $('<p />').attr(
+                        {
+                            'class': '_bf_userwatches_type'
+                        })
+                        .html(watch.type)
+                        .appendTo($(this));
+                        
+                        $('<p />').attr(
+                        {
+                            'class': '_bf_userwatches_url'
+                        })
+                        .html(url)
+                        .appendTo($(this));
+                        
+                        $('<span />').attr(
+                        {
+                            'class': '_bf_userwatches_control',
+                            'title': _bf.t('Click to stop watching this item')
+                        })
+                        .html(_bf.t('Remove'))
+                        .click(function()
+                        {
+                            // post to api
+                            _bf.post(
+                            {
+                                action: 'removewatch',
+                                id: watch.id,
+                                relation: BiFrost.relation
+                            });
+                        })
+                        .appendTo($(this));
+                    });                    
                 });
                 
             }

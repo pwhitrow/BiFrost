@@ -1013,6 +1013,18 @@ POST DISCUSSION, COMMENT FORM
 /*
 Dashboard Show Reviews etc
 */
+._bf_empty_dashboard
+{
+    bottom: 6px !important;
+    color: #888888;
+    font: 12px arial;
+    left: 137px !important;
+    padding: 100px 20px 20px !important;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    top: 2px !important;
+    width: 423px !important;
+}
 
 ._bf_userreviews,
 ._bf_userdiscussions,
@@ -1043,6 +1055,7 @@ Dashboard Show Reviews etc
     border-top: 1px solid #F9F9F9;
     border-bottom:1px solid #EAEAEA;
     float:left;
+    position: relative;
     width:100%;
     clear: both;
 }
@@ -1074,9 +1087,39 @@ Dashboard Show Reviews etc
     background-position: 5px -136px;
 }
 
+._bf_userwatches_control
+{
+    color: #888888;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: normal;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+._bf_userwatches_type,
+._bf_userwatches_url
+{
+    color: #888888;
+    font-size: 11px;
+    font-weight: normal;
+    margin:5px 0px 0px 0px !important;
+}
+
+._bf_userwatches_control:hover
+{
+    color:#444;
+}
+
 ._bf_userreviews_item_synopsis
 {
     margin-left: 30px;
+}
+
+._bf_userwatches_content
+{
+    background-position: 5px -476px !important;    
 }
 
 ._bf_userdiscussions_item_title
@@ -1138,125 +1181,3 @@ Dashboard Show Reviews etc
     color:#999;
 }
 
-
-/*
- * CSS Styles that are needed by jScrollPane for it to operate correctly.
- *
- * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
- * may not operate correctly without them.
- */
-
-.jspContainer
-{
-	overflow: hidden;
-	position: relative;
-}
-
-.jspPane
-{
-	position: absolute;
-}
-
-.jspVerticalBar
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-        left: 0;
-	width: 16px;
-	height: 100%;
-	background: red;
-}
-
-.jspHorizontalBar
-{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 16px;
-	background: red;
-}
-
-.jspVerticalBar *,
-.jspHorizontalBar *
-{
-	margin: 0;
-	padding: 0;
-}
-
-.jspCap
-{
-	display: none;
-}
-
-.jspHorizontalBar .jspCap
-{
-	float: left;
-}
-
-.jspTrack
-{
-	background: #dde;
-	position: relative;
-}
-
-.jspDrag
-{
-	background: #bbd;
-	position: relative;
-	top: 0;
-	left: 0;
-	cursor: pointer;
-}
-
-.jspHorizontalBar .jspTrack,
-.jspHorizontalBar .jspDrag
-{
-	float: left;
-	height: 100%;
-}
-
-.jspArrow
-{
-	background: #50506d;
-	text-indent: -20000px;
-	display: block;
-	cursor: pointer;
-}
-
-.jspArrow.jspDisabled
-{
-	cursor: default;
-	background: #80808d;
-}
-
-.jspVerticalBar .jspArrow
-{
-	height: 16px;
-}
-
-.jspHorizontalBar .jspArrow
-{
-	width: 16px;
-	float: left;
-	height: 100%;
-}
-
-.jspVerticalBar .jspArrow:focus
-{
-	outline: none;
-}
-
-.jspCorner
-{
-	background: #eeeef4;
-	float: left;
-	height: 100%;
-}
-
-/* Yuk! CSS Hack for IE6 3 pixel bug :( */
-* html .jspCorner
-{
-	margin: 0 -3px 0 0;
-}

@@ -167,6 +167,11 @@ switch($_POST['action'])
                     respond();
                     break;
 
+    case('removewatch'): // get watches
+                    removeWatch();
+                    respond();
+                    break;
+
     case('translate'): // translate some text
                     t($_POST['str'], true);
                     respond();

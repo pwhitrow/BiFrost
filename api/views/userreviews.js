@@ -47,7 +47,17 @@ if(_bf.loggedIn())
                 }
                 else
                 {
-                    // no reviews!
+                    $('<div />').attr(
+                    {
+                        'class': '_bf_userreviews _bf_empty_dashboard'
+                    })
+                    .html(_bf.t('You have no active reviews.'))
+                    .hide()
+                    .appendTo($('._bf_dashboard'))
+                    .each(function()
+                    {
+                        $(this).fadeIn(_bf.ani_speed);
+                    });
                 }
             },
     

@@ -48,5 +48,24 @@ function watchViaEmail()
     }  
 }
 
-
+function removeWatch()
+{
+    if(!empty($_SESSION['user']['id']))
+    {
+        $sql = "DELETE FROM ".TABLEPRENAME."watches WHERE id='".$_REQUEST['id']."' AND relation='".$_REQUEST['relation']."' AND api_key='".$_REQUEST['api_key']."'";
+        
+        if($sql = mysql_query($sql))
+        {
+            setSuccessMsg(t('Watch removed'));
+        }
+        else
+        {
+            setErrorMsg(t('Something went wrong!'));
+        }
+    }
+    else
+    {
+        setErrorMsg(t('Please login or register'));
+    }
+}
 ?>
