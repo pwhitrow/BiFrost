@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BiFrost</title>
+  <title>BiFrost Test Page</title>
   <meta name="description" content="">
   <meta name="author" content="Paul Whitrow">
 

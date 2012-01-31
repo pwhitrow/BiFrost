@@ -3,7 +3,7 @@
     Document   : _bf_tags.php
     Created on : 18-Nov-2011, 18:04:02
     Author     : Paul Whitrow
-    Description: Visitor Review - process tags
+    Description: process tags
 */
 
 function getTags()

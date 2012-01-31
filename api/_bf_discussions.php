@@ -23,6 +23,8 @@ function postDiscussion()
         if(mysql_query($sql1))
         {
             setSuccessMsg(t('Thank you for posting your discussion'));
+            
+            notifyWatchers('discussions', $prep['parentid'], $prep['api_key']);
         }
         else
         {

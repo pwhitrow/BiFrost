@@ -3,7 +3,7 @@
     Document   : _bf_dbconnect.php
     Created on : 27-Oct-2011, 21:37:22
     Author     : Paul Whitrow
-    Description: Visitor Review - connect to appropriate DB for environment
+    Description: connect to appropriate DB for environment
 */
 
 

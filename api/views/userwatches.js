@@ -94,7 +94,7 @@ if(_bf.loggedIn())
                             'class': '_bf_userwatches_control',
                             'title': _bf.t('Click to stop watching this item')
                         })
-                        .html(_bf.t('Remove'))
+                        .html(_bf.t('Unsubscribe'))
                         .click(function()
                         {
                             // post to api

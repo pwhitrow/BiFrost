@@ -3,7 +3,7 @@
     Document   : _bf_organisation.php
     Created on : 17-Dec-2011, 06:57:18
     Author     : Paul Whitrow
-    Description: Visitor Review - Functions for organisation
+    Description: Functions for organisation
 */
 
 function getOrgDetails($api_key)

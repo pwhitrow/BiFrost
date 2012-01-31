@@ -3,7 +3,7 @@
     Document   : _bf_comments.php
     Created on : 16-Nov-2011, 01:06:32
     Author     : Paul Whitrow
-    Description: Visitor Review - get and post comments
+    Description: get and post comments
 */
 
 function postComment()

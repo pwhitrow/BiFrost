@@ -3,7 +3,7 @@
     Document   : _bf_user.php
     Created on : 27-Oct-2011, 21:37:22
     Author     : Paul Whitrow
-    Description: Visitor Review - register a new user and sent them an email to verify
+    Description: register a new user and sent them an email to verify
 */
 
 function registerUser()
@@ -21,13 +21,11 @@ function registerUser()
     {
         $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, joined) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
         
-        logger($sql);
-    
         if(mysql_query($sql))
         {
-            setSuccessMsg(t('Registration Successful') . '<br /><br />' . t('Please check your inbox for confirmation email.'));
+            setSuccessMsg(t('Registration Accepted') . '<br /><br />' . t('Please check your inbox to complete the registration process.'));
 
-            // SEND EMAIL!!!!
+            registerEmail($_POST['email']);
         }
         else
         {
@@ -257,6 +255,33 @@ function checkGravatar($email)
         $has_valid_avatar = $uri;
     }
     return $has_valid_avatar;
+}
+
+function notifyWatchers($type, $relation, $apikey)
+{
+    $sql = "SELECT userid FROM ".TABLEPRENAME."watches WHERE relation='".$relation."' AND api_key='".$apikey."' AND type='".$type."'";
+    
+    $res = mysql_query($sql);
+    
+    $emails = array();
+    
+    while($r = mysql_fetch_array($res))
+    {
+        $sql = "SELECT email FROM ".TABLEPRENAME."users WHERE user_id='".$r["userid"]."' AND verified='1' and enabled='1'";
+        $sql = mysql_fetch_array(mysql_query($sql));
+        $emails[] = $sql["email"];
+    }
+    
+    if($type == "reviews")
+    {
+        notifyUsersReviews($emails);
+    }
+    else
+    {
+        notifyUsersDiscussions($emails);
+    }
+    
+    
 }
 
 ?>

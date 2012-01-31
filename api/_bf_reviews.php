@@ -71,6 +71,8 @@ function postReview()
             mysql_query($sql3);
             
             setSuccessMsg(t('Thank you for posting your review'));
+            
+            notifyWatchers('reviews', $prep['parentid'], $prep['api_key']);
         }
         else
         {

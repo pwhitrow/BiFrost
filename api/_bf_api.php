@@ -3,7 +3,7 @@
     Document   : _bf_api.php
     Created on : 27-Oct-2011, 21:37:22
     Author     : Paul Whitrow
-    Description: Visitor Review - main PHP include
+    Description: main PHP include
 */
 
 header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
@@ -220,6 +220,7 @@ function respond()
     setResponse('appname', APP_NAME);
     
     $org = getOrgDetails($_REQUEST['api_key']);
+    $_SESSION['org'] = $org;
     setResponse('orgName', $org['name']);
     setResponse('orgURL', $org['url']);
     

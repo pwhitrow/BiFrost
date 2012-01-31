@@ -139,7 +139,7 @@ function _bf_go()
             state_actions: false,
             custom_css: false,
             ani_speed: 200,
-            msg_display_time: 2000,
+            msg_display_time: 3000,
             content_character_limit: 300,
             current_widget: 'reviews',
 
@@ -917,6 +917,7 @@ function _bf_go()
                 params['dataType'] = 'jsonp';
                 params['host'] = _bf.host;
                 params['pageURL'] = location.href;
+                params['relation'] = BiFrost.relation;
                 //params['callback'] = _bf.test();
 
                 // post the form
@@ -1325,7 +1326,6 @@ function _bf_go()
                         _bf.post(
                         {
                             action: 'watchviaemail',
-                            relation: BiFrost.relation,
                             type: type,
                             title: document.title
                         });                    
