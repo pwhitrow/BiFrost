@@ -219,7 +219,7 @@ function changeAvatar()
         
         _imageResize($img, $img, 100, 100);
         
-        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."' WHERE email = '".$_SESSION['user']['email']."'";
+        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['host'].MEDIA_LOCATION.'/'.basename($_POST['avatar'])."' WHERE email = '".$_SESSION['user']['email']."'";
         
         if(mysql_query($sql))
         {

@@ -58,17 +58,12 @@ var _bf_itemdiscussions = {
         var discussions = $.parseJSON(data.itemdiscussions);
         var comments = $.parseJSON(data.itemcomments);
 
-            
-        if(typeof discussions.content == 'undefined')
-        {
-            _bf_itemdiscussions.clearLazyLoader();
-            return false;
-        }
         
         _bf_itemdiscussions.recordqty = discussions.recordqty;
 
         if(_bf_itemdiscussions.lazyloading)
         {
+            _bf_itemdiscussions.clearLazyLoader();
             _bf_itemdiscussions.processDiscussions(discussions, comments);
             return false;           
         }
@@ -90,54 +85,54 @@ var _bf_itemdiscussions = {
                 });            
             }            
 
-            if(typeof discussions.id != 'undefined')
+            $('<ul />').attr(
             {
-                $('<ul />').attr(
+                'class': '_bf_itemdiscussions'
+            })
+            .html(
+                $('<li />').attr(
                 {
-                    'class': '_bf_itemdiscussions'
+                    'class': '_bf_itemdiscussions_header'
                 })
-                .html(
-                    $('<li />').attr(
-                    {
-                        'class': '_bf_itemdiscussions_header'
-                    })
-                    .each(function()
-                    {
-                        _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 302, 556, $(this));
-
-                        _bf.showSubscribes($(this), 'discussions', data.api_key);
-                        
-                        $('._bf_discussions_qty').remove();
-
-                        $('<em />').attr(
-                        {
-                            'class': '_bf_widget_control_subtxt _bf_discussions_qty',
-                            'title': discussions.recordqty + ' ' + (discussions.recordqty == 1 ? _bf.t('entry') : _bf.t('entries'))
-                        })
-                        .html(discussions.recordqty)
-                        .appendTo($('._bf_discussions_control'))
-                    })
-                )
-                .appendTo($('._bf_discussions'))
                 .each(function()
                 {
-                    _bf_itemdiscussions.processDiscussions(discussions, comments);
-                });
-            }
-            else
-            {
-                if(!_bf_itemdiscussions.lazyloading)
-                {
-                    $('<h2 />').attr(
+                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 302, 556, $(this));
+
+                    _bf.showSubscribes($(this), 'discussions', data.api_key);
+
+                    $('._bf_discussions_qty').remove();
+
+                    $('<em />').attr(
                     {
-                        'class': '_bf_no_discussions _bf_itemdiscussions'
+                        'class': '_bf_widget_control_subtxt _bf_discussions_qty',
+                        'title': discussions.recordqty + ' ' + (discussions.recordqty == 1 ? _bf.t('entry') : _bf.t('entries'))
                     })
-                    .html(_bf.t('Why not be the first to post a discussion?'))
-                    .appendTo($('._bf_discussions'));
+                    .html(discussions.recordqty)
+                    .appendTo($('._bf_discussions_control'))
+                })
+            )
+            .appendTo($('._bf_discussions'))
+            .each(function()
+            {
+                if(typeof discussions.id != 'undefined')
+                {
+                    _bf_itemdiscussions.processDiscussions(discussions, comments);
                 }
-            }
-            
+                else
+                {
+                    if(!_bf_itemdiscussions.lazyloading)
+                    {
+                        $('<h2 />').attr(
+                        {
+                            'class': '_bf_no_discussions _bf_itemdiscussions'
+                        })
+                        .html(_bf.t('Why not be the first to post a discussion?'))
+                        .appendTo($('._bf_discussions'));
+                    }                        
+                }
             _bf.widgetLoaded('discussions');        
+            });
+            
         }
         
         if($('._bf_reviews').length)
@@ -258,7 +253,7 @@ var _bf_itemdiscussions = {
             {
                 'class': '_bf_itemdiscussions_item_synopsis _bf_itemdiscussions_item_synopsis_' + discussion.id
             })
-            .html(discussion.content)
+            .html(discussion.content.replace(/\\/g, ""))
             .appendTo($(this))
             .each(function()
             {
@@ -281,7 +276,7 @@ var _bf_itemdiscussions = {
                     {
                         $('<div />').attr(
                         {
-                            'class': '_bf_itemdiscussions_item_reply_button _bf_button _bf_button_silver'
+                            'class': '_bf_itemdiscussions_item_reply_button _bf_button _bf_button_blue'
                         })
                         .html(_bf.t('Reply'))
                         .appendTo($(this))
@@ -340,7 +335,7 @@ var _bf_itemdiscussions = {
                                 {
                                     'class': '_bf_itemdiscussions_item_comment_content'
                                 })
-                                .html(comments.content[c])
+                                .html(comments.content[c].replace(/\\/g, ""))
                                 .appendTo($(this))
                                 .each(function()
                                 {

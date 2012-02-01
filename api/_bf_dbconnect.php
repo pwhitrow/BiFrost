@@ -19,12 +19,12 @@ switch($s[0])
         $site['host'] = "localhost";
         $site['db'] = "_bf";
         break;
-    case 'stg':
-        // staging
-        $site['username'] = "";
-        $site['password'] = "";
-        $site['host'] = "";
-        $site['db'] = "_bf";
+    case 'bifrost': 
+        // staging (bifrost.pwhitrow.com)
+        $site['username'] = "pwhitrowc1";
+        $site['password'] = "ghhm9ab7";
+        $site['host'] = "79.99.43.21";
+        $site['db'] = "pwhitrowc1";
         break;
     default:
         // live

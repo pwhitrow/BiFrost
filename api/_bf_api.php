@@ -15,6 +15,10 @@ ini_set('upload_max_filesize','10M');
 ini_set('post_max_size','20M');
 ini_set('memory_limit', '50M');
 
+//error_reporting(E_ALL);
+error_reporting(E_STRICT);
+
+
 // load all api files
 $_bf_files = glob("./" . "_bf_*.php");
 
