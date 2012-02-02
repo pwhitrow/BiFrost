@@ -1034,6 +1034,7 @@ Dashboard Show Reviews etc
     background: #F7F7F7;
     bottom: -10px;
     overflow: auto;
+    overflow-x: hidden;
     padding: 0;
     position: absolute;
     right: 0;
@@ -1047,7 +1048,7 @@ Dashboard Show Reviews etc
 ._bf_usercomments_item,
 ._bf_userwatches_item
 {
-    padding:5px 0px 10px 0px;
+    padding:5px 10px 10px 0px;
     margin:0px 0px 0px 0px;
     font: normal 12px Helvetica, Arial, sans-serif;
     color: #888;
@@ -1056,7 +1057,6 @@ Dashboard Show Reviews etc
     border-bottom:1px solid #EAEAEA;
     float:left;
     position: relative;
-    width:100%;
     clear: both;
 }
 

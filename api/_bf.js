@@ -9,10 +9,24 @@
                     on client site.
 */
 
+//var _bf_host = 'http://bifrost.pwhitrow.com/';
+var _bf_host = 'http://localhost:56870/';
+
 
 // insert a script
 function _bf_loadscript(src)
 {
+    if(typeof $ != 'undefined')
+    {
+        $('script').each(function()
+        {
+            if($(this).attr('src') == src)
+            {
+                $(this).remove();
+            }
+        })        
+    }
+                    
     var head = document.getElementsByTagName('head').item(0);
     
     if(src.indexOf('.js') >= 0)
@@ -89,7 +103,7 @@ function _bf_loadScripts()
     
     for(i = 0; i < scripts.length; i++)
     {
-        _bf_loadscript(scripts[i]);
+        _bf_loadscript(_bf_host + scripts[i]);
     }
     
     _bf_go();
@@ -117,8 +131,7 @@ function _bf_go()
         // create namespace
         _bf = {
 
-            //host: 'http://bifrost.pwhitrow.com/',
-            host: 'http://localhost:56870/',
+            host: _bf_host,
             api_key: BiFrost.api_key,
             api_token: false,
             appname: '',
@@ -216,7 +229,7 @@ function _bf_go()
                             .appendTo($(this))
                             .each(function()
                             {
-                                _bf_loadscript('api/views/itemreviews.js');
+                                _bf_loadscript(_bf.host + 'api/views/itemreviews.js');
                             });
 
                             $('<div />').attr(
@@ -227,7 +240,7 @@ function _bf_go()
                             .appendTo($(this))
                             .each(function()
                             {
-                                _bf_loadscript('api/views/itemdiscussions.js');
+                                _bf_loadscript(_bf.host + 'api/views/itemdiscussions.js');
                             });                        
                         });
                     });
@@ -922,7 +935,7 @@ function _bf_go()
                 //params['callback'] = _bf.test();
 
                 // post the form
-                $.post('./api/_bf_api.php', params,
+                $.post(_bf.host + 'api/_bf_api.php', params,
                 function(data)
                 {
                     _bf.response(data);
@@ -1259,6 +1272,12 @@ function _bf_go()
                 return str.replace(/ /g, "");
             },
 
+            // format string for output
+            safeHTML: function(str)
+            {
+                return str.replace(/\\/g, "");
+            },
+
             // remove the social links
             hideSocialAuthenticators: function()
             {
@@ -1486,41 +1505,61 @@ function _bf_go()
                 _bf.removeForms(function()
                 {
                     // now load new form
-                    $.get('api/views/' + data.form + '.js', data, function()
+                    _bf_loadscript(_bf.host + 'api/views/' + data.form + '.js');
+
+                    _bf.loadWait(data);
+
+                    if($.isFunction(callback))
                     {
-                        var formholder = '';
-
-                        if($('._bf_dashboard').length)
-                        {
-                            formholder = $('._bf_dashboard');
-                        }
-
-                        if($('._bf_state').length)
-                        {
-                            formholder = $('._bf_state');
-                        }
-
-                        // grab the new form
-                        formholder.find('form').each(function()
-                        {
-                            // display the form
-                            _bf.showForm(formname);
-
-                            // if we have a parent id (we're an item) then pass it on
-                            if($('._bf_' + formname + '_parentid').length)
-                            {
-                                $('._bf_' + formname + '_parentid').val(data.parentid);
-                            }
-
-                            if($.isFunction(callback))
-                            {
-                                callback.call(this);
-                            }
-                        });
-                    });
+                        callback.call(this);
+                    }
                 });
 
             },
+
+            loadWait: function(data)
+            {
+                var data = data;
+
+                if($('._bf_state_form').length)
+                {
+                    var formholder = '';
+
+                    if($('._bf_dashboard').length)
+                    {
+                        formholder = $('._bf_dashboard');
+                    }
+
+                    if($('._bf_state').length)
+                    {
+                        formholder = $('._bf_state');
+                    }
+
+                    // grab the new form
+                    $('._bf_state_form').each(function()
+                    {
+                        // display the form
+                        _bf.showForm(data.form);
+
+                        // if we have a parent id (we're an item) then pass it on
+                        if($('._bf_' + data.form + '_parentid').length)
+                        {
+                            $('._bf_' + data.form + '_parentid').val(data.parentid);
+                        }
+
+                    });
+
+                }
+                else
+                {
+                    setTimeout(function()
+                    {
+                        _bf.loadWait(data)
+                    }, 
+                    100);
+                }
+            },
+
 
             // show a loaded form
             showForm: function(formname, callback)
@@ -1563,7 +1602,7 @@ function _bf_go()
             // show form links if required
             showFormLinks: function(formname)
             {
-                $.get('api/views/formlinks.js');
+                _bf_loadscript(_bf.host + 'api/views/formlinks.js');
             },
 
             // load the required dashboard form
@@ -1692,7 +1731,7 @@ function _bf_go()
 // do we need to load jQuery?
 if(typeof $ != 'function')
 {
-    _bf_loadscript('api/libs/jquery.1.7.min.js');
+    _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
 
 // GO...

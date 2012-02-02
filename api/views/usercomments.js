@@ -74,7 +74,7 @@ if(_bf.loggedIn())
                     {
                         'class': '_bf_usercomments_content'
                     })
-                    .html(comment.content.substring(0, 100) + '...')
+                    .html(_bf.safeHTML(comment.content.substring(0, 100) + '...'))
                     .appendTo($(this));
 
                     $('<em />').attr(

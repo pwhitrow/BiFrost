@@ -57,7 +57,7 @@ if(!$('._bf_' + formname + '_form').length)
             .append(form)
             .each(function()
             {
-                $(this).fadeIn(_bf.ani_speed);
+                form.fadeIn(_bf.ani_speed);
                 _bf_changeavatar.uploaderReady();
             });
             

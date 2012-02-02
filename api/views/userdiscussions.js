@@ -74,7 +74,7 @@ if(_bf.loggedIn())
                     {
                         'class': '_bf_userdiscussions_item_synopsis'
                     })
-                    .html(review.content.substring(0, 100) + '...')
+                    .html(_bf.safeHTML(review.content.substring(0, 100) + '...'))
                     .appendTo($(this));
 
                     $('<em />').attr(

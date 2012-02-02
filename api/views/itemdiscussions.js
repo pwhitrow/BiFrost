@@ -253,7 +253,7 @@ var _bf_itemdiscussions = {
             {
                 'class': '_bf_itemdiscussions_item_synopsis _bf_itemdiscussions_item_synopsis_' + discussion.id
             })
-            .html(discussion.content.replace(/\\/g, ""))
+            .html(_bf.safeHTML(discussion.content))
             .appendTo($(this))
             .each(function()
             {
@@ -335,7 +335,7 @@ var _bf_itemdiscussions = {
                                 {
                                     'class': '_bf_itemdiscussions_item_comment_content'
                                 })
-                                .html(comments.content[c].replace(/\\/g, ""))
+                                .html(_bf.safeHTML(comments.content[c]))
                                 .appendTo($(this))
                                 .each(function()
                                 {

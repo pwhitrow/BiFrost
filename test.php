@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BiFrost Test Page</title>
+  <title>BiFrost Remote Test Page</title>
   <meta name="description" content="">
   <meta name="author" content="Paul Whitrow">
 
@@ -15,7 +15,7 @@
 //      panel_text: ['Login here please', 200]
   };
   </script>
-  <script src="http://localhost:56870/api/_bf.js"></script>
+  <script src="http://bifrost.pwhitrow.com/api/_bf.js"></script>
 
 
 

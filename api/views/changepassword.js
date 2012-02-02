@@ -62,7 +62,12 @@ if(!$('._bf_' + formname + '_form').length)
             })
             .appendTo(form);
 
-            $('._bf_dashboard').append(form);
+            $('._bf_dashboard')
+            .append(form)
+            .each(function()
+            {
+                _bf.checkPlaceholders($('._bf_' + formname + '_form'));
+            })
         }
     }
 

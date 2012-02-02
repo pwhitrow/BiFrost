@@ -12,7 +12,7 @@ if($_REQUEST['type'] == 'reviews')
 }
 if($_REQUEST['type'] == 'discussions')
 {
-    $items = "SELECT id, '".t("Comment")."' as title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."discussions WHERE api_key='".$_REQUEST["apikey"]."' ORDER BY id DESC";
+    $items = "SELECT id, 'Comment' as title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."discussions WHERE api_key='".$_REQUEST["apikey"]."' ORDER BY id DESC";
 }
 
 $org = mysql_query($org) or die(mysql_error());

@@ -3,7 +3,7 @@
  */
 
 // we need the MD5 script!
-_bf_loadscript('api/plugins/md5/jquery.md5.js');
+_bf_loadscript(_bf.host + 'api/plugins/md5/jquery.md5.js');
 
 var formname = 'login';
 

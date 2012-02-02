@@ -447,7 +447,7 @@ var _bf_itemreviews = {
             {
                 'class': '_bf_itemreviews_item_synopsis'
             })
-            .html(review.content.replace(/\\/g, ""))
+            .html(_bf.safeHTML(review.content))
             .appendTo($(this))
             .each(function()
             {
