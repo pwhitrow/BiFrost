@@ -35,7 +35,7 @@ if(_bf.loggedIn())
                     {
                         for(i = 0; i < watches.length; i++)
                         {
-                            _bf_userwatches.renderWatch(watches[i], data.pageURL);
+                            _bf_userwatches.renderWatch(watches[i]);
                         }
                         
                         $(this).fadeIn(_bf.ani_speed);
@@ -58,7 +58,7 @@ if(_bf.loggedIn())
                 }
             },
     
-            renderWatch: function(watch, url)
+            renderWatch: function(watch)
             {
                 $('<li />').attr(
                 {
@@ -86,7 +86,7 @@ if(_bf.loggedIn())
                         {
                             'class': '_bf_userwatches_url'
                         })
-                        .html(url)
+                        .html(watch.url)
                         .appendTo($(this));
                         
                         $('<span />').attr(

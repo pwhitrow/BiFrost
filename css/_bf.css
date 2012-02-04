@@ -276,6 +276,14 @@ FORMS
     background-color:#fff;
 }
 
+._bf_review_submit,
+._bf_discuss_submit
+{
+    bottom: -38px;
+    left: 20px;
+    position: absolute !important;    
+}
+
 ._bf_review_content
 {
     background-position: 5px -137px !important;
@@ -286,7 +294,7 @@ FORMS
 ._bf_comment_content
 {
     background-position: 5px -476px !important;
-    height:152px;
+    height:205px;
 }
 
 ._bf_button
@@ -864,7 +872,7 @@ POST REVIEW
 
 ._bf_review_rating_set
 {
-    left: 179px;
+    left: 20px;
     position: absolute;
     top: 301px;}
 

@@ -134,7 +134,7 @@ if(_bf.loggedIn())
                         'title': _bf.t('Click to close'),
                         'class': '_bf_state_action'
                     })
-                    .html(_bf.t('Close'))
+                    .html(_bf.t('Cancel'))
                     .click(function()
                     {
                         _bf.cleanUp($('._bf_' + formname + '_form'));

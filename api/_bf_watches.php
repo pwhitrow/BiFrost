@@ -37,7 +37,7 @@ function watchViaEmail()
         }
         else
         {
-            $sql = "INSERT INTO ".TABLEPRENAME."watches (userid, relation, api_key, type, title) VALUES('".$_SESSION['user']['id']."', '".$_REQUEST['relation']."', '".$_REQUEST['api_key']."', '".$_REQUEST['type']."', '".$_REQUEST['title']."')";
+            $sql = "INSERT INTO ".TABLEPRENAME."watches (userid, relation, api_key, type, title, url) VALUES('".$_SESSION['user']['id']."', '".$_REQUEST['relation']."', '".$_REQUEST['api_key']."', '".$_REQUEST['type']."', '".$_REQUEST['title']."', '".$_REQUEST['url']."')";
             mysql_query($sql);
             setSuccessMsg(t('Watch set'));
         }        

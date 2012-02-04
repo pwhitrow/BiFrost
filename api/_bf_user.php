@@ -60,6 +60,7 @@ function FBlogin()
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
+            FBlogin2($prep);
         }
         else
         {
@@ -86,7 +87,7 @@ function FBlogin2($prep)
         {
             if($user['enabled'])
             {
-                setSuccessMsg(t('Login Successful'));
+                setSuccessMsg(t('Facebook Login Successful'));
                 $_SESSION['state'] = true;
                 mysql_query("UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."' lastlogin = NOW() WHERE email = '".$prep['email']."'");
                 loadUserSession($user);           
@@ -94,14 +95,14 @@ function FBlogin2($prep)
             else
             {
                 logout();
-                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
                 return false;                    
             }
         }
         else
         {
             logout();
-            setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+            setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
             return false;
         }
     }

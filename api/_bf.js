@@ -1343,7 +1343,8 @@ function _bf_go()
                         {
                             action: 'watchviaemail',
                             type: type,
-                            title: document.title
+                            title: document.title,
+                            url: document.location.href
                         });                    
                     })
                     .appendTo($(this))                            
