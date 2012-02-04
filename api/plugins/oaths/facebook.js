@@ -1,6 +1,9 @@
-// FACEBOOK API
-
-var _bf_FB = new Array();
+/*
+    Document   : facebook.js
+    Created on : 04-Feb-2012, 04:30:05
+    Author     : Paul Whitrow
+    Description: Facebook API layer
+*/
 
 $('<div />').attr(
 {
@@ -41,8 +44,6 @@ window.fbAsyncInit = function()
 
     FB.getLoginStatus(function(response) 
     {
-        //$('.fb_button_text').html(_bf.t('Connect'));
-        
         if (response.status == 'connected') 
         {
             FB.api(
@@ -52,8 +53,20 @@ window.fbAsyncInit = function()
             },
                 function(response) 
                 {
-                    console.log(response);
-                    //$('.fb_button_text').html(_bf.t('Disconnect'))
+                    var response = response[0];
+                    
+                    var params = 
+                    {
+                        action: 'fb_login',
+                        uid: response.uid,
+                        fname: response.first_name,
+                        sname: response.last_name,
+                        email: response.email,
+                        avatar: response.pic,
+                        password: 'test'
+                    };
+
+                    _bf.post(params);
                 }
             );
         }

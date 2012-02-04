@@ -1058,6 +1058,7 @@ Dashboard Show Reviews etc
     float:left;
     position: relative;
     clear: both;
+    width:453px;
 }
 
 ._bf_userreviews_item:hover,

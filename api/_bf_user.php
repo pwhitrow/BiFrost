@@ -3,7 +3,7 @@
     Document   : _bf_user.php
     Created on : 27-Oct-2011, 21:37:22
     Author     : Paul Whitrow
-    Description: register a new user and sent them an email to verify
+    Description: user related functions
 */
 
 function registerUser()
@@ -38,6 +38,80 @@ function registerUser()
         setErrorMsg(t('This email is already registered'));
         return false;
     }
+}
+
+// Facebook login
+function FBlogin()
+{
+    $prep = array();
+    
+    foreach ($_POST as $k => $v)
+    {
+        $prep[$k] = prepForDB($v);
+    }
+
+    $_SESSION['state'] = false;
+    
+    // Are we registered with app?
+    if(!userExists($prep['email']))
+    {
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id) VALUES(UNIX_TIMESTAMP(), '".$prep['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', '".$prep['avatar']."', NOW(), '".$prep['uid']."')";
+        
+        if(mysql_query($sql))
+        {
+            setSuccessMsg(t('Registered via') + ' FaceBook');
+        }
+        else
+        {
+            setErrorMsg(mysql_error(), 'register');
+            return false;
+        }
+    }
+    else
+    {
+        FBlogin2($prep);
+    }
+}
+
+function FBlogin2($prep)
+{
+    $org = getOrgDetails($prep["api_key"]);
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$prep['email']."'");
+
+    if(mysql_num_rows($sql) > 0)
+    {
+        $user = mysql_fetch_array($sql);
+
+        if($user['verified'])
+        {
+            if($user['enabled'])
+            {
+                setSuccessMsg(t('Login Successful'));
+                $_SESSION['state'] = true;
+                mysql_query("UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."' lastlogin = NOW() WHERE email = '".$prep['email']."'");
+                loadUserSession($user);           
+            }
+            else
+            {
+                logout();
+                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                return false;                    
+            }
+        }
+        else
+        {
+            logout();
+            setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+            return false;
+        }
+    }
+    else
+    {
+        logout();
+        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+        return false;
+    }
+
 }
 
 function userExists($email)

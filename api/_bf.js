@@ -1037,6 +1037,7 @@ function _bf_go()
                         _bf.showStateActions();
                         break;
 
+                    case('fb_login'):
                     case('login'):
                         if(!result.api_error)
                         {
@@ -1132,7 +1133,6 @@ function _bf_go()
                     action: 'logout'
                 }
                 _bf.post(params);
-
             },
 
             // validate form inputs

@@ -72,6 +72,11 @@ $result = $_POST;
 // So, what are we doing?
 switch($_POST['action'])
 {
+    case('fb_login'):  // facebook login
+                    FBlogin();
+                    respond();
+                    break;
+
     case('register'):  // register a user
                     registerUser();
                     respond();
