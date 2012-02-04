@@ -1,6 +1,8 @@
 // FACEBOOK API
 
-var fb = $('<div />').attr(
+var _bf_FB = new Array();
+
+$('<div />').attr(
 {
     'class': '_bf_login_fb'
 })
@@ -39,6 +41,8 @@ window.fbAsyncInit = function()
 
     FB.getLoginStatus(function(response) 
     {
+        //$('.fb_button_text').html(_bf.t('Connect'));
+        
         if (response.status == 'connected') 
         {
             FB.api(
@@ -48,7 +52,8 @@ window.fbAsyncInit = function()
             },
                 function(response) 
                 {
-                    console.log(response)
+                    console.log(response);
+                    //$('.fb_button_text').html(_bf.t('Disconnect'))
                 }
             );
         }
