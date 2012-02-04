@@ -59,14 +59,17 @@ if(jQuery)(
 					onAllComplete   : function() {}  // Function to run when all uploads are completed
 				}, options);
 				jQuery(this).data('settings',settings);
-				var pagePath = location.pathname;
-				pagePath = pagePath.split('/');
-				pagePath.pop();
-				pagePath = pagePath.join('/') + '/';
-				var data = {};
+                                
+//				var pagePath = location.pathname;
+//				pagePath = pagePath.split('/');
+//				pagePath.pop();
+//				pagePath = pagePath.join('/') + '/';
+
+                                var data = {};
 				data.uploadifyID = settings.id;
-				data.pagepath = pagePath;
-				if (settings.buttonImg) data.buttonImg = escape(settings.buttonImg);
+				data.pagepath = _bf_host + "api/plugins";
+
+                                if (settings.buttonImg) data.buttonImg = escape(settings.buttonImg);
 				if (settings.buttonText) data.buttonText = escape(settings.buttonText);
 				if (settings.rollover) data.rollover = true;
 				data.script = settings.script;

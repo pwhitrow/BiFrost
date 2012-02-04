@@ -219,6 +219,7 @@ if(_bf.loggedIn())
                         'fileDataName'  : 'Filedata',
                         'hideButton'    : true,
                         'auto'          : true,
+                        'scriptAccess'  : 'always', 
                         'fileExt'       : _bf.filetypes,
                         'fileDesc'      : _bf.t('Media Files') + ' (' + _bf.filetypes + ')',
                         'sizeLimit'     : _bf.maxfilesize,

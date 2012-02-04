@@ -11,11 +11,12 @@ if(!$('._bf_' + formname + '_form').length)
         init: function()
         {
             // create the form
-            var form = $('<form></form>').attr(
+            var form = $('<form />').attr(
             {
                 method: 'post',
                 action: formname,
                 name: formname,
+                enctype: 'multipart/form-data',
                 'class': ' _bf_' + formname + '_form'
             })
             .css(
@@ -84,6 +85,7 @@ if(!$('._bf_' + formname + '_form').length)
                     'folder'        : _bf.uploads,
                     'wmode'         : 'transparent',
                     'fileDataName'  : 'Filedata',
+                    'scriptAccess'  : 'always', 
                     'hideButton'    : true,
                     'auto'          : true,
                     'fileExt'       : _bf.imagetypes,

@@ -9,8 +9,8 @@
                     on client site.
 */
 
-//var _bf_host = 'http://bifrost.pwhitrow.com/';
-var _bf_host = 'http://localhost:56870/';
+var _bf_host = 'http://bifrost.pwhitrow.com/';
+//var _bf_host = 'http://localhost:56870/';
 
 
 // insert a script
@@ -95,7 +95,7 @@ function _bf_loadScripts()
         'api/plugins/socials/jquery.socials.css',
         'api/plugins/showbox/jquery.showbox.js',
         'api/plugins/multiselect/jquery.multiselect.js',
-        'api/plugins/uploadify/jquery.uploadify.v2.1.4.min.js',
+        'api/plugins/uploadify/jquery.uploadify.v2.1.4.js',
         'api/plugins/player/jwplayer.js',
         'api/plugins/timeago/jquery.timeago.js',
         'api/plugins/raty/js/jquery.raty.min.js'
@@ -463,12 +463,18 @@ function _bf_go()
             },
 
             // clean up elements
-            cleanUp: function(el)
+            cleanUp: function(el, callback)
             {
                 if(el.length)
                 {
                     el.remove();
                 }   
+                
+                // do we have a callback?
+                if($.isFunction(callback))
+                {
+                    callback.call(this);
+                }
             },
 
             paginator: function(obj, holder)
@@ -1279,41 +1285,31 @@ function _bf_go()
             },
 
             // remove the social links
-            hideSocialAuthenticators: function()
+            hideSocialAuthenticators: function(callback)
             {
                 // clean up
-                _bf.cleanUp($('._bf_login_authenticators'));                    
+                _bf.cleanUp($('._bf_login_authenticators')); 
+                
+                if($.isFunction(callback))
+                {
+                    callback.call(this);
+                }                
             },
 
             // show the social links
             showSocialAuthenticators: function(form)
             {
-                // clean up
-                _bf.cleanUp($('._bf_login_authenticators'));
-
                 // Authentication buttons holder
-                var auth = $('<div />').attr(
+                _bf.hideSocialAuthenticators(function()
                 {
-                    'class': '_bf_login_authenticators'
-                }
-                ).appendTo(_bf.state_panel);
+                    var auth = $('<div />').attr(
+                    {
+                        'class': '_bf_login_authenticators'
+                    })
+                    .appendTo(_bf.state_panel);
 
-                // create the authenticator buttons
-                for(i = 0; i < _bf.authenticators.length; i++)
-                {
-                    $('<div />').attr(
-                    {
-                        'class': '_bf_login_authenticator _bf_login_' + _bf.authenticators[i].toLowerCase(),
-                        title: _bf.t('Login with your ') + _bf.authenticators[i] + _bf.t(' account'),
-                        rel: _bf.authenticators[i]
-                    }
-                    ).appendTo(auth)
-                    .click(function()
-                    {
-                        // do social login authentication!
-                        _bf.showStateOverlay($(this).attr('rel'));
-                    });
-                }
+                    _bf_loadscript(_bf.host + 'api/plugins/oaths/facebook.js');                    
+                });
             },
             
             showSubscribes: function(el, type, api_key)
