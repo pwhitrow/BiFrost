@@ -133,6 +133,7 @@ function _bf_go()
 
             host: _bf_host,
             api_key: BiFrost.api_key,
+            relation: BiFrost.relation,
             api_token: false,
             appname: '',
             uploads: false,
@@ -203,7 +204,7 @@ function _bf_go()
                     $('<div />').attr(
                     {
                         'class': '_bf_widgets',
-                        rel: BiFrost.relation
+                        rel: _bf.relation
                     })
                     .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
                     .each(function()
@@ -224,7 +225,7 @@ function _bf_go()
                             $('<div />').attr(
                             {
                                 'class': '_bf_reviews',
-                                rel: BiFrost.relation
+                                rel: _bf.relation
                             })
                             .appendTo($(this))
                             .each(function()
@@ -235,7 +236,7 @@ function _bf_go()
                             $('<div />').attr(
                             {
                                 'class': '_bf_discussions',
-                                rel: BiFrost.relation
+                                rel: _bf.relation
                             })
                             .appendTo($(this))
                             .each(function()
@@ -245,6 +246,8 @@ function _bf_go()
                         });
                     });
                 });
+                
+                 _bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');     
 
             },
             
@@ -300,7 +303,7 @@ function _bf_go()
                                 _bf.getForm(
                                 {
                                     form: type,
-                                    parentid: BiFrost.relation
+                                    parentid: _bf.relation
                                 });
                             });
                         }
@@ -937,7 +940,7 @@ function _bf_go()
                 params['dataType'] = 'jsonp';
                 params['host'] = _bf.host;
                 params['pageURL'] = location.href;
-                params['relation'] = BiFrost.relation;
+                params['relation'] = _bf.relation;
                 //params['callback'] = _bf.test();
 
                 // post the form
@@ -1128,6 +1131,8 @@ function _bf_go()
             // logout
             logout:function()
             {
+                fb_lib.logout();
+                
                 var params = 
                 {
                     action: 'logout'
@@ -1308,7 +1313,7 @@ function _bf_go()
                     })
                     .appendTo(_bf.state_panel);
 
-                    _bf_loadscript(_bf.host + 'api/plugins/oaths/facebook.js');                    
+                    //_bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');                    
                 });
             },
             
@@ -1325,7 +1330,7 @@ function _bf_go()
                     $('<a />').attr(
                     {
                         'class': '_bf_items_rss',
-                        'href': _bf.host + 'api/rss.php?type=' + type + '&apikey=' + api_key,
+                        'href': _bf.host + 'api/rss.php?type=' + type + '&apikey=' + api_key + '&relation=' + _bf.relation,
                         'title': _bf.t("Subscribe to this item's feed")
                     })
                     .html('<acronym title="Really Simple Syndication">RSS</acronym>')

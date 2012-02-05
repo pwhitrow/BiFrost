@@ -102,7 +102,7 @@ if(_bf.loggedIn())
                             {
                                 action: 'removewatch',
                                 id: watch.id,
-                                relation: BiFrost.relation
+                                relation: _bf.relation
                             });
                         })
                         .appendTo($(this));

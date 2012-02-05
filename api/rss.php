@@ -8,11 +8,11 @@ $org = "SELECT name, description, url FROM ".TABLEPRENAME."organisations WHERE a
 
 if($_REQUEST['type'] == 'reviews')
 {
-    $items = "SELECT id, title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."reviews WHERE api_key='".$_REQUEST["apikey"]."' ORDER BY id DESC";
+    $items = "SELECT id, title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."reviews WHERE api_key='".$_REQUEST["apikey"]."' AND parent_id='".$_REQUEST["relation"]."' ORDER BY id DESC";
 }
 if($_REQUEST['type'] == 'discussions')
 {
-    $items = "SELECT id, 'Comment' as title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."discussions WHERE api_key='".$_REQUEST["apikey"]."' ORDER BY id DESC";
+    $items = "SELECT id, 'Comment' as title, content, DATE_FORMAT(posted,'%a, %e %b %Y %T') as fdate FROM ".TABLEPRENAME."discussions WHERE api_key='".$_REQUEST["apikey"]."' AND parent_id='".$_REQUEST["relation"]."' ORDER BY id DESC";
 }
 
 $org = mysql_query($org) or die(mysql_error());
