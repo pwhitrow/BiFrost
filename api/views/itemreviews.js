@@ -263,7 +263,7 @@ var _bf_itemreviews = {
         {
             if(_bf.current_widget == 'reviews')
             {
-                if  ($(window).scrollTop() == $(document).height() - $(window).height())
+                if  ($(window).scrollTop() >= ($(document).height() - $(window).height() - 5))
                 {
                    _bf_itemreviews.lazyLoad();
                 }

@@ -188,7 +188,7 @@ var _bf_itemdiscussions = {
         {
             if(_bf.current_widget == 'discussions')
             {
-                if  ($(window).scrollTop() == $(document).height() - $(window).height())
+                if  ($(window).scrollTop() >= ($(document).height() - $(window).height() - 5))
                 {
                    _bf_itemdiscussions.lazyLoad();
                 }
