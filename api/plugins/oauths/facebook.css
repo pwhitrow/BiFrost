@@ -1,4 +1,29 @@
 ._bf_login_fb
 {
-    
+    position: absolute;    
+    width:auto;
+    z-index:1;
+    display:none;
+    right:20px;
+    top:20px;
+}
+
+._bf_fb_linkpost
+{
+    position:absolute;
+    bottom: -32px;
+    left: 150px;
+}
+
+.fb_post_review
+{
+    float: left;
+    margin-top: 5px;    
+}
+
+.fb_post_label
+{
+    color: #888888;
+    font-family: arial;
+    font-size: 11px;    
 }

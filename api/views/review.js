@@ -156,6 +156,41 @@ if(_bf.loggedIn())
                     }
                     ).appendTo(form);
                 });
+                
+                // Facebook post checkbox
+                if(typeof fb_lib != 'undefined')
+                {
+                    if(fb_lib.loggedin())
+                    {
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_fb_linkpost'
+                        })
+                        .each(function()
+                        {
+                            $('<label />').attr(
+                            {
+                                'for': 'fb_post_review',
+                                'class': 'fb_post_label'
+                            })
+                            .html(_bf.t('Post to') +  ' Facebook')
+                            .prependTo($(this));
+                            
+                            $('<input />').attr(
+                            {
+                                'type': 'checkbox',
+                                'name': 'fb_post_review',
+                                'id': 'fb_post_review',
+                                'class': 'fb_post_review',
+                                'checked': 'checked'
+                            })
+                            .prependTo($(this));
+                        })
+                        .appendTo(form);                        
+                    }
+                }
+                
+                
             },
             
             raterReady: function()

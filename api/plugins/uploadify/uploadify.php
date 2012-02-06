@@ -56,7 +56,7 @@ if (!empty($_FILES))
     srand(time());
     $random = (rand()%99999999);
     $targetFile =  str_replace('//','/',$targetPath) . $random . $ext;
-    logger($targetFile);
+
     while(is_file($targetFile))
     {
         srand(time());

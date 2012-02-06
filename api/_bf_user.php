@@ -87,7 +87,7 @@ function FBlogin2($prep)
         {
             if($user['enabled'])
             {
-                setSuccessMsg(t('Facebook Login Successful'));
+                //setSuccessMsg(t('Facebook Login Successful'));
                 $_SESSION['state'] = true;
                 mysql_query("UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."' lastlogin = NOW() WHERE email = '".$prep['email']."'");
                 loadUserSession($user);           

@@ -696,7 +696,12 @@ function _bf_go()
             closePanel: function(callback)
             {
                 _bf.removeForms();
-
+                
+                if(typeof fb_lib != 'undefined')
+                {
+                    fb_lib.button('hide');
+                }
+                
                 _bf.cleanUp($('._bf_dashboard'));
 
                 _bf.hideStateOverlay();
@@ -813,7 +818,7 @@ function _bf_go()
                     .attr(
                     {
                         'class': '_bf_state_action',
-                        'title': _bf.t('Click open your dashboard')
+                        'title': _bf.t('Click to open your dashboard')
                     })
                     .appendTo(_bf.state_actions)
                     .click(function()
@@ -879,7 +884,12 @@ function _bf_go()
                             .slideDown(_bf.ani_speed);
                         });
                     });
-
+                    
+                    if(typeof fb_lib != 'undefined')
+                    {
+                        fb_lib.button('hide');
+                    }
+                
                 }
             },
 
@@ -1050,6 +1060,19 @@ function _bf_go()
                         break;
 
                     case('review'):
+
+                        // Facebook post
+                        if(typeof fb_lib != 'undefined')
+                        {
+                            if(fb_lib.loggedin())
+                            {
+                                if($('#fb_post_review').prop('checked'))
+                                {
+                                    fb_lib.postToWall(result.title, result.content, result.pageURL, 'review');
+                                }
+                            }
+                        }
+
                         _bf.closePanel(function()
                         {
                             _bf_itemreviews.init();
@@ -1131,8 +1154,11 @@ function _bf_go()
             // logout
             logout:function()
             {
-                fb_lib.logout();
-                
+                if(typeof fb_lib != 'undefined')
+                {
+                    fb_lib.logout();
+                }
+                                
                 var params = 
                 {
                     action: 'logout'
@@ -1302,19 +1328,12 @@ function _bf_go()
             },
 
             // show the social links
-            showSocialAuthenticators: function(form)
+            showSocialAuthenticators: function()
             {
-                // Authentication buttons holder
-                _bf.hideSocialAuthenticators(function()
+                if(typeof fb_lib != 'undefined')
                 {
-                    var auth = $('<div />').attr(
-                    {
-                        'class': '_bf_login_authenticators'
-                    })
-                    .appendTo(_bf.state_panel);
-
-                    //_bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');                    
-                });
+                    fb_lib.button('show');
+                }
             },
             
             showSubscribes: function(el, type, api_key)
