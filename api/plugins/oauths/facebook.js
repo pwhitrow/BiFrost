@@ -18,22 +18,7 @@ window.fbAsyncInit = function()
 
     FB.Event.subscribe('auth.login', function(response) 
     {
-        FB.api('/me', function(response) 
-        {
-
-            var params = 
-            {
-                action: 'fb_login',
-                uid: response.uid,
-                fname: response.first_name,
-                sname: response.last_name,
-                email: response.email,
-                avatar: response.pic,
-                password: 'fbuser'
-            };
-
-            _bf.post(params);
-        });
+        fb_lib.loginToApp();
     });
 
     FB.Event.subscribe('auth.logout', function(response) 
@@ -51,30 +36,7 @@ window.fbAsyncInit = function()
     {
         if (response.status == 'connected') 
         {
-            FB.api(
-            {
-                method: 'fql.query',
-                query: 'SELECT uid,first_name,last_name,email,pic FROM user WHERE uid=me()'
-            },
-                function(response) 
-                {
-                    var response = response[0];
-
-                    var params = 
-                    {
-                        action: 'fb_login',
-                        uid: response.uid,
-                        fname: response.first_name,
-                        sname: response.last_name,
-                        email: response.email,
-                        avatar: response.pic,
-                        password: 'fbuser'
-                    };
-
-                    _bf.post(params);
-
-                }
-            );
+            fb_lib.loginToApp();
         }
     });
 };
@@ -98,6 +60,34 @@ var fb_lib = {
             .hide()
             .appendTo($('._bf_state'))
         }
+    },
+    
+    loginToApp: function()
+    {
+        FB.api(
+        {
+            method: 'fql.query',
+            query: 'SELECT uid,first_name,last_name,email,pic FROM user WHERE uid=me()'
+        },
+            function(response) 
+            {
+                var response = response[0];
+
+                var params = 
+                {
+                    action: 'fb_login',
+                    uid: response.uid,
+                    fname: response.first_name,
+                    sname: response.last_name,
+                    email: response.email,
+                    avatar: response.pic,
+                    password: 'fbuser'
+                };
+
+                _bf.post(params);
+
+            }
+        );       
     },
     
     postToWall: function(title, msg, link, type)
