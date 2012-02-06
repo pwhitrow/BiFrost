@@ -754,149 +754,160 @@ function _bf_go()
             {
                 _bf.hideSocialAuthenticators();
 
-                if(_bf.state_actions)
+                _bf.cleanUp($('._bf_state_actions'), function()
                 {
-                    _bf.state_actions.remove();
-                }
-
-                _bf.state_actions = $('<ul />')
-                .attr(
-                {
-                    'class': '_bf_state_actions'
-                })
-                .appendTo(_bf.state_panel);
-
-                // what state are we in?
-                if(!_bf.loggedIn())
-                {
-                    _bf.state_action = $('<li />')
-                    .html((typeof _bf_panel_text != 'undefined' ? _bf_panel_text[0] : _bf.t('Login : Register')))
+                    _bf.state_actions = $('<ul />')
                     .attr(
                     {
-                        'class': '_bf_state_action',
-                        title: _bf.t('Click to open')
+                        'class': '_bf_state_actions'
                     })
-                    .appendTo(_bf.state_actions)
-                    .toggle(
-                    function()
-                    {
-                        _bf.openPanel(207, 440, function()
-                        {
-                            _bf.state_action.html(_bf.t('Close'))
-                            .attr('title', _bf.t('Click to close'));
+                    .appendTo(_bf.state_panel);
 
-                            _bf.getForm({form: 'login'});
-                        });
-                    },
-                    function()
+                    // what state are we in?
+                    if(!_bf.loggedIn())
                     {
+                        _bf.state_action = $('<li />')
+                        .html((typeof _bf_panel_text != 'undefined' ? _bf_panel_text[0] : _bf.t('Login : Register')))
+                        .attr(
+                        {
+                            'class': '_bf_state_action',
+                            title: _bf.t('Click to open')
+                        })
+                        .appendTo(_bf.state_actions)
+                        .toggle(
+                        function()
+                        {
+                            _bf.openPanel(207, 440, function()
+                            {
+                                _bf.state_action.html(_bf.t('Close'))
+                                .attr('title', _bf.t('Click to close'));
+
+                                _bf.getForm({form: 'login'});
+                            });
+                        },
+                        function()
+                        {
+                            _bf.closePanel(function()
+                            {
+                                _bf.showStateActions();
+                            });
+                        })
+                        .each(function()
+                        {
+                            _bf.resizePanel(_bf.state_panel_width, _bf.state_height_default, function()
+                            {
+                               _bf.state_actions.fadeIn(_bf.ani_speed);
+                                _bf.state_panel
+                                    .css(
+                                    {
+                                        width: _bf.state_width_default,
+                                        height: _bf.state_height_default + 'px'
+                                    })
+                                    .slideDown(_bf.ani_speed)
+                                    .addClass('_bf_state_closed');
+                            });
+                        });
+                    }
+                    else
+                    {
+                        var dashboard = $('<li />')
+                        .html(_bf.t('Dashboard'))
+                        .attr(
+                        {
+                            'class': '_bf_state_action',
+                            'title': _bf.t('Click to open your dashboard')
+                        })
+                        .appendTo(_bf.state_actions)
+                        .click(function()
+                        {
+                            $(this).fadeOut(_bf.ani_speed);
+
+                            _bf.openPanel(404, 600, function()
+                            {
+                                // if we don't have a close button,
+                                // create one and add it to the state actions
+                                if(!$('._bf_closer').length)
+                                {
+                                    var closedashboard = $('<li />')
+                                    .html(_bf.t('Close'))
+                                    .attr(
+                                    {
+                                        'class': '_bf_state_action _bf_closer',
+                                        'title': _bf.t('Click to close')
+                                    })
+                                    .click(function()
+                                    {
+                                        $(this).remove();
+
+                                        _bf.closePanel(function()
+                                        {
+                                            _bf.resizePanel(_bf.state_width_default, _bf.state_height_default);
+
+                                            dashboard.fadeIn(_bf.ani_speed);
+                                        });
+                                    })
+                                    .prependTo(_bf.state_actions);
+                                }
+                                // show the dashboard
+                                _bf.getForm({form: 'dashboard'});
+                            });
+                        });
+
+                        var logout = $('<li />')
+                        .html(_bf.t('Logout'))
+                        .attr(
+                        {
+                            'class': '_bf_state_action',
+                            'title': _bf.t('Click to logout')
+                        })
+                        .appendTo(_bf.state_actions)
+                        .click(function()
+                        {
+                            _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
+                            
+                            _bf.logout(function()
+                            {
+                                _bf.closePanel(function()
+                                {
+                                    _bf.hideStateOverlay();
+                                });
+                            });
+                        });
+
                         _bf.closePanel(function()
                         {
-                            _bf.showStateActions();
-                        });
-                    })
-                    .each(function()
-                    {
-                        _bf.resizePanel(_bf.state_panel_width, _bf.state_height_default, function()
-                        {
-                           _bf.state_actions.fadeIn(_bf.ani_speed);
-                            _bf.state_panel
+                            _bf.resizePanel(_bf.state_width_default, _bf.state_height_default, function()
+                            {
+                                _bf.state_actions.fadeIn(_bf.ani_speed);
+                                _bf.state_panel
                                 .css(
                                 {
                                     width: _bf.state_width_default,
                                     height: _bf.state_height_default + 'px'
                                 })
                                 .slideDown(_bf.ani_speed)
-                                .addClass('_bf_state_closed');
-                        });
-                    });
-                }
-                else
-                {
-                    var dashboard = $('<li />')
-                    .html(_bf.t('Dashboard'))
-                    .attr(
-                    {
-                        'class': '_bf_state_action',
-                        'title': _bf.t('Click to open your dashboard')
-                    })
-                    .appendTo(_bf.state_actions)
-                    .click(function()
-                    {
-                        $(this).fadeOut(_bf.ani_speed);
-
-                        _bf.openPanel(404, 600, function()
-                        {
-                            // if we don't have a close button,
-                            // create one and add it to the state actions
-                            if(!$('._bf_closer').length)
-                            {
-                                var closedashboard = $('<li />')
-                                .html(_bf.t('Close'))
-                                .attr(
+                                .each(function()
                                 {
-                                    'class': '_bf_state_action _bf_closer',
-                                    'title': _bf.t('Click to close')
-                                })
-                                .click(function()
-                                {
-                                    $(this).remove();
-
-                                    _bf.closePanel(function()
-                                    {
-                                        _bf.resizePanel(_bf.state_width_default, _bf.state_height_default);
-
-                                        dashboard.fadeIn(_bf.ani_speed);
-                                    });
-                                })
-                                .prependTo(_bf.state_actions);
-                            }
-                            // show the dashboard
-                            _bf.getForm({form: 'dashboard'});
+                                    _bf.hideStateOverlay();
+                                });
+                            });
                         });
-                    });
 
-                    var logout = $('<li />')
-                    .html(_bf.t('Logout'))
-                    .attr(
-                    {
-                        'class': '_bf_state_action',
-                        'title': _bf.t('Click to logout')
-                    })
-                    .appendTo(_bf.state_actions)
-                    .click(function()
-                    {
-                        _bf.logout();
-                        _bf.closePanel();
-                    });
-
-                    _bf.closePanel(function()
-                    {
-                        _bf.resizePanel(_bf.state_width_default, _bf.state_height_default, function()
+                        if(typeof fb_lib != 'undefined')
                         {
-                            _bf.state_actions.fadeIn(_bf.ani_speed);
-                            _bf.state_panel
-                            .css(
-                            {
-                                width: _bf.state_width_default,
-                                height: _bf.state_height_default + 'px'
-                            })
-                            .slideDown(_bf.ani_speed);
-                        });
-                    });
-                    
-                    if(typeof fb_lib != 'undefined')
-                    {
-                        fb_lib.button('hide');
+                            fb_lib.button('hide');
+                        }
+
                     }
-                
-                }
+                    
+                })
+
             },
 
             // as the name says
             submitForm: function(form, event)
             {
-                _bf.showStateOverlay(_bf.t('Please wait...'), false);
+                _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
 
                 // stop form from submitting normaly
                 event.preventDefault();
@@ -1152,7 +1163,7 @@ function _bf_go()
             },
 
             // logout
-            logout:function()
+            logout:function(callback)
             {
                 if(typeof fb_lib != 'undefined')
                 {
@@ -1164,6 +1175,11 @@ function _bf_go()
                     action: 'logout'
                 }
                 _bf.post(params);
+                
+                if($.isFunction(callback))
+                {
+                    callback.call(this);
+                }                
             },
 
             // validate form inputs

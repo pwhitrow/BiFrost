@@ -64,6 +64,10 @@ var fb_lib = {
     
     loginToApp: function()
     {
+        _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
+        
+        fb_lib.button('hide');
+        
         FB.api(
         {
             method: 'fql.query',

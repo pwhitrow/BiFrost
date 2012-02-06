@@ -430,7 +430,7 @@ var _bf_itemreviews = {
         
         $('<li />').attr(
         {
-            'class': '_bf_itemreviews_item',
+            'class': '_bf_itemreviews_item hreview',
             id: 'review_' + review.id
         })
         .appendTo($('._bf_itemreviews'))
@@ -445,7 +445,7 @@ var _bf_itemreviews = {
             
             $('<p />').attr(
             {
-                'class': '_bf_itemreviews_item_synopsis'
+                'class': '_bf_itemreviews_item_synopsis description'
             })
             .html(_bf.safeHTML(review.content))
             .appendTo($(this))
@@ -453,7 +453,7 @@ var _bf_itemreviews = {
             {
                 $('<h2 />').attr(
                 {
-                    'class': '_bf_itemreviews_item_title',
+                    'class': '_bf_itemreviews_item_title summary',
                     title: review.title
                 })
                 .html(review.title)
@@ -474,10 +474,10 @@ var _bf_itemreviews = {
 
             $('<h3 />').attr(
             {
-                'class': '_bf_itemreviews_item_username',
+                'class': '_bf_itemreviews_item_username reviewer',
                 title: review.gname + ' ' + review.fname
             })
-            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="postdate" title="'+review.isodate+'">' + review.fdate + '</em>')
+            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em>')
             .appendTo($(this));
             
             $('<div />').attr(
@@ -502,7 +502,7 @@ var _bf_itemreviews = {
 
             $('<p />').attr(
             {
-                'class': '_bf_itemreviews_item_rating',
+                'class': '_bf_itemreviews_item_rating rating',
                 id: '_bf_itemreviews_item_rating_' + review.id
             })
             .appendTo($(this))
