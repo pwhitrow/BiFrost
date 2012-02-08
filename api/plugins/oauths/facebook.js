@@ -113,6 +113,11 @@ var fb_lib = {
         });        
     },
     
+    login: function()
+    {
+        FB.login();
+    },
+    
     logout: function()
     {
         FB.getLoginStatus(function(response) 

@@ -19,7 +19,6 @@
     margin:0px;
     padding:0px;
 
-    background:#454545 url(../images/dashbg.png) 0 0 repeat;
     background:#1D1D1D url(../images/wait-grey-mini.gif) center center no-repeat;
 /*    
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(80%, #343434), color-stop(100%, #313131));
@@ -505,54 +504,55 @@ FORM LINKS
 /*
 AUTHENTICATORS
 */
-._bf_login_authenticators
+._bf_social_authenticators
 {
     position:absolute;
-    top:20px;
-    right:20px;
+    top:65px;
+    left:20px;
+    list-style:none;
 }
 
-._bf_login_authenticator
+._bf_social_authenticator
 {
     float:left;
     clear:both;
-    width:68px;
-    height:16px;
+    width:160px;
+    height:40px;
     margin:0px 0px 10px 0px;
     cursor:pointer;
-    background:transparent url(../images/auths/buttons.png) 0 0 no-repeat;
-    
-    -webkit-box-shadow: 1px 1px 3px rgba(30, 30, 30, 0.6);
-    -moz-box-shadow:    1px 1px 3px rgba(30, 30, 30, 0.6);
-    box-shadow:         1px 1px 3px rgba(30, 30, 30, 0.6);
+    background:transparent url(../images/socials.png) 0 0 no-repeat;
+    color:#C4C4C4;
+    text-shadow: 1px 1px 1px #141414;
+    font:bold 12px arial;
+    padding:0px 0px 0px 72px;
+    line-height: 40px;
 }
 
-._bf_login_authenticator:hover
+._bf_social_authenticator:hover
 {
-    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
-    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 1);
-    box-shadow:         1px 1px 3px rgba(0, 0, 0, 1);
+    color:#fff;
+    text-shadow: 1px 1px 1px #444;
 }
 
-._bf_login_facebook
+._bf_social_facebook
 {
-    background-position: 0px 0px;
+    background-position: 0px -50px;
 }
-._bf_login_google
+._bf_social_google
 {
     background-position: 0px -16px;
 }
-._bf_login_twitter
+._bf_social_twitter
 {
-    background-position: 0px -32px;
+    background-position: 0px -7px;
 }
-._bf_login_openid
+._bf_social_openid
 {
     background-position: 0px -48px;
 }
-._bf_login_linkedin
+._bf_social_linkedin
 {
-    background-position: 0px -64px;
+    background-position: 0px -95px;
 }
 
 /*
@@ -570,28 +570,17 @@ DASHBOARD
     text-shadow: 0px 2px 3px #171717;
 }
 
-._bf_changeemail_form
+._bf_dashboard form
 {
-    position:absolute;
-    left:200px;
-    top:100px;
-    background:#1D1D1D;
+    bottom: 5px;
+    left: 135px;
+    position: absolute;
+    right: 0;
+    top: 0;    
+    background:transparent url(../images/form_bg.png) 0 0 repeat;
+    padding:40px;
 }
-._bf_changepassword_form
-{
-    position:absolute;
-    left:200px;
-    top:105px;
-    background:#1D1D1D;
-}
-._bf_changeavatar_form
-{
-    position:absolute;
-    left:200px;
-    top:47px;
-    background:#1D1D1D;
-}
- 
+
 ._bf_dashboard_actions
 {
     text-shadow: 0px 2px 3px #171717;
@@ -627,8 +616,8 @@ DASHBOARD
     cursor:pointer;
     border-bottom: 1px solid #343434;
     border-top: 1px solid #444444;
-    height:36px;
-    line-height:36px;
+    height:28.5px;
+    line-height:28px;
 }
 
 ._bf_dashboard_action:hover,
@@ -671,15 +660,15 @@ DASHBOARD
     background:#ccc;
     
     position:absolute;
-    top:20px;
-    left:20px;
+    top:95px;
+    left:163px;
 }
 
 ._bf_newavatar_holder
 {
     position:absolute;
-    top:130px;
-    left:20px;
+    top:208px;
+    left:162px;
 }
 
 ._bf_newavatar_holder input
@@ -1039,7 +1028,7 @@ Dashboard Show Reviews etc
 ._bf_usercomments,
 ._bf_userwatches
 {
-    background: #F7F7F7;
+    background: url("../images/lightbg.png") 0 0 #F7F7F7 repeat;
     bottom: -10px;
     overflow: auto;
     overflow-x: hidden;
@@ -1056,17 +1045,17 @@ Dashboard Show Reviews etc
 ._bf_usercomments_item,
 ._bf_userwatches_item
 {
-    padding:5px 10px 10px 0px;
+    padding:5px 20px 10px 0px;
     margin:0px 0px 0px 0px;
     font: normal 12px Helvetica, Arial, sans-serif;
     color: #888;
     text-shadow:1px 1px 1px #fff;
     border-top: 1px solid #F9F9F9;
-    border-bottom:1px solid #EAEAEA;
+    border-bottom:1px solid #CDCDCD;
     float:left;
     position: relative;
     clear: both;
-    width:453px;
+    width:443px;
 }
 
 ._bf_userreviews_item:hover,
@@ -1076,7 +1065,7 @@ Dashboard Show Reviews etc
 {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    background-color:#eee;
+    background-color:#E8E8E8;
 }
 
 ._bf_userreviews_item_title,

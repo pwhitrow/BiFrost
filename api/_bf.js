@@ -9,8 +9,7 @@
                     on client site.
 */
 
-var _bf_host = 'http://bifrost.pwhitrow.com/';
-//var _bf_host = 'http://localhost:56870/';
+var _bf_host = '/';
 
 
 // insert a script
@@ -144,7 +143,6 @@ function _bf_go()
             imagetypes: '*.jpeg;*.jpg;*.gif;*.png;',
             videotypes: '*.flv;',
             filetypes: '',
-            authenticators: ['Facebook', 'Google', 'Twitter', 'OpenID', 'LinkedIn'],
             bfme: false,
             state: false,
             state_panel: false,
@@ -851,44 +849,48 @@ function _bf_go()
                                 // show the dashboard
                                 _bf.getForm({form: 'dashboard'});
                             });
-                        });
-
-                        var logout = $('<li />')
-                        .html(_bf.t('Logout'))
-                        .attr(
-                        {
-                            'class': '_bf_state_action',
-                            'title': _bf.t('Click to logout')
                         })
-                        .appendTo(_bf.state_actions)
-                        .click(function()
+                        .each(function()
                         {
-                            _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
-                            
-                            _bf.logout(function()
+                            var logout = $('<li />')
+                            .html(_bf.t('Logout'))
+                            .attr(
+                            {
+                                'class': '_bf_state_action',
+                                'title': _bf.t('Click to logout')
+                            })
+                            .appendTo(_bf.state_actions)
+                            .click(function()
+                            {
+                                _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
+
+                                _bf.logout(function()
+                                {
+                                    _bf.closePanel(function()
+                                    {
+                                        _bf.hideStateOverlay();
+                                    });
+                                });
+                            })
+                            .each(function()
                             {
                                 _bf.closePanel(function()
                                 {
-                                    _bf.hideStateOverlay();
-                                });
-                            });
-                        });
-
-                        _bf.closePanel(function()
-                        {
-                            _bf.resizePanel(_bf.state_width_default, _bf.state_height_default, function()
-                            {
-                                _bf.state_actions.fadeIn(_bf.ani_speed);
-                                _bf.state_panel
-                                .css(
-                                {
-                                    width: _bf.state_width_default,
-                                    height: _bf.state_height_default + 'px'
-                                })
-                                .slideDown(_bf.ani_speed)
-                                .each(function()
-                                {
-                                    _bf.hideStateOverlay();
+                                    _bf.resizePanel(_bf.state_width_default, _bf.state_height_default, function()
+                                    {
+                                        _bf.state_actions.fadeIn(_bf.ani_speed);
+                                        _bf.state_panel
+                                        .css(
+                                        {
+                                            width: _bf.state_width_default,
+                                            height: _bf.state_height_default + 'px'
+                                        })
+                                        .slideDown(_bf.ani_speed)
+                                        .each(function()
+                                        {
+                                            _bf.hideStateOverlay();
+                                        });
+                                    });
                                 });
                             });
                         });
@@ -897,11 +899,8 @@ function _bf_go()
                         {
                             fb_lib.button('hide');
                         }
-
                     }
-                    
                 })
-
             },
 
             // as the name says
@@ -1622,7 +1621,7 @@ function _bf_go()
                 _bf.state_panel.find('form').each(function()
                 {
                     // fade the form out
-                    $(this).fadeOut(50,
+                    $(this).fadeOut(_bf.ani_speed,
                     function()
                     {
                         // remove from from node list

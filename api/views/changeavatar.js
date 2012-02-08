@@ -32,8 +32,8 @@ if(!$('._bf_' + formname + '_form').length)
                 alt: _bf.t('Profile Picture for ' + user.gname + ' ' + user.fname),
                 title: _bf.t('Profile Picture for ' + user.gname + ' ' + user.fname),
                 'class': '_bf_dashboard_avatar',
-                height: '100',
-                width: '100'
+                height: '120',
+                width: '120'
             })
             .appendTo(form);
 

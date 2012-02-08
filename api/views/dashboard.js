@@ -33,6 +33,7 @@ var _bf_dashboard = {
                         ['Discussions', 'View all your discussions for this site', 'userdiscussions'],
                         ['Comments', 'View all your comments for this site', 'usercomments'],
                         ['Watching', 'Wiew items you are watching', 'userwatches'],
+                        ['Social Accounts', 'Login  or out of your social media accounts', 'socialaccounts'],
                         ['Update Email', 'Change your email address', 'changeemail'],
                         ['Update Password', 'Change your registered password', 'changepassword'],
                         ['Update Avatar', 'Change your account picture', 'changeavatar']
