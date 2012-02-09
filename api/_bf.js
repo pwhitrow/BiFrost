@@ -245,7 +245,9 @@ function _bf_go()
                     });
                 });
                 
+                // check if we are logged into facebbok
                  _bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');     
+                 //_bf_loadscript(_bf.host + 'api/plugins/oauths/twitter.js');     
 
             },
             
@@ -695,10 +697,7 @@ function _bf_go()
             {
                 _bf.removeForms();
                 
-                if(typeof fb_lib != 'undefined')
-                {
-                    fb_lib.button('hide');
-                }
+                _bf.hideSocialAuthenticators();
                 
                 _bf.cleanUp($('._bf_dashboard'));
 
@@ -862,8 +861,6 @@ function _bf_go()
                             .appendTo(_bf.state_actions)
                             .click(function()
                             {
-                                _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
-
                                 _bf.logout(function()
                                 {
                                     _bf.closePanel(function()
@@ -895,10 +892,7 @@ function _bf_go()
                             });
                         });
 
-                        if(typeof fb_lib != 'undefined')
-                        {
-                            fb_lib.button('hide');
-                        }
+                        _bf.hideSocialAuthenticators();
                     }
                 })
             },
@@ -1164,6 +1158,8 @@ function _bf_go()
             // logout
             logout:function(callback)
             {
+                _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
+                
                 if(typeof fb_lib != 'undefined')
                 {
                     fb_lib.logout();
@@ -1333,8 +1329,10 @@ function _bf_go()
             // remove the social links
             hideSocialAuthenticators: function(callback)
             {
-                // clean up
-                _bf.cleanUp($('._bf_login_authenticators')); 
+                if(typeof fb_lib != 'undefined')
+                {
+                    fb_lib.button('hide');
+                }
                 
                 if($.isFunction(callback))
                 {

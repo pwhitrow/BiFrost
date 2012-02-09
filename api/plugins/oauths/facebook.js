@@ -45,7 +45,6 @@ var fb_lib = {
     
     init: function()
     {
-        _bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.css');
         _bf_loadscript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
 
         if(!$('.fb-root').length)
@@ -56,9 +55,13 @@ var fb_lib = {
             {
                 'class': '_bf_login_fb'
             })
-            .html("<fb:login-button size='small' autologoutlink='true' scope='email,status_update,publish_stream'></fb:login-button>")
+            .html("<fb:login-button size='small' autologoutlink='true' scope='email,status_update,publish_stream'></fb:login-button>" + _bf.t('Log In'))
             .hide()
             .appendTo($('._bf_state'))
+            .click(function()
+            {
+                fb_lib.login();
+            })
         }
     },
     
@@ -66,7 +69,7 @@ var fb_lib = {
     {
         _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
         
-        fb_lib.button('hide');
+        _bf.hideSocialAuthenticators();
         
         FB.api(
         {

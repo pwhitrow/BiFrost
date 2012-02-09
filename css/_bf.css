@@ -98,7 +98,7 @@
 {
     background:transparent url(../images/state_bg.png) 0 0 repeat;
     margin:0px;
-    padding:5px 14px 0px 0px;
+    padding:0px 14px 0px 0px;
     text-align: right;
     position:absolute;
     bottom:0px;
@@ -142,7 +142,7 @@
     padding: 7px 10px 0px 10px;
     cursor: pointer;
     font: bold 12px Helvetica, Arial, sans-serif;
-    margin:0px 5px 0px 5px;
+    margin:5px 5px 0px 5px;
     text-align:center;
     clear:both;
     display: inline-block;
@@ -168,7 +168,7 @@ FORMS
 ._bf_state_form
 {
     background: url("../images/dashbg.png") repeat scroll 0 0 #454545;
-    bottom: 46px;
+    bottom: 40px;
     color: #555555;
     display: none;
     left: 0;
@@ -508,7 +508,7 @@ AUTHENTICATORS
 {
     position:absolute;
     top:65px;
-    left:20px;
+    left:70px;
     list-style:none;
 }
 
@@ -555,6 +555,68 @@ AUTHENTICATORS
     background-position: 0px -95px;
 }
 
+._bf_login_fb,
+._bf_login_tw
+{
+    position: absolute;    
+    width:auto;
+    z-index:1;
+    display:none;
+    right:7px;
+    top:20px;
+    background:transparent url(../images/socials.png) 0 -181px no-repeat;
+    width:100px;
+    height:24px;
+    color:#C4C4C4;
+    text-shadow: 1px 1px 1px #141414;
+    font:bold 12px arial;
+    padding:0px 0px 0px 42px;
+    line-height: 24px;
+    cursor:pointer;
+}
+._bf_login_fb:hover
+{
+    background-position:-159px -181px;
+    color:#fff;
+}
+
+._bf_fb_linkpost
+{
+    position:absolute;
+    bottom: -32px;
+    left: 150px;
+}
+
+.fb_post_review
+{
+    float: left;
+    margin-top: 5px;    
+}
+
+.fb_post_label
+{
+    color: #888888;
+    font-family: arial;
+    font-size: 11px;    
+}
+
+a.fb_button
+{
+    display:none;
+}
+
+._bf_login_tw
+{
+    background-position:0 -154px;
+    top:50px;
+}
+._bf_login_tw:hover
+{
+    background-position:-159px -154px;
+    color:#fff;
+}
+
+
 /*
 DASHBOARD
 */
@@ -572,7 +634,7 @@ DASHBOARD
 
 ._bf_dashboard form
 {
-    bottom: 5px;
+    bottom: 0px;
     left: 135px;
     position: absolute;
     right: 0;
@@ -587,7 +649,7 @@ DASHBOARD
     position:absolute;
     left:0px;
     top:1px;
-    bottom:-45px;
+    bottom:-40px;
     width:137px;
     list-style:none;
     padding:0px;
@@ -1029,7 +1091,7 @@ Dashboard Show Reviews etc
 ._bf_userwatches
 {
     background: url("../images/lightbg.png") 0 0 #F7F7F7 repeat;
-    bottom: -10px;
+    bottom: -15px;
     overflow: auto;
     overflow-x: hidden;
     padding: 0;
