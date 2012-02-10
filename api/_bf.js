@@ -708,20 +708,20 @@ function _bf_go()
                     H = 207;
                     W = 440;
                 }
-                if(state == 'discuss')
-                {
-                    H = 302;
-                    W = 556;
-                }
                 if(state == 'review')
                 {
                     H = 380;
                     W = 593;
                 }
+                if(state == 'discuss')
+                {
+                    H = 298;
+                    W = 556;
+                }
                 if(state == 'comment')
                 {
-                    H = 330;
-                    W = 600;
+                    H = 298;
+                    W = 556;
                 }
                 if(state == 'dashboard')
                 {

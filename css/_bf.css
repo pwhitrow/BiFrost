@@ -277,9 +277,10 @@ FORMS
 }
 
 ._bf_review_submit,
-._bf_discuss_submit
+._bf_discuss_submit,
+._bf_comment_submit
 {
-    bottom: -38px;
+    bottom: -35px;
     left: 20px;
     position: absolute !important;    
 }
