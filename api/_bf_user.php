@@ -40,6 +40,18 @@ function registerUser()
     }
 }
 
+function forceFBemail($prep)
+{
+    if(empty($prep['email']))
+    {
+        return 'noreply@fb' . strtolower($prep['gname'] . $prep['fname']) . '.com';
+    }
+    else
+    {
+        return $prep['email'];
+    }
+}
+
 // Facebook login
 function FBlogin()
 {
@@ -49,13 +61,17 @@ function FBlogin()
     {
         $prep[$k] = prepForDB($v);
     }
+    
+    $prep['email'] = forceFBemail($prep);
+    
+    $prep['password'] = md5(time());
 
     $_SESSION['state'] = false;
     
     // Are we registered with app?
     if(!userExists($prep['email']))
     {
-        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id) VALUES(UNIX_TIMESTAMP(), '".$prep['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', '".$prep['avatar']."', NOW(), '".$prep['uid']."')";
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$prep['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', '".$prep['avatar']."', NOW(), '".$prep['uid']."', 1)";
         
         if(mysql_query($sql))
         {
@@ -76,6 +92,8 @@ function FBlogin()
 
 function FBlogin2($prep)
 {
+    $prep['email'] = forceFBemail($prep);
+    
     $org = getOrgDetails($prep["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$prep['email']."'");
 
@@ -87,8 +105,8 @@ function FBlogin2($prep)
         {
             if($user['enabled'])
             {
-                $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."', lastlogin = NOW() WHERE email = '".$prep['email']."'";
-                //setSuccessMsg(t('Facebook Login Successful'));
+                $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$prep['email']."'";
+                setSuccessMsg(t('Facebook Connected'));
                 $_SESSION['state'] = true;
                 mysql_query($sql);
                 loadUserSession($user);           

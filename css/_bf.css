@@ -87,11 +87,11 @@
 ._bf_state_overlay_msg
 {
     position:relative;
-    top:40%;
+    top:30%;
     margin: auto auto auto auto;
     text-align:center;
     color: #eeeeee;
-    font:normal 14px Helvetica, Arial, sans-serif;
+    font:bold 12px Helvetica, Arial, sans-serif;
 }
 
 ._bf_state_actions

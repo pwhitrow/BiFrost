@@ -67,7 +67,7 @@ var fb_lib = {
     
     loginToApp: function()
     {
-        _bf.showStateOverlay(_bf.t('Please wait...'), 99999);
+        _bf.showStateOverlay(_bf.t('Please wait') + '...', 99999);
         
         _bf.hideSocialAuthenticators();
         
@@ -87,8 +87,7 @@ var fb_lib = {
                     fname: response.first_name,
                     sname: response.last_name,
                     email: response.email,
-                    avatar: response.pic,
-                    password: 'fbuser'
+                    avatar: response.pic
                 };
 
                 _bf.post(params);

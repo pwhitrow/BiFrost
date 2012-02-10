@@ -12,7 +12,7 @@
       api_key   : '3a50fc16-d89d-11e0-a26b-4040b2058987',
       relation  : '0123456789'
 //      position  : 'topright', 
-//      panel_text: ['Login here please', 200]
+//      panel_text: 'Login to BiFrost'
   };
   </script>
   <script src="http://localhost:56870/api/_bf.js"></script>

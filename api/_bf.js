@@ -148,9 +148,8 @@ function _bf_go()
             bfme: false,
             state: false,
             state_panel: false,
-            state_width_default: 200,
+            state_width_default: 170,
             state_height_default: 42,
-            state_panel_width: (typeof _bf_panel_text != 'undefined' ? _bf_panel_text[1] : 170),
             state_actions: false,
             custom_css: false,
             ani_speed: 200,
@@ -832,15 +831,16 @@ function _bf_go()
                     // what state are we in?
                     if(!_bf.loggedIn())
                     {
+                        var login_button_text = (typeof BiFrost.panel_text != 'undefined' ? BiFrost.panel_text : _bf.t('Login : Register'));
+                        
                         _bf.state_action = $('<li />')
-                        .html((typeof _bf_panel_text != 'undefined' ? _bf_panel_text[0] : _bf.t('Login : Register')))
+                        .hide()                        
                         .attr(
                         {
                             'class': '_bf_state_action',
                             title: _bf.t('Click to open')
                         })
-                        .hide()
-                        .appendTo(_bf.state_actions)
+                        .appendTo(_bf.state_actions)                        
                         .toggle(
                         function()
                         {
@@ -857,14 +857,15 @@ function _bf_go()
                             _bf.closePanel(function()
                             {
                                 _bf.state_action
-                                .html((typeof _bf_panel_text != 'undefined' ? _bf_panel_text[0] : _bf.t('Login : Register')))
+                                .html(login_button_text)
                                 .attr('title', _bf.t('Click to open'));
-                                //_bf.showStateActions();
                             });
                         })
                         .each(function()
                         {
-                            _bf.resizePanel(_bf.state_panel_width, _bf.state_height_default, function()
+                            $(this).html(login_button_text);
+                            
+                            _bf.resizePanel(_bf.state_width_default, _bf.state_height_default, function()
                             {
                                _bf.state_actions.fadeIn(_bf.ani_speed);
                                 _bf.state_panel
