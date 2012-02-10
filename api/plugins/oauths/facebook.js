@@ -84,8 +84,8 @@ var fb_lib = {
                 {
                     action: 'fb_login',
                     uid: response.uid,
-                    fname: response.first_name,
-                    sname: response.last_name,
+                    gname: response.first_name,
+                    fname: response.last_name,
                     email: response.email,
                     avatar: response.pic
                 };

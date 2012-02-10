@@ -182,7 +182,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_header
 {
     position:relative;
-    margin:0px 0px 0px 0px;
+    margin:0px 0px 50px 0px;
     padding:10px 10px 10px 10px;
     border-bottom:1px dotted #ccc;
     background: #f1f1f1;
@@ -825,6 +825,7 @@ WIDGETS
     margin:30px 0px 30px 0px;
     padding:0px 0px 0px 0px;
     width:100%;
+    position:relative;
 }
 
 ._bf_widgets_controller

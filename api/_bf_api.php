@@ -25,7 +25,7 @@ $_bf_files = glob("./" . "_bf_*.php");
 
 foreach($_bf_files as $_bf_file)
 {
-    if($_bf_file == './_bf_api.php')
+    if(basename($_bf_file) == '_bf_api.php')
     {
         continue;
     }

@@ -10,9 +10,8 @@
   <script type="text/javascript">
   var BiFrost = {
       api_key   : '3a50fc16-d89d-11e0-a26b-4040b2058987',
-      relation  : '37658739'
-//      position  : 'topright', 
-//      panel_text: ['Login here please', 200]
+      relation  : '37658739',
+      position  : 'topleft' 
   };
   </script>
   <script src="http://bifrost.pwhitrow.com/api/_bf.js"></script>

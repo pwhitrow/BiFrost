@@ -239,8 +239,23 @@ function _bf_go()
                         _bf.bfme = $('<div />').attr(
                         {
                             'class': '_bf_me'
+                        })
+                        
+                        if(typeof BiFrost.position != 'undefined')
+                        {
+                            _bf.bfme.appendTo(document.body);
                         }
-                        ).appendTo(document.body);
+                        else
+                        {
+                            _bf.bfme.css(
+                            {
+                                'position': 'absolute',
+                                'right': '0px',
+                                'top': '165px',
+                                'z-index': '100'
+                            })
+                            .prependTo($('._bf_widgets_holder'));
+                        }
                     }
                     else
                     {
@@ -430,10 +445,30 @@ function _bf_go()
                 if (window_top > div_top)
                 {
                     $('._bf_item'+widget+'_header').addClass('stick')
+                    
+                    if(typeof BiFrost.position == 'undefined')
+                    {
+                        $('._bf_me').css(
+                        {
+                            'right': '-' + (_bf.state_width_default + 5) + 'px',
+                            'top': '0px'
+                        })
+                        .appendTo($('._bf_item'+widget+'_header'));
+                    }
                 }
                 else
                 {
                     $('._bf_item'+widget+'_header').removeClass('stick');
+                    
+                    if(typeof BiFrost.position == 'undefined')
+                    {
+                        $('._bf_me').css(
+                        {
+                            'right': '0px',
+                            'top': '165px'
+                        })
+                        .prependTo($('._bf_widgets_holder'));
+                    }
                 }                                    
             },
             
@@ -566,14 +601,14 @@ function _bf_go()
             statePosition: function(el)
             {
                 // has the user specified a position?
-                if(typeof _bf_position != 'undefined')
+                if(typeof BiFrost.position != 'undefined')
                 {
-                    el.addClass('_bf_' + _bf_position);
+                    el.addClass('_bf_' + BiFrost.position);
                 }
                 else
                 // if not, apply our default
                 {
-                    el.addClass('_bf_topright');
+                    //el.addClass('_bf_topright');
                 }
 
                 // if there is a custom position in the document

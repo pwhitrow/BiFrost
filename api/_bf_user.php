@@ -42,9 +42,9 @@ function registerUser()
 
 function forceFBemail($prep)
 {
-    if(empty($prep['email']))
+    if(empty($prep['email']) || $prep['email'] = "null")
     {
-        return 'noreply@fb' . strtolower($prep['gname'] . $prep['fname']) . '.com';
+        return $prep['uid'].'@fb.com';
     }
     else
     {
