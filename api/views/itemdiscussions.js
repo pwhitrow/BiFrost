@@ -96,7 +96,7 @@ var _bf_itemdiscussions = {
                 })
                 .each(function()
                 {
-                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', 302, 556, $(this));
+                    _bf.widgetButton('discuss', 'Start a discussion', 'Start a discussion', $(this));
 
                     _bf.showSubscribes($(this), 'discussions', data.api_key);
 
@@ -284,7 +284,7 @@ var _bf_itemdiscussions = {
                         {
                             if(_bf.loggedIn())
                             {
-                                _bf.openPanel(333, 600, function()
+                                _bf.openPanel('comment', function()
                                 {
                                     $('._bf_dashboard').remove();
 

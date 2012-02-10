@@ -98,13 +98,13 @@
 {
     background:transparent url(../images/state_bg.png) 0 0 repeat;
     margin:0px;
-    padding:0px 14px 0px 0px;
+    padding:0px 0px 0px 0px;
     text-align: right;
     position:absolute;
     bottom:0px;
     right:0px;
     left:0px;
-    height:41px;
+    height:39px;
     display:block;
     list-style:none;
     -webkit-border-bottom-right-radius: 10px;
@@ -113,6 +113,7 @@
     -moz-border-radius-bottomleft: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-top: 1px solid #2D2D2D;
 }
 
 ._bf_state_action
@@ -142,7 +143,7 @@
     padding: 7px 10px 0px 10px;
     cursor: pointer;
     font: bold 12px Helvetica, Arial, sans-serif;
-    margin:5px 5px 0px 5px;
+    margin:3px 5px 0px 5px;
     text-align:center;
     clear:both;
     display: inline-block;
@@ -1091,14 +1092,14 @@ Dashboard Show Reviews etc
 ._bf_userwatches
 {
     background: url("../images/lightbg.png") 0 0 #F7F7F7 repeat;
-    bottom: -15px;
+    bottom: -16px;
     overflow: auto;
     overflow-x: hidden;
     padding: 0;
     position: absolute;
     right: 0;
     top: -14px;
-    width: 462px;
+    width: 463px;
     list-style:none;
 }
 

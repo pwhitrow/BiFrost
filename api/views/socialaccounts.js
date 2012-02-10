@@ -10,11 +10,12 @@ var formname = 'socialaccounts';
 var _bf_socialaccounts = {
 
     authenticators: [
-        'Facebook', 
-        'Twitter', 
+        'Facebook'
+        //'Twitter', 
         //'Google', 
         //'OpenID', 
-        'LinkedIn'],
+        //'LinkedIn'
+        ],
 
     init: function()
     {      

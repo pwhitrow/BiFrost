@@ -128,7 +128,7 @@ var _bf_itemreviews = {
                 {
                     var itemrating = $.parseJSON(data.itemrating);
 
-                    _bf.widgetButton('review', 'Post a review', 'Post a review', 380, 593, $(this));
+                    _bf.widgetButton('review', 'Post a review', 'Post a review', $(this));
 
                     _bf.showSubscribes($(this), 'reviews', data.api_key);
 
@@ -159,7 +159,7 @@ var _bf_itemreviews = {
 
                         $('<em />').attr(
                         {
-                            'class': '_bf_itemreviews_avg_rating_text'
+                            'class': '_bf_itemreviews_avg_rating_text hreview'
                         })
                         .html('(' + _bf.t('averaged') + ' ' + avg + ' ' + _bf.t('from') + ' ' + _bf_itemreviews.recordqty + ' ' + _bf.t('review') + (_bf_itemreviews.recordqty == 1 ? '' : 's') + ')')
                         .appendTo($(this))

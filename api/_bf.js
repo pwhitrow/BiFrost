@@ -58,7 +58,7 @@ function _bf_basename(path)
     return path.replace(/\\/g,'/').replace( /.*\//, '' );
 }
 
-
+// do we actually need to load a script?
 function _bf_scriptrequired(type, src)
 {
     var scripts = document.getElementsByTagName(type);
@@ -82,6 +82,7 @@ function _bf_scriptrequired(type, src)
     return needScript;
 }
 
+// pre load required scripts
 function _bf_loadScripts() 
 {
     // load BiFrost required files and plugins
@@ -108,7 +109,7 @@ function _bf_loadScripts()
     _bf_go();
 }
 
-// crack on!
+// start!
 function _bf_begin()
 {
     if(typeof $ == 'function') 
@@ -123,6 +124,7 @@ function _bf_begin()
     }
 }
 
+// loaded, let's go!
 function _bf_go()
 {
     $(function()
@@ -147,7 +149,7 @@ function _bf_go()
             state: false,
             state_panel: false,
             state_width_default: 200,
-            state_height_default: 45,
+            state_height_default: 42,
             state_panel_width: (typeof _bf_panel_text != 'undefined' ? _bf_panel_text[1] : 170),
             state_actions: false,
             custom_css: false,
@@ -166,66 +168,37 @@ function _bf_go()
                 {
                     _bf.api_token = _bf.cookie('api_token');
                 }
-
-                 // create main container if it doesn't exists
-                if(!$('._bf_me').length)
+                
+                // create widgets
+                $('<div />').attr(
                 {
-                    _bf.bfme = $('<div />').attr(
-                    {
-                        'class': '_bf_me'
-                    }
-                    ).appendTo(document.body);
-                }
-                else
-                {
-                    _bf.bfme = $('._bf_me');
-                    _bf.custom_css = {position:'relative', top:'0px', left:'0px'};
-                }
-
-                // create the main element
-                _bf.state_panel = $('<div />').attr(
-                {
-                    'class': '_bf_state'
+                    'class': '_bf_widgets',
+                    rel: _bf.relation
                 })
-                .appendTo(_bf.bfme)
-                .hide();
-
-                // cement state's position in document
-                _bf.statePosition($('._bf_state'));
-
-                 // check the login state
-                _bf.getState(function()
+                .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
+                .each(function()
                 {
-                    _bf.showStateActions();
-                    
-                    // create widgets
                     $('<div />').attr(
                     {
-                        'class': '_bf_widgets',
-                        rel: _bf.relation
+                        'class': '_bf_widgets_holder'
                     })
-                    .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
+                    .appendTo($(this).parent())
                     .each(function()
                     {
                         $('<div />').attr(
                         {
-                            'class': '_bf_widgets_holder'
+                            'class': '_bf_widgets_controller'
                         })
-                        .appendTo($(this).parent())
+                        .appendTo($(this))
                         .each(function()
                         {
-                            $('<div />').attr(
-                            {
-                                'class': '_bf_widgets_controller'
-                            })
-                            .appendTo($(this));
-
+                            // create the widgets
                             $('<div />').attr(
                             {
                                 'class': '_bf_reviews',
                                 rel: _bf.relation
                             })
-                            .appendTo($(this))
+                            .appendTo($('._bf_widgets_holder'))
                             .each(function()
                             {
                                 _bf_loadscript(_bf.host + 'api/views/itemreviews.js');
@@ -236,19 +209,69 @@ function _bf_go()
                                 'class': '_bf_discussions',
                                 rel: _bf.relation
                             })
-                            .appendTo($(this))
+                            .appendTo($('._bf_widgets_holder'))
                             .each(function()
                             {
                                 _bf_loadscript(_bf.host + 'api/views/itemdiscussions.js');
-                            });                        
+                            });    
+                            
+                            _bf.createStatePanel();
                         });
+
                     });
                 });
-                
-                // check if we are logged into facebbok
-                 _bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');     
-                 //_bf_loadscript(_bf.host + 'api/plugins/oauths/twitter.js');     
 
+            },
+            
+            createStatePanel: function()
+            {
+                if(!$('._bf_widgets_holder').length)
+                {
+                    setTimeout(function()
+                    {
+                        _bf.createStatePanel()
+                    }, 100);
+                }
+                else
+                {
+                     // create main container if it doesn't exists
+                    if(!$('._bf_me').length)
+                    {
+                        _bf.bfme = $('<div />').attr(
+                        {
+                            'class': '_bf_me'
+                        }
+                        ).appendTo(document.body);
+                    }
+                    else
+                    {
+                        _bf.bfme = $('._bf_me');
+                        _bf.custom_css = {position:'relative', top:'0px', left:'0px'};
+                    }
+
+                    // create the main element
+                    _bf.state_panel = $('<div />').attr(
+                    {
+                        'class': '_bf_state'
+                    })
+                    .appendTo(_bf.bfme)
+                    .hide();                         
+
+                    // cement state's position in document
+                    _bf.statePosition($('._bf_state'));
+
+                     // check the login state
+                    _bf.getState(function()
+                    {                    
+                        // check if we are logged into facebbok
+                         _bf_loadscript(_bf.host + 'api/plugins/oauths/facebook.js');     
+
+                        // create the state actions
+                        _bf.showStateActions();
+                    });
+
+                    
+                }
             },
             
             widgetSwitch: function(type)
@@ -276,7 +299,7 @@ function _bf_go()
                 _bf.current_widget = type;
             },
 
-            widgetButton: function(type, txt1, txt2, h, w, where)
+            widgetButton: function(type, txt1, txt2, where)
             {
                 $('<div />').attr(
                 {
@@ -296,7 +319,7 @@ function _bf_go()
                     {
                         if(_bf.loggedIn())
                         {
-                            _bf.openPanel(h, w, function()
+                            _bf.openPanel(type, function()
                             {
                                 $('._bf_dashboard').remove();
 
@@ -670,8 +693,45 @@ function _bf_go()
             },
 
             // open the state panel
-            openPanel: function(H, W, callback)
+            openPanel: function(state, callback)
             {
+                var H,W;
+                
+                if(state == 'login')
+                {
+                    H = 207;
+                    W = 440;
+                }
+                if(state == 'discuss')
+                {
+                    H = 302;
+                    W = 556;
+                }
+                if(state == 'review')
+                {
+                    H = 380;
+                    W = 593;
+                }
+                if(state == 'comment')
+                {
+                    H = 330;
+                    W = 600;
+                }
+                if(state == 'dashboard')
+                {
+                    H = 404;
+                    W = 600;
+                }
+                if(state == 'register')
+                {
+                    H = 374;
+                    W = 440;
+                }
+                if(state == 'forgottenpassword')
+                {
+                    H = 213;
+                    W = 440;
+                }
                 _bf.hideSocialAuthenticators();
                 
                 _bf.removeForms();
@@ -734,6 +794,7 @@ function _bf_go()
                 }
             },
 
+            // are we logged into the app?
             loggedIn: function()
             {
                 if(!_bf.cookie('_bf_state') || _bf.cookie('_bf_state') == false || _bf.cookie('_bf_state') == 'false')
@@ -770,11 +831,12 @@ function _bf_go()
                             'class': '_bf_state_action',
                             title: _bf.t('Click to open')
                         })
+                        .hide()
                         .appendTo(_bf.state_actions)
                         .toggle(
                         function()
                         {
-                            _bf.openPanel(207, 440, function()
+                            _bf.openPanel('login', function()
                             {
                                 _bf.state_action.html(_bf.t('Close'))
                                 .attr('title', _bf.t('Click to close'));
@@ -786,7 +848,10 @@ function _bf_go()
                         {
                             _bf.closePanel(function()
                             {
-                                _bf.showStateActions();
+                                _bf.state_action
+                                .html((typeof _bf_panel_text != 'undefined' ? _bf_panel_text[0] : _bf.t('Login : Register')))
+                                .attr('title', _bf.t('Click to open'));
+                                //_bf.showStateActions();
                             });
                         })
                         .each(function()
@@ -803,6 +868,8 @@ function _bf_go()
                                     .slideDown(_bf.ani_speed)
                                     .addClass('_bf_state_closed');
                             });
+                            
+                            
                         });
                     }
                     else
@@ -819,7 +886,7 @@ function _bf_go()
                         {
                             $(this).fadeOut(_bf.ani_speed);
 
-                            _bf.openPanel(404, 600, function()
+                            _bf.openPanel('dashboard', function()
                             {
                                 // if we don't have a close button,
                                 // create one and add it to the state actions
@@ -893,6 +960,12 @@ function _bf_go()
                         });
 
                         _bf.hideSocialAuthenticators();
+                        
+                    }
+                   
+                    if(typeof _bf.state_action != 'undefined')
+                    {
+                        _bf.state_action.fadeIn(_bf.ani_speed)
                     }
                 })
             },
@@ -1349,6 +1422,7 @@ function _bf_go()
                 }
             },
             
+            // create and display subscription options
             showSubscribes: function(el, type, api_key)
             {
                 $('<div />').attr(
@@ -1388,6 +1462,7 @@ function _bf_go()
                 })                
             },
 
+            // dynamically create a form element
             createFormElement: function(form, params, callback)
             {
                 var formname = form.attr('name');
@@ -1551,6 +1626,7 @@ function _bf_go()
 
             },
 
+            // wait for form (data) to load
             loadWait: function(data)
             {
                 var data = data;
@@ -1657,6 +1733,7 @@ function _bf_go()
                 _bf.getForm({form: obj.attr('rel')});
             },
 
+            // get just the filename from a string
             basename: function(path)
             {
                 return path.replace(/\\/g,'/').replace( /.*\//, '' );
