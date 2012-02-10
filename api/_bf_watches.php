@@ -44,7 +44,8 @@ function watchViaEmail()
     }
     else
     {
-        setErrorMsg(t('Please login or register'));
+        //setErrorMsg(t('Please login or register'));
+        setResponse('callback', '_bf.cannotPost()');
     }  
 }
 
@@ -65,7 +66,8 @@ function removeWatch()
     }
     else
     {
-        setErrorMsg(t('Please login or register'));
+        //setErrorMsg(t('Please login or register'));
+        setResponse('callback', '_bf.cannotPost()');
     }
 }
 ?>

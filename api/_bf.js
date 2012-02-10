@@ -459,12 +459,19 @@ function _bf_go()
 
             cannotPost: function()
             {
-                _bf.showStateActions();
-                
-                _bf.showStateOverlay(_bf.t('Please login or register'), 2000, function()
+                _bf.openPanel('login', function()
                 {
-                    _bf.closePanel();
+                    _bf.state_action.html(_bf.t('Close'))
+                    .attr('title', _bf.t('Click to close'));
+
+                    _bf.getForm(
+                    {
+                        form: 'login'
+                    },
+                        _bf.showStateOverlay(_bf.t('Please login or register'), 2000)
+                    );
                 });
+                
             },
             
             // currently a placeholder for translating text
@@ -763,14 +770,15 @@ function _bf_go()
 
                 _bf.hideStateOverlay();
 
-                _bf.resizePanel(_bf.state_panel_width, _bf.state_height_default);
+                _bf.resizePanel(_bf.state_width_default, _bf.state_height_default);
 
+                _bf.state_panel.addClass('_bf_state_closed');
+                
                 if($.isFunction(callback))
                 {
                     callback.call(this);
                 }
 
-                _bf.state_panel.addClass('_bf_state_closed');
             },
 
             // resize the state panel
@@ -1219,7 +1227,13 @@ function _bf_go()
                             // something here?
                         }
                         break;
-                }                   
+                }
+                
+                // if we have a function call coming back, run it!
+                if(typeof result.callback != 'undefined')
+                {
+                    eval(result.callback)
+                }
             },
 
             // Houston, we have a problem!
