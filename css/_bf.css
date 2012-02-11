@@ -376,17 +376,6 @@ FORMS
     outline:0;
 }
 
-._bf_submit_button_image
-{
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    border: none;
-    height:32px;
-    width:32px;
-    background:transparent url(../images/button.png) 0 0 no-repeat;
-}
-
 ._bf_register_form ._bf_button
 {
     margin-top: 20px;
@@ -1076,7 +1065,7 @@ Dashboard Show Reviews etc
 */
 ._bf_empty_dashboard
 {
-    bottom: 6px !important;
+    bottom: 0px !important;
     color: #888888;
     font: 12px arial;
     left: 137px !important;
