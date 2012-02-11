@@ -28,15 +28,16 @@ switch($s[0])
         break;
     default:
         // live
-        $site['username'] = "";
-        $site['password'] = "";
-        $site['host'] = "";
+        $site['username'] = "webserver";
+        $site['password'] = "localpassword:)";
+        $site['host'] = "localhost";
         $site['db'] = "_bf";
         break;
 }
 
 mysql_connect($site['host'],$site['username'],$site['password']);
 @mysql_select_db($site['db']) or die(mysql_error());
+
 
 
 ?>

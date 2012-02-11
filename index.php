@@ -15,7 +15,7 @@
 //      panel_text: 'Login to BiFrost'
   };
   </script>
-  <script src="http://localhost:56870/api/_bf.js"></script>
+  <script src="/api/_bf.js"></script>
 
 
 
