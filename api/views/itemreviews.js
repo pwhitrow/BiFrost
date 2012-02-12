@@ -320,15 +320,12 @@ var _bf_itemreviews = {
                 'title': _bf.t('Show all reviews')
             })
             .html(_bf.t('all reviews'))
-            .on(
+            .click(function()
             {
-                click: function()
-                {
-                    _bf_itemreviews.itemqty = 0;
-                    _bf_itemreviews.limitfrom = 0;
-                    _bf_itemreviews.tagging = false;
-                    _bf_itemreviews.getReviews();
-                }
+                _bf_itemreviews.itemqty = 0;
+                _bf_itemreviews.limitfrom = 0;
+                _bf_itemreviews.tagging = false;
+                _bf_itemreviews.getReviews();
             })
             .appendTo($(this))
             
