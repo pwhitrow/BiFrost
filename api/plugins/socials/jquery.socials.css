@@ -10,69 +10,69 @@
 
 ._bf_social_bookmarks
 {
-    list-style:none;
-    margin:0px;
-    padding:0px;
+    list-style:none !important;
+    margin:0px !important;
+    padding:0px !important;
 }
 
 ._bf_social_bookmark
 {
-    display:inline;
-    margin:0px 0px 0px 0px;
-    padding:0px;
-    float:left;
+    display:inline !important;
+    margin:0px 0px 0px 0px !important;
+    padding:0px !important;
+    float:left !important;
 }
 
 ._bf_social_bookmark_link
 {
-    cursor: pointer;
-    margin:0px;
-    padding:0px;
-    border:0px;
-    text-decoration:none;
+    cursor: pointer !important;
+    margin:0px !important;
+    padding:0px !important;
+    border:0px !important;
+    text-decoration:none !important;
 }
 
 ._bf_social_bookmark_image
 {
-    float:left;
-    margin:0px 0px 0px 5px;
-    padding:0px;
-    border:0px;
-    height:30px;
-    width:30px;
-    background:transparent url(socials.png) 0px -15px no-repeat;
+    float:left !important;
+    margin:0px 0px 0px 5px !important;
+    padding:0px !important;
+    border:0px !important;
+    height:30px !important;
+    width:30px !important;
+    background:transparent url(socials.png) 0px -15px no-repeat !important;
 }
 
 ._bf_social_bookmark_image_facebook
 {
-    background-position: 0px -70px;
+    background-position: 0px -70px !important;
 }
 ._bf_social_bookmark_image_twitter
 {
-    background-position: 0px -125px;
+    background-position: 0px -125px !important;
 }
 ._bf_social_bookmark_image_reddit
 {
-    background-position: 0px -295px;
+    background-position: 0px -295px !important;
 }
 ._bf_social_bookmark_image_stumbleupon
 {
-    background-position: 0px -352px;
+    background-position: 0px -352px !important;
 }
 ._bf_social_bookmark_image_newsvine
 {
-    background-position: 0px -408px;
+    background-position: 0px -408px !important;
 }
 ._bf_social_bookmark_image_digg
 {
-    background-position: 0px -239px;
+    background-position: 0px -239px !important;
 }
 ._bf_social_bookmark_image_delicious
 {
-    background-position: 0px -180px;
+    background-position: 0px -180px !important;
 }
 ._bf_social_bookmark_image_email
 {
-    background-position: 0px -513px;
+    background-position: 0px -513px !important;
 }
 
