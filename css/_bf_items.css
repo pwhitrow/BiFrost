@@ -19,6 +19,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     clear:both !important;
     margin: 0px 0px 0px 0px !important;
     padding: 0px 0px 0px 0px !important;
+    background: #f1f1f1 !important;
 }
 
 ._bf_clear
@@ -259,6 +260,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     color:#888 !important;
     text-shadow:1px 1px 1px #fff !important;
     font-family: arial !important;
+    width:auto !important;
 }
 
 ._bf_reviews_control,
