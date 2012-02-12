@@ -1,0 +1,357 @@
+Sunday 12th of February 2012 08:40:48 PM
+*********************************************
+
+Array
+(
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-ba7b149d-bd42-4808-afe5-94592409dacf
+    [PHP_FCGI_MAX_REQUESTS] => 10000
+    [PHPRC] => C:\Program Files (x86)\iis express\PHP\v5.3
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\Paul\AppData\Roaming
+    [APP_POOL_CONFIG] => C:\Users\Paul\Documents\IISExpress\config\applicationhost.config
+    [APP_POOL_ID] => Clr4IntegratedAppPool
+    [CLR_V4_PATH] => \\?\C:\Windows\Microsoft.NET\Framework\v4.0.30319
+    [CommonProgramFiles] => C:\Program Files (x86)\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => PAUL-LAPTOP
+    [ComSpec] => C:\Windows\system32\cmd.exe
+    [FP_NO_HOST_CHECK] => NO
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\Paul
+    [IISEXPRESSMODE] => True
+    [IISEXPRESS_SITENAME] => bifrost
+    [IIS_BIN] => C:\Program Files (x86)\IIS Express
+    [IIS_DRIVE] => C:
+    [IIS_SITES_HOME] => C:\Users\Paul\Documents\My Web Sites
+    [IIS_USER_HOME] => C:\Users\Paul\Documents\IISExpress
+    [LOCALAPPDATA] => C:\Users\Paul\AppData\Local
+    [LOGONSERVER] => \\PAUL-LAPTOP
+    [NUMBER_OF_PROCESSORS] => 4
+    [OnlineServices] => Online Services
+    [OS] => Windows_NT
+    [Path] => C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\TortoiseGit\bin
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [PCBRAND] => Pavilion
+    [Platform] => MCD
+    [PROCESSOR_ARCHITECTURE] => x86
+    [PROCESSOR_ARCHITEW6432] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 37 Stepping 5, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 2505
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files (x86)
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\Windows
+    [TEMP] => C:\Users\Paul\AppData\Local\Temp
+    [TMP] => C:\Users\Paul\AppData\Local\Temp
+    [USERDOMAIN] => Paul-Laptop
+    [USERNAME] => Paul
+    [USERPROFILE] => C:\Users\Paul
+    [WEBMATRIXMODE] => 1
+    [WEBPI_REFERRER] => webmatrix
+    [windir] => C:\Windows
+    [FCGI_ROLE] => RESPONDER
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_PRAGMA] => no-cache
+    [HTTP_CONTENT_LENGTH] => 192
+    [HTTP_CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-gb,en;q=0.5
+    [HTTP_COOKIE] => api_token=ns4uaqua5mv89ir2jrcj5vfe45; PHPSESSID=ns4uaqua5mv89ir2jrcj5vfe45; _bf_state=true; _bf_data=%7B%22action%22%3A%22discuss%22%2C%22parentid%22%3A%220123456789%22%2C%22content%22%3A%22Donec%20pellentesque%20vulputate%20eleifend.%20Etiam%20molestie%20rhoncus%20arcu%20sit%20amet%20dapibus.%20Nullam%20molestie%20lacinia%20eros%2C%20in%20eleifend%20massa%20posuere%20non.%20Donec%20commodo%2C%20metus%20non%20viverra%20blandit%2C%20elit%20metus%20convallis%20purus%2C%20eu%20pretium%20mauris%20ligula%20ut%20nunc.%20Aenean%20sit%20amet%20est%20ac%20turpis%20tincidunt%20sagittis%20eget%20vitae%20quam.%20Fusce%20eget%20neque%20enim%2C%20sit%20amet%20malesuada%20diam.%5Cn%22%2C%22api_key%22%3A%223a50fc16-d89d-11e0-a26b-4040b2058987%22%2C%22api_token%22%3A%22ns4uaqua5mv89ir2jrcj5vfe45%22%2C%22dataType%22%3A%22jsonp%22%2C%22host%22%3A%22%5C%2F%22%2C%22pageURL%22%3A%22http%3A%5C%2F%5C%2Flocalhost%3A56870%5C%2Findex.php%3Fverifynewsuser%3Df65c027c72bb2502b2f63dd6816e26e4%22%2C%22relation%22%3A%220123456789%22%2C%22api_success%22%3A%22Thank%20you%20for%20posting%20your%20discussion%22%2C%22appname%22%3A%22BiFrost%22%2C%22orgName%22%3A%22pwhitrow.com%22%2C%22orgURL%22%3A%22http%3A%5C%2F%5C%2Fwww.pwhitrow.com%22%2C%22state%22%3Atrue%2C%22uploads%22%3A%22uploads%22%2C%22email%22%3A%22paul%40pwhitrow.com%22%2C%22fname%22%3A%22Whitrow%22%2C%22gname%22%3A%22Paul%22%2C%22avatar%22%3A%22http%3A%5C%2F%5C%2Fwww.gravatar.com%5C%2Favatar%5C%2F73b0908c63b1f5f169e82ccfbc381df5%3Fd%3D404%26s%3D100%22%2C%22joined%22%3A%222011-11-21%2015%3A10%3A54%22%2C%22lastlogin%22%3A%222012-02-12%2016%3A06%3A18%22%2C%22level%22%3A%220%22%2C%22password%22%3Anull%7D
+    [HTTP_HOST] => localhost:56870
+    [HTTP_REFERER] => http://localhost:56870/index.php
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0) Gecko/20100101 Firefox/10.0
+    [HTTP_X_REQUESTED_WITH] => XMLHttpRequest
+    [IIS_UrlRewriteModule] => 7.1.1070.01
+    [APPL_MD_PATH] => /LM/W3SVC/36884349/ROOT
+    [APPL_PHYSICAL_PATH] => C:\wamp\www\bifrost\
+    [AUTH_TYPE] => 
+    [AUTH_PASSWORD] => 
+    [AUTH_USER] => 
+    [CERT_COOKIE] => 
+    [CERT_FLAGS] => 
+    [CERT_ISSUER] => 
+    [CERT_SERIALNUMBER] => 
+    [CERT_SUBJECT] => 
+    [CONTENT_LENGTH] => 192
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [DOCUMENT_ROOT] => C:\wamp\www\bifrost
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [HTTPS] => off
+    [HTTPS_KEYSIZE] => 
+    [HTTPS_SECRETKEYSIZE] => 
+    [HTTPS_SERVER_ISSUER] => 
+    [HTTPS_SERVER_SUBJECT] => 
+    [INSTANCE_ID] => 36884349
+    [INSTANCE_NAME] => BIFROST
+    [INSTANCE_META_PATH] => /LM/W3SVC/36884349
+    [LOCAL_ADDR] => 127.0.0.1
+    [LOGON_USER] => 
+    [PATH_TRANSLATED] => C:\wamp\www\bifrost\api\_bf_api.php
+    [QUERY_STRING] => 
+    [REMOTE_ADDR] => 127.0.0.1
+    [REMOTE_HOST] => 127.0.0.1
+    [REMOTE_PORT] => 64255
+    [REMOTE_USER] => 
+    [REQUEST_METHOD] => POST
+    [REQUEST_URI] => /api/_bf_api.php
+    [SCRIPT_FILENAME] => C:\wamp\www\bifrost\api\_bf_api.php
+    [SCRIPT_NAME] => /api/_bf_api.php
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 56870
+    [SERVER_PORT_SECURE] => 0
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => Microsoft-IIS/7.5
+    [URL] => /api/_bf_api.php
+    [ORIG_PATH_INFO] => /api/_bf_api.php
+    [PHP_SELF] => /api/_bf_api.php
+    [REQUEST_TIME] => 1329079248
+)
+
+
+Sunday 12th of February 2012 08:40:48 PM
+*********************************************
+
+Array
+(
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-ba7b149d-bd42-4808-afe5-94592409dacf
+    [PHP_FCGI_MAX_REQUESTS] => 10000
+    [PHPRC] => C:\Program Files (x86)\iis express\PHP\v5.3
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\Paul\AppData\Roaming
+    [APP_POOL_CONFIG] => C:\Users\Paul\Documents\IISExpress\config\applicationhost.config
+    [APP_POOL_ID] => Clr4IntegratedAppPool
+    [CLR_V4_PATH] => \\?\C:\Windows\Microsoft.NET\Framework\v4.0.30319
+    [CommonProgramFiles] => C:\Program Files (x86)\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => PAUL-LAPTOP
+    [ComSpec] => C:\Windows\system32\cmd.exe
+    [FP_NO_HOST_CHECK] => NO
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\Paul
+    [IISEXPRESSMODE] => True
+    [IISEXPRESS_SITENAME] => bifrost
+    [IIS_BIN] => C:\Program Files (x86)\IIS Express
+    [IIS_DRIVE] => C:
+    [IIS_SITES_HOME] => C:\Users\Paul\Documents\My Web Sites
+    [IIS_USER_HOME] => C:\Users\Paul\Documents\IISExpress
+    [LOCALAPPDATA] => C:\Users\Paul\AppData\Local
+    [LOGONSERVER] => \\PAUL-LAPTOP
+    [NUMBER_OF_PROCESSORS] => 4
+    [OnlineServices] => Online Services
+    [OS] => Windows_NT
+    [Path] => C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\TortoiseGit\bin
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [PCBRAND] => Pavilion
+    [Platform] => MCD
+    [PROCESSOR_ARCHITECTURE] => x86
+    [PROCESSOR_ARCHITEW6432] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 37 Stepping 5, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 2505
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files (x86)
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\Windows
+    [TEMP] => C:\Users\Paul\AppData\Local\Temp
+    [TMP] => C:\Users\Paul\AppData\Local\Temp
+    [USERDOMAIN] => Paul-Laptop
+    [USERNAME] => Paul
+    [USERPROFILE] => C:\Users\Paul
+    [WEBMATRIXMODE] => 1
+    [WEBPI_REFERRER] => webmatrix
+    [windir] => C:\Windows
+    [FCGI_ROLE] => RESPONDER
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_PRAGMA] => no-cache
+    [HTTP_CONTENT_LENGTH] => 239
+    [HTTP_CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-gb,en;q=0.5
+    [HTTP_COOKIE] => api_token=ns4uaqua5mv89ir2jrcj5vfe45; PHPSESSID=ns4uaqua5mv89ir2jrcj5vfe45; _bf_state=true; _bf_data=%7B%22action%22%3A%22discuss%22%2C%22parentid%22%3A%220123456789%22%2C%22content%22%3A%22Donec%20pellentesque%20vulputate%20eleifend.%20Etiam%20molestie%20rhoncus%20arcu%20sit%20amet%20dapibus.%20Nullam%20molestie%20lacinia%20eros%2C%20in%20eleifend%20massa%20posuere%20non.%20Donec%20commodo%2C%20metus%20non%20viverra%20blandit%2C%20elit%20metus%20convallis%20purus%2C%20eu%20pretium%20mauris%20ligula%20ut%20nunc.%20Aenean%20sit%20amet%20est%20ac%20turpis%20tincidunt%20sagittis%20eget%20vitae%20quam.%20Fusce%20eget%20neque%20enim%2C%20sit%20amet%20malesuada%20diam.%5Cn%22%2C%22api_key%22%3A%223a50fc16-d89d-11e0-a26b-4040b2058987%22%2C%22api_token%22%3A%22ns4uaqua5mv89ir2jrcj5vfe45%22%2C%22dataType%22%3A%22jsonp%22%2C%22host%22%3A%22%5C%2F%22%2C%22pageURL%22%3A%22http%3A%5C%2F%5C%2Flocalhost%3A56870%5C%2Findex.php%3Fverifynewsuser%3Df65c027c72bb2502b2f63dd6816e26e4%22%2C%22relation%22%3A%220123456789%22%2C%22api_success%22%3A%22Thank%20you%20for%20posting%20your%20discussion%22%2C%22appname%22%3A%22BiFrost%22%2C%22orgName%22%3A%22pwhitrow.com%22%2C%22orgURL%22%3A%22http%3A%5C%2F%5C%2Fwww.pwhitrow.com%22%2C%22state%22%3Atrue%2C%22uploads%22%3A%22uploads%22%2C%22email%22%3A%22paul%40pwhitrow.com%22%2C%22fname%22%3A%22Whitrow%22%2C%22gname%22%3A%22Paul%22%2C%22avatar%22%3A%22http%3A%5C%2F%5C%2Fwww.gravatar.com%5C%2Favatar%5C%2F73b0908c63b1f5f169e82ccfbc381df5%3Fd%3D404%26s%3D100%22%2C%22joined%22%3A%222011-11-21%2015%3A10%3A54%22%2C%22lastlogin%22%3A%222012-02-12%2016%3A06%3A18%22%2C%22level%22%3A%220%22%2C%22password%22%3Anull%7D
+    [HTTP_HOST] => localhost:56870
+    [HTTP_REFERER] => http://localhost:56870/index.php
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0) Gecko/20100101 Firefox/10.0
+    [HTTP_X_REQUESTED_WITH] => XMLHttpRequest
+    [IIS_UrlRewriteModule] => 7.1.1070.01
+    [APPL_MD_PATH] => /LM/W3SVC/36884349/ROOT
+    [APPL_PHYSICAL_PATH] => C:\wamp\www\bifrost\
+    [AUTH_TYPE] => 
+    [AUTH_PASSWORD] => 
+    [AUTH_USER] => 
+    [CERT_COOKIE] => 
+    [CERT_FLAGS] => 
+    [CERT_ISSUER] => 
+    [CERT_SERIALNUMBER] => 
+    [CERT_SUBJECT] => 
+    [CONTENT_LENGTH] => 239
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [DOCUMENT_ROOT] => C:\wamp\www\bifrost
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [HTTPS] => off
+    [HTTPS_KEYSIZE] => 
+    [HTTPS_SECRETKEYSIZE] => 
+    [HTTPS_SERVER_ISSUER] => 
+    [HTTPS_SERVER_SUBJECT] => 
+    [INSTANCE_ID] => 36884349
+    [INSTANCE_NAME] => BIFROST
+    [INSTANCE_META_PATH] => /LM/W3SVC/36884349
+    [LOCAL_ADDR] => 127.0.0.1
+    [LOGON_USER] => 
+    [PATH_TRANSLATED] => C:\wamp\www\bifrost\api\_bf_api.php
+    [QUERY_STRING] => 
+    [REMOTE_ADDR] => 127.0.0.1
+    [REMOTE_HOST] => 127.0.0.1
+    [REMOTE_PORT] => 64255
+    [REMOTE_USER] => 
+    [REQUEST_METHOD] => POST
+    [REQUEST_URI] => /api/_bf_api.php
+    [SCRIPT_FILENAME] => C:\wamp\www\bifrost\api\_bf_api.php
+    [SCRIPT_NAME] => /api/_bf_api.php
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 56870
+    [SERVER_PORT_SECURE] => 0
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => Microsoft-IIS/7.5
+    [URL] => /api/_bf_api.php
+    [ORIG_PATH_INFO] => /api/_bf_api.php
+    [PHP_SELF] => /api/_bf_api.php
+    [REQUEST_TIME] => 1329079248
+)
+
+
+Sunday 12th of February 2012 08:40:49 PM
+*********************************************
+
+Array
+(
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-f436a8c2-3311-4905-abba-005747d3dd04
+    [PHP_FCGI_MAX_REQUESTS] => 10000
+    [PHPRC] => C:\Program Files (x86)\iis express\PHP\v5.3
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\Paul\AppData\Roaming
+    [APP_POOL_CONFIG] => C:\Users\Paul\Documents\IISExpress\config\applicationhost.config
+    [APP_POOL_ID] => Clr4IntegratedAppPool
+    [CLR_V4_PATH] => \\?\C:\Windows\Microsoft.NET\Framework\v4.0.30319
+    [CommonProgramFiles] => C:\Program Files (x86)\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => PAUL-LAPTOP
+    [ComSpec] => C:\Windows\system32\cmd.exe
+    [FP_NO_HOST_CHECK] => NO
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\Paul
+    [IISEXPRESSMODE] => True
+    [IISEXPRESS_SITENAME] => bifrost
+    [IIS_BIN] => C:\Program Files (x86)\IIS Express
+    [IIS_DRIVE] => C:
+    [IIS_SITES_HOME] => C:\Users\Paul\Documents\My Web Sites
+    [IIS_USER_HOME] => C:\Users\Paul\Documents\IISExpress
+    [LOCALAPPDATA] => C:\Users\Paul\AppData\Local
+    [LOGONSERVER] => \\PAUL-LAPTOP
+    [NUMBER_OF_PROCESSORS] => 4
+    [OnlineServices] => Online Services
+    [OS] => Windows_NT
+    [Path] => C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\TortoiseGit\bin
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [PCBRAND] => Pavilion
+    [Platform] => MCD
+    [PROCESSOR_ARCHITECTURE] => x86
+    [PROCESSOR_ARCHITEW6432] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 37 Stepping 5, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 2505
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files (x86)
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\Windows
+    [TEMP] => C:\Users\Paul\AppData\Local\Temp
+    [TMP] => C:\Users\Paul\AppData\Local\Temp
+    [USERDOMAIN] => Paul-Laptop
+    [USERNAME] => Paul
+    [USERPROFILE] => C:\Users\Paul
+    [WEBMATRIXMODE] => 1
+    [WEBPI_REFERRER] => webmatrix
+    [windir] => C:\Windows
+    [FCGI_ROLE] => RESPONDER
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_PRAGMA] => no-cache
+    [HTTP_CONTENT_LENGTH] => 281
+    [HTTP_CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-gb,en;q=0.5
+    [HTTP_COOKIE] => api_token=ns4uaqua5mv89ir2jrcj5vfe45; PHPSESSID=ns4uaqua5mv89ir2jrcj5vfe45; _bf_state=true; _bf_data=%7B%22action%22%3A%22getstate%22%2C%22api_key%22%3A%223a50fc16-d89d-11e0-a26b-4040b2058987%22%2C%22api_token%22%3A%22ns4uaqua5mv89ir2jrcj5vfe45%22%2C%22dataType%22%3A%22jsonp%22%2C%22host%22%3A%22%5C%2F%22%2C%22pageURL%22%3A%22http%3A%5C%2F%5C%2Flocalhost%3A56870%5C%2Findex.php%22%2C%22relation%22%3A%220123456789%22%2C%22appname%22%3A%22BiFrost%22%2C%22orgName%22%3A%22pwhitrow.com%22%2C%22orgURL%22%3A%22http%3A%5C%2F%5C%2Fwww.pwhitrow.com%22%2C%22state%22%3Atrue%2C%22uploads%22%3A%22uploads%22%2C%22email%22%3A%22paul%40pwhitrow.com%22%2C%22fname%22%3A%22Whitrow%22%2C%22gname%22%3A%22Paul%22%2C%22avatar%22%3A%22http%3A%5C%2F%5C%2Fwww.gravatar.com%5C%2Favatar%5C%2F73b0908c63b1f5f169e82ccfbc381df5%3Fd%3D404%26s%3D100%22%2C%22joined%22%3A%222011-11-21%2015%3A10%3A54%22%2C%22lastlogin%22%3A%222012-02-12%2016%3A06%3A18%22%2C%22level%22%3A%220%22%2C%22password%22%3Anull%7D
+    [HTTP_HOST] => localhost:56870
+    [HTTP_REFERER] => http://localhost:56870/index.php
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0) Gecko/20100101 Firefox/10.0
+    [HTTP_X_REQUESTED_WITH] => XMLHttpRequest
+    [IIS_UrlRewriteModule] => 7.1.1070.01
+    [APPL_MD_PATH] => /LM/W3SVC/36884349/ROOT
+    [APPL_PHYSICAL_PATH] => C:\wamp\www\bifrost\
+    [AUTH_TYPE] => 
+    [AUTH_PASSWORD] => 
+    [AUTH_USER] => 
+    [CERT_COOKIE] => 
+    [CERT_FLAGS] => 
+    [CERT_ISSUER] => 
+    [CERT_SERIALNUMBER] => 
+    [CERT_SUBJECT] => 
+    [CONTENT_LENGTH] => 281
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=UTF-8
+    [DOCUMENT_ROOT] => C:\wamp\www\bifrost
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [HTTPS] => off
+    [HTTPS_KEYSIZE] => 
+    [HTTPS_SECRETKEYSIZE] => 
+    [HTTPS_SERVER_ISSUER] => 
+    [HTTPS_SERVER_SUBJECT] => 
+    [INSTANCE_ID] => 36884349
+    [INSTANCE_NAME] => BIFROST
+    [INSTANCE_META_PATH] => /LM/W3SVC/36884349
+    [LOCAL_ADDR] => 127.0.0.1
+    [LOGON_USER] => 
+    [PATH_TRANSLATED] => C:\wamp\www\bifrost\api\_bf_api.php
+    [QUERY_STRING] => 
+    [REMOTE_ADDR] => 127.0.0.1
+    [REMOTE_HOST] => 127.0.0.1
+    [REMOTE_PORT] => 64257
+    [REMOTE_USER] => 
+    [REQUEST_METHOD] => POST
+    [REQUEST_URI] => /api/_bf_api.php
+    [SCRIPT_FILENAME] => C:\wamp\www\bifrost\api\_bf_api.php
+    [SCRIPT_NAME] => /api/_bf_api.php
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 56870
+    [SERVER_PORT_SECURE] => 0
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => Microsoft-IIS/7.5
+    [URL] => /api/_bf_api.php
+    [ORIG_PATH_INFO] => /api/_bf_api.php
+    [PHP_SELF] => /api/_bf_api.php
+    [REQUEST_TIME] => 1329079249
+)
+
+

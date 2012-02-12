@@ -72,6 +72,11 @@ $result = $_POST;
 // So, what are we doing?
 switch($_POST['action'])
 {
+    case('verifynewsuser'):  // verify user
+                    verifyUser();
+                    respond();
+                    break;
+
     case('fb_login'):  // facebook login
                     FBlogin();
                     respond();

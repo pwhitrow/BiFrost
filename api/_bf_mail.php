@@ -11,8 +11,8 @@ $mail = new PHPMailer();  // create a new object
 $mail->IsSMTP(); // enable SMTP
 
 // GMail account details (add your own in here:)
-$mail->Username = 'pcwhitrow@gmail.com'; // eg. 'mr.matt.ayers@gmail.com';  
-$mail->Password = 'ghhm9ab7'; 
+$mail->Username = EMAILUSER; // eg. 'mr.matt.ayers@gmail.com';  
+$mail->Password = EMAILPASS; 
 
 $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
 $mail->SMTPAuth = true;  // authentication enabled
@@ -29,27 +29,29 @@ function emailFooter()
 }
 
 
-function _registerEmail($email)
+function registerEmail($prep, $userid)
 {    
     global $mail;
+    
+    $email = $prep['email'];
     
     $org = getOrgDetails($_REQUEST["api_key"]);
     
     $mail->From = $org['replyto'];
     $mail->FromName = $org['name'];
-    $mail->Subject = t("Registration");
+    $mail->Subject = t("Verify Registration");
     
-    $mail->Body = t("Hi, please click on the link below (or copy and paste it into your browser window) to complete the registration process.").PHP_EOL.PHP_EOL.$org['url']."?verify=".$email.PHP_EOL.emailFooter();
+    $mail->Body = t("Hello")." ".$prep['gname'].",".PHP_EOL.PHP_EOL.t("You recently registered at")." ".$org['url'].". ".t("In order to complete that registration, please click on the link below (or copy and paste it into your browser window).").PHP_EOL.PHP_EOL.$org['url']."?verifynewsuser=".$userid;
+    
     $mail->AddBCC($email); 
 
     if(!$mail->Send()) 
     {
-        setErrorMsg(t("Oops! Mail fail!"). " : " .$mail->ErrorInfo);
+        setErrorMsg(t("Oops!"). " : " .$mail->ErrorInfo);
         return false;
     } 
     else 
     {
-        setSuccessMsg(t('Thank you for registering'));
         return true;
     }
 }
@@ -62,7 +64,7 @@ function notifyUsersReviews($emails)
     $mail->FromName = $_SESSION['org']['name'];
     $mail->Subject = t("New Review Notice");
     
-    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new review at ").$_SESSION['org']['url'].PHP_EOL.emailFooter();
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new review at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
     
     foreach($emails as $email)
     {
@@ -89,7 +91,7 @@ function notifyUsersDiscussions($emails)
     $mail->FromName = $_SESSION['org']['name'];
     $mail->Subject = t("New Discussion Notice");
     
-    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SESSION['org']['url'].PHP_EOL.emailFooter();
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
     
     foreach($emails as $email)
     {
