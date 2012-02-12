@@ -370,7 +370,8 @@ function notifyWatchers($type, $relation, $apikey)
     {
         notifyUsersReviews($emails);
     }
-    else
+    
+    if($type == "discussions")
     {
         notifyUsersDiscussions($emails);
     }
