@@ -53,7 +53,6 @@
 
 <div class="content _bf_holder">
 
-    
 <h1>Page 1</h1>
 
 <p><a href="index.php">Page 1</a> : <a href="index2.php">Page 2</a> : <a href="index3.php">Page 3</a></p>
@@ -68,6 +67,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper consequat lu
 
 </div>
 
-    
 </body>
 </html>
