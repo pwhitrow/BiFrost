@@ -354,24 +354,22 @@ var _bf_itemreviews = {
             {
                 'class': '_bf_itemreviews_tags'
             })
-            .on(
+            .mouseover(function()
             {
-                mouseover: function()
-                {                      
-                    $(this).stop().animate(
-                    {
-                        opacity: 1
-                    }, 
-                    _bf.ani_speed)
-                },
-                mouseout: function()
+                $(this).stop().animate(
                 {
-                    $(this).stop().animate(
-                    {
-                        opacity: 0.45
-                    }, 
-                    _bf.ani_speed)
-                }                    
+                    opacity: 1
+                }, 
+                _bf.ani_speed)                
+            })
+            .mouseout(function()
+            {
+                $(this).stop().animate(
+                {
+                    opacity: 0.45
+                }, 
+                _bf.ani_speed)
+
             })
             .html(_bf.t('Tagged') + ': ')
             .css(
