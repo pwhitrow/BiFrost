@@ -638,7 +638,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     border:2px solid #fff !important;
     position:absolute !important;
-    left:562px !important;
+    left:460px !important;
     top:0px !important;
     -webkit-box-shadow: 1px 1px 3px rgba(90, 90, 90, 2) !important;
     -moz-box-shadow:    1px 1px 3px rgba(90, 90, 90, 2) !important;
@@ -677,7 +677,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_itemdiscussions_item_comment_username
 {
     position:absolute !important;
-    left:615px !important;
+    left:515px !important;
     top:0px !important;
 }
 
@@ -736,7 +736,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemdiscussions_item_comment_posted
 {
-    left:615px !important;
+    left:515px !important;
     top:23px !important;
 }
 
