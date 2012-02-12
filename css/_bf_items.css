@@ -45,6 +45,12 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     background:#eee !important;
 }
 
+._bf_itemreviews li,
+._bf_itemdiscussions li
+{
+     list-style:none !important;
+}
+
 ._bf_reviews_fetching,
 ._bf_discussions_fetching
 {
