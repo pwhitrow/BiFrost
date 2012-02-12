@@ -70,7 +70,7 @@ if(_bf.loggedIn())
                 
                 // load multi select plugin
                 $(form).multiselect();
-
+                
                 // create the submit button
                 var submit = $('<div />').attr(
                 {
@@ -119,7 +119,8 @@ if(_bf.loggedIn())
                         'class': '_bf_review_filestack'
                     })
                     .html(_bf_review.filesTxt)
-                    .appendTo($(this));                   
+                    .appendTo($(this));   
+                    
                 });
                 
                         
