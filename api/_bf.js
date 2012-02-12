@@ -9,8 +9,10 @@
                     on client site.
 */
 
+// Change the below if you're on local
 //var _bf_host = 'http://bifrost.pwhitrow.com/';
-var _bf_host = '/';
+//var _bf_host = 'http://localhost/';
+var _bf_host = 'http://176.34.253.130/';
 
 
 // insert a script
@@ -102,9 +104,10 @@ function _bf_loadScripts()
         'api/plugins/raty/js/jquery.raty.min.js'
     ];
     
-    for(i = 0; i < scripts.length; i++)
+  
+    for(var itemno = 0; itemno < scripts.length; itemno++)
     {
-        _bf_loadscript(_bf_host + scripts[i]);
+        _bf_loadscript(_bf_host + scripts[itemno]);
     }
     
     _bf_go();
