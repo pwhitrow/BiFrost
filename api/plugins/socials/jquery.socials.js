@@ -10,7 +10,7 @@
 
 (function($)
 {
-    $.fn.extend(
+    var socials = $.fn.extend(
     {
         socials: function(options)
         {
@@ -24,6 +24,7 @@
             }, options);
             
             settings.share = [
+            {media: 'Email', link: 'mailto:?subject=' + escape(settings.title) + '&body=' + escape(settings.href)},
             {media: 'Facebook', link: 'http://www.facebook.com/share.php?u=' + escape(settings.href) + '&amp;title=' + settings.title},
             {media: 'Twitter', link: 'http://www.twitter.com/home?status=' + escape(settings.href) + '&amp;status=' + escape(settings.href)},
             {media: 'Delicious', link: 'http://del.icio.us/post?url=' + escape(settings.href) + '&amp;title=' + settings.title},
@@ -40,11 +41,6 @@
             .appendTo(settings.obj)
             .each(function()
             {
-                $('<li />').attr(
-                {
-                    'class': '_bf_social_bookmark _bf_social_bookmarks_likes'
-                });                
-
                 for(i = 0; i < settings.share.length; i++)
                 {
                     $('<li />').attr(
@@ -77,41 +73,59 @@
                                     centeredY = window.screenY + (((window.outerHeight/2) - (h/2)));
                                     centeredX = window.screenX + (((window.outerWidth/2) - (w/2)));
                             }
-
+                            
                             window.open(link, '_bf_social', 'menubar=0, toolbar=0, status=0, location=0, directories=0, resizable=1, scrollbars=auto, height=' + h + ', width=' + w + ', top=' + centeredY + ', left=' + centeredX).focus();
                         })
                         .appendTo($(this))
                         .each(function()
                         {
-                            $('<div />').attr(
-                            {
-                                'class': '_bf_social_bookmark_image _bf_social_bookmark_image_'+settings.share[i].media.toLowerCase()
-                            })
-                            .css(
-                            {
-                                opacity: 0.15
-                            })
-                            .appendTo($(this))
-                            .mouseover(function()
-                            {
-                                $(this).stop().animate(
-                                {
-                                    opacity: 1
-                                }, 
-                                _bf.ani_speed)
-                            })
-                            .mouseout(function()
-                            {
-                                $(this).stop().animate(
-                                {
-                                    opacity: 0.15
-                                }, 
-                                _bf.ani_speed)
-                            });
+                            socials.createImg(settings, $(this));
                         });
                     });
                 }
-            });
+            });            
+        },
+        
+        createImg: function(settings, obj)
+        {
+            $('<div />').attr(
+            {
+                'class': '_bf_social_bookmark_image _bf_social_bookmark_image_'+settings.share[i].media.toLowerCase()
+            })
+            .css(
+            {
+                opacity: 0.15
+            })
+            .appendTo(obj)
+            .mouseover(function()
+            {
+                $(this).stop().animate(
+                {
+                    opacity: 1
+                }, 
+                _bf.ani_speed)
+            })
+            .mouseout(function()
+            {
+                $(this).stop().animate(
+                {
+                    opacity: 0.15
+                }, 
+                _bf.ani_speed)
+            });            
+        },
+        
+        addBookmark: function(settings)
+        {
+            if (document.all)
+            {
+                window.external.AddFavorite(settings.href, settings.title)
+            }
+            else if ( window.sidebar ) 
+            {
+                window.sidebar.addPanel(settings.title, settings.href, "");
+            }
         }
+
     });
 })(jQuery);

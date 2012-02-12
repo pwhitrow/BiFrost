@@ -17,15 +17,22 @@ function registerUser()
 
     $_SESSION['state'] = false;
     
+    // create a unique user id
+    $userid = md5($_POST['email'].":".time());
+    
     if(!userExists($_POST['email']))
-    {
-        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, joined) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
+    {        
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, joined) VALUES('".$userid."', '".$_POST['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', NOW())";
         
         if(mysql_query($sql))
         {
-            setSuccessMsg(t('Registration Accepted') . '<br /><br />' . t('Please check your inbox to complete the registration process.'));
+            $sql = "INSERT INTO ".TABLEPRENAME."tempusers (user_id) VALUES('".$userid."')";
+            
+            mysql_query($sql);
+            
+            setSuccessMsg(t('Registration Accepted') . '<br /><br />' . t('Please check your email inbox to complete the registration process.'));
 
-            registerEmail($_POST['email']);
+            registerEmail($prep, $userid);
         }
         else
         {
@@ -37,6 +44,32 @@ function registerUser()
     {
         setErrorMsg(t('This email is already registered'));
         return false;
+    }
+}
+
+function verifyUser()
+{
+    // check the user (token) exists i teh temp table
+    $sql = "SELECT user_id FROM ".TABLEPRENAME."tempusers WHERE user_id = '".$_POST["token"]."'";
+    
+    // if user exists
+    if(mysql_num_rows(mysql_query($sql)) > 0)
+    {
+        // remove the one time verify record
+        $sql = "DELETE FROM ".TABLEPRENAME."tempusers WHERE user_id = '".$_POST["token"]."'";        
+        mysql_query($sql);
+        
+        // update the user verification flag
+        $sql = "UPDATE ".TABLEPRENAME."users SET verified = 1 WHERE user_id = '".$_POST["token"]."'";
+        mysql_query($sql);
+        
+        setSuccessMsg(t('Registration verified!'));
+
+    }
+    else
+    {
+        // don't actually need to do anything!
+        //setErrorMsg(t('User has already registered'));
     }
 }
 
@@ -370,7 +403,8 @@ function notifyWatchers($type, $relation, $apikey)
     {
         notifyUsersReviews($emails);
     }
-    else
+    
+    if($type == "discussions")
     {
         notifyUsersDiscussions($emails);
     }

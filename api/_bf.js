@@ -157,10 +157,28 @@ function _bf_go()
             msg_display_time: 3000,
             content_character_limit: 300,
             current_widget: 'reviews',
+            
+            confirmReg: function()
+            {
+                var urlParams = decodeURI( window.location.search.substring(1) );
+                if(urlParams.indexOf('verifynewsuser') >= 0)
+                {
+                    var str = urlParams.split('=');
+                    
+                    _bf.post(
+                    {
+                        'action': 'verifynewsuser',
+                        'token': str[1]
+                    });
+                }
+            },
 
             // initialise
             init: function()
             {
+                //firstly, are we confirming a registration?
+                _bf.confirmReg();
+                
                 _bf.filetypes = _bf.imagetypes + _bf.videotypes;
                 
                 // get the token if set
@@ -1197,6 +1215,7 @@ function _bf_go()
 
                         _bf.closePanel(function()
                         {
+                            _bf_itemreviews.limitfrom = 0;
                             _bf_itemreviews.init();
                             _bf.showStateActions();
                         });
@@ -1217,6 +1236,7 @@ function _bf_go()
                     case('discuss'):
                         _bf.closePanel(function()
                         {
+                            _bf_itemdiscussions.limitfrom = 0;
                             _bf_itemdiscussions.init();
                             _bf.showStateActions();
                         });

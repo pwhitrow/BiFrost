@@ -5,92 +5,108 @@
     Author     : Paul Whitrow
     Description: All email functions...
 */
-function emailHeader()
-{
-    $headers="MIME-Version: 1.0\r\n";
-    
-    return $headers;
-}
+include('libs/phpmailer/class.phpmailer.php');
+
+$mail = new PHPMailer();  // create a new object
+$mail->IsSMTP(); // enable SMTP
+
+// GMail account details (add your own in here:)
+$mail->Username = EMAILUSER; // eg. 'mr.matt.ayers@gmail.com';  
+$mail->Password = EMAILPASS; 
+
+$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = true;  // authentication enabled
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 465; 
+
 
 function emailFooter()
 {
-    $footer = PHP_EOL.t("To unsubscribe from these emails please login to your control panel at") . " " .$_SESSION['org']['url'];
+    $footer = PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$_SESSION['org']['url']. " " . t("and click on the watching tab.").PHP_EOL.PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
     
     return $footer;
 }
 
 
-function _registerEmail($email)
+function registerEmail($prep, $userid)
 {    
-    $org = getOrgDetails($_REQUEST["api_key"]);
-   
-    $headers = "From: ".$org['replyto']."\r\n";
-    $headers .= "Reply-To: ".$org['replyto']."\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
+    global $mail;
     
-    $mailstr = t("Hi, please click on the link below (or copy and paste it into your browser window) to complete the registration process.").PHP_EOL.PHP_EOL.$org['url']."?verify=".$email.PHP_EOL;
+    $email = $prep['email'];
+    
+    $org = getOrgDetails($_REQUEST["api_key"]);
+    
+    $mail->From = $org['replyto'];
+    $mail->FromName = $org['name'];
+    $mail->Subject = t("Verify Registration");
+    
+    $mail->Body = t("Hello")." ".$prep['gname'].",".PHP_EOL.PHP_EOL.t("You recently registered at")." ".$org['url'].". ".t("In order to complete that registration, please click on the link below (or copy and paste it into your browser window).").PHP_EOL.PHP_EOL.$org['url']."?verifynewsuser=".$userid;
+    
+    $mail->AddBCC($email); 
 
-    if(mail($email, stripslashes($org['name']." : ".t("Registration")), wordwrap(stripslashes($mailstr),70), $headers))
+    if(!$mail->Send()) 
     {
-        setSuccessMsg(t('Thank you for registering'));
-    }
-    else
+        setErrorMsg(t("Oops!"). " : " .$mail->ErrorInfo);
+        return false;
+    } 
+    else 
     {
-        setErrorMsg(t("Oops! Mail fail!"));
-    }
-}
-
-function mailTest()
-{
-    $headers = emailHeader();
-    $headers.="From: paul@pwhitrow.com\r\n";
-    $headers.="Reply-To: paul@pwhitrow.com\r\n";
-    $headers.="Bcc: paul@pwhitrow.com\r\n";
-    if($mail = mail("noreplay@pwhitrow.com", "test email", "This is a test!", $headers))
-    {
-        logger("Mail sent");
-    }
-    else
-    {
-        logger("Mail falied");
+        return true;
     }
 }
 
 function notifyUsersReviews($emails)
 {    
-    $headers = emailHeader();
-    $headers.="From: ".$_SESSION['org']['replyto']."\r\n";
-    $headers.="Reply-To: ".$_SESSION['org']['replyto']."\r\n";
-    $headers.="Bcc: ".implode(",", $emails).PHP_EOL;
-    
-    $mailstr = t("Hi, this is a quick notice to let you know there is a new review at ").$_SESSION['org']['url'].PHP_EOL.emailFooter();
+    global $mail;
 
-    if(@mail($blank_email, stripslashes($_SESSION['org']['name']." : ".t("Notification of Review")), wordwrap(stripslashes($mailstr),70), $headers))
+    $mail->From = $_SESSION['org']['replyto'];
+    $mail->FromName = $_SESSION['org']['name'];
+    $mail->Subject = t("New Review Notice");
+    
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new review at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
+    
+    foreach($emails as $email)
     {
-        $type = "success";
+        $mail->AddBCC($email);
     }
-    else
+    
+    if(!$mail->Send()) 
     {
         $type = "failure";
+        return false;
+    } 
+    else 
+    {
+        $type = "success";
+        return true;
     }
 }
 
 function notifyUsersDiscussions($emails)
 {    
-    $headers = emailHeader();
-    $headers.="From: ".$_SESSION['org']['replyto']."\r\n";
-    $headers.="Reply-To: ".$_SESSION['org']['replyto']."\r\n";
-    $headers.="Bcc: ".implode(",", $emails).PHP_EOL;
+    global $mail;
     
-    $mailstr = t("Hi, this is a quick notice to let you know there is a new discussion at ").$_SESSION['org']['url'].PHP_EOL.emailFooter();
-
-    if(@mail($blank_email, stripslashes($_SESSION['org']['name']." : ".t("Notification of Discussion")), wordwrap(stripslashes($mailstr),70), $headers))
+    $mail->From = $_SESSION['org']['replyto'];
+    $mail->FromName = $_SESSION['org']['name'];
+    $mail->Subject = t("New Discussion Notice");
+    
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
+    
+    foreach($emails as $email)
     {
-        $type = "success";
+        $mail->AddBCC($email);
     }
-    else
+    
+    if(!$mail->Send()) 
     {
         $type = "failure";
+        return false;
+    } 
+    else 
+    {
+        $type = "success";
+        return true;
     }
 }
 
