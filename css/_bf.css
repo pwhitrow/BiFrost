@@ -1086,6 +1086,7 @@ Dashboard Show Reviews etc
     overflow: auto;
     overflow-x: hidden;
     padding: 0;
+    margin:0px;
     position: absolute;
     right: 0;
     top: 0px;
