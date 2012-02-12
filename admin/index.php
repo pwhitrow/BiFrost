@@ -18,37 +18,10 @@ require('./_bf_admin_include.php');
         <title>Organisation Signup</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <link href="css.css" rel="stylesheet">
+        <link href="_bf_admin.css" rel="stylesheet">
         
         <script src="/api/libs/jquery.1.7.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            
-        $(document).ready(function() 
-        {
-            var error = false;
-            
-            $('#saveclient').click(function()
-            {
-                
-                $('.required').each(function()
-                {
-                    if($(this).val() == '')
-                    {
-                        var label = $(this).parent().find('label').html();
-                        error = true;
-                        alert('Oops, you missed ' + label);
-                        return false;
-                    }
-                })
-                .each(function()
-                {
-                    alert(error)
-                })
-                //$('.clientSignupForm').submit();
-            });
-        });
-            
-        </script>
+        <script src="./_bf_admin.js" type="text/javascript"></script>
         
     </head>
     
@@ -87,6 +60,10 @@ require('./_bf_admin_include.php');
                     <li class="formrow">
                         <label for="replytoemail" class="formlabel">Reply-to email</label>
                         <input type="text" name="replytoemail" id="replytoemail" class="formtextbox required" value="" />
+                    </li>
+                    <li class="formrow">
+                        <label for="adminemail" class="formlabel">Admin Email</label>
+                        <input type="text" name="adminemail" id="adminemail" class="formtextbox required" value="" />
                     </li>
                     <li class="formrow">
                         <label for="contactname" class="formlabel">Contact Name</label>

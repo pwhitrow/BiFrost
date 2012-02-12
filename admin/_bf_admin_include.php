@@ -22,8 +22,8 @@ ini_set('memory_limit', '50M');
 session_start();
 
 
+require('../api/_bf_defines.php');
 require('../api/_bf_dbconnect.php');
-
 
 
 ?>
