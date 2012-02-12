@@ -9,6 +9,7 @@
                     on client site.
 */
 
+//var _bf_host = 'http://bifrost.pwhitrow.com/';
 var _bf_host = '/';
 
 
@@ -58,7 +59,7 @@ function _bf_basename(path)
     return path.replace(/\\/g,'/').replace( /.*\//, '' );
 }
 
-// do we actually need to load a script?
+
 function _bf_scriptrequired(type, src)
 {
     var scripts = document.getElementsByTagName(type);
