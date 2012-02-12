@@ -393,20 +393,17 @@ var _bf_itemreviews = {
                     })
                     .html(tag[1])
                     .appendTo($(this))
-                    .on(
+                    .click(function()
                     {
-                        click:function()
+                        _bf_itemreviews.itemqty = 0;
+                        _bf_itemreviews.limitfrom = 0;
+                        _bf_itemreviews.tagging = $(this).attr('rel');
+                        _bf_itemreviews.getReviews();
+                        $('html, body').animate(
                         {
-                            _bf_itemreviews.itemqty = 0;
-                            _bf_itemreviews.limitfrom = 0;
-                            _bf_itemreviews.tagging = $(this).attr('rel');
-                            _bf_itemreviews.getReviews();
-                            $('html, body').animate(
-                            {
-                                scrollTop: $('._bf_widgets_holder').offset().top
-                            }, 
-                            _bf.ani_speed);
-                        }
+                            scrollTop: $('._bf_widgets_holder').offset().top
+                        }, 
+                        _bf.ani_speed);
                     })
                     .each(function()
                     {
