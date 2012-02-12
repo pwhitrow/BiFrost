@@ -1196,6 +1196,7 @@ function _bf_go()
 
                         _bf.closePanel(function()
                         {
+                            _bf_itemreviews.limitfrom = 0;
                             _bf_itemreviews.init();
                             _bf.showStateActions();
                         });
@@ -1216,6 +1217,7 @@ function _bf_go()
                     case('discuss'):
                         _bf.closePanel(function()
                         {
+                            _bf_itemdiscussions.limitfrom = 0;
                             _bf_itemdiscussions.init();
                             _bf.showStateActions();
                         });
