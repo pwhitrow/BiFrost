@@ -340,6 +340,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     text-shadow: 1px 1px 1px #FFFFFF !important;
     top: 9px !important;
     z-index: 1 !important;
+    margin:0px !important;
+    padding:0px !important;
 }
 
 ._bf_itemreviews_crumbs a
@@ -363,7 +365,9 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     float: left !important;
     position: relative !important;
-    top: 12px !important;
+    top: 10px !important;
+    margin:0px !important;
+    padding:0px !important;
 }
 
 ._bf_itemreviews_avg_rating_text
