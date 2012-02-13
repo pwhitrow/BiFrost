@@ -471,8 +471,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia !important;
     line-height:18px !important;
     position: relative !important;
-    width:64% !important;
     padding:20px 20px 30px 20px !important;
+    margin:0px 20px 0px 20px !important;
     border:1px solid #aaa !important;
     -moz-border-radius: 5px !important;
     -webkit-border-radius: 5px !important;
@@ -497,7 +497,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     line-height:18px !important;
     color:#666 !important;
     margin:30px 20px 40px 20px !important;
-    padding:20px 20px 30px 20px !important;
+    padding:30px 20px 30px 20px !important;
 
     background: rgb(242,245,246) !important; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -644,12 +644,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     border:2px solid #fff !important;
     position:absolute !important;
-    left:460px !important;
-    top:0px !important;
+    left:0px !important;
+    top:-25px !important;
     -webkit-box-shadow: 1px 1px 3px rgba(90, 90, 90, 2) !important;
     -moz-box-shadow:    1px 1px 3px rgba(90, 90, 90, 2) !important;
     box-shadow:         1px 1px 3px rgba(90, 90, 90, 2) !important;    
-    margin:0px 0px 20px 0px !important;
     padding:0px 0px 0px 0px !important;   
 }
 
@@ -681,9 +680,9 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 
 ._bf_itemdiscussions_item_comment_username
 {
-    position:absolute !important;
-    left:515px !important;
-    top:0px !important;
+    left: 50px !important;
+    position: absolute !important;
+    top: -20px !important;
 }
 
 ._bf_itemreviews_item_username em,
@@ -743,7 +742,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     font-size:10px !important;
     color:#999 !important;
-    margin:0px !important;
+    margin:0px 5px 0px 5px !important;
     padding:0px !important;
 }
 
