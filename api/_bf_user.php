@@ -121,7 +121,10 @@ function FBlogin()
 
 function FBlogin2($_POST)
 {
-    $_POST['email'] = forceFBemail($_POST);
+    if(empty($_POST['email']))
+    {
+        $_POST['email'] = forceFBemail();
+    }
     
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
