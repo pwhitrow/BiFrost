@@ -95,7 +95,10 @@ function FBlogin()
         $prep[$k] = prepForDB($v);
     }
     
-    $prep['email'] = forceFBemail($prep);
+    if(empty($prep['email']))
+    {
+        $prep['email'] = forceFBemail($prep);
+    }
     
     $prep['password'] = md5(time());
 
