@@ -95,7 +95,7 @@ function FBlogin()
         $prep[$k] = prepForDB($v);
     }
     
-    if(empty($prep['email']))
+    if($prep['email'] == "") 
     {
         $prep['email'] = forceFBemail($prep);
     }
