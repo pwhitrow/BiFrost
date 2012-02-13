@@ -894,7 +894,7 @@ function _bf_go()
                         .hide()                        
                         .attr(
                         {
-                            'class': '_bf_state_action _bf_button',
+                            'class': '_bf_state_action _bf_button _bf_force_button_pos',
                             title: _bf.t('Click to open')
                         })
                         .appendTo(_bf.state_actions)                        
