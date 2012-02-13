@@ -266,9 +266,9 @@ FORMS
 ._bf_itemreviews_header.stick,
 ._bf_itemdiscussions_header.stick
 {
-    position:fixed;
-    top:0px;
-    z-index:10000;
+    position:fixed !important;
+    top:0px !important;
+    z-index:10000 !important;
     -webkit-border-radius:0px 0px 10px 10px;
     -moz-border-radius:0px 0px 10px 10px;
     border-radius:0px 0px 10px 10px;
