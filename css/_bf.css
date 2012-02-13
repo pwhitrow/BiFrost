@@ -1149,6 +1149,11 @@ Dashboard Show Reviews etc
     background-position: 5px -136px;
 }
 
+._bf_userwatches_content
+{
+    padding-right:45px !important;
+}
+
 ._bf_userwatches_control
 {
     color: #888888;
