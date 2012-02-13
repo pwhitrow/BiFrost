@@ -218,7 +218,7 @@ function processSQL($sql, $sqlQty)
         $rows['tags'][] = trim($tmp, ',');
         
     }
-
+    
     setResponse('itemreviews', json_encode($rows));
 }
 ?>

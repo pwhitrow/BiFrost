@@ -238,6 +238,7 @@ function respond()
     $_SESSION['org'] = $org;
     setResponse('orgName', $org['name']);
     setResponse('orgURL', $org['url']);
+    setResponse('paginator', $org['paginator']);
     
     setResponse('api_token', $_SESSION['api_token']);
     setResponse('state', $_SESSION['state']);
