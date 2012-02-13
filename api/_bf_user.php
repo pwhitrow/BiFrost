@@ -88,7 +88,7 @@ function forceFBemail($prep)
 // Facebook login
 function FBlogin()
 {
-    logger($_POST);
+    print_r($_POST);
     $prep = array();
     
     foreach ($_POST as $k => $v)
