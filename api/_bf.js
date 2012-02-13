@@ -894,7 +894,7 @@ function _bf_go()
                         .hide()                        
                         .attr(
                         {
-                            'class': '_bf_state_action',
+                            'class': '_bf_state_action _bf_button',
                             title: _bf.t('Click to open')
                         })
                         .appendTo(_bf.state_actions)                        
@@ -903,7 +903,9 @@ function _bf_go()
                         {
                             _bf.openPanel('login', function()
                             {
-                                _bf.state_action.html(_bf.t('Close'))
+                                _bf.state_action
+                                .removeClass('_bf_button')
+                                .html(_bf.t('Close'))
                                 .attr('title', _bf.t('Click to close'));
 
                                 _bf.getForm({form: 'login'});
@@ -914,6 +916,7 @@ function _bf_go()
                             _bf.closePanel(function()
                             {
                                 _bf.state_action
+                                .addClass('_bf_button')
                                 .html(login_button_text)
                                 .attr('title', _bf.t('Click to open'));
                             });

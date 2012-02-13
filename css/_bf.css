@@ -140,13 +140,19 @@
      box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 
     height: 22px;
-    padding: 7px 10px 0px 10px;
+    padding: 7px 10px 0px 10px !important;
     cursor: pointer;
     font: bold 12px Helvetica, Arial, sans-serif;
-    margin:3px 5px 0px 5px;
+    margin:3px 5px 0px 5px !important;
     text-align:center;
     clear:both;
     display: inline-block;
+    
+    
+    position:absolute !important;
+    right:0px !important;
+    left:0px !important;
+    width:auto !important;
 }
 
 ._bf_state_action:hover,
