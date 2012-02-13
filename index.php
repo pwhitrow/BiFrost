@@ -11,7 +11,8 @@
   var BiFrost = {
       api_key   : '3a50fc16-d89d-11e0-a26b-4040b2058987',
       relation  : '0123456789',
-      position  : 'topright'
+      position  : 'topright',
+      target    : 'content'
 //      panel_text: 'Login to BiFrost'
   };
   </script>
@@ -51,7 +52,7 @@
 </head>
 <body>
 
-<div class="content _bf_holder">
+<div class="content" id="content">
 
 <h1>Page 1</h1>
 

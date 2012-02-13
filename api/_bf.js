@@ -135,6 +135,7 @@ function _bf_go()
         // create namespace
         _bf = {
 
+            terget: BiFrost.target,
             host: _bf_host,
             api_key: BiFrost.api_key,
             relation: BiFrost.relation,
@@ -195,7 +196,7 @@ function _bf_go()
                     'class': '_bf_widgets',
                     rel: _bf.relation
                 })
-                .appendTo(($('._bf_holder').length ? $('._bf_holder') : $('body')))
+                .appendTo(($('#' + _bf.target).length ? $('#' + _bf.target) : $('body')))
                 .each(function()
                 {
                     $('<div />').attr(

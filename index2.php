@@ -11,7 +11,8 @@
   var BiFrost = {
       api_key   : '3a50fc16-d89d-11e0-a26b-4040b2058987',
       relation  : '37658739',
-      position  : 'topleft' 
+      position  : 'topleft',
+      target    : 'content' 
   };
   </script>
   <script src="http://bifrostplatform.co.uk/api/_bf.js"></script>
@@ -50,7 +51,7 @@
 </head>
 <body>
 
-<div class="content _bf_holder">
+<div class="content" id="content">
  
 <h1>Page 2</h1>    
 
