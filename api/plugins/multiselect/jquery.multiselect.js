@@ -71,7 +71,7 @@
             createTagList(form, data);
         }
         
-        if(typeof data.tags != 'undefined')
+        if(typeof data.tags['tag_id'] != 'undefined')
         {
             if(data.tags['tag_id'].length)
             {
