@@ -88,8 +88,8 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_items_paginator
 {
     position:absolute !important;
-    right:-4px !important;
-    top:70px !important;
+    right:30px !important;
+    top:72px !important;
     list-style:none !important;
     z-index:1 !important;
 }
