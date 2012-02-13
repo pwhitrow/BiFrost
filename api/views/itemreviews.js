@@ -255,7 +255,7 @@ var _bf_itemreviews = {
         })
         .appendTo($('._bf_reviews'));                
 
-        if(reviews.paginator)
+        if(_bf_itemreviews.paginator)
         {
             _bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
         }
