@@ -92,7 +92,7 @@ var _bf_itemreviews = {
         
         _bf_itemreviews.recordqty = reviews.recordqty;
         
-        _bf_itemreviews.paginator = reviews.paginator;
+        _bf_itemreviews.paginator = data.paginator;
 
         if(_bf_itemreviews.lazyloading)
         {
