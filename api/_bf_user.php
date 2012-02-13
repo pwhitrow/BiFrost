@@ -88,12 +88,14 @@ function forceFBemail()
 // Facebook login
 function FBlogin()
 {
-    if(empty($_POST['email']))
+    // must create an email if we don't have one set by FB
+    if(empty($_POST['email']) || $_POST['email'] == 'null')
     {
         $_POST['email'] = forceFBemail();
     }
     
-    $_POST['password'] = md5(time());
+    // just a rubbish password as we are a native FB login
+    $_POST['password'] = md5($_POST['fname'].time());
 
     $_SESSION['state'] = false;
     
@@ -121,7 +123,8 @@ function FBlogin()
 
 function FBlogin2($_POST)
 {
-    if(empty($_POST['email']))
+    // must create an email if we don't have one set by FB
+    if(empty($_POST['email']) || $_POST['email'] == 'null')
     {
         $_POST['email'] = forceFBemail();
     }
