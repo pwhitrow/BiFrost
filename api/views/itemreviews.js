@@ -13,6 +13,7 @@ var _bf_itemreviews = {
     tagging: false,
     lazyloading:false,
     itemqty: 0,
+    paginator: false,
 
     init: function()
     {
@@ -90,6 +91,8 @@ var _bf_itemreviews = {
         var reviews = $.parseJSON(data.itemreviews);
         
         _bf_itemreviews.recordqty = reviews.recordqty;
+        
+        _bf_itemreviews.paginator = reviews.paginator;
 
         if(_bf_itemreviews.lazyloading)
         {
@@ -252,8 +255,14 @@ var _bf_itemreviews = {
         })
         .appendTo($('._bf_reviews'));                
 
-        //_bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
-        _bf_itemreviews.setLazyLoader();  
+        if(reviews.paginator)
+        {
+            _bf.paginator(_bf_itemreviews, $('._bf_itemreviews'));
+        }
+        else
+        {
+            _bf_itemreviews.setLazyLoader();  
+        }
     },
     
     setLazyLoader: function()
