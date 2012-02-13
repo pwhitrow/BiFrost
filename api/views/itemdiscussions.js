@@ -345,7 +345,7 @@ var _bf_itemdiscussions = {
                                         title: comments.isodate[c]
                                     })
                                     .html(comments.fdate[c])
-                                    .appendTo($(this));                                    
+                                    .prependTo($(this));                                    
                                 });
 
                                 $('<div />').attr(
@@ -390,7 +390,7 @@ var _bf_itemdiscussions = {
                     title: discussion.isodate
                 })
                 .html(_bf.t('Posted') + ': ' + discussion.fdate)
-                .appendTo($(this));
+                .prependTo($(this));
             });
 
             $('<div />').attr(
