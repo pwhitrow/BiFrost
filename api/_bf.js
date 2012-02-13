@@ -10,8 +10,7 @@
 */
 
 // Change the below if you're on local
-//var _bf_host = 'http://bifrost.pwhitrow.com/';
-//var _bf_host = 'http://localhost/';
+//var _bf_host = 'http://localhost:56870/';
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
 

@@ -100,6 +100,8 @@ function FBlogin()
         $prep['email'] = forceFBemail($prep);
     }
     
+    logger($prep);
+    
     $prep['password'] = md5(time());
 
     $_SESSION['state'] = false;
