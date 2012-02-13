@@ -90,6 +90,7 @@ function FBlogin()
 {
     print_r($_POST);
     $prep = array();
+    print_r($prep);
     
     foreach ($_POST as $k => $v)
     {
