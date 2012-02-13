@@ -12,7 +12,7 @@
 // Change the below if you're on local
 //var _bf_host = 'http://bifrost.pwhitrow.com/';
 //var _bf_host = 'http://localhost/';
-var _bf_host = 'http://176.34.253.130/';
+var _bf_host = 'http://bifrostplatform.co.uk/';
 
 
 // insert a script

@@ -13,7 +13,7 @@
       relation  : '09804936' 
   };
   </script>
-  <script src="http://localhost:56870/api/_bf.js"></script>
+  <script src="http://bifrostplatform.co.uk/api/_bf.js"></script>
 
 
 
