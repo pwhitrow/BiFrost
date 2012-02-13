@@ -30,7 +30,7 @@ echo '<?xml version="1.0" encoding="ISO-8859-1"?>
 while ($item = mysql_fetch_array($items))
 {
     $sql = "SELECT fname, gname FROM ".TABLEPRENAME."users WHERE user_id = '".$item["user_id"]."'";
-    
+    logger($sql);
     $user = mysq_fetch_row(mysql_query($sql));
     
     echo PHP_EOL.'<item>'.PHP_EOL.
