@@ -12,6 +12,7 @@ var _bf_itemdiscussions = {
     limitqty: 5,
     lazyloading:false,
     itemqty: 0,
+    paginator: false,
 
     init: function()
     {        
@@ -58,6 +59,7 @@ var _bf_itemdiscussions = {
         var discussions = $.parseJSON(data.itemdiscussions);
         var comments = $.parseJSON(data.itemcomments);
 
+        _bf_itemdiscussions.paginator = data.paginator;
         
         _bf_itemdiscussions.recordqty = discussions.recordqty;
 
@@ -177,9 +179,15 @@ var _bf_itemdiscussions = {
 
         _bf.widgetLoaded('discussions');
         
-        //_bf.paginator(_bf_itemreviews, $('._bf_itemdiscussions'));
-        _bf_itemdiscussions.setLazyLoader();  
-    },
+        if(_bf_itemdiscussions.paginator)
+        {
+            _bf.paginator(_bf_itemdiscussions, $('._bf_itemdiscussions'));
+        }
+        else
+        {
+            _bf_itemdiscussions.setLazyLoader();  
+        }
+     },
     
     setLazyLoader: function()
     {
