@@ -243,12 +243,6 @@ var _bf_itemdiscussions = {
             .html(discussion.number)
             .appendTo($(this))
             
-            $('<div />').attr(
-            {
-                'class': '_bf_itemdiscussions_arrow_up'
-            })
-            .appendTo($(this));
-
             $('<p />').attr(
             {
                 'class': '_bf_itemdiscussions_item_synopsis _bf_itemdiscussions_item_synopsis_' + discussion.id
@@ -327,12 +321,6 @@ var _bf_itemdiscussions = {
                             {
                                 $('<div />').attr(
                                 {
-                                    'class': '_bf_itemdiscussions_arrow_right'
-                                })
-                                .appendTo($(this));
-
-                                $('<div />').attr(
-                                {
                                     'class': '_bf_itemdiscussions_item_comment_content'
                                 })
                                 .html(_bf.safeHTML(comments.content[c]))
@@ -348,7 +336,17 @@ var _bf_itemdiscussions = {
                                     'class': '_bf_itemdiscussions_item_comment_username'
                                 })
                                 .html(comments.gname[c] + ' ' + comments.fname[c])
-                                .appendTo($(this));
+                                .appendTo($(this))
+                                .each(function()
+                                {
+                                    $('<em />').attr(
+                                    {
+                                        'class': '_bf_itemdiscussions_item_comment_posted postdate',
+                                        title: comments.isodate[c]
+                                    })
+                                    .html(comments.fdate[c])
+                                    .appendTo($(this));                                    
+                                });
 
                                 $('<div />').attr(
                                 {
@@ -369,13 +367,6 @@ var _bf_itemdiscussions = {
                                     .appendTo($(this));
                                 });
 
-                                $('<em />').attr(
-                                {
-                                    'class': '_bf_itemdiscussions_item_comment_posted postdate',
-                                    title: comments.isodate[c]
-                                })
-                                .html(comments.fdate[c])
-                                .appendTo($(this));
                             });
                         }
                         c++;
@@ -390,7 +381,17 @@ var _bf_itemdiscussions = {
                 title: discussion.gname + ' ' + discussion.fname
             })
             .html(discussion.gname + ' ' + discussion.fname)
-            .appendTo($(this));
+            .appendTo($(this))
+            .each(function()
+            {
+                $('<em />').attr(
+                {
+                    'class': '_bf_itemdiscussions_item_posted postdate',
+                    title: discussion.isodate
+                })
+                .html(_bf.t('Posted') + ': ' + discussion.fdate)
+                .appendTo($(this));
+            });
 
             $('<div />').attr(
             {
@@ -410,14 +411,6 @@ var _bf_itemdiscussions = {
                 })
                 .appendTo($(this));
             });
-
-            $('<em />').attr(
-            {
-                'class': '_bf_itemdiscussions_item_posted postdate',
-                title: discussion.isodate
-            })
-            .html(_bf.t('Posted') + ': ' + discussion.fdate)
-            .appendTo($(this));
 
             $('<div />').attr(
             {
