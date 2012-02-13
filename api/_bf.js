@@ -905,10 +905,7 @@ function _bf_go()
                             {
                                 _bf.state_action
                                 .removeClass('_bf_button')
-                                .css(
-                                {
-                                    'position': 'relative !important'
-                                })
+                                .removeClass('_bf_force_button_pos')
                                 .html(_bf.t('Close'))
                                 .attr('title', _bf.t('Click to close'));
 
@@ -921,10 +918,7 @@ function _bf_go()
                             {
                                 _bf.state_action
                                 .addClass('_bf_button')
-                                .css(
-                                {
-                                    'position': 'absolute !important'
-                                })
+                                .addClass('_bf_force_button_pos')
                                 .html(login_button_text)
                                 .attr('title', _bf.t('Click to open'));
                             });

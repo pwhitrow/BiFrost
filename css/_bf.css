@@ -149,10 +149,14 @@
     display: inline-block;
     
     
+    width:auto !important;
+}
+
+._bf_force_button_pos
+{
     position:absolute !important;
     right:0px !important;
-    left:0px !important;
-    width:auto !important;
+    left:0px !important;    
 }
 
 ._bf_state_action:hover,
