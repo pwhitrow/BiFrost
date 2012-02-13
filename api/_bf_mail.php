@@ -21,9 +21,9 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; 
 
 
-function emailFooter()
+function emailFooter($url)
 {
-    $footer = PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$_SESSION['org']['url']. " " . t("and click on the watching tab.").PHP_EOL.PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
+    $footer = PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$url. " " . t("and click on the watching tab.").PHP_EOL.PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
     
     return $footer;
 }
@@ -64,7 +64,7 @@ function notifyUsersReviews($emails)
     $mail->FromName = $_SESSION['org']['name'];
     $mail->Subject = t("New Review Notice");
     
-    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new review at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new review at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter($_SERVER["HTTP_REFERER"]);
     
     foreach($emails as $email)
     {
@@ -91,7 +91,7 @@ function notifyUsersDiscussions($emails)
     $mail->FromName = $_SESSION['org']['name'];
     $mail->Subject = t("New Discussion Notice");
     
-    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter();
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter($_SERVER["HTTP_REFERER"]);
     
     foreach($emails as $email)
     {
