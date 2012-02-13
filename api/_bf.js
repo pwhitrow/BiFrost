@@ -135,7 +135,7 @@ function _bf_go()
         // create namespace
         _bf = {
 
-            terget: BiFrost.target,
+            target: BiFrost.target,
             host: _bf_host,
             api_key: BiFrost.api_key,
             relation: BiFrost.relation,
