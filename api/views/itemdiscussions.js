@@ -351,7 +351,7 @@ var _bf_itemdiscussions = {
                                     {
                                         'class': '_bf_itemdiscussions_item_comment_posted'
                                     })
-                                    .html(_bf.t('said') + '&#8230;')
+                                    .html(_bf.t('replied') + '&#8230;')
                                     .appendTo($(this));                                    
                                 });
 
@@ -403,7 +403,7 @@ var _bf_itemdiscussions = {
                 {
                     'class': '_bf_itemdiscussions_item_posted'
                 })
-                .html(_bf.t('replied') + '&#8230;')
+                .html(_bf.t('said') + '&#8230;')
                 .appendTo($(this));                                    
             });
 
