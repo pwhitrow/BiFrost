@@ -88,6 +88,7 @@ function forceFBemail($prep)
 // Facebook login
 function FBlogin()
 {
+    logger($_POST);
     $prep = array();
     
     foreach ($_POST as $k => $v)
@@ -95,12 +96,9 @@ function FBlogin()
         $prep[$k] = prepForDB($v);
     }
     
-    if($prep['email'] == "") 
-    {
-        $prep['email'] = forceFBemail($prep);
-    }
+    $prep['email'] = forceFBemail($prep);
     
-    logger($prep);
+    
     
     $prep['password'] = md5(time());
 
