@@ -73,47 +73,39 @@ function verifyUser()
     }
 }
 
-function forceFBemail($prep)
+function forceFBemail()
 {
-    if(empty($prep['email']) || $prep['email'] = "null")
+    if(empty($_POST['email']) || $_POST['email'] = "null")
     {
-        return $prep['uid'].'@fb.com';
+        return $_POST['uid'].'@fb.com';
     }
     else
     {
-        return $prep['email'];
+        return $_POST['email'];
     }
 }
 
 // Facebook login
 function FBlogin()
 {
-    print_r($_POST);
-    $prep = array();
-    print_r($prep);
-    
-    foreach ($_POST as $k => $v)
+    if(empty($_POST['email']))
     {
-        $prep[$k] = prepForDB($v);
+        $_POST['email'] = forceFBemail();
     }
     
-    $prep['email'] = forceFBemail($prep);
-    
-    
-    
-    $prep['password'] = md5(time());
+    $_POST['password'] = md5(time());
 
     $_SESSION['state'] = false;
     
     // Are we registered with app?
-    if(!userExists($prep['email']))
+    if(!userExists($_POST['email']))
     {
-        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$prep['email']."', '".$prep['password']."', '".$prep['gname']."', '".$prep['fname']."', '".$prep['avatar']."', NOW(), '".$prep['uid']."', 1)";
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1)";
         
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
-            FBlogin2($prep);
+            FBlogin2($_POST);
         }
         else
         {
@@ -123,16 +115,16 @@ function FBlogin()
     }
     else
     {
-        FBlogin2($prep);
+        FBlogin2($_POST);
     }
 }
 
-function FBlogin2($prep)
+function FBlogin2($_POST)
 {
-    $prep['email'] = forceFBemail($prep);
+    $_POST['email'] = forceFBemail($_POST);
     
-    $org = getOrgDetails($prep["api_key"]);
-    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$prep['email']."'");
+    $org = getOrgDetails($_POST["api_key"]);
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
 
     if(mysql_num_rows($sql) > 0)
     {
@@ -142,7 +134,7 @@ function FBlogin2($prep)
         {
             if($user['enabled'])
             {
-                $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$prep['avatar']."', fb_id = '".$prep['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$prep['email']."'";
+                $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$_POST['email']."'";
                 setSuccessMsg(t('Facebook Connected'));
                 $_SESSION['state'] = true;
                 mysql_query($sql);
