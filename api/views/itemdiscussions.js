@@ -345,7 +345,14 @@ var _bf_itemdiscussions = {
                                         title: comments.isodate[c]
                                     })
                                     .html(comments.fdate[c])
-                                    .prependTo($(this));                                    
+                                    .prependTo($(this));       
+                                    
+                                    $('<em />').attr(
+                                    {
+                                        'class': '_bf_itemdiscussions_item_comment_posted'
+                                    })
+                                    .html(_bf.t('said'))
+                                    .appendTo($(this));                                    
                                 });
 
                                 $('<div />').attr(
@@ -391,6 +398,13 @@ var _bf_itemdiscussions = {
                 })
                 .html(_bf.t('Posted') + ': ' + discussion.fdate)
                 .prependTo($(this));
+
+                $('<em />').attr(
+                {
+                    'class': '_bf_itemdiscussions_item_posted'
+                })
+                .html(_bf.t('said'))
+                .appendTo($(this));                                    
             });
 
             $('<div />').attr(
