@@ -20,7 +20,7 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; 
 
-
+// include footer
 function emailFooter($url)
 {
     $footer = PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$url. " " . t("and click on the watching tab.").PHP_EOL.PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
