@@ -70,135 +70,137 @@
         {
             createTagList(form, data);
         }
-
-        if(data.tags['tag_id'].length)
+        
+        if(typeof data.tags != 'undefined')
         {
-            $('<div />').attr(
-            {
-                'class': '_bf_multiselect_holder'
-            })
-            .appendTo($('._bf_multi_tags'))
-            .hide()
-            .each(function()
+            if(data.tags['tag_id'].length)
             {
                 $('<div />').attr(
                 {
-                    'class': '_bf_input_newtag_done'
+                    'class': '_bf_multiselect_holder'
                 })
-                .appendTo($(this))
+                .appendTo($('._bf_multi_tags'))
+                .hide()
                 .each(function()
                 {
                     $('<div />').attr(
                     {
-                        'class': '_bf_input_newtag_done_button _bf_button'
-                    })
-                    .html(_bf.t('Done'))
-                    .appendTo($(this))
-                    .click(function()
-                    {
-                        $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
-                    });
-                })
-
-                if(_bf.can_create_tags)
-                {
-                    // create new tags item
-                    $('<div />').attr(
-                    {
-                        'class': '_bf_multiselect_item_new'
+                        'class': '_bf_input_newtag_done'
                     })
                     .appendTo($(this))
                     .each(function()
                     {
                         $('<div />').attr(
                         {
-                            'class': '_bf_form_row'
+                            'class': '_bf_input_newtag_done_button _bf_button'
+                        })
+                        .html(_bf.t('Done'))
+                        .appendTo($(this))
+                        .click(function()
+                        {
+                            $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
+                        });
+                    })
+
+                    if(_bf.can_create_tags)
+                    {
+                        // create new tags item
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_multiselect_item_new'
                         })
                         .appendTo($(this))
                         .each(function()
                         {
-                            $('<label />').attr(
-                            {
-                                'class': '_bf_input_newtag_label _bf_form_label',
-                                'for': '_bf_input_newtag'
-                            })
-                            .html(_bf.t('New Tag'))
-                            .appendTo($(this));
-
-                            $('<input />').attr(
-                            {
-                                'class': '_bf_input_newtag _bf_input _bf_ignore_validation',
-                                'id': '_bf_input_newtag',
-                                'name': 'newtag'
-                            })
-                            .appendTo($(this));
-
                             $('<div />').attr(
                             {
-                                'class': '_bf_input_newtag_add _bf_button'
+                                'class': '_bf_form_row'
                             })
-                            .html(_bf.t('Add'))
                             .appendTo($(this))
-                            .click(function()
+                            .each(function()
                             {
-                                var newTag = $('._bf_input_newtag');
-
-                                if(newTag.val() != '')
+                                $('<label />').attr(
                                 {
-                                    if(jQuery.inArray(newTag.val(), _bf_stopWords) < 0)
+                                    'class': '_bf_input_newtag_label _bf_form_label',
+                                    'for': '_bf_input_newtag'
+                                })
+                                .html(_bf.t('New Tag'))
+                                .appendTo($(this));
+
+                                $('<input />').attr(
+                                {
+                                    'class': '_bf_input_newtag _bf_input _bf_ignore_validation',
+                                    'id': '_bf_input_newtag',
+                                    'name': 'newtag'
+                                })
+                                .appendTo($(this));
+
+                                $('<div />').attr(
+                                {
+                                    'class': '_bf_input_newtag_add _bf_button'
+                                })
+                                .html(_bf.t('Add'))
+                                .appendTo($(this))
+                                .click(function()
+                                {
+                                    var newTag = $('._bf_input_newtag');
+
+                                    if(newTag.val() != '')
                                     {
-                                        if(jQuery.inArray(newTag.val(), data.tags['tag_name']) < 0)
+                                        if(jQuery.inArray(newTag.val(), _bf_stopWords) < 0)
                                         {
-                                            $.post(_bf.host + 'api/_bf_api.php',
+                                            if(jQuery.inArray(newTag.val(), data.tags['tag_name']) < 0)
                                             {
-                                                action: 'addtag',
-                                                api_key: _bf.api_key,
-                                                api_token: _bf.api_token,
-                                                dataType: 'json',
-                                                newtag: $('._bf_input_newtag').val()
-                                            },
-                                            function(data)
+                                                $.post(_bf.host + 'api/_bf_api.php',
+                                                {
+                                                    action: 'addtag',
+                                                    api_key: _bf.api_key,
+                                                    api_token: _bf.api_token,
+                                                    dataType: 'json',
+                                                    newtag: $('._bf_input_newtag').val()
+                                                },
+                                                function(data)
+                                                {
+                                                    var data = $.parseJSON(data);
+
+                                                    newTag.val('').blur();
+
+                                                    createTagList(form, data);
+                                                });
+                                            }
+                                            else
                                             {
-                                                var data = $.parseJSON(data);
-
-                                                newTag.val('').blur();
-
-                                                createTagList(form, data);
-                                            });
+                                                _bf.showStateOverlay(_bf.t('New tag already in use!'), 2000, false, true);
+                                            }
                                         }
                                         else
                                         {
-                                            _bf.showStateOverlay(_bf.t('New tag already in use!'), 2000, false, true);
+                                            _bf.showStateOverlay(_bf.t('New tag is not permitted!'), 2000, false, true);
                                         }
                                     }
                                     else
                                     {
-                                        _bf.showStateOverlay(_bf.t('New tag is not permitted!'), 2000, false, true);
+                                        _bf.showStateOverlay(_bf.t('No tag entered!'), 2000, false, true);
                                     }
-                                }
-                                else
-                                {
-                                    _bf.showStateOverlay(_bf.t('No tag entered!'), 2000, false, true);
-                                }
+                                });
                             });
+
+                            _bf.checkPlaceholders(form);
+
                         });
+                    }
+                    else
+                    {
+                    }
 
-                        _bf.checkPlaceholders(form);
-
-                    });
-                }
-                else
-                {
-                }
-
-                createTagList(form, data);
-            });
+                    createTagList(form, data);
+                });
+            }
+            else
+            {
+                // no tags!
+            }
         }
-        else
-        {
-            // no tags!
-        }
-
     }
 
     function createTagList(form, data)
