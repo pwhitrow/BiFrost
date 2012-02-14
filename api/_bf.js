@@ -612,11 +612,11 @@ function _bf_go()
 
                                 obj.limitfrom = $(this).attr('rel');
                                 
-                                if(obj.getReviews())
+                                if(typeof obj.getReviews() == 'function')
                                 {
                                     obj.getReviews();
                                 }
-                                if(obj.getDiscussions())
+                                if(typeof obj.getDiscussions() == 'function')
                                 {
                                     obj.getDiscussions();
                                 }
