@@ -298,20 +298,23 @@ if(_bf.loggedIn())
                     })
                     .load(function()
                     {
-                        if(_bf.mediaType('image', response))
-                        {
-                            var thumb = _bf.basename(response).replace('.', '_thumb.');
-                            var img = response.replace(_bf.basename(response), thumb);
-                            
-                            console.log(response, img);
-                            // http://bifrostplatform.co.uk//uploads/87966404.jpg 
-                            // http://bifrostplatform.co.uk//uploads/87966404_thumb.jpg
-                            $(this).attr('src', response);
-                        }
-                        else
-                        {
-                            $(this).attr('src', response);
-                        }                                                
+//                        if(_bf.mediaType('image', response))
+//                        {
+//                            var thumb = _bf.basename(response).replace('.', '_thumb.');
+//                            var img = response.replace(_bf.basename(response), thumb);
+//                            
+//                            console.log(response, img);
+//                            // http://bifrostplatform.co.uk//uploads/87966404.jpg 
+//                            // http://bifrostplatform.co.uk//uploads/87966404_thumb.jpg
+//                            $(this).attr('src', response);
+//                        }
+//                        else
+//                        {
+//                            $(this).attr('src', response);
+//                        }     
+                          
+                          console.log(response)
+                          $(this).attr('src', response);
                     })
                     .click(function()
                     {
@@ -377,7 +380,6 @@ if(_bf.loggedIn())
                 // only upload if under limit
                 if(_bf_review.fileStack.length < _bf_review.fileLimit)
                 {
-console.log('1');
                     // show the thumbnail
                     _bf_review.createObj(_bf.host + _bf.uploads + '/' + _bf_basename(response));
 
