@@ -59,7 +59,11 @@ function postReview()
                     
                     if(in_array($ext, array('jpeg', 'jpg', 'gif', 'png')))
                     {
+                        // resize main image
+                        _imageResize($source, $source, 800, 600);
+                        
                         $thumb = str_replace('.'.$ext, '_thumb.'.$ext, $source);
+                        // create thumbnail
                         _imageResize($source, $thumb, 100, 100);
                     }
                     
