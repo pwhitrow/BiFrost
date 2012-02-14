@@ -322,7 +322,7 @@ function forgottenPassword()
                 {
                     $newpass = time();
                     
-                    mysql_query("UPDATE ".TABLEPRENAME."users SET password = '".$newpass."' WHERE email = '".$email."'");
+                    mysql_query("UPDATE ".TABLEPRENAME."users SET password = '".md5($newpass)."' WHERE email = '".$email."'");
                     setSuccessMsg(t('Password reset, please check your email'));
                     notifyUsersResetPassword($email, $newpass);
                     return true;                    
