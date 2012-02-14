@@ -300,9 +300,9 @@ if(_bf.loggedIn())
                     {
                         if(_bf.mediaType('image', response))
                         {
-                            var thumb = _bf.basename(response).replace('.', '_thumb.');
-                            var img = response.replace(_bf.basename(response), thumb);
-                            $(this).attr('src', response);
+                            var img = _bf.basename(response).replace('.', '_thumb.');
+                            var thumb = response.replace(_bf.basename(response), img);
+                            $(this).attr('src', thumb);
                         }
                         else
                         {
