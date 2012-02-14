@@ -298,23 +298,16 @@ if(_bf.loggedIn())
                     })
                     .each(function()
                     {
-//                        if(_bf.mediaType('image', response))
-//                        {
-//                            var thumb = _bf.basename(response).replace('.', '_thumb.');
-//                            var img = response.replace(_bf.basename(response), thumb);
-//                            
-//                            console.log(response, img);
-//                            // http://bifrostplatform.co.uk//uploads/87966404.jpg 
-//                            // http://bifrostplatform.co.uk//uploads/87966404_thumb.jpg
-//                            $(this).attr('src', response);
-//                        }
-//                        else
-//                        {
-//                            $(this).attr('src', response);
-//                        }     
-                          
-                          console.log(response)
-                          $(this).attr('src', response);
+                        if(_bf.mediaType('image', response))
+                        {
+                            var thumb = _bf.basename(response).replace('.', '_thumb.');
+                            var img = response.replace(_bf.basename(response), thumb);
+                            $(this).attr('src', response);
+                        }
+                        else
+                        {
+                            $(this).attr('src', response);
+                        }     
                     })
                     .click(function()
                     {
