@@ -212,6 +212,8 @@ var _bf_itemreviews = {
     processReviews: function(reviews)
     {
         var i = 0;
+        
+        _bf_itemreviews.itemqty = _bf_itemreviews.recordqty - _bf_itemreviews.limitfrom;
 
         $(reviews.id)
         .each(function()
@@ -233,7 +235,7 @@ var _bf_itemreviews = {
             });
 
             i++;
-            _bf_itemreviews.itemqty++;
+            _bf_itemreviews.itemqty--;
         });
         
         $("a._bf_itemreviews_media_link").showBox(
