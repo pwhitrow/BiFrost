@@ -267,7 +267,7 @@ if(_bf.loggedIn())
                                           {
                                               _bf.showStateOverlay(_bf.t('Uploading...'), 99999);
                                           },
-                        'onAllComplete' : function(event,queueID,fileObj,response,data)
+                        'onComplete'    : function(event,queueID,fileObj,response,data)
                                           {
                                               _bf.hideMultiSelect();
                                                _bf_review.addFile(response);
