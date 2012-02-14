@@ -137,7 +137,23 @@ var _bf_itemdiscussions = {
             
         }
         
-        _bf.widgetSwitch('discussions');
+        // is my own tab active?
+        if($('._bf_discussions_control').hasClass('active'))
+        {
+            _bf.widgetSwitch('discussions');
+        }
+        else
+        {
+            // reviews have priority
+            if($('._bf_reviews').length)
+            {
+                _bf.widgetSwitch('reviews');
+            }
+            else
+            {
+                _bf.widgetSwitch('discussions');
+            }            
+        }
     },
 
     processDiscussions: function(discussions, comments)
