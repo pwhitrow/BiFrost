@@ -611,8 +611,15 @@ function _bf_go()
                                 obj.pagenum = x;
 
                                 obj.limitfrom = $(this).attr('rel');
-console.log(obj)
-                                obj.getReviews();
+                                
+                                if(obj.getReviews())
+                                {
+                                    obj.getReviews();
+                                }
+                                if(obj.getDiscussions())
+                                {
+                                    obj.getDiscussions();
+                                }
                             });
                         }
                     }
