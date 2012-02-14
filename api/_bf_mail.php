@@ -127,10 +127,7 @@ function notifyUsersResetPassword($email, $newpass)
     
     $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know that your password has been reset to ").$newpass.PHP_EOL.PHP_EOL."You can log in at the site you were on, ".$_SERVER["HTTP_REFERER"]."and change your password to one of your chosing via the dashboard.".PHP_EOL.PHP_EOL.emailFooter();
     
-    foreach($emails as $email)
-    {
-        $mail->AddBCC($email);
-    }
+    $mail->AddBCC($email);
     
     if(!$mail->Send()) 
     {
