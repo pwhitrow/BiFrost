@@ -271,7 +271,6 @@ if(_bf.loggedIn())
                                           {
                                               _bf.hideStateOverlay(function()
                                               {
-                                                  console.log("TEST")
                                                   _bf_review.addFile(response);
                                               })
                                           }
@@ -396,6 +395,7 @@ if(_bf.loggedIn())
             // remove file from the file stack
             removeFile: function(response, callback)
             {
+console.log('1');
                 var tmp = [];
 
                 $('._bf_review_filestack').html(_bf_review.filesTxt);
@@ -408,6 +408,7 @@ if(_bf.loggedIn())
                         // store in temp array
                         tmp.push(_bf_review.fileStack[i]);
 
+console.log('2');
                         // show the thumbnail
                         _bf_review.createObj(_bf.uploads + '/' + _bf_review.fileStack[i]);
                     }
