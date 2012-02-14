@@ -296,7 +296,7 @@ if(_bf.loggedIn())
                         height: '30px',
                         width: '30px'
                     })
-                    .load(function()
+                    .each(function()
                     {
 //                        if(_bf.mediaType('image', response))
 //                        {
