@@ -159,6 +159,8 @@ var _bf_itemdiscussions = {
     processDiscussions: function(discussions, comments)
     {
         var i = 0;
+        
+        _bf_itemdiscussions.itemqty = _bf_itemdiscussions.recordqty - _bf_itemdiscussions.limitfrom;
 
         $(discussions.id).each(function()
         {
@@ -171,11 +173,11 @@ var _bf_itemdiscussions = {
                 content: discussions.content[i],
                 fdate: discussions.fdate[i],
                 isodate: discussions.isodate[i],
-                number: _bf_itemdiscussions.itemqty + 1
+                number: _bf_itemdiscussions.itemqty
             }, comments);
             
             i++;
-            _bf_itemdiscussions.itemqty++;
+            _bf_itemdiscussions.itemqty--;
         });
 
         $('<div />').attr(
