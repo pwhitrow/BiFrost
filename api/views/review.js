@@ -302,7 +302,10 @@ if(_bf.loggedIn())
                         {
                             var thumb = _bf.basename(response).replace('.', '_thumb.');
                             var img = response.replace(_bf.basename(response), thumb);
-                            $(this).attr('src', img);
+                            
+                            console.log(response, img);
+                            
+                            $(this).attr('src', response);
                         }
                         else
                         {
