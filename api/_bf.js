@@ -160,6 +160,7 @@ function _bf_go()
             msg_display_time: 3000,
             content_character_limit: 300,
             current_widget: 'reviews',
+            timer: 0,
             
             confirmReg: function()
             {
@@ -719,7 +720,7 @@ function _bf_go()
                 else
                 {
                     // self close after timeout
-                    setTimeout(function()
+                    _bf.timer = setTimeout(function()
                     {
                         // do we have a callback?
                         if($.isFunction(callback))
@@ -736,6 +737,8 @@ function _bf_go()
             // remove the state overlay message
             hideStateOverlay: function(callback)
             {
+                clearTimeout(_bf.timer);
+                
                 $('._bf_state_overlay')
                 .html('')
                 .fadeOut(_bf.ani_speed,

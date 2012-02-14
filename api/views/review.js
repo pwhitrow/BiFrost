@@ -271,6 +271,7 @@ if(_bf.loggedIn())
                                           {
                                               _bf.hideStateOverlay(function()
                                               {
+                                                  console.log("TEST")
                                                   _bf_review.addFile(response);
                                               })
                                           }
@@ -304,7 +305,8 @@ if(_bf.loggedIn())
                             var img = response.replace(_bf.basename(response), thumb);
                             
                             console.log(response, img);
-                            
+                            // http://bifrostplatform.co.uk//uploads/87966404.jpg 
+                            // http://bifrostplatform.co.uk//uploads/87966404_thumb.jpg
                             $(this).attr('src', response);
                         }
                         else
