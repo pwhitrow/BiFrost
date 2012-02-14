@@ -60,7 +60,7 @@
                         'overflow':'hidden',
                         'float': 'left',  
                         'padding': '0px',
-                        'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/156.gif) center center no-repeat'
+                        'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/loader.gif) center center no-repeat'
                     })
                     .fadeTo(10, 0.3)
                     .appendTo($('._showbox')); 

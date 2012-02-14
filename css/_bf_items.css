@@ -493,7 +493,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-family: Georgia !important;
     line-height:18px !important;
     color:#666 !important;
-    margin:30px 20px 40px 20px !important;
+    margin:30px 20px 45px 20px !important;
     padding:30px 20px 30px 20px !important;
 
     background: rgb(242,245,246) !important; /* Old browsers */
@@ -786,7 +786,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 {
     position:absolute !important;
     right:30px !important;
-    bottom:24px !important;
+    bottom:30px !important;
 }
 
 
