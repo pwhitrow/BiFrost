@@ -298,7 +298,16 @@ if(_bf.loggedIn())
                     })
                     .load(function()
                     {
-                        $(this).attr('src', response);
+                        if(_bf.mediaType('image', response))
+                        {
+                            var thumb = _bf.basename(response).replace('.', '_thumb.');
+                            var img = response.replace(_bf.basename(response), thumb);
+                            $(this).attr('src', img);
+                        }
+                        else
+                        {
+                            $(this).attr('src', response);
+                        }                                                
                     })
                     .click(function()
                     {
