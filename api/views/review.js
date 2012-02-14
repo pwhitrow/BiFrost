@@ -261,10 +261,15 @@ if(_bf.loggedIn())
                         'sizeLimit'     : _bf.maxfilesize,
                         'onSelect'      : function()
                                           {
-                                              _bf.hideMultiSelect()
+                                              _bf.hideMultiSelect();
                                           },
-                        'onComplete'    : function(event,queueID,fileObj,response,data)
+                        'onOpen'        : function()
                                           {
+                                              _bf.showStateOverlay(_bf.t('Uploading...'), 99999);
+                                          },
+                        'onAllComplete' : function(event,queueID,fileObj,response,data)
+                                          {
+                                              _bf.hideMultiSelect();
                                                _bf_review.addFile(response);
                                           }
                     });
