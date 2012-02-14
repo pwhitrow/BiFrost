@@ -86,6 +86,10 @@ require('./_bf_admin_include.php');
                         <input type="checkbox" name="watches" id="watches" class="formcheckbox" checked="checked" />
                     </li>
                     <li class="formrow">
+                        <label for="paginator" class="formlabel">Paginator</label>
+                        <input type="checkbox" name="paginator" id="paginator" class="formcheckbox" checked="checked" />
+                    </li>
+                    <li class="formrow">
                         <input type="button" name="saveclient" id="saveclient" class="button" value="Save" />
                     </li>
                 </ul>    
