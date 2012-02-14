@@ -269,8 +269,10 @@ if(_bf.loggedIn())
                                           },
                         'onComplete'    : function(event,queueID,fileObj,response,data)
                                           {
-                                              _bf.hideMultiSelect();
-                                               _bf_review.addFile(response);
+                                              _bf.hideStateOverlay(function()
+                                              {
+                                                  _bf_review.addFile(response);
+                                              })
                                           }
                     });
                 }
