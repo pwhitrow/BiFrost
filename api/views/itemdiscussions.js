@@ -137,14 +137,7 @@ var _bf_itemdiscussions = {
             
         }
         
-        if($('._bf_reviews').length)
-        {
-            _bf.widgetSwitch('reviews');
-        }
-        else
-        {
-            _bf.widgetSwitch('discussions');
-        }
+        _bf.widgetSwitch('discussions');
     },
 
     processDiscussions: function(discussions, comments)
