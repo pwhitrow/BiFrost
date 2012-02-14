@@ -700,12 +700,6 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     text-shadow: none !important;
 }
 
-._bf_itemdiscussions_item_number
-{
-    left:auto !important;
-    right:5px !important;
-}
-
 ._bf_itemreviews_item_rating
 {
     position:absolute !important;
