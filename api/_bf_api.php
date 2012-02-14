@@ -107,6 +107,11 @@ switch($_POST['action'])
                     respond();
                     break;
 
+    case('forgottenpassword'): // forgotten password
+                    forgottenPassword();
+                    respond();
+                    break;
+
     case('changepassword'): // change email
                     changePassword();
                     respond();

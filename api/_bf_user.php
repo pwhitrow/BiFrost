@@ -304,6 +304,60 @@ function changeEmail()
     }
 }
 
+function forgottenPassword()
+{
+    $email = $_POST["email"];
+    
+    if(userExists($email))
+    {
+        $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."'");
+        
+        if(mysql_num_rows($sql) > 0)
+        {
+            $user = mysql_fetch_array($sql);
+            
+            if($user['verified'])
+            {
+                if($user['enabled'])
+                {
+                    $newpass = time();
+                    
+                    mysql_query("UPDATE ".TABLEPRENAME."users SET password = '".$newpass."' WHERE email = '".$email."'");
+                    setSuccessMsg(t('Password reset, please check your email'));
+                    notifyUsersResetPassword($email, $newpass);
+                    return true;                    
+                }
+                else
+                {
+                    logout();
+                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator') . $org['admin_email']);
+                    return false;                    
+                }
+            }
+            else
+            {
+                logout();
+                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                return false;
+            }
+            
+        }
+        else
+        {
+           logout();
+           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+           return false;
+        }
+    }
+    else
+    {
+        logout();
+        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+        return false;
+    }
+    
+}
+
 function changePassword()
 {
     if(permitted())

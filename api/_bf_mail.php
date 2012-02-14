@@ -23,7 +23,14 @@ $mail->Port = 465;
 // include footer
 function emailFooter($url)
 {
-    $footer = PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$url. " " . t("and click on the watching tab.").PHP_EOL.PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
+    $footer = "";
+    
+    if(!empty($url))
+    {
+        $footer .= PHP_EOL.t("To unsubscribe from these emails please login to your dashboard panel at") . " " .$url. " " . t("and click on the watching tab.").PHP_EOL;
+    }
+    
+    $footer .= PHP_EOL.PHP_EOL.t("Powered by")." ".APP_NAME;
     
     return $footer;
 }
@@ -92,6 +99,33 @@ function notifyUsersDiscussions($emails)
     $mail->Subject = t("New Discussion Notice");
     
     $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know there is a new discussion at ").$_SERVER["HTTP_REFERER"].PHP_EOL.emailFooter($_SERVER["HTTP_REFERER"]);
+    
+    foreach($emails as $email)
+    {
+        $mail->AddBCC($email);
+    }
+    
+    if(!$mail->Send()) 
+    {
+        $type = "failure";
+        return false;
+    } 
+    else 
+    {
+        $type = "success";
+        return true;
+    }
+}
+
+function notifyUsersResetPassword($email, $newpass)
+{    
+    global $mail;
+    
+    $mail->From = $_SESSION['org']['replyto'];
+    $mail->FromName = $_SESSION['org']['name'];
+    $mail->Subject = t("Password Reset");
+    
+    $mail->Body = t("Hi,".PHP_EOL.PHP_EOL."This is a quick notice to let you know that your password has been reset to ").$newpass.PHP_EOL.PHP_EOL."You can log in at the site you were on, ".$_SERVER["HTTP_REFERER"]."and change your password to one of your chosing via the dashboard.".PHP_EOL.PHP_EOL.emailFooter();
     
     foreach($emails as $email)
     {
