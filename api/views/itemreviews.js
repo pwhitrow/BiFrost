@@ -231,7 +231,7 @@ var _bf_itemreviews = {
                 fdate: reviews.fdate[i],
                 isodate: reviews.isodate[i],
                 tags: reviews.tags[i],
-                number: _bf_itemreviews.itemqty + 1
+                number: _bf_itemreviews.itemqty
             });
 
             i++;
