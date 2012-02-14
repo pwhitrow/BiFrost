@@ -585,42 +585,46 @@ function _bf_go()
                 .each(function()
                 {
                     var qty = Math.ceil(obj.recordqty / obj.limitqty);
-
-                    for(i = 1; i < qty + 1; i++)
+                    
+                    // don't show paginator for just one page!
+                    if(qty > 1)
                     {
-                        var el = $('<li />').attr(
+                        for(i = 1; i < qty + 1; i++)
                         {
-                            'class': obj.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
-                            'rel': (i > 1 ? obj.limitqty * (i - 1) : 0),
-                            'title': _bf.t('Go to page') + ' ' + i + ' ' + _bf.t('of') + ' ' + qty
-                        })
-                        .html(i)
-                        .appendTo($(this));
-
-                        if(obj.pagenum != i)
-                        {
-                            el.click(function()
+                            var el = $('<li />').attr(
                             {
-                                holder.css(
+                                'class': obj.pagenum == i ? '_bf_items_pager_disabled' : '_bf_items_pager',
+                                'rel': (i > 1 ? obj.limitqty * (i - 1) : 0),
+                                'title': _bf.t('Go to page') + ' ' + i + ' ' + _bf.t('of') + ' ' + qty
+                            })
+                            .html(i)
+                            .appendTo($(this));
+
+                            if(obj.pagenum != i)
+                            {
+                                el.click(function()
                                 {
-                                    'opacity': 0.3
+                                    holder.css(
+                                    {
+                                        'opacity': 0.3
+                                    });
+
+                                    var x = parseInt($(this).html());
+
+                                    obj.pagenum = x;
+
+                                    obj.limitfrom = $(this).attr('rel');
+
+                                    if(holder.hasClass('_bf_itemreviews'))
+                                    {
+                                        obj.getReviews();
+                                    }
+                                    if(holder.hasClass('_bf_itemdiscussions'))
+                                    {
+                                        obj.getDiscussions();
+                                    }
                                 });
-
-                                var x = parseInt($(this).html());
-
-                                obj.pagenum = x;
-
-                                obj.limitfrom = $(this).attr('rel');
-                                
-                                if(holder.hasClass('_bf_itemreviews'))
-                                {
-                                    obj.getReviews();
-                                }
-                                if(holder.hasClass('_bf_itemdiscussions'))
-                                {
-                                    obj.getDiscussions();
-                                }
-                            });
+                            }
                         }
                     }
                 })
