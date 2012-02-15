@@ -48,26 +48,6 @@ function postReview()
             // store media?
             if($prep['media'] != '')
             {        
-                // create thumbs for images
-                $images = explode(',', $prep['media']);
-                foreach($images as $img)
-                {
-                    $source = '../'.MEDIA_LOCATION.'/'.$img;
-                    $ext = _getFileExtension($img);
-                    
-                    //.jpeg;*.jpg;*.gif;*.png;*.mov;*.avi;*.mpg;*.mpeg;*.flv;
-                    
-                    if(in_array($ext, array('jpeg', 'jpg', 'gif', 'png')))
-                    {
-                        // resize main image
-                        _imageResize($source, $source, 800, 600);
-                        
-                        $thumb = str_replace('.'.$ext, '_thumb.'.$ext, $source);
-                        // create thumbnail
-                        _imageResize($source, $thumb, 100, 100);
-                    }
-                    
-                }
 
                 $sql3 = "INSERT INTO ".TABLEPRENAME."media (parent_id, parent_type, media, user_id, linked_id) VALUES('".$prep['parentid']."', 'review', '".$prep['media']."', '".$_SESSION['user']['id']."', '".$linkedID."')";
             }

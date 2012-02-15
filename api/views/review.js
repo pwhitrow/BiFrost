@@ -251,6 +251,7 @@ if(_bf.loggedIn())
                         'script'        : _bf.host + 'api/plugins/uploadify/uploadify.php',
                         'cancelImg'     : _bf.host + 'api/plugins/uploadify/cancel.png',
                         'folder'        : _bf.uploads,
+                        'scriptData'    : {width: 1024, height:768},
                         'wmode'         : 'transparent',
                         'fileDataName'  : 'Filedata',
                         'hideButton'    : true,
