@@ -74,7 +74,7 @@ var fb_lib = {
         FB.api(
         {
             method: 'fql.query',
-            query: 'SELECT uid,first_name,last_name,email,pic FROM user WHERE uid=me()'
+            query: 'SELECT uid,first_name,last_name,email,contact_email,pic FROM user WHERE uid=me()'
         },
             function(response) 
             {
