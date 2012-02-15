@@ -37,7 +37,7 @@ foreach($_bf_files as $_bf_file)
 
 // NEW request will reload the page, but back/forward browser navigation won't force a reload
 // If we do not set must-revalidate, IE seems to cache session variables without refreshing them
-session_cache_limiter('private_no_expire, must-revalidate');
+//session_cache_limiter('private_no_expire, must-revalidate');
 
 
 // check the api_token sent from JS
