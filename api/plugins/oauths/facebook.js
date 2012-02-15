@@ -72,7 +72,11 @@ var fb_lib = {
         
         _bf.hideSocialAuthenticators();
         
-        FB.api('/me',
+        FB.api(
+        {
+            method: 'fql.query',
+            query: 'SELECT * FROM user WHERE uid=me()'
+        },
             function(response) 
             {
                 console.log(response)
