@@ -96,9 +96,9 @@ function mediaExists($media)
 
     foreach($tmp as $m)
     {
-        $tmp = '../' . $_POST['uploads'] . '/'.$m;
+        $x = '../' . $_POST['uploads'] . '/'.$m;
         
-        if(file_exists($tmp))
+        if(file_exists($x))
         {
             $str .= $m.',';
         }
