@@ -13,7 +13,8 @@ window.fbAsyncInit = function()
         status: true, 
         cookie: true, 
         xfbml: true,
-        oauth: true
+        oauth: true,
+        authResponse: true
     });
 
     FB.Event.subscribe('auth.login', function(response) 
@@ -71,11 +72,7 @@ var fb_lib = {
         
         _bf.hideSocialAuthenticators();
         
-        FB.api(
-        {
-            method: 'fql.query',
-            query: 'SELECT uid,first_name,last_name,email,contact_email,pic FROM user WHERE uid=me()'
-        },
+        FB.api('/me',
             function(response) 
             {
                 console.log(response)
