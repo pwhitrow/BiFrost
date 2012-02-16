@@ -106,7 +106,7 @@ function FBlogin()
 function FBlogin2($_POST)
 {
     $org = getOrgDetails($_POST["api_key"]);
-    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
+    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'");
 
     if(mysql_num_rows($sql) > 0)
     {
@@ -116,7 +116,7 @@ function FBlogin2($_POST)
         {
             if($user['enabled'])
             {
-                $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$_POST['email']."'";
+                $sql = "UPDATE ".TABLEPRENAME."users SET email = '".$_POST['email']."', avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
                 setSuccessMsg(t('Facebook Connected'));
                 $_SESSION['state'] = true;
                 mysql_query($sql);
