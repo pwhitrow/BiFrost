@@ -17,7 +17,12 @@ var _bf_itemreviews = {
 
     init: function()
     {
-        _bf.widgetLoading('reviews');       
+        _bf.widgetLoading('reviews');      
+        
+        $(window).scroll(function()
+        {
+            _bf.sticky('reviews');
+        });
     },
     
     getReviews: function()
@@ -279,8 +284,6 @@ var _bf_itemreviews = {
                    _bf_itemreviews.lazyLoad();
                 }
             }
-            
-            _bf.sticky('reviews');
         });
         
         _bf_itemreviews.clearLazyLoader();

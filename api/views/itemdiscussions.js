@@ -17,6 +17,11 @@ var _bf_itemdiscussions = {
     init: function()
     {        
         _bf.widgetLoading('discussions');
+        
+        $(window).scroll(function()
+        {
+            _bf.sticky('discussions');
+        });
     },
 
     getDiscussions: function()
@@ -212,8 +217,6 @@ var _bf_itemdiscussions = {
                    _bf_itemdiscussions.lazyLoad();
                 }
             }
-            
-            _bf.sticky('discussions');
         });
         
         _bf_itemdiscussions.clearLazyLoader();
