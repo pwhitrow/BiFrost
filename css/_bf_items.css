@@ -689,14 +689,14 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-weight: normal !important;
 }
 
-._bf_review_permalink,
-._bf_discussion_permalink
+._bf_review_permalink a,
+._bf_discussion_permalink a
 {
     color:#888 !important;
 }
 
-._bf_review_permalink:hover,
-._bf_discussion_permalink:hover
+._bf_review_permalink a:hover,
+._bf_discussion_permalink a:hover
 {
     color:#333 !important;
 }
