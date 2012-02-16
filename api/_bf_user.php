@@ -102,8 +102,8 @@ function FBlogin()
         // just a rubbish password as we are a virgin FB login
         $_POST['password'] = md5($_POST['fname'].time());
 
-        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1)";
-echo $sql;        
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified, lastlogin) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1, NOW())";
+        
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
@@ -141,6 +141,7 @@ function FBlogin2($_POST)
             if($user['enabled'])
             {
                 $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$_POST['email']."'";
+                echo $sql;
                 setSuccessMsg(t('Facebook Connected'));
                 $_SESSION['state'] = true;
                 mysql_query($sql);
