@@ -1228,7 +1228,7 @@ function _bf_go()
                         {
                             if(fb_lib.loggedin())
                             {
-                                cosnole.log(result)
+                                console.log(result)
                                 if($('#fb_post_review').prop('checked'))
                                 {
                                     fb_lib.postToWall(result.title, result.content, result.pageURL, 'review');
