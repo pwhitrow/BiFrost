@@ -103,16 +103,15 @@ function FBlogin()
         $_POST['password'] = md5($_POST['fname'].time());
 
         $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified, lastlogin) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1, NOW())";
-        
+      
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
-            
             FBlogin2($_POST);
         }
         else
         {
-            setErrorMsg(mysql_error(), 'register');
+            setErrorMsg("Oops!....".mysql_error(), 'register');
             return false;
         }
     }
@@ -124,6 +123,12 @@ function FBlogin()
 
 function FBlogin2($_POST)
 {
+    // must create an email if we don't have one set by FB
+    if(empty($_POST['email']) || $_POST['email'] == 'null')
+    {
+        $_POST['email'] = forceFBemail();
+    }
+    
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
 
@@ -136,7 +141,6 @@ function FBlogin2($_POST)
             if($user['enabled'])
             {
                 $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$_POST['email']."'";
-                echo $sql;
                 setSuccessMsg(t('Facebook Connected'));
                 $_SESSION['state'] = true;
                 mysql_query($sql);
@@ -168,7 +172,7 @@ function FBlogin2($_POST)
 function FBuserExists($uid)
 {
     $sql = mysql_query("SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$uid."'");
-echo $sql;
+
     if(mysql_num_rows($sql) != 0)
     {
         return true;
