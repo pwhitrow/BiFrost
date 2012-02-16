@@ -107,6 +107,7 @@ function FBlogin()
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
+            
             FBlogin2($_POST);
         }
         else
@@ -123,11 +124,8 @@ function FBlogin()
 
 function FBlogin2($_POST)
 {
-    // must create an email if we don't have one set by FB
-    if(empty($_POST['email']) || $_POST['email'] == 'null')
-    {
-        $_POST['email'] = forceFBemail();
-    }
+    echo "TEST";
+    return;
     
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
