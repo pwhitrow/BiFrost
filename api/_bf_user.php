@@ -111,7 +111,7 @@ function FBlogin()
         }
         else
         {
-            setErrorMsg("Oops!....".mysql_error(), 'register');
+            setErrorMsg("Oops!....".mysql_error()."<br /><br />".$sql, 'register');
             return false;
         }
     }
