@@ -88,20 +88,20 @@ function forceFBemail()
 // Facebook login
 function FBlogin()
 {
-    // must create an email if we don't have one set by FB
-    if(empty($_POST['email']) || $_POST['email'] == 'null')
-    {
-        $_POST['email'] = forceFBemail();
-    }
-    
-    // just a rubbish password as we are a native FB login
-    $_POST['password'] = md5($_POST['fname'].time());
-
     $_SESSION['state'] = false;
     
     // Are we registered with app?
-    if(!userExists($_POST['email']))
+    if(!FBuserExists($_POST['uid']))
     {
+        // must create an email if we don't have one set by FB
+        if(empty($_POST['email']) || $_POST['email'] == 'null')
+        {
+            $_POST['email'] = forceFBemail();
+        }
+
+        // just a rubbish password as we are a virgin FB login
+        $_POST['password'] = md5($_POST['fname'].time());
+
         $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1)";
         
         if(mysql_query($sql))
@@ -167,6 +167,20 @@ function FBlogin2($_POST)
         return false;
     }
 
+}
+
+function FBuserExists($uid)
+{
+    $sql = mysql_query("SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$uid."'");
+
+    if(mysql_num_rows($sql) != 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 function userExists($email)
