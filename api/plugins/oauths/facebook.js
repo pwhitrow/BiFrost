@@ -97,14 +97,26 @@ var fb_lib = {
         );       
     },
     
-    postToWall: function(title, msg, link, type)
+    postToWall: function(result, type)
     {
+        var pic = result.media.split(',');
+        if(pic.length > 0)
+        {
+            pic = _bf.host + _bf.uploads + pic[0];
+        }
+        else
+        {
+            pic = '';
+        }
+        console.log(pic);
+        return true;
         FB.api('/me/feed', 'post', 
         { 
-            title: title,
-            message: msg,
-            link: link,
-            type: type
+            title: result.title,
+            message: result.content,
+            link: result.pageURL,
+            type: type,
+            picture: pic
         }, 
         function(response) 
         {
