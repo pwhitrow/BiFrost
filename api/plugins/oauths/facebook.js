@@ -102,14 +102,13 @@ var fb_lib = {
         var pic = result.media.split(',');
         if(pic.length > 0)
         {
-            pic = _bf.host + _bf.uploads + pic[0];
+            pic = _bf.host + _bf.uploads + '/' + pic[0].replace('//', '/');
         }
         else
         {
             pic = '';
         }
-        console.log(pic);
-        return true;
+
         FB.api('/me/feed', 'post', 
         { 
             title: result.title,
