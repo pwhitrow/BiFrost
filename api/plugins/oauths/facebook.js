@@ -56,7 +56,7 @@ var fb_lib = {
             {
                 'class': '_bf_login_fb'
             })
-            .html("<fb:login-button size='small' autologoutlink='true' perms='email' scope='email,status_update,publish_stream'></fb:login-button>" + _bf.t('Log In'))
+            .html("<fb:login-button size='small' autologoutlink='true' perms='email,status_update,publish_stream' scope='email,status_update,publish_stream'>"+_bf.t('Log In')+"</fb:login-button>")
             .hide()
             .appendTo($('._bf_state'))
             .click(function()
