@@ -18,8 +18,6 @@
   </script>
   <script src="http://bifrostplatform.co.uk/api/_bf.js"></script>
 
-
-
   <style type="text/css">
   body
   {
