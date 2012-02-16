@@ -480,7 +480,7 @@ var _bf_itemreviews = {
                 'class': '_bf_itemreviews_item_username reviewer',
                 title: review.gname + ' ' + review.fname
             })
-            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em>')
+            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em> : <em class="_bf_review_permalink"><a href="#" title="'+_bf.t('Permanant link to article')+'">Permalink</a></em>')
             .appendTo($(this));
             
             $('<div />').attr(
