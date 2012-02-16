@@ -103,7 +103,7 @@ function FBlogin()
         $_POST['password'] = md5($_POST['fname'].time());
 
         $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified) VALUES(UNIX_TIMESTAMP(), '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1)";
-        
+echo $sql;        
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
