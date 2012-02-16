@@ -689,6 +689,18 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-weight: normal !important;
 }
 
+._bf_review_permalink,
+._bf_discussion_permalink
+{
+    color:#888 !important;
+}
+
+._bf_review_permalink:hover,
+._bf_discussion_permalink:hover
+{
+    color:#444 !important;
+}
+
 ._bf_itemreviews_item_number,
 ._bf_itemdiscussions_item_number
 {
