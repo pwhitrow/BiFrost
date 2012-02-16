@@ -73,18 +73,6 @@ function verifyUser()
     }
 }
 
-function forceFBemail()
-{
-    if(empty($_POST['email']) || $_POST['email'] = "null")
-    {
-        return $_POST['uid'].'@fb.com';
-    }
-    else
-    {
-        return $_POST['email'];
-    }
-}
-
 // Facebook login
 function FBlogin()
 {
@@ -93,12 +81,6 @@ function FBlogin()
     // Are we registered with app?
     if(!FBuserExists($_POST['uid']))
     {
-        // must create an email if we don't have one set by FB
-        if(empty($_POST['email']) || $_POST['email'] == 'null')
-        {
-            $_POST['email'] = forceFBemail();
-        }
-
         // just a rubbish password as we are a virgin FB login
         $_POST['password'] = md5($_POST['fname'].time());
 
@@ -111,7 +93,7 @@ function FBlogin()
         }
         else
         {
-            setErrorMsg("Oops!....".mysql_error()."<br /><br />".$sql, 'register');
+            setErrorMsg(mysql_error(), 'register');
             return false;
         }
     }
@@ -123,12 +105,6 @@ function FBlogin()
 
 function FBlogin2($_POST)
 {
-    // must create an email if we don't have one set by FB
-    if(empty($_POST['email']) || $_POST['email'] == 'null')
-    {
-        $_POST['email'] = forceFBemail();
-    }
-    
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'");
 
