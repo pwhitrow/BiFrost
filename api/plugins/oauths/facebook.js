@@ -19,6 +19,7 @@ window.fbAsyncInit = function()
 
     FB.Event.subscribe('auth.login', function(response) 
     {
+console.log('1')
         fb_lib.loginToApp();
     });
 
@@ -37,6 +38,7 @@ window.fbAsyncInit = function()
     {
         if (response.status == 'connected') 
         {
+console.log('2')
             fb_lib.loginToApp();
         }
     });
