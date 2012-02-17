@@ -35,7 +35,7 @@ function emailFooter($url)
     return $footer;
 }
 
-
+// send registration email
 function registerEmail($prep, $userid)
 {    
     global $mail;
@@ -63,6 +63,7 @@ function registerEmail($prep, $userid)
     }
 }
 
+// notify review watchers
 function notifyUsersReviews($emails)
 {    
     global $mail;
@@ -97,6 +98,7 @@ function notifyUsersReviews($emails)
     }
 }
 
+// notify discussion watchers
 function notifyUsersDiscussions($emails)
 {    
     global $mail;
@@ -131,6 +133,7 @@ function notifyUsersDiscussions($emails)
     }
 }
 
+// notify reset password
 function notifyUsersResetPassword($email, $newpass)
 {    
     global $mail;
@@ -155,5 +158,8 @@ function notifyUsersResetPassword($email, $newpass)
     }
 }
 
-
+function notifyAdmin()
+{
+    
+}
 ?>
