@@ -66,6 +66,8 @@ function registerEmail($prep, $userid)
 function notifyUsersReviews($emails)
 {    
     global $mail;
+    
+    print_r($emails);
 
     $mail->From = $_SESSION['org']['replyto'];
     $mail->FromName = $_SESSION['org']['name'];
