@@ -583,7 +583,6 @@ function _bf_go()
                     'class': '_bf_items_paginator'
                 })
                 .prependTo(holder)
-                .append(holder)
                 .each(function()
                 {
                     var qty = Math.ceil(obj.recordqty / obj.limitqty);
@@ -630,6 +629,8 @@ function _bf_go()
                         }
                     }
                 })
+                .clone(true)
+                .appendTo(holder);
             },
     
             // where should we put the state bar?
