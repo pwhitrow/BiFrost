@@ -13,6 +13,11 @@
 //var _bf_host = 'http://localhost:56870/';
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
+// do we need to load jQuery?
+if(typeof $ != 'function')
+{
+    _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
+}
 
 // insert a script
 function _bf_loadscript(src)
@@ -130,6 +135,8 @@ function _bf_begin()
 // loaded, let's go!
 function _bf_go()
 {
+    var jQuery_BiFrost = $.noConflict(true);	
+    
     $(function()
     {
         // create namespace
@@ -1932,14 +1939,8 @@ function _bf_go()
         // initialise BiFrost
         _bf.init();
 
-    });
+    })(jQuery_BiFrost);
     
-}
-
-// do we need to load jQuery?
-if(typeof $ != 'function')
-{
-    _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
 
 // GO...
