@@ -83,11 +83,20 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     opacity:.60 !important;
 }
 
-._bf_items_paginator
+._bf_items_paginator_top
 {
     position:absolute !important;
     right:30px !important;
     top:72px !important;
+    list-style:none !important;
+    z-index:1 !important;
+}
+
+._bf_items_paginator_bottom
+{
+    position:absolute !important;
+    right:30px !important;
+    bottom:10px !important;
     list-style:none !important;
     z-index:1 !important;
 }

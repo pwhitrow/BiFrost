@@ -580,7 +580,7 @@ function _bf_go()
 
                 $('<ul />').attr(
                 {
-                    'class': '_bf_items_paginator'
+                    'class': '_bf_items_paginator_top'
                 })
                 .prependTo(holder)
                 .each(function()
@@ -630,6 +630,7 @@ function _bf_go()
                     }
                 })
                 .clone(true)
+                .addClass('_bf_items_paginator_bottom')
                 .appendTo(holder);
             },
     
