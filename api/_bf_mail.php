@@ -66,8 +66,6 @@ function registerEmail($prep, $userid)
 function notifyUsersReviews($emails)
 {    
     global $mail;
-    
-    print_r($emails);
 
     $mail->From = $_SESSION['org']['replyto'];
     $mail->FromName = $_SESSION['org']['name'];
@@ -77,7 +75,14 @@ function notifyUsersReviews($emails)
     
     foreach($emails as $email)
     {
-        $mail->AddBCC($email);
+        if($email == "" || $email == "null")
+        {
+            continue;
+        }
+        else
+        {
+            $mail->AddBCC($email);
+        }
     }
     
     if(!$mail->Send()) 
@@ -104,7 +109,14 @@ function notifyUsersDiscussions($emails)
     
     foreach($emails as $email)
     {
-        $mail->AddBCC($email);
+        if($email == "" || $email == "null")
+        {
+            continue;
+        }
+        else
+        {
+            $mail->AddBCC($email);
+        }
     }
     
     if(!$mail->Send()) 
