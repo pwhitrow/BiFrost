@@ -129,7 +129,14 @@ var fb_lib = {
     
     login: function()
     {
-        FB.login();
+        if(fb_lib.loggedin())
+        {
+            fb_lib.loginToApp();
+        }
+        else
+        {
+            FB.login();
+        }
     },
     
     logout: function()
