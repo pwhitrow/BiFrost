@@ -158,8 +158,5 @@ function notifyUsersResetPassword($email, $newpass)
     }
 }
 
-function notifyAdmin()
-{
-    
-}
+
 ?>
