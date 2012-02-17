@@ -17,6 +17,11 @@ window.fbAsyncInit = function()
         authResponse: true
     });
 
+    FB.Event.subscribe('auth.login', function(response) 
+    {
+        fb_lib.loginToApp();
+    });
+
     FB.Event.subscribe('auth.logout', function(response) 
     {
         _bf.processAction(
