@@ -479,7 +479,7 @@ var _bf_itemreviews = {
             });
             
             var link = document.location.href.split("?");
-            link = link[0] + '?#review_' + review.id
+            link = link[0] + '#review_' + review.id
 
             $('<h3 />').attr(
             {
