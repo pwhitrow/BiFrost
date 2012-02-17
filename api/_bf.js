@@ -13,9 +13,6 @@
 //var _bf_host = 'http://localhost:56870/';
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
-var jQuery_bifrost = $.noConflict(true);	
-(function($) 
-{
 
 // insert a script
 function _bf_loadscript(src)
@@ -1949,4 +1946,3 @@ if(typeof $ != 'function')
 _bf_begin();
 
 
-})(jQuery_bifrost);
