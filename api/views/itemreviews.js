@@ -477,13 +477,16 @@ var _bf_itemreviews = {
                 
                 _bf_itemreviews.renderTags(review, $(this));
             });
+            
+            var link = document.location.href.split("?");
+            link = link[0] + '?#' + review.id
 
             $('<h3 />').attr(
             {
                 'class': '_bf_itemreviews_item_username reviewer',
                 title: review.gname + ' ' + review.fname
             })
-            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em> : <em class="_bf_review_permalink"><a href="#" rel="bookmark" title="'+_bf.t('Permanant link to post')+'">Permalink</a></em> : <em class="_bf_review_permalink"><a href="#" rel="trackback" title="'+_bf.t('Trackback link to post')+'">Trackback</a></em>')
+            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em> : <em class="_bf_review_permalink"><a href="'+link+'" rel="bookmark" title="'+_bf.t('Permanant link to post')+'">Permalink</a></em> : <em class="_bf_review_permalink"><a href="'+link+'" rel="trackback" title="'+_bf.t('Trackback link to post')+'">Trackback</a></em>')
             .appendTo($(this));
             
             $('<div />').attr(
