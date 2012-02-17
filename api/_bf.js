@@ -630,6 +630,7 @@ function _bf_go()
                     }
                 })
                 .clone(true)
+                .removeClass('_bf_items_paginator_top')
                 .addClass('_bf_items_paginator_bottom')
                 .appendTo(holder);
             },
