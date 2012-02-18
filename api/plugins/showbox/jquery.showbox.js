@@ -186,6 +186,12 @@
                                 'width': 0,
                                 'alt': ''
                             })
+                            .css(
+                            {
+                                '-webkit-border-radius': '10px',
+                                '-moz-border-radius': '10px',
+                                'border-radius': '10px'                                
+                            })
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
