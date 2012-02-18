@@ -18,14 +18,20 @@ if(typeof $ != 'function')
 {
     _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
+else
+{
+    console.log($().jquery)
+}
 
 // insert a script
 function _bf_loadscript(src)
 {
     if(typeof $ != 'undefined')
     {
+        // loop through loaded scripts
         $('script').each(function()
         {
+            // force script to reload by removing the old reference
             if($(this).attr('src') == src)
             {
                 $(this).remove();
