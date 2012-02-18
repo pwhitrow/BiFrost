@@ -1698,19 +1698,19 @@ function _bf_go()
                         {
                             field.focus(function()
                             {
-                                label.fadeTo(_bf.ani_speed, 0);
+                                label.fadeTo(_bf.ani_speed, 0).hide();
                             })
                             .blur(function()
                             {
                                 if($(this).val() == '')
                                 {
-                                    label.fadeTo(_bf.ani_speed, 1);
+                                    label.show().fadeTo(_bf.ani_speed, 1);
                                 }
                             })
 
                             if(field.val() != '')
                             {
-                                label.fadeTo(_bf.ani_speed, 0);
+                                label.fadeTo(_bf.ani_speed, 0).hide();
                             }
                         });
                     }
