@@ -13,6 +13,12 @@
 //var _bf_host = 'http://localhost:56870/';
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
+// do we need to load jQuery?
+if(typeof $ != 'function')
+{
+    _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
+}
+
 // insert a script
 function _bf_loadscript(src)
 {
@@ -1939,12 +1945,6 @@ function _bf_go()
 
     });
     
-}
-
-// do we need to load jQuery?
-if(typeof $ != 'function')
-{
-    _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
 
 // GO...
