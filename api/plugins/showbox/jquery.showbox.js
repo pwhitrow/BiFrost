@@ -92,9 +92,9 @@
                         '-webkit-border-radius': '10px',
                         '-moz-border-radius': '10px',
                         'border-radius': '10px',
-                        '-webkit-box-shadow': '0px 2px 7px rgba(0, 0, 0, 0.54)',
-                        '-moz-box-shadow':    '0px 2px 7px rgba(0, 0, 0, 0.54)',
-                        'box-shadow':         '0px 2px 7px rgba(0, 0, 0, 0.54)',
+                        '-webkit-box-shadow': '0px 0px 30px #000',
+                        '-moz-box-shadow':    '0px 0px 30px #000',
+                        'box-shadow':         '0px 0px 30px #000',
                         'display': 'none'
 
                     })
