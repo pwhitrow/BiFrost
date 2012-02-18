@@ -14,11 +14,10 @@
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
 // do we need to load jQuery?
-if(typeof $ != 'function')
+if((typeof $ != 'function') || (parseInt($().jquery) < 1.7))
 {
     _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
-
 
 // insert a script
 function _bf_loadscript(src)
@@ -146,8 +145,6 @@ function _bf_go()
 {
     $(function()
     {
-        console.log($().jquery)
-        
         // create namespace
         _bf = {
 
