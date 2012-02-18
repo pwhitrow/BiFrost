@@ -684,7 +684,7 @@ function _bf_go()
             showStateOverlay: function(msg, close, callback, keepMultiSelect)
             {
                 // clean up
-                _bf.cleanUp($('._bf_state_overlay'));
+                //_bf.cleanUp($('._bf_state_overlay'));
 
                 // sometimes we need to keep the multi select tag box open
                 // we do that by passing true to the argument and bypassing this switch
@@ -693,32 +693,52 @@ function _bf_go()
                     _bf.hideMultiSelect();
                 }
 
-                //create generic state overlay
-                var overlay = $('<div />').attr(
+                if(!$('._bf_state_overlay').length)
                 {
-                    'class': '_bf_state_overlay'
-                })
-                .appendTo(_bf.state_panel)
-                .addClass('_bf_state')
-                .css(
+                    //create generic state overlay
+                    var overlay = $('<div />').attr(
+                    {
+                        'class': '_bf_state_overlay'
+                    })
+                    .appendTo(_bf.state_panel)
+                    .addClass('_bf_state')
+                    .css(
+                    {
+                        height: $('._bf_state').height() + 'px',
+                        width: $('._bf_state').width() + 'px'
+                    })
+                    .each(function()
+                    {
+                        // create the message element
+                        $('<div />').attr(
+                        {
+                            'class': '_bf_state_overlay_msg'
+                        })
+                        .html(msg)
+                        .appendTo($(this));                       
+                    })
+                    .fadeIn(_bf.ani_speed);
+                    
+                }
+                else
                 {
-                    height: $('._bf_state').height() + 'px',
-                    width: $('._bf_state').width() + 'px'
-                });
+                    $('._bf_state_overlay')
+                    .css(
+                    {
+                        height: $('._bf_state').height() + 'px',
+                        width: $('._bf_state').width() + 'px'
+                    })
+                    .each(function()
+                    {
+                        $('._bf_state_overlay_msg')
+                        .html(msg)
+                    })
+                    .fadeIn(_bf.ani_speed);
+                }
 
                 // cement overlay's position in document
                 _bf.statePosition($('._bf_state_overlay'));
 
-                // create the message element
-                $('<div />').attr(
-                {
-                    'class': '_bf_state_overlay_msg'
-                })
-                .html(msg)
-                .appendTo(overlay);
-
-                // show the overlay
-                $('._bf_state_overlay').fadeIn(_bf.ani_speed)
 
                 // set a default time for display if not passed
                 if(!close)
