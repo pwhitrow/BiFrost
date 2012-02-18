@@ -701,10 +701,12 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_social_tracks
 {
     float:left !important;
+    margin-top:10px !important;
 }
 
 ._bf_social_tracks a
 {
+    font-size:10px;
     color:#888 !important;
 }
 
