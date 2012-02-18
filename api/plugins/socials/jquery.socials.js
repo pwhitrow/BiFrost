@@ -46,7 +46,7 @@
                     'class': '_bf_social_tracks'
                 })
                 .html('<em><a href="'+settings.href+'" rel="bookmark" title="'+_bf.t('Permanant link to post')+'">Permalink</a></em> : <em><a href="'+settings.href+'" rel="trackback" title="'+_bf.t('Trackback link to post')+'">Trackback</a></em>')
-                .appandTo($(this));
+                .appendTo($(this));
                 
                 for(i = 0; i < settings.share.length; i++)
                 {
