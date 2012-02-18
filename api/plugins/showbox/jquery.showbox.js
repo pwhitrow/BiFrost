@@ -114,8 +114,8 @@
                     'position': 'absolute',
                     'top': '-20px',
                     'right': '-20px',
-                    'height': '32px',
-                    'width': '32px',
+                    'height': '42px',
+                    'width': '40px',
                     'cursor': 'pointer',
                     'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/close.png) 0 0 no-repeat'
                 })
