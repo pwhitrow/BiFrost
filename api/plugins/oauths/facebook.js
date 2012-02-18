@@ -50,7 +50,7 @@ var fb_lib = {
 
         if(!$('.fb-root').length)
         {
-            $('body').append('<div id="fb-root" class="fb-root"></div>');
+            $('._bf_state').append('<div id="fb-root" class="fb-root"></div>');
             
             $('<div />').attr(
             {
