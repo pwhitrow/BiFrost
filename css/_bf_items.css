@@ -698,6 +698,11 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     font-weight: normal !important;
 }
 
+._bf_social_tracks
+{
+    float:left !important;
+}
+
 ._bf_social_tracks a
 {
     color:#888 !important;
