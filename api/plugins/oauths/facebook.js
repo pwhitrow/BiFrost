@@ -33,13 +33,13 @@ window.fbAsyncInit = function()
         $('.fb-root').hide();
     });
 
-    FB.getLoginStatus(function(response) 
-    {
-        if (response.status == 'connected') 
-        {
-            fb_lib.loginToApp();
-        }
-    });
+//    FB.getLoginStatus(function(response) 
+//    {
+//        if (response.status == 'connected') 
+//        {
+//            fb_lib.loginToApp();
+//        }
+//    });
 };
 
 var fb_lib = {
