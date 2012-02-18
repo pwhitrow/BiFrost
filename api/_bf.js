@@ -13,7 +13,6 @@
 //var _bf_host = 'http://localhost:56870/';
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
-
 // insert a script
 function _bf_loadscript(src)
 {
@@ -85,7 +84,7 @@ function _bf_scriptrequired(type, src)
 }
 
 // pre load required scripts
-function _bf_loadScripts() 
+function _bf_loadScripts(callback) 
 {
     // load BiFrost required files and plugins
     var scripts = [
@@ -109,7 +108,10 @@ function _bf_loadScripts()
         _bf_loadscript(_bf_host + scripts[itemno]);
     }
     
-    _bf_go();
+    if(typeof callback == 'function')
+    {
+        callback();
+    }    
 }
 
 // start!
@@ -118,7 +120,10 @@ function _bf_begin()
     if(typeof $ == 'function') 
     {
         // jQuery loaded, let's go...        
-        _bf_loadScripts();
+        _bf_loadScripts(function()
+        {
+            _bf_go();
+        });
     } 
     else 
     {
@@ -130,6 +135,8 @@ function _bf_begin()
 // loaded, let's go!
 function _bf_go()
 {
+    var jQuery_BiFrost = $.noConflict(true);	
+    
     $(function()
     {
         // create namespace
@@ -1932,7 +1939,7 @@ function _bf_go()
         // initialise BiFrost
         _bf.init();
 
-    });
+    })(jQuery_BiFrost);
     
 }
 
@@ -1944,5 +1951,4 @@ if(typeof $ != 'function')
 
 // GO...
 _bf_begin();
-
 
