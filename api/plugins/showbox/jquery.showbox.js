@@ -38,7 +38,7 @@
                     'left': '0px',
                     'bottom': '0px',
                     'right': '0px',
-                    'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/bg.png) 0 0 repeat'
+                    'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/overlay.png) 0 0 repeat'
                 })
                 .appendTo($('body'));
 
@@ -84,13 +84,13 @@
                         'height': '0px',
                         'width': '0px',
                         'position': 'relative',
-                        //'padding': '5px',
+                        'padding': '0px',
                         'background': '#fff',
-                        //'-moz-border-radius': '5px',
                         'background-clip': 'padding-box',
                         'background-color': '#000',
-                        'border': '10px solid rgba(0, 0, 0, 0.7)',
+                        'border': '10px solid rgba(255, 255, 255, 0.28)',
                         '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
                         'border-radius': '10px',
                         '-webkit-box-shadow': '0px 2px 7px rgba(0, 0, 0, 0.54)',
                         '-moz-box-shadow':    '0px 2px 7px rgba(0, 0, 0, 0.54)',
