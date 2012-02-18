@@ -186,10 +186,6 @@
                                 'width': 0,
                                 'alt': ''
                             })
-                            .click(function()
-                            {
-                                close_showbox();
-                            })
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
