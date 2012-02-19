@@ -140,7 +140,7 @@ function checkPlaceholders()
 {
     if($('form').length)
     {
-        $('form').find('._bf_form_row').each(function()
+        $('form').find('.formrow').each(function()
         {
             var label = $(this).find('label');
             var input = $(this).find('input');
