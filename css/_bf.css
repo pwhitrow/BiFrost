@@ -793,7 +793,8 @@ DASHBOARD
 
 ._bf_newfile_holder .uploadifyQueue
 {
-
+    position:absolute;
+    z-index:10;
 }
 
 ._bf_newfile_holder .uploadifyQueueItem
