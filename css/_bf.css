@@ -748,7 +748,7 @@ DASHBOARD
     left:0px;
 }
 
-.uploadifyQueueItem 
+._bf_newfile_holder .uploadifyQueueItem 
 {
     position:absolute;
     top:50px;
@@ -758,36 +758,55 @@ DASHBOARD
     color: #778D9C;
     text-shadow: 1px 1px 1px #000;
 }
-.uploadifyError 
+._bf_newfile_holder .uploadifyError 
 {
-    background-color: #FDE5DD !important;
-    border: 2px solid #FBCBBC !important;
+    color: #cc0000;
+    background: none !important;
+    border: none !important;
 }
-.uploadifyQueueItem .cancel 
+._bf_newfile_holder .uploadifyQueueItem .cancel 
 {
     float: right;
 }
-.uploadifyQueue .completed 
+._bf_newfile_holder .uploadifyQueue .completed 
 {
     margin-top:10px;
 }
 
-.uploadifyProgress 
+._bf_newfile_holder .uploadifyProgress 
 {
     background-color: #555;
     margin-top: 20px;
     width: 100%;
 }
-.uploadifyProgressBar 
+._bf_newfile_holder .uploadifyProgressBar 
 {
     background-color: #0099FF;
     height: 3px;
     width: 1px;
 }
-.uploadifyQueueItem .fileName
+._bf_newfile_holder .uploadifyQueueItem .fileName
 {
     text-align:left !important;
     float:left;
+}
+
+._bf_newfile_holder .uploadifyQueue
+{
+
+}
+
+._bf_newfile_holder .uploadifyQueueItem
+{
+    width:122px;
+    top:219px;
+}
+
+._bf_newfile_holder .uploadifyQueueItem .fileName
+{
+    position:absolute;
+    top:30px;
+    left:0px;
 }
 
 /*
@@ -955,31 +974,6 @@ POST REVIEW
     position:absolute;
     top:0px;
     left:0px;
-}
-
-._bf_newfile_holder .uploadifyQueue
-{
-
-}
-
-._bf_newfile_holder .uploadifyQueueItem
-{
-    width:122px;
-    top:219px;
-}
-
-._bf_newfile_holder .uploadifyQueueItem .fileName
-{
-    position:absolute;
-    top:30px;
-    left:0px;
-}
-
-.uploadifyError
-{
-    color: #cc0000;
-    background: none !important;
-    border: none !important;
 }
 
 ._bf_review_file_thumb
