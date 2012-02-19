@@ -159,16 +159,11 @@ function checkPlaceholders()
 
             if(!label.hasClass('pos-fixed'))
             {
-                // browser variations... natch!
-                var offSet = 22;
-                if($.browser.webkit) offSet = 19;
-                if($.browser.msie) offSet = 18;
-
                 label.css(
                 {
                     position: 'absolute',
                     top: '0px',
-                    left: pos.left + 31 + 'px'
+                    left: '5px'
                 })
                 .addClass('pos-fixed')
                 .each(function()
