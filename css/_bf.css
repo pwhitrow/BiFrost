@@ -755,7 +755,8 @@ DASHBOARD
     left:0px;
     font: 11px Helvetica, Arial, sans-serif;
     width: 200px;
-    color: #fff;
+    color: #888;
+    text-shadow:none;
 }
 ._bf_newfile_holder .uploadifyError 
 {
