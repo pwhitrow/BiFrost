@@ -260,13 +260,17 @@ if(_bf.loggedIn())
                         'fileExt'       : _bf.filetypes,
                         'fileDesc'      : _bf.t('Media Files') + ' (' + _bf.filetypes + ')',
                         'sizeLimit'     : _bf.maxfilesize,
+                        'onCancel'      : function()
+                                          {
+                                              _bf.hideStateOverlay();
+                                          },
                         'onSelect'      : function()
                                           {
                                               _bf.hideMultiSelect();
                                           },
                         'onOpen'        : function()
                                           {
-                                              _bf.showStateOverlay(_bf.t('Uploading...'), 99999);
+                                              _bf.showStateOverlay(_bf.t('Uploading...'), 9999999);
                                           },
                         'onComplete'    : function(event,queueID,fileObj,response,data)
                                           {
