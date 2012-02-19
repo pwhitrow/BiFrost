@@ -3,7 +3,7 @@
   Document   : _bf_org_admin
   Created on : 11-Feb-2012, 23:06:55
   Author     : Paul Whitrow
-  Description:
+  Description: Sign up new clients
  */
 
 require('./_bf_admin_include.php');

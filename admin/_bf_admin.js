@@ -6,7 +6,8 @@
 */
 $(document).ready(function() 
 {
-
+    checkPlaceholders()
+    
     // oganisation admin
     if($('#saveclient').length)
     {
@@ -133,3 +134,64 @@ function message()
 {
     alert(msg)
 }
+
+// placeholder text swap out for inputs
+function checkPlaceholders()
+{
+    if($('form').length)
+    {
+        $('form').find('._bf_form_row').each(function()
+        {
+            var label = $(this).find('label');
+            var input = $(this).find('input');
+            var texta = $(this).find('textarea');
+
+            if(input.length)
+            {
+                var field = input;
+            }
+            else
+            {
+                var field = texta;
+            }
+
+            var pos = field.position();
+
+            if(!label.hasClass('pos-fixed'))
+            {
+                // browser variations... natch!
+                var offSet = 22;
+                if($.browser.webkit) offSet = 19;
+                if($.browser.msie) offSet = 18;
+
+                label.css(
+                {
+                    position: 'absolute',
+                    top: '0px',
+                    left: pos.left + 31 + 'px'
+                })
+                .addClass('pos-fixed')
+                .each(function()
+                {
+                    field.focus(function()
+                    {
+                        label.fadeTo(200, 0).hide();
+                    })
+                    .blur(function()
+                    {
+                        if($(this).val() == '')
+                        {
+                            label.show().fadeTo(200, 1);
+                        }
+                    })
+
+                    if(field.val() != '')
+                    {
+                        label.fadeTo(200, 0).hide();
+                    }
+                });
+            }
+        })        
+    }
+}
+
