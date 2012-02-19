@@ -755,8 +755,7 @@ DASHBOARD
     left:0px;
     font: 11px Helvetica, Arial, sans-serif;
     width: 200px;
-    color: #778D9C;
-    text-shadow: 1px 1px 1px #000;
+    color: #fff;
 }
 ._bf_newfile_holder .uploadifyError 
 {
@@ -775,14 +774,14 @@ DASHBOARD
 
 ._bf_newfile_holder .uploadifyProgress 
 {
-    background-color: #555;
-    margin-top: 20px;
+    background-color: #888;
+    margin-top: 15px;
     width: 100%;
 }
 ._bf_newfile_holder .uploadifyProgressBar 
 {
-    background-color: #0099FF;
-    height: 3px;
+    background-color: #444;
+    height: 10px;
     width: 1px;
 }
 ._bf_newfile_holder .uploadifyQueueItem .fileName
