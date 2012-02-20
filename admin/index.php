@@ -38,7 +38,7 @@ require('./_bf_admin_include.php');
                 
                 <ul class="formrows">
                     <li class="formrow">
-                        <label for="username" class="formlabel">Username</label>
+                        <label for="username" class="formlabel">Email</label>
                         <input type="text" name="username" id="username" class="formtextbox required" value="" />
                     </li>
                     <li class="formrow">

@@ -19,8 +19,8 @@ if($_REQUEST["action"] == "login")
         $prep[$k] = prepForDB($v);
     }
     
-    $sql = "SELECT * FROM ".TABLEPRENAME."admins WHERE username='".$prep["username"]."' AND password='".md5($prep["password"])."'";
-    echo $sql;
+    $sql = "SELECT * FROM ".TABLEPRENAME."admins WHERE email='".$prep["username"]."' AND password='".md5($prep["password"])."'";
+
     $sql = mysql_fetch_array($sql);
     
     if(mysql_num_rows($sql) > 0)
