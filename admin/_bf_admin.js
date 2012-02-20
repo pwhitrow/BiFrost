@@ -159,7 +159,7 @@ function isValidEmail(email)
     }
 }
 
-function message()
+function message(msg)
 {
     alert(msg)
 }
