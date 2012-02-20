@@ -25,7 +25,6 @@ if($_REQUEST["action"] == "signup")
     {
         $str = "INSERT INTO ".TABLEPRENAME."organisations (api_key, name, url, description, address, tel, email, replyto, admin_email, contact, reviews, discussions, watches, paginator, date_registered) VALUES('".$apikey ."','".$prep["name"]."','".$prep["url"]."','".$prep["description"]."','".$prep["address"]."','".$prep["tel"]."','".$prep["replytoemail"]."','".$prep["adminemail"]."','".$prep["contactname"]."','".$prep["contactemail"]."','".checked($prep["reviews"])."','".checked($prep["discussions"])."','".checked($prep["watches"])."','".checked($prep["paginator"])."', NOW())";
         
-        
         if($done = mysql_query($str))
         {
             respond(
