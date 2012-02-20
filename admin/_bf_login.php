@@ -20,7 +20,7 @@ if($_REQUEST["action"] == "login")
     }
     
     $sql = "SELECT * FROM ".TABLEPRENAME."admins WHERE email='".$prep["username"]."' AND pass='".md5($prep["password"])."'";
-
+echo $sql;
     $sql = mysql_fetch_array($sql);
     
     if(mysql_num_rows($sql) > 0)
