@@ -9,6 +9,30 @@ $(document).ready(function()
     //checkPlaceholders()
     
     // oganisation admin
+    if($('#login').length)
+    {
+        $('#login').click(function()
+        {
+            if(validForm($('.loginForm')))
+            {
+                var params = 
+                {
+                    'action': 'login',
+                    'username': $('#username').val(),
+                    'password': $('#password').val()
+                }
+
+                $.post('_bf_login.php', params,
+                function(data)
+                {
+                    response(data, $('.loginForm'));
+                })
+            }
+        
+        });
+    }
+    
+    // oganisation admin
     if($('#saveclient').length)
     {
         $('#saveclient').click(function()
@@ -50,7 +74,12 @@ function response(data, form)
     
     message(result.message);
     
-    if(result.state == 'success')
+    if(result.state == 'loggedin')
+    {
+        alert("HI")
+    }
+    
+    if(result.state == 'org_added')
     {
         // clear form
 //        form.find('input[type=text]').val('');

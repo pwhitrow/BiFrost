@@ -25,5 +25,35 @@ session_start();
 require('../api/_bf_defines.php');
 require('../api/_bf_dbconnect.php');
 
+// GLOBAL FUNCTIONS
+
+function respond($result)
+{
+    echo json_encode($result);
+}
+
+function checked($val)
+{
+    if($val == "checked")
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function createAPIkey($val)
+{
+    return md5($val);
+}
+
+function prepForDB($str)
+{
+    return mysql_real_escape_string($str);
+}
+
+
 
 ?>

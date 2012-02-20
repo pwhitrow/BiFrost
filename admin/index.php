@@ -34,7 +34,7 @@ require('./_bf_admin_include.php');
         
         <div class="content">
             
-            <form action="" method="post" class="clientSignupForm">
+            <form action="" method="post" class="loginForm">
                 
                 <ul class="formrows">
                     <li class="formrow">
