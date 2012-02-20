@@ -72,15 +72,17 @@ function response(data, form)
 {
     var result = $.parseJSON(data);
     
-    message(result.message);
     
     if(result.state == 'loggedin')
     {
-        alert("HI")
+        message(result.message);
+        document.location.reload();
     }
     
     if(result.state == 'org_added')
     {
+        message(result.message);
+        
         // clear form
 //        form.find('input[type=text]').val('');
 //        form.find('textarea').val('');

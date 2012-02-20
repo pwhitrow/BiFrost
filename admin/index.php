@@ -29,6 +29,7 @@ require('./_bf_admin_include.php');
         
         <div class="header">
             <h1><strong>Administration</strong> <em><?=($_SESSION["BIFROST_ADMIN"]?'logout':'login')?></em></h1>
+            <?include("header.php")?>
         </div>
         
         
