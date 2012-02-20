@@ -15,7 +15,7 @@ require('./_bf_admin_include.php');
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Administration login</title>
+        <title>Administration <?=($_SESSION["BIFROST_ADMIN"]?'logout':'login')?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link href="_bf_admin.css" rel="stylesheet">
@@ -28,12 +28,35 @@ require('./_bf_admin_include.php');
     <body>
         
         <div class="header">
-            <h1><strong>Administration</strong> <em>login</em></h1>
+            <h1><strong>Administration</strong> <em><?=($_SESSION["BIFROST_ADMIN"]?'logout':'login')?></em></h1>
         </div>
         
         
         <div class="content">
             
+            <?
+            if($_SESSION["BIFROST_ADMIN"])
+            {
+                // logged in
+            ?>
+            <form action="" method="post" class="logoutForm">
+                
+                <ul class="formrows">
+                    <li class="formrow">
+                        <p>thanks for coming</p>
+                    </li>
+                    <li class="formrow">
+                        <input type="button" name="logout" id="logout" class="button" value="Logout" />
+                    </li>
+                </ul>    
+                
+            </form>
+            <?
+            }
+            else
+            {
+                // not logged in
+            ?>
             <form action="" method="post" class="loginForm">
                 
                 <ul class="formrows">
@@ -51,7 +74,10 @@ require('./_bf_admin_include.php');
                 </ul>    
                 
             </form>
-            
+            <?
+            }
+            ?>
+                        
         </div>
     </body>
     

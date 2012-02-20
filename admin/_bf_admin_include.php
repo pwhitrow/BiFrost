@@ -21,6 +21,7 @@ ini_set('memory_limit', '50M');
 
 session_start();
 
+$_SESSION["BIFROST_ADMIN"] = false;
 
 require('../api/_bf_defines.php');
 require('../api/_bf_dbconnect.php');
