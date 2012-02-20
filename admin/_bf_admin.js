@@ -6,7 +6,7 @@
 */
 $(document).ready(function() 
 {
-    checkPlaceholders()
+    //checkPlaceholders()
     
     // oganisation admin
     if($('#saveclient').length)
