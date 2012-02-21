@@ -96,9 +96,9 @@ function mediaExists($media)
 
     foreach($tmp as $m)
     {
-        $x = '../' . $_POST['uploads'] . '/'.$m;
+        $x = '..' . MEDIA_LOCATION . '/'.$m;
         
-        if(file_exists($x))
+        if(file_exists_2('..' . MEDIA_LOCATION, $m))
         {
             $str .= $m.',';
         }
@@ -109,6 +109,12 @@ function mediaExists($media)
     }
     
     return rtrim($str, ',');
+}
+
+function file_exists_2($dir, $file)
+{
+   $ret = exec("ls ".$dir." | grep ".$file);
+   return (!empty($ret));
 }
 
 function getItemReviewsByTag()
