@@ -538,7 +538,7 @@ var _bf_itemreviews = {
                     {
                         if(media[i] == _bf.no_image)
                         {
-                            continue;
+                            //continue;
                         }
 
                         var image = _bf.host + _bf.uploads + '/' + media[i]
