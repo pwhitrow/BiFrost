@@ -528,7 +528,7 @@ var _bf_itemreviews = {
             {
                 $('<div />').attr(
                 {
-                    'class': '_bf_itemreviews_media'
+                    'class': '_bf_itemreviews_media _bf_media_group_' + review.id
                 })
                 .html(function()
                 {
