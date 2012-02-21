@@ -538,22 +538,24 @@ var _bf_itemreviews = {
                     {
                         if(media[i] == _bf.no_image)
                         {
-                            //continue;
-                        }
-
-                        var image = _bf.host + _bf.uploads + '/' + media[i]
-                        var ext = media[i].substr((media[i].lastIndexOf('.') +1));
-                        
-                        if($.inArray(ext, ['jpeg', 'jpg', 'gif', 'png']) > -1)
-                        {
-                            var tmp = media[i].split('.');
-                            var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext + '?' + (new Date).getTime()
-;     
+                            var thumb = _bf.host + 'images/' + _bf.no_image;
                         }
                         else
                         {
-                            var thumb = _bf.host + 'images/' + _bf.vid_image;
+                            var image = _bf.host + _bf.uploads + '/' + media[i]
+                            var ext = media[i].substr((media[i].lastIndexOf('.') +1));
+
+                            if($.inArray(ext, ['jpeg', 'jpg', 'gif', 'png']) > -1)
+                            {
+                                var tmp = media[i].split('.');
+                                var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext + '?' + (new Date).getTime();     
+                            }
+                            else
+                            {
+                                var thumb = _bf.host + 'images/' + _bf.vid_image;
+                            }                            
                         }
+
                         
                         $('<a />').attr(
                         {
