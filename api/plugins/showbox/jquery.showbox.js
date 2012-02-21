@@ -84,7 +84,7 @@
                         'height': '0px',
                         'width': '0px',
                         'position': 'relative',
-                        'padding': '0px',
+                        'padding': '2px',
                         'background': '#fff',
                         'background-clip': 'padding-box',
                         'background-color': '#000',
