@@ -547,7 +547,8 @@ var _bf_itemreviews = {
                         if($.inArray(ext, ['jpeg', 'jpg', 'gif', 'png']) > -1)
                         {
                             var tmp = media[i].split('.');
-                            var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext;     
+                            var thumb = _bf.host + _bf.uploads + '/' + tmp[0] + '_thumb.' + ext + '?' + (new Date).getTime()
+;     
                         }
                         else
                         {
