@@ -100,7 +100,7 @@ function mediaExists($media)
         
         if(file_exists($x))
         {
-            $str .= $m.',';
+            $str .= $m."?".mt_rand().',';
         }
         else
         {
