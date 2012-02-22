@@ -189,7 +189,7 @@
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
-                                console.log(_bf_itemreviews.lazyImages)
+                                //console.log(_bf_itemreviews.lazyImages)
                                 
                                 $(img).load(function()
                                 {
