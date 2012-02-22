@@ -163,10 +163,10 @@
             {
                 var img = obj.find('img');
                 
-                _bf_itemreviews.lazyImages.each(function()
+                for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
                 {
-                    console.log($(this))
-                });
+                    console.log(_bf_itemreviews.lazyImages[i])
+                }
                                 
                 //obj.attr('src')
                 return img;
