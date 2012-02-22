@@ -161,6 +161,9 @@
                                 
             settings.obj.each(function()
             {
+                console.log($(this))
+                console.log(_bf_itemreviews.lazyImages)
+                                
                 $(this).click(function(event)
                 {
                     create_main();
@@ -189,9 +192,6 @@
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
-                                console.log(this)
-                                console.log(_bf_itemreviews.lazyImages)
-                                
                                 $(img).load(function()
                                 {
                                     var box = showBoxSize(img.width, img.height);
