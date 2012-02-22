@@ -190,7 +190,9 @@
                     
                     event.preventDefault();
                     
-                    var filename = $(this).attr('href');
+                    var file = $(this);
+                    
+                    var filename = file.attr('href');
                     
                     $('._showbox').fadeIn(settings.speed);
                     
@@ -218,7 +220,7 @@
 
                                     $('._showbox_img').attr(
                                     {
-                                        'src': getLazyImage($(this)),
+                                        'src': getLazyImage(file),
                                         'height': box['newHeight'],
                                         'width': box['newWidth']
                                     })
