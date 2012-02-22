@@ -440,9 +440,10 @@ var _bf_itemreviews = {
         {
             var img = new Image();
             img.src = $(this).attr('href');
+            var id = $(this).find('img').attr('rel');
             $(img).load(function()
             {
-                _bf_itemreviews.lazyImages.push(this);
+                _bf_itemreviews.lazyImages.push(this, id);
             });
         });
     },
@@ -550,6 +551,8 @@ var _bf_itemreviews = {
                 .html(function()
                 {
                     var media = review.media.split(',');
+                    
+                    var n = 1;
 
                     for(i = 0; i < media.length; i++)
                     {
@@ -591,7 +594,8 @@ var _bf_itemreviews = {
                                 height: '50',
                                 width: '50',
                                 border: 0,
-                                src: thumb
+                                src: thumb,
+                                rel: 'gallery_' + review.id + '_' + n
                             })
                             .css(
                             {
@@ -602,8 +606,11 @@ var _bf_itemreviews = {
                             {
                                 $(this).fadeIn();
                             });
+                            
                         })
                         .appendTo($(this));
+                        
+                        n++;
                     }
                 })
                 .appendTo($(this));
