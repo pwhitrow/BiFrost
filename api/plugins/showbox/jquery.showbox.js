@@ -158,12 +158,26 @@
                 
                 return sizes
             },
+            
+            getLazyImage = function(obj)
+            {
+                var img = obj.find('img');
+                
+                $.each(_bf_itemreviews.lazyImages, function(value, key)
+                {
+                    console.log(key, value)
+                    if(key == img.attr('rel'))
+                    {
+                        console.log(value)
+                    }
+                });
+                                
+                //obj.attr('src')
+                return img;
+            },
                                 
             settings.obj.each(function()
             {
-                console.log($(this))
-                console.log(_bf_itemreviews.lazyImages)
-                                
                 $(this).click(function(event)
                 {
                     create_main();
@@ -198,7 +212,7 @@
 
                                     $('._showbox_img').attr(
                                     {
-                                        'src': $(this).attr('src'),
+                                        'src': getLazyImage($(this)),
                                         'height': box['newHeight'],
                                         'width': box['newWidth']
                                     })
