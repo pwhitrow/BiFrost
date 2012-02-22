@@ -168,6 +168,7 @@
                     var llImg = _bf_itemreviews.lazyImages[i];
                     if(llImg)
                     {
+                        console.log(llImg)
                         if(llImg[0] == img.attr('rel'))
                         {
                             console.log(_bf_itemreviews.lazyImages[i])
