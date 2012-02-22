@@ -224,7 +224,7 @@ var _bf_itemreviews = {
         {
             var img = new Image();
             img.src = $(this).attr('href');
-            img.load(function()
+            $(img).load(function()
             {
                 console.log('loaded' + $(this).src)
             });
