@@ -443,7 +443,8 @@ var _bf_itemreviews = {
             var id = $(this).find('img').attr('rel');
             $(img).load(function()
             {
-                _bf_itemreviews.lazyImages.push(this, id);
+                var tmp = [id, this];
+                _bf_itemreviews.lazyImages.push(tmp);
             });
         });
     },
