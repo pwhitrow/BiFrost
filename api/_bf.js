@@ -156,7 +156,7 @@ function _bf_go()
             appname: '',
             uploads: false,
             can_create_tags: true,
-            no_image: 'coming_soon_image.jpg',
+            no_image: 'noimage.jpg',
             vid_image: 'video.png',
             maxfilesize: 10485760, // 10MB,
             imagetypes: '*.jpeg;*.jpg;*.gif;*.png;',

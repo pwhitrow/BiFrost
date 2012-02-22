@@ -538,6 +538,7 @@ var _bf_itemreviews = {
                     {
                         if(media[i] == _bf.no_image)
                         {
+                            var image = _bf.host + 'images/' + _bf.no_image;
                             var thumb = _bf.host + 'images/' + _bf.no_image;
                         }
                         else
