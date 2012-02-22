@@ -218,19 +218,6 @@ var _bf_itemreviews = {
 
     },
     
-    lazyLoadImages: function()
-    {
-        $('._bf_itemreviews_media_link').each(function()
-        {
-            var img = new Image();
-            img.src = $(this).attr('href');
-            $(img).load(function()
-            {
-                _bf_itemreviews.lazyImages.push(this);
-            });
-        });
-    },
-    
     processReviews: function(reviews)
     {
         var i = 0;
@@ -447,6 +434,19 @@ var _bf_itemreviews = {
 
     },
 
+    lazyLoadImages: function()
+    {
+        $('._bf_itemreviews_media_link').each(function()
+        {
+            var img = new Image();
+            img.src = $(this).attr('href');
+            $(img).load(function()
+            {
+                _bf_itemreviews.lazyImages.push(this);
+            });
+        });
+    },
+    
     renderReview: function(review)
     {
         var review = review;

@@ -189,6 +189,8 @@
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
+                                console.log(_bf_reviews.lazyImages)
+                                
                                 $(img).load(function()
                                 {
                                     var box = showBoxSize(img.width, img.height);
