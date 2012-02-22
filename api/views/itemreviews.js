@@ -223,9 +223,8 @@ var _bf_itemreviews = {
         $('._bf_itemreviews_media_link').each(function()
         {
             var img = new Image();
-            img.src = $(this)
-            .attr('href')
-            .load(function()
+            img.src = $(this).attr('href');
+            img.load(function()
             {
                 console.log('loaded' + $(this).src)
             });
