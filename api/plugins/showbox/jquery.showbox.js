@@ -166,9 +166,9 @@
                 for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
                 {
                     var llImg = _bf_itemreviews.lazyImages[i];
-                    if(llImg)
+                    if(typeof llImg[0] != 'undefined')
                     {
-                        console.log(llImg)
+                        console.log(llImg[0], img.attr('rel'))
                         if(llImg[0] == img.attr('rel'))
                         {
                             console.log(_bf_itemreviews.lazyImages[i])
