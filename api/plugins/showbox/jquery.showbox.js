@@ -165,7 +165,14 @@
                 
                 for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
                 {
-                    console.log(_bf_itemreviews.lazyImages[i])
+                    var llImg = _bf_itemreviews.lazyImages[i];
+                    if(llImg)
+                    {
+                        if(llImg[0] == img.attr('rel'))
+                        {
+                            console.log(_bf_itemreviews.lazyImages[i])
+                        }
+                    }                 
                 }
                                 
                 //obj.attr('src')
