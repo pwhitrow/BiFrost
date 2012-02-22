@@ -163,13 +163,9 @@
             {
                 var img = obj.find('img');
                 
-                $.each(_bf_itemreviews.lazyImages, function(value, key)
+                _bf_itemreviews.lazyImages.each(function()
                 {
-                    console.log(key, value)
-                    if(key == img.attr('rel'))
-                    {
-                        console.log(value)
-                    }
+                    console.log($(this))
                 });
                                 
                 //obj.attr('src')
