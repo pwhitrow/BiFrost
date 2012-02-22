@@ -169,6 +169,7 @@
                     
                     if($.isArray(llImg))
                     {
+                        console.log(llImg[0], llImg[1], img.attr('rel'))
                         if(llImg[0] == img.attr('rel'))
                         {
                             return llImg[1];
