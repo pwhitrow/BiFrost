@@ -162,11 +162,13 @@
             getLazyImage = function(obj)
             {
                 var img = obj.find('img');
+                console.log('obj: ' + obj)
+                console.log('img: ' + img)
                 
                 for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
                 {
                     var llImg = _bf_itemreviews.lazyImages[i];
-                    if(typeof llImg[0] != 'undefined')
+                    if($.isArray(llImg))
                     {
                         console.log(llImg[0], img.attr('rel'))
                         if(llImg[0] == img.attr('rel'))
