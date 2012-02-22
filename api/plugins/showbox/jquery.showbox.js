@@ -162,8 +162,8 @@
             getLazyImage = function(obj)
             {
                 var img = obj.find('img');
-                console.log('obj: ' + obj)
-                console.log('img: ' + img)
+                console.log('obj: ', obj)
+                console.log('img: ', img)
                 
                 for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
                 {
