@@ -14,6 +14,7 @@ var _bf_itemreviews = {
     lazyloading:false,
     itemqty: 0,
     paginator: false,
+    lazyImages: new Array(),
 
     init: function()
     {
@@ -207,11 +208,29 @@ var _bf_itemreviews = {
                 }
 
                 _bf.widgetLoaded('reviews');
+                
+                _bf_itemreviews.lazyLoadImages();
+                
             });
         }
 
         _bf.widgetSwitch('reviews');
 
+    },
+    
+    lazyLoadImages: function()
+    {
+        $('._bf_itemreviews_media_link').each(function()
+        {
+            var img = new Image();
+            img.src = $(this)
+            .attr('href')
+            .load(function()
+            {
+                console.log('loaded' + $(this).src)
+            });
+            //_bf_itemreviews.lazyImages[]
+        });
     },
     
     processReviews: function(reviews)
