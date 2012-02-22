@@ -189,6 +189,7 @@
                             .appendTo($('._showbox_main'))
                             .each(function()
                             {
+                                console.log(this)
                                 console.log(_bf_itemreviews.lazyImages)
                                 
                                 $(img).load(function()
