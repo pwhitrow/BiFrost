@@ -79,7 +79,7 @@ function getItemComments()
         }
 
         $rows['id'][] = $r['id'];
-        $rows['content'][] = nl2br($r['content']);
+        $rows['content'][] = nl2br(makeLinks($r['content']));
         $rows['fdate'][] = $r['fdate'];
     }
 
