@@ -16,12 +16,14 @@ var _bf_itemdiscussions = {
 
     init: function()
     {        
-        _bf.widgetLoading('discussions');
-        
-        $(window).scroll(function()
+        _bf.widgetLoading('discussions', function()
         {
-            _bf.sticky('discussions');
+            $(window).scroll(function()
+            {
+                _bf.sticky('discussions');
+            });            
         });
+        
     },
 
     getDiscussions: function()

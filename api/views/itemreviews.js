@@ -18,12 +18,14 @@ var _bf_itemreviews = {
 
     init: function()
     {
-        _bf.widgetLoading('reviews');      
-        
-        $(window).scroll(function()
+        _bf.widgetLoading('reviews', function()
         {
-            _bf.sticky('reviews');
-        });
+            $(window).scroll(function()
+            {
+                _bf.sticky('reviews');
+            });           
+        });      
+        
     },
     
     getReviews: function()

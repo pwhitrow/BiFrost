@@ -401,7 +401,7 @@ function _bf_go()
                 });        
             },
             
-            widgetLoading: function(type)
+            widgetLoading: function(type, callback)
             {
                 if(type == 'reviews')
                 {
@@ -457,6 +457,12 @@ function _bf_go()
                             _bf_itemdiscussions.getDiscussions();                
                         });
                     }
+                }
+                
+                // do we have a callback?
+                if($.isFunction(callback))
+                {
+                    callback.call(this);
                 }
             },
     
