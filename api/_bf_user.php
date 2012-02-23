@@ -89,7 +89,7 @@ function FBlogin()
         if(mysql_query($sql))
         {
             setSuccessMsg(t('Registered via') + ' FaceBook');
-            FBlogin2($_POST);
+            FBlogin2();
         }
         else
         {
@@ -99,16 +99,16 @@ function FBlogin()
     }
     else
     {
-        FBlogin2($_POST);
+        FBlogin2();
     }
 }
 
-function FBlogin2($_POST)
+function FBlogin2()
 {
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'");
 
-    if(mysql_num_rows($sql) > 0)
+    if(FBuserExists($_POST['uid']))
     {
         $user = mysql_fetch_array($sql);
 
