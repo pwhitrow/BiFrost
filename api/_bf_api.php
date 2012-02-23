@@ -334,11 +334,11 @@ function remoteFileExists($url)
         
 }
 
-function makeLinks($text) 
+function safeHTML($str)
 {
-    $text = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]","<a href=\"\\0\">\\0</a>", $text);
-    return $text;
+    $str = nl2br($str);
+    $str = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]","<a href=\"\\0\">\\0</a>", $str);
+    return $str;
 }
-
 
 ?>

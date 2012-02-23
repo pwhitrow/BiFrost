@@ -180,7 +180,7 @@ function processSQL($sql, $sqlQty)
         // add review to response
         $rows['id'][] = $r['id'];
         $rows['title'][] = $r['title'];
-        $rows['content'][] = nl2br(makeLinks($r['content']));
+        $rows['content'][] = safeHTML($r['content']);
         $rows['fdate'][] = $r['fdate'];
         $rows['isodate'][] = date('c', strtotime($r['posted']));
         

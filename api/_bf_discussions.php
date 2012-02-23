@@ -96,7 +96,7 @@ function getItemDiscussions()
                 $comments['id'][] = $c['id'];
                 $comments['parentid'][] = $c['parent_id'];
                 $comments['user'][] = $c['user_id'];
-                $comments['content'][] = nl2br(makeLinks($c['content']));
+                $comments['content'][] = safeHTML($c['content']);
                 $comments['fdate'][] = $c['fdate'];
                 $comments['isodate'][] = date('c', strtotime($c['posted']));
 
