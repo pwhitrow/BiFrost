@@ -436,6 +436,9 @@ var _bf_itemreviews = {
 
     lazyLoadImages: function()
     {
+        // for future use, but just return out for now!
+        return;
+        
         $('._bf_itemreviews_media_link').each(function()
         {
             var img = new Image();

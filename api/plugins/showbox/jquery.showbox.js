@@ -158,27 +158,6 @@
                 
                 return sizes
             },
-            
-            getLazyImage = function(obj)
-            {
-                var img = obj.find('img');
-                
-                for(i = 0; i < _bf_itemreviews.lazyImages.length; i++)
-                {
-                    var llImg = _bf_itemreviews.lazyImages[i];
-                    
-                    if($.isArray(llImg))
-                    {
-                        console.log(llImg[0], llImg[1], img.attr('rel'))
-                        if(llImg[0] == img.attr('rel'))
-                        {
-                            return llImg[1];
-                        }
-                    }                 
-                }
-                                
-                //obj.attr('src')
-            },
                                 
             settings.obj.each(function()
             {
@@ -188,9 +167,7 @@
                     
                     event.preventDefault();
                     
-                    var file = $(this);
-                    
-                    var filename = file.attr('href');
+                    var filename = $(this).attr('href');
                     
                     $('._showbox').fadeIn(settings.speed);
                     
@@ -218,7 +195,7 @@
 
                                     $('._showbox_img').attr(
                                     {
-                                        'src': getLazyImage(file),
+                                        'src': $(this).attr('src'),
                                         'height': box['newHeight'],
                                         'width': box['newWidth']
                                     })
