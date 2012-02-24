@@ -483,7 +483,13 @@ function _bf_go()
             sticky: function(widget)
             {
                 var window_top = $(window).scrollTop() +1;
-                var div_top = $('._bf_item'+widget).offset().top;
+                
+                var target = $('._bf_item'+widget);
+                
+                if(!target.length) return;
+                    
+                var div_top = target.offset().top;
+                
                 if (window_top > div_top)
                 {
                     $('._bf_item'+widget+'_header').addClass('stick')
