@@ -78,6 +78,7 @@
 
 ._bf_state_overlay
 {
+    position:relative;
     text-align: center;
     background:transparent url(../images/overlay.png) 0 0 repeat !important;
     display:none;
