@@ -492,31 +492,37 @@ function _bf_go()
                 
                 if (window_top > div_top)
                 {
-                    $('._bf_item'+widget+'_header').addClass('stick')
-                    
-                    if(typeof BiFrost.position == 'undefined')
+                    if(!$('._bf_item'+widget+'_header').hasClass('stick'))
                     {
-                        console.log("TEST")
-//                        $('._bf_me').css(
-//                        {
-//                            'right': '-' + (_bf.state_width_default + 5) + 'px',
-//                            'top': '0px'
-//                        })
-//                        .appendTo($('._bf_item'+widget+'_header'));
+                        $('._bf_item'+widget+'_header').addClass('stick')
+                        
+                        if(typeof BiFrost.position == 'undefined')
+                        {
+                            console.log("TEST")
+    //                        $('._bf_me').css(
+    //                        {
+    //                            'right': '-' + (_bf.state_width_default + 5) + 'px',
+    //                            'top': '0px'
+    //                        })
+    //                        .appendTo($('._bf_item'+widget+'_header'));
+                        }
                     }
                 }
                 else
                 {
-                    $('._bf_item'+widget+'_header').removeClass('stick');
-                    
-                    if(typeof BiFrost.position == 'undefined')
+                    if($('._bf_item'+widget+'_header').hasClass('stick'))
                     {
-//                        $('._bf_me').css(
-//                        {
-//                            'right': '0px',
-//                            'top': '165px'
-//                        })
-//                        .prependTo($('._bf_widgets_holder'));
+                        $('._bf_item'+widget+'_header').removeClass('stick');
+
+                        if(typeof BiFrost.position == 'undefined')
+                        {
+    //                        $('._bf_me').css(
+    //                        {
+    //                            'right': '0px',
+    //                            'top': '165px'
+    //                        })
+    //                        .prependTo($('._bf_widgets_holder'));
+                        }
                     }
                 }                                    
             },
