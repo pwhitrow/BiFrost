@@ -489,8 +489,7 @@ function _bf_go()
                 if(!target.length) return;
                     
                 var div_top = target.offset().top;
-                
-console.log(window_top, div_top)
+
                 if (window_top > div_top)
                 {
                     if(!$('._bf_item'+widget+'_header').hasClass('stick'))
