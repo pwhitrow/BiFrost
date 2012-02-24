@@ -655,8 +655,8 @@ DASHBOARD
     bottom:-40px;
     width:137px;
     list-style:none;
-    padding:0px;
-    margin:0px;
+    padding:0px !important;
+    margin:0px !important;
     border: none;
     -moz-box-shadow: 0px 0px 8px #232323;
     -webkit-box-shadow: 0px 0px 8px #232323;
