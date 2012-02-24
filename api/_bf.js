@@ -490,6 +490,7 @@ function _bf_go()
                     
                 var div_top = target.offset().top;
                 
+console.log(window_top, div_top)
                 if (window_top > div_top)
                 {
                     if(!$('._bf_item'+widget+'_header').hasClass('stick'))
@@ -498,7 +499,6 @@ function _bf_go()
                         
                         if(typeof BiFrost.position == 'undefined')
                         {
-                            console.log("TEST")
                             $('._bf_me').css(
                             {
                                 'right': '-' + (_bf.state_width_default + 5) + 'px',
