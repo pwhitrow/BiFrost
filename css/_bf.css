@@ -13,142 +13,142 @@
 
 ._bf_state
 {
-    height:35px !important;
-    width:100px !important;
+    height:35px;
+    width:100px;
 
-    margin:0px !important;
-    padding:0px !important;
+    margin:0px;
+    padding:0px;
 
-    background:#1D1D1D url(../images/wait-grey-mini.gif) center center no-repeat !important;
+    background:#1D1D1D url(../images/wait-grey-mini.gif) center center no-repeat;
 /*    
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(80%, #343434), color-stop(100%, #313131)) !important;
-    background-image: -webkit-linear-gradient(top, #343434 0%,#343434 80%,#313131 100%) !important;
-    background-image: linear-gradient(top, #343434 0%,#343434 80%,#313131 100%) !important;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(80%, #343434), color-stop(100%, #313131));
+    background-image: -webkit-linear-gradient(top, #343434 0%,#343434 80%,#313131 100%);
+    background-image: linear-gradient(top, #343434 0%,#343434 80%,#313131 100%);
 */
-    -webkit-box-shadow: 0px 2px 7px rgba(50, 50, 50, 0.54) !important;
-    -moz-box-shadow:    0px 2px 7px rgba(50, 50, 50, 0.54) !important;
-    box-shadow:         0px 2px 7px rgba(50, 50, 50, 0.54) !important;
+    -webkit-box-shadow: 0px 2px 7px rgba(50, 50, 50, 0.54);
+    -moz-box-shadow:    0px 2px 7px rgba(50, 50, 50, 0.54);
+    box-shadow:         0px 2px 7px rgba(50, 50, 50, 0.54);
 
-    -webkit-border-bottom-right-radius: 10px !important;
-    -webkit-border-bottom-left-radius: 10px !important;
-    -moz-border-radius-bottomright: 10px !important;
-    -moz-border-radius-bottomleft: 10px !important;
-    border-bottom-right-radius: 10px !important;
-    border-bottom-left-radius: 10px !important;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     
-    z-index:1000 !important;
+    z-index:1000;
 }
 
 ._bf_dashright_panel
 {
-    -webkit-box-shadow:inset 0px 1px 1px #151617 !important;
-    -moz-box-shadow:inset 0px 1px 1px #151617 !important;
-    border: none !important;
-    border-bottom: 1px solid #494e50 !important;
-    background: #2b2e31 !important;
-    font:normal 14px Helvitica, Arial, sans-serif !important;
-    color: #9fa4a8 !important;
-    text-shadow: 1px 1px 1px #1B1B1B !important;
+    -webkit-box-shadow:inset 0px 1px 1px #151617;
+    -moz-box-shadow:inset 0px 1px 1px #151617;
+    border: none;
+    border-bottom: 1px solid #494e50;
+    background: #2b2e31;
+    font:normal 14px Helvitica, Arial, sans-serif;
+    color: #9fa4a8;
+    text-shadow: 1px 1px 1px #1B1B1B;
 
-    position:absolute !important;
-    top:0px !important;
-    right:0px !important;
-    bottom:0px !important;
-    width:150px !important;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    width:150px;
 }
 
 ._bf_topleft
 {
-    position:fixed !important;
-    top:-2px !important;
-    left:30px !important;
+    position:fixed;
+    top:-2px;
+    left:30px;
 }
 
 ._bf_topright
 {
-    position:fixed !important;
-    top:-2px !important;
-    right:30px !important;
+    position:fixed;
+    top:-2px;
+    right:30px;
 }
 
 ._bf_state_closed
 {
-    background:#222 !important;
+    background:#222;
 }
 
 ._bf_state_overlay
 {
-    position:relative !important;
-    text-align: center !important;
+    position:relative;
+    text-align: center;
     background:transparent url(../images/overlay.png) 0 0 repeat !important;
-    display:none !important;
-    z-index:1 !important;
-    left:0px !important;
+    display:none;
+    z-index:1;
+    left:0px;
 }
 
 ._bf_state_overlay_msg
 {
-    position:relative !important;
-    top:30% !important;
-    margin: auto auto auto auto !important;
-    text-align:center !important;
-    color: #eeeeee !important;
-    font:bold 12px Helvetica, Arial, sans-serif !important;
+    position:relative;
+    top:30%;
+    margin: auto auto auto auto;
+    text-align:center;
+    color: #eeeeee;
+    font:bold 12px Helvetica, Arial, sans-serif;
 }
 
 ._bf_state_actions
 {
-    background:transparent url(../images/state_bg.png) 0 0 repeat !important;
+    background:transparent url(../images/state_bg.png) 0 0 repeat;
     margin:0px !important;
     padding:0px 0px 0px 0px !important;
-    text-align: right !important;
-    position:absolute !important;
-    bottom:0px !important;
-    right:0px !important;
-    left:0px !important;
-    height:39px !important;
-    display:block !important;
-    list-style:none !important;
-    -webkit-border-bottom-right-radius: 10px !important;
-    -webkit-border-bottom-left-radius: 10px !important;
-    -moz-border-radius-bottomright: 10px !important;
-    -moz-border-radius-bottomleft: 10px !important;
-    border-bottom-right-radius: 10px !important;
-    border-bottom-left-radius: 10px !important;
-    border-top: 1px solid #2D2D2D !important;
+    text-align: right;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    height:39px;
+    display:block;
+    list-style:none;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top: 1px solid #2D2D2D;
 }
 
 ._bf_state_action
 {
-    color: #eee !important;
-    text-shadow: -1px -1px 1px #0D0D0D !important;
+    color: #eee;
+    text-shadow: -1px -1px 1px #0D0D0D;
     
-    background-color: #383d40 !important;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#585f63), to(#383d40)) !important;
-    background-image: -webkit-linear-gradient(top, #585f63, #383d40) !important;
-    background-image: -moz-linear-gradient(top, #585f63, #383d40) !important;
-    background-image: -ms-linear-gradient(top, #585f63, #383d40) !important;
-    background-image: -o-linear-gradient(top, #585f63, #383d40) !important;
-    background-image: linear-gradient(top, #585f63, #383d40) !important;
+    background-color: #383d40;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#585f63), to(#383d40));
+    background-image: -webkit-linear-gradient(top, #585f63, #383d40);
+    background-image: -moz-linear-gradient(top, #585f63, #383d40);
+    background-image: -ms-linear-gradient(top, #585f63, #383d40);
+    background-image: -o-linear-gradient(top, #585f63, #383d40);
+    background-image: linear-gradient(top, #585f63, #383d40);
 
-    border:1px solid #25282a !important;
+    border:1px solid #25282a;
 
-    -moz-border-radius: 4px !important;
-    -webkit-border-radius: 4px !important;
-    border-radius: 4px !important;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 
-     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
-     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 
-    height: 22px !important;
+    height: 22px;
     padding: 7px 10px 0px 10px !important;
-    cursor: pointer !important;
-    font: bold 12px Helvetica, Arial, sans-serif !important;
+    cursor: pointer;
+    font: bold 12px Helvetica, Arial, sans-serif;
     margin:3px 5px 0px 5px !important;
-    text-align:center !important;
-    clear:both !important;
-    display: inline-block !important;
+    text-align:center;
+    clear:both;
+    display: inline-block;
     
     
     width:auto !important;
@@ -164,14 +164,14 @@
 ._bf_state_action:hover,
 ._bf_state_action:focus
 {
-    color: #fff !important;
-    background-color: #383d40 !important;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#383d40), to(#585f63)) !important;
-    background-image: -webkit-linear-gradient(top, #383d40, #585f63) !important;
-    background-image: -moz-linear-gradient(top, #383d40, #585f63) !important;
-    background-image: -ms-linear-gradient(top, #383d40, #585f63) !important;
-    background-image: -o-linear-gradient(top, #383d40, #585f63) !important;
-    background-image: linear-gradient(top, #383d40, #585f63) !important;
+    color: #fff;
+    background-color: #383d40;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#383d40), to(#585f63));
+    background-image: -webkit-linear-gradient(top, #383d40, #585f63);
+    background-image: -moz-linear-gradient(top, #383d40, #585f63);
+    background-image: -ms-linear-gradient(top, #383d40, #585f63);
+    background-image: -o-linear-gradient(top, #383d40, #585f63);
+    background-image: linear-gradient(top, #383d40, #585f63);
 }
 
 /*
@@ -180,69 +180,69 @@ FORMS
 
 ._bf_state_form
 {
-    background: url("../images/dashbg.png") repeat scroll 0 0 #454545 !important;
-    bottom: 40px !important;
-    color: #555555 !important;
-    display: none !important;
-    left: 0 !important;
-    margin: 0 auto !important;
-    position: absolute !important;
-    right: 0 !important;
-    text-shadow: 0 2px 3px #000000 !important;
-    top: 0 !important;
-    padding:20px !important;
+    background: url("../images/dashbg.png") repeat scroll 0 0 #454545;
+    bottom: 40px;
+    color: #555555;
+    display: none;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 2px 3px #000000;
+    top: 0;
+    padding:20px;
 }
 
 ._bf_form_row
 {
-    position:relative !important;
-    float:left !important;
-    clear:both !important;
+    position:relative;
+    float:left;
+    clear:both;
 }
 
 ._bf_form_label
 {
-    float:left !important;
-    clear:both !important;
-    display: block !important;
-    padding: 0px 0px 5px 0px !important;
-    margin: 0px !important;
-    color: #A6A6A6 !important;
-    text-shadow: 1px 1px 1px #1B1B1B !important;
-    font:normal 14px Helvitica, Arial, sans-serif !important;
-    line-height: 30px !important;
+    float:left;
+    clear:both;
+    display: block;
+    padding: 0px 0px 5px 0px;
+    margin: 0px;
+    color: #A6A6A6;
+    text-shadow: 1px 1px 1px #1B1B1B;
+    font:normal 14px Helvitica, Arial, sans-serif;
+    line-height: 30px;
 }
 
 ._bf_input 
 {
-    resize: none !important;
-    float:left !important;
-    clear:both !important;
-    width: 200px !important;
-    padding: 5px 5px 7px 30px !important;
-    margin: 0px 0px 10px 0px !important;
-    width: 232px !important; 
-    -moz-border-radius: 5px !important;
-    -webkit-border-radius: 5px !important;
-    -webkit-box-shadow:inset 0px 1px 1px #151617 !important;
-    -moz-box-shadow:inset 0px 1px 1px #151617 !important;
-    border-radius: 5px !important;
-    border: none !important;
-    border-bottom: 1px solid #494e50 !important;
-    background: #2b2e31 url(../images/form-sprite.png) no-repeat !important;
-    font:normal 14px Helvitica, Arial, sans-serif !important;
-    color: #9fa4a8 !important;
-    text-shadow: 1px 1px 1px #1B1B1B !important;
+    resize: none;
+    float:left;
+    clear:both;
+    width: 200px;
+    padding: 5px 5px 7px 30px;
+    margin: 0px 0px 10px 0px;
+    width: 232px; 
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow:inset 0px 1px 1px #151617;
+    -moz-box-shadow:inset 0px 1px 1px #151617;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid #494e50;
+    background: #2b2e31 url(../images/form-sprite.png) no-repeat;
+    font:normal 14px Helvitica, Arial, sans-serif;
+    color: #9fa4a8;
+    text-shadow: 1px 1px 1px #1B1B1B;
 }
 
 ._bf_placeholder
 {
-    color:#aaa !important;
+    color:#aaa;
 }
 
 ._bf_validation_error
 {
-    background-color: #662828 !important;
+    background-color: #662828;
 }
 
 ._bf_register_gname,
@@ -281,116 +281,116 @@ FORMS
     position:fixed !important;
     top:0px !important;
     z-index:10000 !important;
-    -webkit-border-radius:0px 0px 10px 10px !important;
-    -moz-border-radius:0px 0px 10px 10px !important;
-    border-radius:0px 0px 10px 10px !important;
-    box-shadow:0px 3px 3px rgba(0,0,0,0.2) !important;
-    background-color:#fff !important;
+    -webkit-border-radius:0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    border-radius:0px 0px 10px 10px;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.2);
+    background-color:#fff;
 }
 
 ._bf_review_submit,
 ._bf_discuss_submit,
 ._bf_comment_submit
 {
-    bottom: -35px !important;
-    left: 20px !important;
+    bottom: -35px;
+    left: 20px;
     position: absolute !important;    
 }
 
 ._bf_review_content
 {
     background-position: 5px -137px !important;
-    height:152px !important;
+    height:152px;
 }
 
 ._bf_discuss_content,
 ._bf_comment_content
 {
     background-position: 5px -476px !important;
-    height:205px !important;
+    height:205px;
 }
 
 ._bf_button
 {
-    color: #fff !important;
-    background-color: #205885 !important;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#4689db), to(#205885)) !important;
-    background-image: -webkit-linear-gradient(top, #4689db, #205885) !important;
-    background-image: -moz-linear-gradient(top, #4689db, #205885) !important;
-    background-image: -ms-linear-gradient(top, #4689db, #205885) !important;
-    background-image: -o-linear-gradient(top, #4689db, #205885) !important;
-    background-image: linear-gradient(top, #4689db, #205885) !important;
+    color: #fff;
+    background-color: #205885;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#4689db), to(#205885));
+    background-image: -webkit-linear-gradient(top, #4689db, #205885);
+    background-image: -moz-linear-gradient(top, #4689db, #205885);
+    background-image: -ms-linear-gradient(top, #4689db, #205885);
+    background-image: -o-linear-gradient(top, #4689db, #205885);
+    background-image: linear-gradient(top, #4689db, #205885);
 
-    -moz-border-radius: 4px !important;
-    -webkit-border-radius: 4px !important;
-    border-radius: 4px !important;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 
-    text-shadow: -1px -1px 1px #204b73 !important;
+    text-shadow: -1px -1px 1px #204b73;
 
-     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
-     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 
-    border:1px solid #25282a !important;
+    border:1px solid #25282a;
 
-    position:relative !important;
-    float: left !important;
-    height: 22px !important;
-    padding: 7px 0px 0px 0px !important;
-    width: 120px !important;
-    cursor: pointer !important;
-    font: bold 11px Helvetica, Arial, sans-serif !important;
-    color: #fff !important;
-    margin:10px 0px 0px 0px !important;
-    text-align:center !important;
-    clear:both !important;
+    position:relative;
+    float: left;
+    height: 22px;
+    padding: 7px 0px 0px 0px;
+    width: 120px;
+    cursor: pointer;
+    font: bold 11px Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin:10px 0px 0px 0px;
+    text-align:center;
+    clear:both;
 }
 
 ._bf_button:hover,
 ._bf_button:focus
 {
-    background-color: #4689db !important;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#205885), to(#4689db)) !important;
-    background-image: -webkit-linear-gradient(top, #205885, #4689db) !important;
-    background-image: -moz-linear-gradient(top, #205885, #4689db) !important;
-    background-image: -ms-linear-gradient(top, #205885, #4689db) !important;
-    background-image: -o-linear-gradient(top, #205885, #4689db) !important;
-    background-image: linear-gradient(top, #205885, #4689db) !important;
+    background-color: #4689db;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#205885), to(#4689db));
+    background-image: -webkit-linear-gradient(top, #205885, #4689db);
+    background-image: -moz-linear-gradient(top, #205885, #4689db);
+    background-image: -ms-linear-gradient(top, #205885, #4689db);
+    background-image: -o-linear-gradient(top, #205885, #4689db);
+    background-image: linear-gradient(top, #205885, #4689db);
 }
 
 ._bf_button._bf_button_silver
 {
-    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF !important;
-    border:1px solid #999 !important;
-    color:#555 !important;
-    background:#f6f6f6 !important;
-    background-image:-moz-linear-gradient(top,#ffffff,#efefef) !important;
-    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#efefef)) !important;
-    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#efefef) !important;
-    -moz-border-radius:3px !important;
-    -webkit-border-radius:3px !important;
-    border-radius:3px !important;
-    white-space:nowrap !important;
-    vertical-align:middle !important;
-    cursor:pointer !important;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    border:1px solid #999;
+    color:#555;
+    background:#f6f6f6;
+    background-image:-moz-linear-gradient(top,#ffffff,#efefef);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#efefef));
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#efefef);
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    white-space:nowrap;
+    vertical-align:middle;
+    cursor:pointer;
     overflow:visible
-    -moz-box-shadow:0 0 3px #999 !important;
-    -webkit-box-shadow:0 0 3px #999 !important;
-    box-shadow:0 0 3px #999 !important;    
+    -moz-box-shadow:0 0 3px #999;
+    -webkit-box-shadow:0 0 3px #999;
+    box-shadow:0 0 3px #999;    
 }
 ._bf_button._bf_button_silver:hover
 {
-    border:1px solid #999 !important;
-    background:#f3f3f3 !important;
-    background-image:-moz-linear-gradient(top,#ffffff,#ebebeb) !important;
-    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ebebeb)) !important;
-    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#ebebeb) !important;
-    outline:0 !important;
+    border:1px solid #999;
+    background:#f3f3f3;
+    background-image:-moz-linear-gradient(top,#ffffff,#ebebeb);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ebebeb));
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff,endColorStr=#ebebeb);
+    outline:0;
 }
 
 ._bf_register_form ._bf_button
 {
-    margin-top: 20px !important;
+    margin-top: 20px;
 }
 
 ._bf_forgottenpassword_form ._bf_button
@@ -400,48 +400,48 @@ FORMS
 ._bf_login_store,
 ._bf_tandc
 {
-    font:normal 10px Helvetica, Arial, sans-serif !important;
-    color:#999 !important;
-    width:266px !important;
-    float:left !important;
+    font:normal 10px Helvetica, Arial, sans-serif;
+    color:#999;
+    width:266px;
+    float:left;
 }
 
 ._bf_register_terms,
 ._bf_login_storeemail
 {
-    float:left !important;
-    width:20px !important;
-    background:none !important;
-    border:none !important;
-    margin: 3px 0px 0px 0px !important;
+    float:left;
+    width:20px;
+    background:none;
+    border:none;
+    margin: 3px 0px 0px 0px;
 }
 
 ._bf_login_label,
 ._bf_register_label
 {
-    position:relative !important;
-    top:3px !important;
-    left:5px !important;
-    padding:0px 0px 0px 10px !important;
-    background:transparent url(../images/arrow.png) 0px -19px no-repeat !important;
+    position:relative;
+    top:3px;
+    left:5px;
+    padding:0px 0px 0px 10px;
+    background:transparent url(../images/arrow.png) 0px -19px no-repeat;
 }
 
 ._bf_tandc
 {
-    margin-top:10px !important;
+    margin-top:10px;
 }
 
 ._bf_tandc a
 {
     font:normal 10px Helvetica, Arial, sans-serif !important;
-    color:#bbb !important;
+    color:#bbb;
     float:none !important;
-    clear:both !important;
+    clear:both;
 }
 
 ._bf_tandc a:hover
 {
-    color: #fff !important;
+    color: #fff;
 }
 
 ._bf_register_terms
@@ -450,11 +450,11 @@ FORMS
 
 ._bf_forgottenpassword_msg
 {
-    float:left !important;
-    font:normal 11px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;
-    width:266px !important;
-    margin:10px 0px 10px 0px !important;
+    float:left;
+    font:normal 11px Helvetica, Arial, sans-serif;
+    color: #999;
+    width:266px;
+    margin:10px 0px 10px 0px;
 }
 
 /*
@@ -462,46 +462,46 @@ FORM LINKS
 */
 ._bf_form_links
 {
-    position:absolute !important;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    left:160px !important;
+    position:absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    left:160px;
 }
 
 ._bf_form_links li
 {
-    background:transparent url(../images/arrow.png) 0px 3px no-repeat !important;
-    padding-left:10px !important;
+    background:transparent url(../images/arrow.png) 0px 3px no-repeat;
+    padding-left:10px;
 }
 
 ._bf_login_links
 {
-    top:107px !important;
+    top:107px;
 }
 
 ._bf_register_links
 {
-    top:274px !important;
+    top:274px;
 }
 
 ._bf_forgottenpassword_links
 {
-    top:114px !important;
+    top:114px;
 }
 
 ._bf_form_link
 {
-    font:normal 12px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;
-    margin: 0px 0px 7px 0px !important;
-    padding: 0 !important;
-    cursor: pointer !important;
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    margin: 0px 0px 7px 0px;
+    padding: 0;
+    cursor: pointer;
 }
 
 ._bf_form_link:hover
 {
-    color:#bbb !important;
+    color:#bbb;
 }
 
 /*
@@ -509,114 +509,114 @@ AUTHENTICATORS
 */
 ._bf_social_authenticators
 {
-    position:absolute !important;
-    top:65px !important;
-    left:70px !important;
-    list-style:none !important;
+    position:absolute;
+    top:65px;
+    left:70px;
+    list-style:none;
 }
 
 ._bf_social_authenticator
 {
-    float:left !important;
-    clear:both !important;
-    width:160px !important;
-    height:40px !important;
-    margin:0px 0px 10px 0px !important;
-    cursor:pointer !important;
-    background:transparent url(../images/socials.png) 0 0 no-repeat !important;
-    color:#C4C4C4 !important;
-    text-shadow: 1px 1px 1px #141414 !important;
-    font:bold 12px arial !important;
-    padding:0px 0px 0px 72px !important;
-    line-height: 40px !important;
+    float:left;
+    clear:both;
+    width:160px;
+    height:40px;
+    margin:0px 0px 10px 0px;
+    cursor:pointer;
+    background:transparent url(../images/socials.png) 0 0 no-repeat;
+    color:#C4C4C4;
+    text-shadow: 1px 1px 1px #141414;
+    font:bold 12px arial;
+    padding:0px 0px 0px 72px;
+    line-height: 40px;
 }
 
 ._bf_social_authenticator:hover
 {
-    color:#fff !important;
-    text-shadow: 1px 1px 1px #444 !important;
+    color:#fff;
+    text-shadow: 1px 1px 1px #444;
 }
 
 ._bf_social_facebook
 {
-    background-position: 0px -50px !important;
+    background-position: 0px -50px;
 }
 ._bf_social_google
 {
-    background-position: 0px -16px !important;
+    background-position: 0px -16px;
 }
 ._bf_social_twitter
 {
-    background-position: 0px -7px !important;
+    background-position: 0px -7px;
 }
 ._bf_social_openid
 {
-    background-position: 0px -48px !important;
+    background-position: 0px -48px;
 }
 ._bf_social_linkedin
 {
-    background-position: 0px -95px !important;
+    background-position: 0px -95px;
 }
 
 ._bf_login_fb,
 ._bf_login_tw
 {
-    position: absolute !important;    
-    width:auto !important;
-    z-index:1 !important;
-    display:none !important;
-    right:7px !important;
-    top:20px !important;
-    background:transparent url(../images/socials.png) 0 -181px no-repeat !important;
-    width:100px !important;
-    height:24px !important;
-    color:#C4C4C4 !important;
-    text-shadow: 1px 1px 1px #141414 !important;
-    font:bold 12px arial !important;
-    padding:0px 0px 0px 42px !important;
-    line-height: 24px !important;
-    cursor:pointer !important;
+    position: absolute;    
+    width:auto;
+    z-index:1;
+    display:none;
+    right:7px;
+    top:20px;
+    background:transparent url(../images/socials.png) 0 -181px no-repeat;
+    width:100px;
+    height:24px;
+    color:#C4C4C4;
+    text-shadow: 1px 1px 1px #141414;
+    font:bold 12px arial;
+    padding:0px 0px 0px 42px;
+    line-height: 24px;
+    cursor:pointer;
 }
 ._bf_login_fb:hover
 {
-    background-position:-159px -181px !important;
-    color:#fff !important;
+    background-position:-159px -181px;
+    color:#fff;
 }
 
 ._bf_fb_linkpost
 {
-    position:absolute !important;
-    bottom: 22px !important;
-    left: 150px !important;
+    position:absolute;
+    bottom: 22px;
+    left: 150px;
 }
 
 .fb_post_review
 {
-    float: left !important;
-    margin-top: 5px !important;    
+    float: left;
+    margin-top: 5px;    
 }
 
 .fb_post_label
 {
-    color: #888888 !important;
-    font-family: arial !important;
-    font-size: 11px !important;    
+    color: #888888;
+    font-family: arial;
+    font-size: 11px;    
 }
 
 a.fb_button
 {
-    display:none !important;
+    display:none;
 }
 
 ._bf_login_tw
 {
-    background-position:0 -154px !important;
-    top:50px !important;
+    background-position:0 -154px;
+    top:50px;
 }
 ._bf_login_tw:hover
 {
-    background-position:-159px -154px !important;
-    color:#fff !important;
+    background-position:-159px -154px;
+    color:#fff;
 }
 
 
@@ -625,192 +625,192 @@ DASHBOARD
 */
 ._bf_dashboard
 {
-    position:absolute !important;
-    top:0px !important;
-    left:0px !important;
-    right: 0px !important;
-    bottom:40px !important;
-    margin: 0 auto !important;
-    color: #555 !important;
-    text-shadow: 0px 2px 3px #171717 !important;
+    position:absolute;
+    top:0px;
+    left:0px;
+    right: 0px;
+    bottom:40px;
+    margin: 0 auto;
+    color: #555;
+    text-shadow: 0px 2px 3px #171717;
 }
 
 ._bf_dashboard form
 {
-    bottom: 0px !important;
-    left: 135px !important;
-    position: absolute !important;
-    right: 0 !important;
-    top: 0 !important;    
-    background:transparent url(../images/form_bg.png) 0 0 repeat !important;
-    padding:40px !important;
+    bottom: 0px;
+    left: 135px;
+    position: absolute;
+    right: 0;
+    top: 0;    
+    background:transparent url(../images/form_bg.png) 0 0 repeat;
+    padding:40px;
 }
 
 ._bf_dashboard_actions
 {
-    text-shadow: 0px 2px 3px #171717 !important;
-    position:absolute !important;
-    left:0px !important;
-    top:1px !important;
-    bottom:-40px !important;
-    width:137px !important;
-    list-style:none !important;
-    padding:0px !important;
-    margin:0px !important;
-    border: none !important;
-    -moz-box-shadow: 0px 0px 8px #232323 !important;
-    -webkit-box-shadow: 0px 0px 8px #232323 !important;
-    box-shadow: 0px 0px 8px #232323 !important;
-    z-index:10 !important;
-    background: url("../images/dashbg.png") 0 0 #454545 repeat !important;
-    border-bottom-left-radius: 10px !important;
+    text-shadow: 0px 2px 3px #171717;
+    position:absolute;
+    left:0px;
+    top:1px;
+    bottom:-40px;
+    width:137px;
+    list-style:none;
+    padding:0px;
+    margin:0px;
+    border: none;
+    -moz-box-shadow: 0px 0px 8px #232323;
+    -webkit-box-shadow: 0px 0px 8px #232323;
+    box-shadow: 0px 0px 8px #232323;
+    z-index:10;
+    background: url("../images/dashbg.png") 0 0 #454545 repeat;
+    border-bottom-left-radius: 10px;
 }
 
 ._bf_dashboard_actions .last 
 {
-    border-bottom-left-radius: 10px !important;
+    border-bottom-left-radius: 10px;
 }
 
 ._bf_dashboard_action
 {
-    font:normal 12px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;    
-    text-shadow: 1px 1px 1px #171717 !important;
-    padding:10px 10px 10px 18px !important;
-    background:transparent !important;
-    cursor:pointer !important;
-    border-bottom: 1px solid #343434 !important;
-    border-top: 1px solid #444444 !important;
-    height:28.5px !important;
-    line-height:28px !important;
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color: #999;    
+    text-shadow: 1px 1px 1px #171717;
+    padding:10px 10px 10px 18px;
+    background:transparent;
+    cursor:pointer;
+    border-bottom: 1px solid #343434;
+    border-top: 1px solid #444444;
+    height:28.5px;
+    line-height:28px;
 }
 
 ._bf_dashboard_action:hover,
 ._bf_dashboard_action.active_action
 {
-    background:#373737 !important;
-    color:#fff !important;
-    border-top:1px solid transparent !important;
-    text-shadow: 0px 2px 3px #171717 !important;
-     -moz-box-shadow: 0px 0px 8px #232323 inset !important;
-     -webkit-box-shadow: 0px 0px 8px #232323 inset !important;
-     box-shadow: 0px 0px 8px #232323 inset !important;
+    background:#373737;
+    color:#fff;
+    border-top:1px solid transparent;
+    text-shadow: 0px 2px 3px #171717;
+     -moz-box-shadow: 0px 0px 8px #232323 inset;
+     -webkit-box-shadow: 0px 0px 8px #232323 inset;
+     box-shadow: 0px 0px 8px #232323 inset;
 }
 
 ._bf_dashboard_action.active_action
 {
-    background: url("../images/dash-button-tip.png") right center #373737 no-repeat !important;    
+    background: url("../images/dash-button-tip.png") right center #373737 no-repeat;    
 }
 
 ._bf_changeemail_text
 {
-    float:left !important;
-    clear:both !important;
-    width:280px !important;
-    margin-top:30px !important;
-    font:normal 12px Helvetica, Arial, sans-serif !important;
-    color:#999 !important;
+    float:left;
+    clear:both;
+    width:280px;
+    margin-top:30px;
+    font:normal 12px Helvetica, Arial, sans-serif;
+    color:#999;
 }
 
 ._bf_dashboard_avatar
 {
-    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 1) !important;
-    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 1) !important;
-    box-shadow:         1px 1px 3px rgba(0, 0, 0, 1) !important;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 1);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 1);
     
-    -moz-border-radius: 5px !important;
-    -webkit-border-radius: 5px !important;
-    border-radius: 5px !important;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     
-    background:#ccc !important;
+    background:#ccc;
     
-    position:absolute !important;
-    top:95px !important;
-    left:163px !important;
+    position:absolute;
+    top:95px;
+    left:163px;
 }
 
 ._bf_newavatar_holder
 {
-    position:absolute !important;
-    top:208px !important;
-    left:162px !important;
+    position:absolute;
+    top:208px;
+    left:162px;
 }
 
 ._bf_newavatar_holder input
 {
-    position:absolute !important;
-    top:-1000px !important;
-    left:0px !important;
+    position:absolute;
+    top:-1000px;
+    left:0px;
 }
 
 ._bf_newavatar_holder object
 {
-    position:absolute !important;
-    top:0px !important;
-    left:0px !important;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 
 ._bf_newfile_holder .uploadifyQueueItem 
 {
-    position:absolute !important;
-    top:50px !important;
-    left:0px !important;
-    font: 11px Helvetica, Arial, sans-serif !important;
-    width: 200px !important;
-    color: #888 !important;
-    text-shadow:none !important;
+    position:absolute;
+    top:50px;
+    left:0px;
+    font: 11px Helvetica, Arial, sans-serif;
+    width: 200px;
+    color: #888;
+    text-shadow:none;
 }
 ._bf_newfile_holder .uploadifyError 
 {
-    color: #cc0000 !important;
+    color: #cc0000;
     background: none !important;
     border: none !important;
 }
 ._bf_newfile_holder .uploadifyQueueItem .cancel 
 {
-    float: right !important;
+    float: right;
 }
 ._bf_newfile_holder .uploadifyQueue .completed 
 {
-    margin-top:10px !important;
+    margin-top:10px;
 }
 
 ._bf_newfile_holder .uploadifyProgress 
 {
-    background-color: #888 !important;
-    margin-top: 15px !important;
-    width: 100% !important;
+    background-color: #888;
+    margin-top: 15px;
+    width: 100%;
 }
 ._bf_newfile_holder .uploadifyProgressBar 
 {
-    background-color: #444 !important;
-    height: 10px !important;
-    width: 1px !important;
+    background-color: #444;
+    height: 10px;
+    width: 1px;
 }
 ._bf_newfile_holder .uploadifyQueueItem .fileName
 {
     text-align:left !important;
-    float:left !important;
+    float:left;
 }
 
 ._bf_newfile_holder .uploadifyQueue
 {
-    left: -250px !important;
-    position: absolute !important;
-    top: 80px !important;
-    z-index: 10 !important;
+    left: -250px;
+    position: absolute;
+    top: 80px;
+    z-index: 10;
 }
 
 ._bf_newfile_holder .uploadifyQueueItem
 {
-    width:200px !important;
+    width:200px;
 }
 
 ._bf_newfile_holder .uploadifyQueueItem .fileName
 {
-    position:absolute !important;
-    top:50px !important;
-    left:0px !important;
+    position:absolute;
+    top:50px;
+    left:0px;
 }
 
 /*
@@ -818,7 +818,7 @@ POST REVIEW
 */
 ._bf_review_form ._bf_input
 {
-    width:350px !important;
+    width:350px;
 }
 
 ._bf_review_tags
@@ -828,104 +828,104 @@ POST REVIEW
 
 ._bf_multi_tags
 {
-    position:absolute !important;
-    left:284px !important;
-    top:224px !important;
-    list-style:none !important;
+    position:absolute;
+    left:284px;
+    top:224px;
+    list-style:none;
 }
 
 ._bf_multiselect_holder
 {
-    position: absolute !important;
-    right:-30px !important;
-    top:-218px !important;
-    width:auto !important;
-    width: 300px !important;
-    height:342px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    background:#454545 url(../images/dashbg.png) 0 0 repeat !important;
-    border:5px solid #666 !important;
-    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8) !important;
-    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8) !important;
-    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8) !important;
-    -webkit-border-radius: 5px !important;
-    -moz-border-radius: 5px !important;
-    border-radius: 5px !important;
-    z-index:1 !important;
+    position: absolute;
+    right:-30px;
+    top:-218px;
+    width:auto;
+    width: 300px;
+    height:342px;
+    margin: 0px;
+    padding: 0px;
+    background:#454545 url(../images/dashbg.png) 0 0 repeat;
+    border:5px solid #666;
+    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    z-index:1;
 }
 
 ._bf_multiselect_items_holder
 {
-    overflow:auto !important;
-    position: absolute !important;
-    top:52px !important;
-    left:0px !important;
-    right:0px !important;
-    bottom:50px !important;
+    overflow:auto;
+    position: absolute;
+    top:52px;
+    left:0px;
+    right:0px;
+    bottom:50px;
 }
 
 ._bf_multiselect_items
 {
-    list-style:none !important;
-    margin:0px 0px 0px 0px !important;
-    padding:0px !important;
+    list-style:none;
+    margin:0px 0px 0px 0px;
+    padding:0px;
 }
 
 ._bf_multiselect_item
 {
-    margin:0px 0px 0px 0px !important;
-    padding:3px 7px 3px 7px !important;
-    font: normal 12px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;
-    background:transparent !important;
+    margin:0px 0px 0px 0px;
+    padding:3px 7px 3px 7px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
+    background:transparent;
 }
 
 ._bf_multiselect_item:hover
 {
-    background: #2B2E31 !important;
-    color:#eee !important;
+    background: #2B2E31;
+    color:#eee;
 }
 
 ._bf_multiselect_item_label
 {
-    margin:0px 0px 0px 0px !important;
-    padding:0px 0px 0px 0px !important;
-    position: relative !important;
-    left:10px !important;
-    top:-2px !important;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    position: relative;
+    left:10px;
+    top:-2px;
 }
 
 ._bf_multiselect_item_new
 {
-    position:fixed !important;
-    margin:0px 0px 0px 0px !important;
-    padding-top:10px !important;
-    padding-left:10px !important;
-    z-index:1 !important;
-    width:289px !important;
-    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8) !important;
-    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8) !important;
-    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8) !important;
+    position:fixed;
+    margin:0px 0px 0px 0px;
+    padding-top:10px;
+    padding-left:10px;
+    z-index:1;
+    width:289px;
+    -webkit-box-shadow: 0px 2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px 2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px 2px 7px rgba(20, 20, 20, 0.8);
 }
 
 ._bf_input_newtag_done
 {
-    position:absolute !important;
-    bottom: 0px !important;
-    left: 0px !important;
-    right:0px !important;
-    height:50px !important;
-    -webkit-box-shadow: 0px -2px 7px rgba(20, 20, 20, 0.8) !important;
-    -moz-box-shadow:    0px -2px 7px rgba(20, 20, 20, 0.8) !important;
-    box-shadow:         0px -2px 7px rgba(20, 20, 20, 0.8) !important;
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    right:0px;
+    height:50px;
+    -webkit-box-shadow: 0px -2px 7px rgba(20, 20, 20, 0.8);
+    -moz-box-shadow:    0px -2px 7px rgba(20, 20, 20, 0.8);
+    box-shadow:         0px -2px 7px rgba(20, 20, 20, 0.8);
 }
 
 ._bf_input_newtag_done_button
 {
-    position:absolute !important;
-    bottom: 7px !important;
-    left: 10px !important;
+    position:absolute;
+    bottom: 7px;
+    left: 10px;
 }
 
 ._bf_input_newtag
@@ -939,117 +939,117 @@ POST REVIEW
 
 ._bf_input_newtag_add
 {
-    position: absolute !important;
-    right: -68px !important;
-    top: -11px !important;
+    position: absolute;
+    right: -68px;
+    top: -11px;
     width: 56px !important;
 }
 
 ._bf_review_rating_set
 {
-    left: 20px !important;
-    position: absolute !important;
-    top: 301px !important;}
+    left: 20px;
+    position: absolute;
+    top: 301px;}
 
 ._bf_rater_prompt
 {
-    position:absolute !important;
-    bottom:23px !important;
-    font: normal 12px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;
+    position:absolute;
+    bottom:23px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #999;
 }
 
 ._bf_newfile_holder
 {
-    position:absolute !important;
-    top:5px !important;
-    left:14px !important;
+    position:absolute;
+    top:5px;
+    left:14px;
 }
 
 ._bf_newfile_holder input
 {
-    position:absolute !important;
-    top:-1000px !important;
-    left:0px !important;
+    position:absolute;
+    top:-1000px;
+    left:0px;
 }
 
 ._bf_newfile_holder object
 {
-    position:absolute !important;
-    top:0px !important;
-    left:0px !important;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 
 ._bf_review_file_thumb
 {
-    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2) !important;
-    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2) !important;
-    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2) !important;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2);
 
-    -moz-border-radius: 20px !important;
-    -webkit-border-radius: 20px !important;
-    border-radius: 20px !important;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
     
-    border:2px solid #fff !important;
+    border:2px solid #fff;
 
-    float:left !important;
-    margin:10px 4px 0px 2px !important;
-    cursor:pointer !important;
+    float:left;
+    margin:10px 4px 0px 2px;
+    cursor:pointer;
 }
 
 ._bf_review_file_thumb_actions
 {
-    position:absolute !important;
-    bottom:12px !important;
-    left:230px !important;
-    list-style: none !important;
-    margin:0px !important;
-    padding:0px !important;
+    position:absolute;
+    bottom:12px;
+    left:230px;
+    list-style: none;
+    margin:0px;
+    padding:0px;
 }
 
 ._bf_review_file_thumb_action
 {
-    font: normal 15px Helvetica, Arial, sans-serif !important;
-    color: #aaa !important;
-    cursor:pointer !important;
-    display:inline !important;
-    float:left !important;
-    margin:0px 10px 0px 10px !important;
-    padding:0px !important;
+    font: normal 15px Helvetica, Arial, sans-serif;
+    color: #aaa;
+    cursor:pointer;
+    display:inline;
+    float:left;
+    margin:0px 10px 0px 10px;
+    padding:0px;
 }
 
 ._bf_review_file_thumb_action:hover
 {
-    color:#fff !important;
+    color:#fff;
 }
 
 ._bf_review_filestack
 {
-    position:absolute !important;
-    top:65px !important;
-    left:14px !important;
-    width:120px !important;
-    font: normal 11px Helvetica, Arial, sans-serif !important;
-    color: #999 !important;
-    word-wrap: break-word !important;
+    position:absolute;
+    top:65px;
+    left:14px;
+    width:120px;
+    font: normal 11px Helvetica, Arial, sans-serif;
+    color: #999;
+    word-wrap: break-word;
 }
 
 ._bf_review_img_preview
 {
-    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2) !important;
-    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2) !important;
-    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2) !important;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 2);
+    -moz-box-shadow:    1px 1px 3px rgba(0, 0, 0, 2);
+    box-shadow:         1px 1px 3px rgba(0, 0, 0, 2);
 
-    border:2px solid #aaa !important;
-    -moz-border-radius: 5px !important;
-    -webkit-border-radius: 5px !important;
-    border-radius: 5px !important;
+    border:2px solid #aaa;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     
-    margin: 0px auto 0px auto !important;
-    position: relative !important;
-    max-width:70% !important;
-    max-height:70% !important;
-    cursor: default !important;
+    margin: 0px auto 0px auto;
+    position: relative;
+    max-width:70%;
+    max-height:70%;
+    cursor: default;
 }
 
 /*
@@ -1064,7 +1064,7 @@ POST DISCUSSION, COMMENT FORM
 ._bf_discuss_form ._bf_input,
 ._bf_comment_form ._bf_input
 {
-    width:482px !important;
+    width:482px;
 }
 
 /*
@@ -1073,12 +1073,12 @@ Dashboard Show Reviews etc
 ._bf_empty_dashboard
 {
     bottom: 0px !important;
-    color: #888888 !important;
-    font: 12px arial !important;
+    color: #888888;
+    font: 12px arial;
     left: 137px !important;
     padding: 100px 20px 20px !important;
-    text-align: center !important;
-    text-shadow: 1px 1px 1px #FFFFFF !important;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
     top: 2px !important;
     width: 423px !important;
 }
@@ -1088,17 +1088,17 @@ Dashboard Show Reviews etc
 ._bf_usercomments,
 ._bf_userwatches
 {
-    background: url("../images/lightbg.png") 0 0 #F7F7F7 repeat !important;
-    bottom: 0px !important;
-    overflow: auto !important;
-    overflow-x: hidden !important;
-    padding: 0 !important;
-    margin:0px !important;
-    position: absolute !important;
-    right: 0 !important;
-    top: 0px !important;
-    width: 463px !important;
-    list-style:none !important;
+    background: url("../images/lightbg.png") 0 0 #F7F7F7 repeat;
+    bottom: 0px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin:0px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 463px;
+    list-style:none;
 }
 
 ._bf_userreviews_item,
@@ -1106,17 +1106,17 @@ Dashboard Show Reviews etc
 ._bf_usercomments_item,
 ._bf_userwatches_item
 {
-    padding:5px 20px 10px 0px !important;
-    margin:0px 0px 0px 0px !important;
-    font: normal 12px Helvetica, Arial, sans-serif !important;
-    color: #888 !important;
-    text-shadow:1px 1px 1px #fff !important;
-    border-top: 1px solid #F9F9F9 !important;
-    border-bottom:1px solid #CDCDCD !important;
-    float:left !important;
-    position: relative !important;
-    clear: both !important;
-    width:443px !important;
+    padding:5px 20px 10px 0px;
+    margin:0px 0px 0px 0px;
+    font: normal 12px Helvetica, Arial, sans-serif;
+    color: #888;
+    text-shadow:1px 1px 1px #fff;
+    border-top: 1px solid #F9F9F9;
+    border-bottom:1px solid #CDCDCD;
+    float:left;
+    position: relative;
+    clear: both;
+    width:443px;
 }
 
 ._bf_userreviews_item:hover,
@@ -1124,9 +1124,9 @@ Dashboard Show Reviews etc
 ._bf_usercomments_item:hover,
 ._bf_userwatches_item:hover
 {
-    border-top: 1px solid #eee !important;
-    border-bottom: 1px solid #eee !important;
-    background-color:#E8E8E8 !important;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-color:#E8E8E8;
 }
 
 ._bf_userreviews_item_title,
@@ -1134,16 +1134,16 @@ Dashboard Show Reviews etc
 ._bf_usercomments_content,
 ._bf_userwatches_content
 {
-    font: bold 12px Helvetica, Arial, sans-serif !important;
-    color: #555 !important;
-    padding:5px 0px 5px 30px !important;
-    margin:0px 0px 0px 0px !important;
-    font-size:14px !important;
-    float:left !important;
-    clear: both !important;
-    text-decoration: none !important;
-    background: transparent url(../images/form-sprite.png) no-repeat !important;
-    background-position: 5px -136px !important;
+    font: bold 12px Helvetica, Arial, sans-serif;
+    color: #555;
+    padding:5px 0px 5px 30px;
+    margin:0px 0px 0px 0px;
+    font-size:14px;
+    float:left;
+    clear: both;
+    text-decoration: none;
+    background: transparent url(../images/form-sprite.png) no-repeat;
+    background-position: 5px -136px;
 }
 
 ._bf_userwatches_content
@@ -1153,32 +1153,32 @@ Dashboard Show Reviews etc
 
 ._bf_userwatches_control
 {
-    color: #888888 !important;
-    cursor: pointer !important;
-    font-size: 10px !important;
-    font-weight: normal !important;
-    position: absolute !important;
-    right: 20px !important;
-    top: 10px !important;
+    color: #888888;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: normal;
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 
 ._bf_userwatches_type,
 ._bf_userwatches_url
 {
-    color: #888888 !important;
-    font-size: 11px !important;
-    font-weight: normal !important;
+    color: #888888;
+    font-size: 11px;
+    font-weight: normal;
     margin:5px 0px 0px 0px !important;
 }
 
 ._bf_userwatches_control:hover
 {
-    color:#444 !important;
+    color:#444;
 }
 
 ._bf_userreviews_item_synopsis
 {
-    margin-left: 30px !important;
+    margin-left: 30px;
 }
 
 ._bf_userwatches_content
@@ -1204,44 +1204,44 @@ Dashboard Show Reviews etc
 ._bf_userreviews_item_title:hover,
 ._bf_userdiscussions_item_title:hover
 {
-    color: #333 !important;
+    color: #333;
 }
 
 ._bf_userreviews_item_synopsis,
 ._bf_userdiscussions_item_synopsis,
 ._bf_usercomments_content
 {
-    font-size:11px !important;
-    float:left !important;
-    clear: both !important;
+    font-size:11px;
+    float:left;
+    clear: both;
 }
 
 ._bf_userreviews_item_posted,
 ._bf_userdiscussions_item_posted,
 ._bf_usercomments_posted
 {
-    padding:5px 0px 5px 0px !important;
-    margin:0px 0px 0px 30px !important;
-    font-size:10px !important;
-    float:left !important;
-    clear: both !important;
+    padding:5px 0px 5px 0px;
+    margin:0px 0px 0px 30px;
+    font-size:10px;
+    float:left;
+    clear: both;
 }
 
 ._bf_powered_by
 {
-    color: #BCBCBC !important;
-    font: 10px arial !important;
-    position: relative !important;
-    right: 10px !important;
-    text-align: right !important;
-    top: 40px !important;
+    color: #BCBCBC;
+    font: 10px arial;
+    position: relative;
+    right: 10px;
+    text-align: right;
+    top: 40px;
 }
 ._bf_powered_by a
 {
-    color:#bbb !important;
+    color:#bbb;
 }
 ._bf_powered_by a:hover
 {
-    color:#999 !important;
+    color:#999;
 }
 
