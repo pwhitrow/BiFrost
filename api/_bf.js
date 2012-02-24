@@ -499,12 +499,12 @@ function _bf_go()
                         if(typeof BiFrost.position == 'undefined')
                         {
                             console.log("TEST")
-    //                        $('._bf_me').css(
-    //                        {
-    //                            'right': '-' + (_bf.state_width_default + 5) + 'px',
-    //                            'top': '0px'
-    //                        })
-    //                        .appendTo($('._bf_item'+widget+'_header'));
+                            $('._bf_me').css(
+                            {
+                                'right': '-' + (_bf.state_width_default + 5) + 'px',
+                                'top': '0px'
+                            })
+                            .appendTo($('._bf_item'+widget+'_header'));
                         }
                     }
                 }
@@ -516,12 +516,12 @@ function _bf_go()
 
                         if(typeof BiFrost.position == 'undefined')
                         {
-    //                        $('._bf_me').css(
-    //                        {
-    //                            'right': '0px',
-    //                            'top': '165px'
-    //                        })
-    //                        .prependTo($('._bf_widgets_holder'));
+                            $('._bf_me').css(
+                            {
+                                'right': '0px',
+                                'top': '165px'
+                            })
+                            .prependTo($('._bf_widgets_holder'));
                         }
                     }
                 }                                    
