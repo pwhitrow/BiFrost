@@ -463,7 +463,7 @@ FORM LINKS
 ._bf_form_links
 {
     position:absolute;
-    list-style: none;
+    list-style: none !important;
     margin: 0;
     padding: 0;
     left:160px;
@@ -473,6 +473,7 @@ FORM LINKS
 {
     background:transparent url(../images/arrow.png) 0px 3px no-repeat;
     padding-left:10px;
+    list-style:none !important;
 }
 
 ._bf_login_links
