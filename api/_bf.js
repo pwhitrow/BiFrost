@@ -496,12 +496,12 @@ function _bf_go()
                     
                     if(typeof BiFrost.position == 'undefined')
                     {
-                        $('._bf_me').css(
-                        {
-                            'right': '-' + (_bf.state_width_default + 5) + 'px',
-                            'top': '0px'
-                        })
-                        .appendTo($('._bf_item'+widget+'_header'));
+//                        $('._bf_me').css(
+//                        {
+//                            'right': '-' + (_bf.state_width_default + 5) + 'px',
+//                            'top': '0px'
+//                        })
+//                        .appendTo($('._bf_item'+widget+'_header'));
                     }
                 }
                 else
