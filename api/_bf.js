@@ -482,7 +482,7 @@ function _bf_go()
             
             sticky: function(widget)
             {
-                var window_top = $(window).scrollTop() +1;
+                var window_top = $(window).scrollTop();
                 
                 var target = $('._bf_item'+widget);
                 
