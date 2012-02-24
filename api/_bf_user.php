@@ -215,7 +215,7 @@ function login($email, $password)
 
     if(userExists($email))
     {
-        $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".md5($password)."'");
+        $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".$password."'");
         
         if(mysql_num_rows($sql) > 0)
         {
