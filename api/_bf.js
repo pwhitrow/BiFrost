@@ -496,6 +496,7 @@ function _bf_go()
                     
                     if(typeof BiFrost.position == 'undefined')
                     {
+                        $('._bf_me').addClass('stick');
 //                        $('._bf_me').css(
 //                        {
 //                            'right': '-' + (_bf.state_width_default + 5) + 'px',
@@ -510,12 +511,13 @@ function _bf_go()
                     
                     if(typeof BiFrost.position == 'undefined')
                     {
-                        $('._bf_me').css(
-                        {
-                            'right': '0px',
-                            'top': '165px'
-                        })
-                        .prependTo($('._bf_widgets_holder'));
+                        $('._bf_me').removeClass('stick');
+//                        $('._bf_me').css(
+//                        {
+//                            'right': '0px',
+//                            'top': '165px'
+//                        })
+//                        .prependTo($('._bf_widgets_holder'));
                     }
                 }                                    
             },
