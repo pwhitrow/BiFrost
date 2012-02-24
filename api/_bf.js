@@ -1132,7 +1132,7 @@ function _bf_go()
 
                        if($(this).attr('type') == 'password')
                        {
-                           val = $.md5(val);
+                           //val = $.md5(val);
                        }
 
                        params[$(this).attr('name')] = val;
