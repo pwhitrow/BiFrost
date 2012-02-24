@@ -170,7 +170,7 @@ function _bf_go()
             state_actions: false,
             custom_css: false,
             ani_speed: 200,
-            msg_display_time: 300000000,
+            msg_display_time: 30000,
             content_character_limit: 300,
             current_widget: 'reviews',
             timer: 0,

@@ -83,6 +83,7 @@
     background:transparent url(../images/overlay.png) 0 0 repeat !important;
     display:none;
     z-index:1;
+    left:0px;
 }
 
 ._bf_state_overlay_msg
