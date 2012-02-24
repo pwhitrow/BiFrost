@@ -673,17 +673,17 @@ DASHBOARD
 
 ._bf_dashboard_action
 {
-    font:normal 12px Helvetica, Arial, sans-serif;
-    color: #999;    
+    font:normal 12px Helvetica, Arial, sans-serif !important;
+    color: #999 !important;    
     text-shadow: 1px 1px 1px #171717;
     padding:10px 10px 10px 18px !important;
     margin:0px !important;
-    background:transparent;
+    background:transparent !important;
     cursor:pointer;
     border-bottom: 1px solid #343434;
     border-top: 1px solid #444444;
-    height:28.5px;
-    line-height:28px;
+    height:28.5px !important;
+    line-height:28px !important;
 }
 
 ._bf_dashboard_action:hover,
