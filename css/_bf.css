@@ -472,7 +472,8 @@ FORM LINKS
 ._bf_form_links li
 {
     background:transparent url(../images/arrow.png) 0px 3px no-repeat;
-    padding-left:10px;
+    padding:0px 0px 0px 10px !important;
+    margin:0px !important;
     list-style:none !important;
 }
 
