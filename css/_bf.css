@@ -1093,8 +1093,8 @@ Dashboard Show Reviews etc
     bottom: 0px;
     overflow: auto;
     overflow-x: hidden;
-    padding: 0;
-    margin:0px;
+    padding:0px !important;
+    margin:0px !important;
     position: absolute;
     right: 0;
     top: 0px;
