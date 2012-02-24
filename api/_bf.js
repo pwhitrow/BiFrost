@@ -165,7 +165,7 @@ function _bf_go()
             bfme: false,
             state: false,
             state_panel: false,
-            state_width_default: 170,
+            state_width_default: 200,
             state_height_default: 42,
             state_actions: false,
             custom_css: false,
