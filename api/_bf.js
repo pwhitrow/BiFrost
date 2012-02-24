@@ -496,7 +496,10 @@ function _bf_go()
                     
                     if(typeof BiFrost.position == 'undefined')
                     {
-                        $('._bf_me').appendTo($('._bf_item'+widget+'_header'));
+                        if($('._bf_widgets_holder').find('._bf_me'))
+                        {
+                            $('._bf_me').appendTo($('._bf_item'+widget+'_header'));
+                        }
                     }
                 }
                 else
@@ -505,7 +508,10 @@ function _bf_go()
                     
                     if(typeof BiFrost.position == 'undefined')
                     {
-                        $('._bf_me').prependTo($('._bf_widgets_holder'));
+                        if($('._bf_item'+widget+'_header').find('._bf_me'))
+                        {
+                            $('._bf_me').prependTo($('._bf_widgets_holder'));
+                        }
                     }
                 }                                    
             },
