@@ -249,7 +249,7 @@
                         // http://code.google.com/p/swfobject/wiki/documentation
                         var flashvars = {
                             file: filename,
-                            image: _bf.host + 'images/video.png',
+                            image: _bf.host + 'images/' + _bf.vid_image,
                             skin: _bf.host + 'api/plugins/player/skins/glow.zip'
                         };
                         var params = {
@@ -264,7 +264,7 @@
                             javascriptid: '_bf_MediaPlayer'
                         };
                         
-                        swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", '100%', '100%', "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
+                        swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", box['newWidth'], box['newHeight'], "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
                         
                         $('._showbox_main').fadeIn(settings.speed);   
                         
