@@ -160,7 +160,7 @@ function _bf_go()
             vid_image: 'video.png',
             maxfilesize: 10485760, // 10MB,
             imagetypes: '*.jpeg;*.jpg;*.gif;*.png;',
-            videotypes: '*.flv;',
+            videotypes: '*.flv;*.mov;',
             filetypes: '',
             bfme: false,
             state: false,
