@@ -501,7 +501,8 @@ function _bf_go()
                             $('._bf_me').css(
                             {
                                 'right': '-' + (_bf.state_width_default + 5) + 'px',
-                                'top': '0px'
+                                'top': '0px',
+                                'left': 'auto'
                             })
                             .appendTo($('._bf_item'+widget+'_header'));
                         }
@@ -517,6 +518,7 @@ function _bf_go()
                         {
                             $('._bf_me').css(
                             {
+                                'right': 'auto',
                                 'left': '0px',
                                 'top': '165px'
                             })
