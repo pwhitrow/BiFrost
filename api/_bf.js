@@ -286,7 +286,7 @@ function _bf_go()
                             _bf.bfme.css(
                             {
                                 'position': 'absolute',
-                                'right': '0px',
+                                'left': '0px',
                                 'top': '165px',
                                 'z-index': '100'
                             })
