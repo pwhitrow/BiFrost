@@ -269,7 +269,7 @@
                         _bf_loadscript(_bf.host + 'api/plugins/showbox/flowplayer-3.2.6.min.js');
                         
 	flowplayer(
-		"player", 
+		"_showbox_player", 
 		_bf.host + "api/plugins/showbox/flowplayer-3.2.7.swf", 
 		filename
 	);
