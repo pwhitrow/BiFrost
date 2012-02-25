@@ -517,7 +517,7 @@ function _bf_go()
                         {
                             $('._bf_me').css(
                             {
-                                'right': '0px',
+                                'left': '0px',
                                 'top': '165px'
                             })
                             .prependTo($('._bf_widgets_holder'));
