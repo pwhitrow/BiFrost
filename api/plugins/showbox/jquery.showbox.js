@@ -112,8 +112,8 @@
                 .css(
                 {
                     'position': 'absolute',
-                    'top': '-20px',
-                    'right': '-20px',
+                    'top': '-30px',
+                    'right': '-30px',
                     'height': '42px',
                     'width': '40px',
                     'cursor': 'pointer',
