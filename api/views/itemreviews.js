@@ -249,12 +249,14 @@ var _bf_itemreviews = {
             _bf_itemreviews.itemqty--;
         });
         
-        $("a._bf_itemreviews_media_link").showBox(
-        {
-          'path': _bf.host,
-          'speed': _bf.ani_speed,
-          'default_img': _bf.host + 'images/' + _bf.no_image
-        });
+//        $("a._bf_itemreviews_media_link").showBox(
+//        {
+//          'path': _bf.host,
+//          'speed': _bf.ani_speed,
+//          'default_img': _bf.host + 'images/' + _bf.no_image
+//        });
+
+        $("a._bf_itemreviews_media_link").fancybox();
 
         $('.postdate').timeago();
 
