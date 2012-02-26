@@ -144,7 +144,7 @@ function _bf_begin()
 // loaded, let's go!
 function _bf_go()
 {
-    jQuery.noConflict();
+    $ = jQuery.noConflict();
 
     $(function()
     {
@@ -2009,7 +2009,7 @@ function _bf_go()
         // initialise BiFrost
         _bf.init();
 
-    })(jQuery);
+    });
     
 }
 
