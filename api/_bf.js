@@ -103,6 +103,7 @@ function _bf_loadScripts(callback)
         'api/plugins/socials/jquery.socials.js',
         'api/plugins/socials/jquery.socials.css',
         'api/plugins/showbox/jquery.showbox.js',
+        'api/plugins/showbox/flowplayer-3.2.6.min.js',
         'api/plugins/multiselect/jquery.multiselect.js',
         'api/plugins/uploadify/jquery.uploadify.v2.1.4.js',
         'api/plugins/player/jwplayer.js',

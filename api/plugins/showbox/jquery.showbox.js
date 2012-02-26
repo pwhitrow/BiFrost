@@ -238,38 +238,48 @@
                         })
                         .each(function()
                         {
-                            $('<div />').attr(
+                            $('<a />').attr(
                             {
                                 'id': '_showbox_player',
-                                'class': '_showbox_player'
+                                'class': '_showbox_player',
+                                'href': filename
                             })
-                            .appendTo($(this));
+                            .css(
+                            {
+                                'height': box['newHeight'] + 'px',
+                                'width': box['newWidth'] + 'px'
+                            })
+                            .appendTo($(this))
+                            .each(function()
+                            {
+                                flowplayer("_showbox_player", _bf.host + "api/plugins/showbox/flowplayer-3.2.7.swf");
+
+                                $('._showbox_main').fadeIn(settings.speed);   
+
+                                add_close();
+                        
+                            });
                         });
 
                         // http://code.google.com/p/swfobject/wiki/documentation
-                        var flashvars = {
-                            file: filename,
-                            image: _bf.host + 'images/' + _bf.vid_image,
-                            skin: _bf.host + 'api/plugins/player/skins/glow.zip'
-                        };
-                        var params = {
-                            quality: 'best',
-                            play: true,
-                            allowfullscreen: true,
-                            allownetworking: 'all',
-                            allowscriptaccess: 'always'
-                        };
-                        var attributes = {
-                            enablejs: true,
-                            javascriptid: '_bf_MediaPlayer'
-                        };
-                        
-                        swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", box['newWidth'], box['newHeight'], "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
-                        
-                        $('._showbox_main').fadeIn(settings.speed);   
-                        
-                        add_close();
-                        
+//                        var flashvars = {
+//                            file: filename,
+//                            image: _bf.host + 'images/' + _bf.vid_image,
+//                            skin: _bf.host + 'api/plugins/player/skins/glow.zip'
+//                        };
+//                        var params = {
+//                            quality: 'best',
+//                            play: true,
+//                            allowfullscreen: true,
+//                            allownetworking: 'all',
+//                            allowscriptaccess: 'always'
+//                        };
+//                        var attributes = {
+//                            enablejs: true,
+//                            javascriptid: '_bf_MediaPlayer'
+//                        };
+//                        
+//                        swfobject.embedSWF(_bf.host + 'api/plugins/player/player.swf', "_showbox_player", box['newWidth'], box['newHeight'], "9.0.0", _bf.host + 'api/plugins/player/expressInstall.swf', flashvars, params, attributes);
                     }
                 });
             });
