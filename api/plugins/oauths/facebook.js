@@ -130,7 +130,7 @@ var fb_lib = {
         else
         {
             //FB.login();
-            window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri=http://bifrostplatform.co.uk&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=400,wdth=500")
+            window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri=http://bifrostplatform.co.uk&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=500,width=500")
         }
     },
     
