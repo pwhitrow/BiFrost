@@ -43,6 +43,13 @@ if(!$('._bf_' + formname + '_form').length)
             })
             .html(_bf.t('Change Pic'))
             .appendTo(form);
+            
+            $('<div />').attr(
+            {
+                'class': '_bf_newavatar_text'
+            })
+            .html(_bf.t('Note: Whenever you use Facebook to login, your avatar will be reset to match your Facebook avatar.'))
+            .appendTo(form);
 
             // create the inputs
             var newav = $('<input />').attr(
