@@ -7,14 +7,6 @@
 
 window.fbAsyncInit = function() 
 {
-   if(window.location.search.indexOf('closeFBwindow') >= 0)
-   {
-       window.opener.location.reload();
-       self.close();
-   }
-        
-
-
     FB.init(
     {
         appId: '221447911281191', 
@@ -141,7 +133,7 @@ console.log(response)
         else
         {
             //FB.login();
-            fb_lib.FBwin = window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri=http://bifrostplatform.co.uk?closeFBwindow=true&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=500,width=900");
+            fb_lib.FBwin = window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri="+_bf.host+"api/plugins/oauths/fbloggedin.html?closeFBwindow=true&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=500,width=950");
         }
     },
     

@@ -1,0 +1,23 @@
+<!--
+  Document   : fbloggedin
+  Created on : 27-Feb-2012, 23:21:19
+  Author     : Paul Whitrow
+  Description: Return page from Facebook login. Reload the parent and close this window
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Facebook Login complete</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+           if(window.location.search.indexOf('closeFBwindow') >= 0)
+           {
+               window.opener.location.reload();
+               self.close();
+           }           
+        </script>
+    </head>
+    <body>
+        <h2>Facebook Login complete...</h2>
+    </body>
+</html>
