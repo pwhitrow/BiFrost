@@ -57,16 +57,16 @@ function verifyUser()
     {
         // remove the one time verify record
         $sql = "DELETE FROM ".TABLEPRENAME."tempusers WHERE user_id = '".$_POST["token"]."'";        
-        //mysql_query($sql);
+        mysql_query($sql);
         
         // update the user verification flag
         $sql = "UPDATE ".TABLEPRENAME."users SET verified = 1 WHERE user_id = '".$_POST["token"]."'";
         mysql_query($sql);
         
         // grab the user data
-        $sql = "SELECT * FROM ".TABLEPRENAME."users user_id = '".$_POST["token"]."'";
+        $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$_POST["token"]."'";
         $result = mysql_fetch_array(mysql_query($sql));
-        echo($sql);
+
         login($result["email"], md5($result["password"]));
         
         //setSuccessMsg(t('Registration verified!'));
