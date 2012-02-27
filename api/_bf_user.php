@@ -113,35 +113,27 @@ function FBlogin()
 
 function FBlogin2()
 {
-    $org = getOrgDetails($_POST["api_key"]);
     $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'";
+    echo $sql;
     $sql = mysql_query();
     $user = mysql_fetch_array($sql);
 
-    if($user['verified'])
+    if($user['enabled'])
     {
-        if($user['enabled'])
-        {
-            $sql = "UPDATE ".TABLEPRENAME."users SET email = '".$_POST['email']."', avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
-            setSuccessMsg(t('Facebook Connected'));
-            $_SESSION['state'] = true;
-            mysql_query($sql);
-            loadUserSession($user);           
-        }
-        else
-        {
-            logout();
-            setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
-            return false;                    
-        }
+        $org = getOrgDetails($_POST["api_key"]);
+        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
+        setSuccessMsg(t('Facebook Connected'));
+        $_SESSION['state'] = true;
+        mysql_query($sql);
+        loadUserSession($user);           
     }
     else
     {
         logout();
-        setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
-        return false;
+        setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
+        return false;                    
     }
-}
+ }
 
 function FBuserExists()
 {
@@ -237,14 +229,14 @@ function login($email, $password)
                 else
                 {
                     logout();
-                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
                     return false;                    
                 }
             }
             else
             {
                 logout();
-                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
                 return false;
             }
             
@@ -252,14 +244,14 @@ function login($email, $password)
         else
         {
            logout();
-           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
            return false;
         }
     }
     else
     {
         logout();
-        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
         return false;
     }
 }
@@ -321,14 +313,14 @@ function forgottenPassword()
                 else
                 {
                     logout();
-                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator') . $org['admin_email']);
+                    setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
                     return false;                    
                 }
             }
             else
             {
                 logout();
-                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+                setErrorMsg(t('Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
                 return false;
             }
             
@@ -336,14 +328,14 @@ function forgottenPassword()
         else
         {
            logout();
-           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+           setErrorMsg(t('Login Failed!') . '<br /><br />' . t('Email or password incorrect.') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
            return false;
         }
     }
     else
     {
         logout();
-        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('Please contact the administrator ') . $org['admin_email']);
         return false;
     }
     
