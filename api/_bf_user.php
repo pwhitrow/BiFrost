@@ -96,7 +96,7 @@ function FBlogin()
         // just a rubbish password as we are a virgin FB login
         $_POST['password'] = md5($_POST['fname'].time());
 
-        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified, lastlogin) VALUES(UNIX_".$_POST['uid'].", '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1, NOW())";
+        $sql = "INSERT INTO ".TABLEPRENAME."users (user_id, email, password, gname, fname, avatar, joined, fb_id, verified, lastlogin) VALUES(".$_POST['uid'].", '".$_POST['email']."', '".$_POST['password']."', '".$_POST['gname']."', '".$_POST['fname']."', '".$_POST['avatar']."', NOW(), '".$_POST['uid']."', 1, NOW())";
       
         if(mysql_query($sql))
         {
