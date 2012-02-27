@@ -119,7 +119,7 @@ function FBlogin2()
     if($user['enabled'] == 1)
     {
         $org = getOrgDetails($_POST["api_key"]);
-        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
+        $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE email = '".$_POST['email']."'";
         setSuccessMsg(t('Facebook Connected'));
         $_SESSION['state'] = true;
         mysql_query($sql);
