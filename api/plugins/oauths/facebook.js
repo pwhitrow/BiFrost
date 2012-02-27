@@ -7,6 +7,10 @@
 
 window.fbAsyncInit = function() 
 {
+        alert(window.location.search)
+        
+
+
     FB.init(
     {
         appId: '221447911281191', 
@@ -64,8 +68,6 @@ var fb_lib = {
     
     loginToApp: function()
     {
-        alert(window.location.search)
-        
         _bf.showStateOverlay(_bf.t('Please wait') + '...', 99999);
         
         _bf.hideSocialAuthenticators();
@@ -77,7 +79,7 @@ var fb_lib = {
         },
             function(response) 
             {
-                console.log(response)
+console.log(response)
                 var response = response[0];
                 
                 var params = 
