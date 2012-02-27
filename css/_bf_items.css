@@ -264,6 +264,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
     text-shadow:1px 1px 1px #fff !important;
     font-family: arial !important;
     width:auto !important;
+    background:none !important;
 }
 
 ._bf_reviews_control,
