@@ -114,7 +114,6 @@ function FBlogin()
 function FBlogin2()
 {
     $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'";
-    echo $sql;
     $sql = mysql_query();
     $user = mysql_fetch_array($sql);
 
@@ -123,6 +122,7 @@ function FBlogin2()
         $org = getOrgDetails($_POST["api_key"]);
         $sql = "UPDATE ".TABLEPRENAME."users SET avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
         setSuccessMsg(t('Facebook Connected'));
+        echo $sql;
         $_SESSION['state'] = true;
         mysql_query($sql);
         loadUserSession($user);           
