@@ -67,6 +67,8 @@ function verifyUser()
         $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE user_id = '".$_POST["token"]."'";
         $result = mysql_fetch_array(mysql_query($sql));
 
+        setResponse('action', 'login');
+        
         login($result["email"], $result["password"]);
         
         //setSuccessMsg(t('Registration verified!'));
