@@ -1083,7 +1083,8 @@ Dashboard Show Reviews etc
     text-align: center;
     text-shadow: 1px 1px 1px #FFFFFF;
     top: 2px !important;
-    width: 423px !important;
+    width: 463px !important;
+    line-height:300px;
 }
 
 ._bf_userreviews,
