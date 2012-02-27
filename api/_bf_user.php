@@ -69,7 +69,7 @@ function verifyUser()
         
         login($result["email"], md5($result["password"]));
         
-        setSuccessMsg(t('Registration verified!'));
+        //setSuccessMsg(t('Registration verified!'));
 
     }
     else
@@ -215,6 +215,8 @@ function loadUserSession($user)
 
 function login($email, $password)
 {
+    echo $email . " : " . $password;
+    
     global $defaultAvatar;
     
     $org = getOrgDetails($_POST["api_key"]);
