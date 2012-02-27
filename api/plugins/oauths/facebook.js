@@ -38,7 +38,8 @@ var fb_lib = {
     
     init: function()
     {
-        _bf_loadscript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
+        
+        _bf_loadscript('//connect.facebook.net/en_US/all.js');
 
         if(!$('.fb-root').length)
         {
@@ -48,7 +49,7 @@ var fb_lib = {
             {
                 'class': '_bf_login_fb'
             })
-            .html('<fb:login-button autologoutlink="true" scope="email,user_birthday,status_update,publish_stream"></fb:login-button>' + _bf.t('Login'))
+            .html('<fb:login-button autologoutlink="true" scope="email,publish_stream"></fb:login-button>' + _bf.t('Login'))
             .hide()
             .appendTo($('._bf_state'))
             .click(function()
