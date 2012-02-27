@@ -114,8 +114,9 @@ function FBlogin()
 function FBlogin2()
 {
     $org = getOrgDetails($_POST["api_key"]);
-    $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'");
+    $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'";
 echo $sql;
+    $sql = mysql_query();
     $user = mysql_fetch_array($sql);
 
     if($user['verified'])
