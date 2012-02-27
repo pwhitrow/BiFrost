@@ -56,7 +56,7 @@ if(!$('._bf_' + formname + '_form').length)
             {
                 'class': '_bf_changeemail_text'
             })
-            .html(_bf.t('Please note: If you change your email address you will need you use this new one to login.'))
+            .html(_bf.t('Please note: If you change your email address you will need you use this new one to login. This change may also affect your Social Account logins'))
             .appendTo(form)
             
             $('._bf_dashboard')
