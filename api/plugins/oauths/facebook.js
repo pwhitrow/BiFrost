@@ -64,6 +64,8 @@ var fb_lib = {
     
     loginToApp: function()
     {
+        alert(window.location.search)
+        
         _bf.showStateOverlay(_bf.t('Please wait') + '...', 99999);
         
         _bf.hideSocialAuthenticators();
