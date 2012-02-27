@@ -114,9 +114,8 @@ function FBlogin()
 function FBlogin2()
 {
     $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE email='".$_POST['email']."'";
-    $sql = mysql_query();
-    $user = mysql_fetch_array($sql);
-    var_dump($user);
+    $user = mysql_fetch_array(mysql_query($sql));
+
     if($user['enabled'] == 1)
     {
         $org = getOrgDetails($_POST["api_key"]);
