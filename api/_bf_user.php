@@ -57,7 +57,7 @@ function verifyUser()
     {
         // remove the one time verify record
         $sql = "DELETE FROM ".TABLEPRENAME."tempusers WHERE user_id = '".$_POST["token"]."'";        
-        mysql_query($sql);
+//        mysql_query($sql);
         
         // update the user verification flag
         $sql = "UPDATE ".TABLEPRENAME."users SET verified = 1 WHERE user_id = '".$_POST["token"]."'";
@@ -221,7 +221,9 @@ function login($email, $password)
 
     if(userExists($email))
     {
-        $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".$password."'");
+        $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".$password."'";
+        echo $sql;
+        $sql = mysql_query($sql);
         
         if(mysql_num_rows($sql) > 0)
         {
