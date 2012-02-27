@@ -9,6 +9,7 @@ window.fbAsyncInit = function()
 {
    if(window.location.search.indexOf('closeFBwindow') >= 0)
    {
+       window.opener.location.reload();
        self.close();
    }
         
