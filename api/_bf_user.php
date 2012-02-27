@@ -146,7 +146,7 @@ function FBlogin2()
 function FBuserExists()
 {
     $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE email = '".$_POST["email"]."'";
-echo $sql;
+
     $sql = mysql_query($sql);
 
     if(mysql_num_rows($sql) > 0)
