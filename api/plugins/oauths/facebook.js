@@ -75,7 +75,6 @@ var fb_lib = {
         },
             function(response) 
             {
-console.log(response)
                 var response = response[0];
                 
                 var params = 
