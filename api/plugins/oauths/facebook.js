@@ -51,8 +51,8 @@ var fb_lib = {
             {
                 'class': '_bf_login_fb'
             })
-            //.html('<fb:login-button autologoutlink="true" scope="email,publish_stream"></fb:login-button>' + _bf.t('Login'))
-            .html(_bf.t('Login'))
+            .html('<fb:login-button v="2" autologoutlink="true" scope="email,publish_stream"></fb:login-button>' + _bf.t('Login'))
+            //.html(_bf.t('Login'))
             .hide()
             .appendTo($('._bf_state'))
             .click(function()
@@ -64,11 +64,6 @@ var fb_lib = {
     
     loginToApp: function()
     {
-        if(fb_lib.FBwin)
-        {
-            fb_lib.FBwin.close();
-        }
-        
         _bf.showStateOverlay(_bf.t('Please wait') + '...', 99999);
         
         _bf.hideSocialAuthenticators();
@@ -137,9 +132,8 @@ var fb_lib = {
         }
         else
         {
-            //FB.login();
-            fb_lib.FBwin = window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri=http://bifrostplatform.co.uk&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=500,width=900");
-            fb_lib.FBwin.creator = self;
+            FB.login();
+            //fb_lib.FBwin = window.open("https://www.facebook.com/dialog/oauth?client_id=221447911281191&redirect_uri=http://bifrostplatform.co.uk&scope=email,publish_stream&response_type=code", "FB", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,height=500,width=900");
         }
     },
     
