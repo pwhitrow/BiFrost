@@ -73,12 +73,6 @@ var fb_lib = {
             {
                 var response = response[0];
                 
-                // try and force an email
-                if(response.email == 'null')
-                {
-                    response.email = response.contact_email;
-                }
-
                 var params = 
                 {
                     action: 'fb_login',
