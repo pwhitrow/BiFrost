@@ -87,7 +87,11 @@ function FBlogin()
     $_SESSION['state'] = false;
     
     // Are we registered with app?
-    if(!FBuserExists($_POST))
+    if(FBuserExists())
+    {
+        FBlogin2();
+    }
+    else
     {
         // just a rubbish password as we are a virgin FB login
         $_POST['password'] = md5($_POST['fname'].time());
@@ -105,10 +109,6 @@ function FBlogin()
             return false;
         }
     }
-    else
-    {
-        FBlogin2();
-    }
 }
 
 function FBlogin2()
@@ -116,47 +116,37 @@ function FBlogin2()
     $org = getOrgDetails($_POST["api_key"]);
     $sql = mysql_query("SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'");
 
-    if(FBuserExists($_POST['uid']))
-    {
-        $user = mysql_fetch_array($sql);
+    $user = mysql_fetch_array($sql);
 
-        if($user['verified'])
+    if($user['verified'])
+    {
+        if($user['enabled'])
         {
-            if($user['enabled'])
-            {
-                $sql = "UPDATE ".TABLEPRENAME."users SET email = '".$_POST['email']."', avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
-                setSuccessMsg(t('Facebook Connected'));
-                $_SESSION['state'] = true;
-                mysql_query($sql);
-                loadUserSession($user);           
-            }
-            else
-            {
-                logout();
-                setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
-                return false;                    
-            }
+            $sql = "UPDATE ".TABLEPRENAME."users SET email = '".$_POST['email']."', avatar = '".$_POST['avatar']."', fb_id = '".$_POST['uid']."', lastlogin = NOW(), verified = 1 WHERE fb_id = '".$_POST['uid']."'";
+            setSuccessMsg(t('Facebook Connected'));
+            $_SESSION['state'] = true;
+            mysql_query($sql);
+            loadUserSession($user);           
         }
         else
         {
             logout();
-            setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
-            return false;
+            setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account disabled.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+            return false;                    
         }
     }
     else
     {
         logout();
-        setErrorMsg(t('Error!').'<br /><br />'.t('No user found for given email') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
+        setErrorMsg(t('Facebook Login Failed!') . '<br /><br />' . t('User account not verified.') . '<br /><br />' . t('If you this there is a problem, please contact the administrator ') . $org['admin_email']);
         return false;
     }
-
 }
 
 function FBuserExists()
 {
     $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST["uid"]."' AND email = '".$_POST["email"]."'";
-    echo $sql;
+
     $sql = mysql_query($sql);
 
     if(mysql_num_rows($sql) != 0)
