@@ -145,11 +145,11 @@ function FBlogin2()
 
 function FBuserExists()
 {
-    $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST["uid"]."' AND email = '".$_POST["email"]."'";
+    $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE email = '".$_POST["email"]."'";
 
     $sql = mysql_query($sql);
 
-    if(mysql_num_rows($sql) != 0)
+    if(mysql_num_rows($sql) > 0)
     {
         return true;
     }
