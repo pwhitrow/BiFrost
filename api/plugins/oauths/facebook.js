@@ -7,7 +7,10 @@
 
 window.fbAsyncInit = function() 
 {
-        alert(window.location.search)
+   if(window.location.search.indexOf('closwFBwindow'))
+   {
+       self.close();
+   }
         
 
 
