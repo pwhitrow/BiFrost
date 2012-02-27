@@ -115,7 +115,6 @@ function FBlogin2()
 {
     $org = getOrgDetails($_POST["api_key"]);
     $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST['uid']."'";
-echo $sql;
     $sql = mysql_query();
     $user = mysql_fetch_array($sql);
 
@@ -147,7 +146,7 @@ echo $sql;
 function FBuserExists()
 {
     $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE email = '".$_POST["email"]."'";
-
+echo $sql;
     $sql = mysql_query($sql);
 
     if(mysql_num_rows($sql) > 0)
