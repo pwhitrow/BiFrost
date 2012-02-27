@@ -87,7 +87,7 @@ function FBlogin()
     $_SESSION['state'] = false;
     
     // Are we registered with app?
-    if(!FBuserExists($_POST['uid']))
+    if(!FBuserExists($_POST))
     {
         // just a rubbish password as we are a virgin FB login
         $_POST['password'] = md5($_POST['fname'].time());
@@ -153,9 +153,11 @@ function FBlogin2()
 
 }
 
-function FBuserExists($uid)
+function FBuserExists()
 {
-    $sql = mysql_query("SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$uid."'");
+    $sql = "SELECT user_id FROM ".TABLEPRENAME."users WHERE fb_id='".$_POST["uid"]."' AND email = '".$_POST["email"]."'";
+    echo $sql;
+    $sql = mysql_query($sql);
 
     if(mysql_num_rows($sql) != 0)
     {
