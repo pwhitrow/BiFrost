@@ -222,7 +222,6 @@ function login($email, $password)
     if(userExists($email))
     {
         $sql = "SELECT * FROM ".TABLEPRENAME."users WHERE email='".$email."' AND password = '".$password."'";
-        echo $sql;
         $sql = mysql_query($sql);
         
         if(mysql_num_rows($sql) > 0)
