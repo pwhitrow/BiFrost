@@ -521,16 +521,17 @@ AUTHENTICATORS
 {
     float:left;
     clear:both;
-    width:160px;
-    height:40px;
-    margin:0px 0px 10px 0px;
+    width:160px !important;
+    height:40px !important;
+    margin:0px 0px 10px 0px !important;
     cursor:pointer;
     background:transparent url(../images/socials.png) 0 0 no-repeat;
-    color:#C4C4C4;
-    text-shadow: 1px 1px 1px #141414;
-    font:bold 12px arial;
-    padding:0px 0px 0px 72px;
-    line-height: 40px;
+    color:#C4C4C4 !important;
+    text-shadow: 1px 1px 1px #141414 !important;
+    font:bold 12px arial !important;
+    padding:0px 0px 0px 72px !important;
+    line-height: 40px !important;
+    list-style:none !important;
 }
 
 ._bf_social_authenticator:hover
@@ -686,6 +687,7 @@ DASHBOARD
     border-top: 1px solid #444444;
     height:28.5px !important;
     line-height:28px !important;
+    list-style:none !important;
 }
 
 ._bf_dashboard_action:hover,
@@ -886,9 +888,10 @@ POST REVIEW
 {
     margin:0px 0px 0px 0px;
     padding:3px 7px 3px 7px;
-    font: normal 12px Helvetica, Arial, sans-serif;
-    color: #999;
+    font: normal 12px Helvetica, Arial, sans-serif !important;
+    color: #999 !important;
     background:transparent;
+    list-style:none;
 }
 
 ._bf_multiselect_item:hover
