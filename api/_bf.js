@@ -110,16 +110,17 @@ function _bf_loadScripts(callback)
         'api/plugins/raty/js/jquery.raty.min.js'
     ];
     
+    // do we have a custom stylesheet?
     if(typeof BiFrost.customcss != 'undefined')
     {
-        scripts.push(BiFrost.customcss);
+        _bf_loadscript(BiFrost.customcss);
     }
     else
     {
-        scripts.push('css/_bf_items.css');
+        _bf_loadscript(_bf_host + 'css/_bf_items.css');
     }
     
-  
+    // run through and load the included scripts
     for(var itemno = 0; itemno < scripts.length; itemno++)
     {
         _bf_loadscript(_bf_host + scripts[itemno]);
