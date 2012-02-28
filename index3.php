@@ -11,7 +11,7 @@
   var BiFrost = {
       api_key   : '3a50fc16-d89d-11e0-a26b-4040b2058987',
       relation  : '09804936',
-      customcss : 'http://bifrostplatform.co.uk/_custom_css.css',
+      customcss : 'http://bifrostplatform.co.uk/_customcss.css',
       target    : 'content' 
   };
   </script>
