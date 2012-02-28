@@ -627,7 +627,7 @@ var _bf_itemreviews = {
             {
                 path: _bf.host + 'api/plugins/socials/',
                 title: review.title,
-                href: $(location).attr('href') + '#review_' + review.id
+                href: $(location).attr('href') + '?track=review&item=' + review.id
             });
         });
     }
