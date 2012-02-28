@@ -56,6 +56,8 @@
 
 <p><a href="index.php">Page 1</a> : <a href="index2.php">Page 2</a> : <a href="index3.php">Page 3</a></p>
     
+<h2>Dashboard pinned to top right</h2>
+
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper consequat luctus. Vestibulum ullamcorper ipsum id mauris mollis volutpat. Nulla facilisi. Donec cursus nibh at sapien venenatis vehicula. Nam sit amet metus lacus, congue convallis purus. Ut ac massa quis eros placerat feugiat. Donec pellentesque vulputate eleifend. Etiam molestie rhoncus arcu sit amet dapibus. Nullam molestie lacinia eros, in eleifend massa posuere non. Donec commodo, metus non viverra blandit, elit metus convallis purus, eu pretium mauris ligula ut nunc. Aenean sit amet est ac turpis tincidunt sagittis eget vitae quam. Fusce eget neque enim, sit amet malesuada diam.
 </p>
