@@ -97,7 +97,6 @@ function _bf_loadScripts(callback)
     // load BiFrost required files and plugins
     var scripts = [
         'css/_bf.css',
-        'css/_bf_items.css',
         'api/plugins/player/swfobject.js',
         'api/plugins/expander/jquery.expander.js',
         'api/plugins/socials/jquery.socials.js',
@@ -110,6 +109,15 @@ function _bf_loadScripts(callback)
         'api/plugins/timeago/jquery.timeago.js',
         'api/plugins/raty/js/jquery.raty.min.js'
     ];
+    
+    if(typeof BiFrost.customcss != 'undefined')
+    {
+        scripts.push(BiFrost.customcss);
+    }
+    else
+    {
+        scripts.push('css/_bf_items.css');
+    }
     
   
     for(var itemno = 0; itemno < scripts.length; itemno++)
