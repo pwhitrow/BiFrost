@@ -911,7 +911,7 @@ POST REVIEW
 
 ._bf_multiselect_item_new
 {
-    position:fixed;
+    position:absolute;
     margin:0px 0px 0px 0px;
     padding-top:10px;
     padding-left:10px;
