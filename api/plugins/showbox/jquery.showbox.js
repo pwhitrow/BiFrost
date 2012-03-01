@@ -211,6 +211,7 @@
                         .html(i + 1)
                         .click(function()
                         {
+                            close_showbox();
                             obj.trigger('click');
                         })
                         .appendTo($('._showbox_control'));
