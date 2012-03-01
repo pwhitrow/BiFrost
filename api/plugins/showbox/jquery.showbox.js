@@ -161,6 +161,8 @@
             
             create_controls = function(collection)
             {
+                $('._showbox_control').remove();
+                
                 var collection = collection
                 var i = 0;
                 
@@ -209,7 +211,7 @@
                         {
                             console.log($(this));
                         })
-                        .appendTo($(this));
+                        .appendTo($('._showbox_control'));
                         
                         i++;
                     });                    
