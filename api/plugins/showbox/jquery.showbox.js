@@ -69,9 +69,10 @@
             }
             
             
-            add_controls = function()
+            add_controls = function(collection)
             {
-                $('<dv />').attr(
+                console.log(collection)
+                $('<div />').attr(
                 {
                     'class': '_showbox_close',
                     'title': _bf.t('Close')
@@ -212,7 +213,8 @@
                                         .each(function()
                                         {
                                             $('._showbox_main').fadeIn(settings.speed);  
-                                            add_controls();
+                                            
+                                            add_controls(collection);
                                         })
                                     });
                                 });
@@ -256,7 +258,7 @@
 
                                 $('._showbox_main').fadeIn(settings.speed);   
 
-                                add_controls();
+                                add_controls(collection);
                         
                             });
                         });
