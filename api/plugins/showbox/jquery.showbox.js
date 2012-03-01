@@ -172,9 +172,8 @@
                     'margin': '0px',
                     'width': '100%',
                     'position': 'absolute',
-                    'top': '0px',
+                    'bottom': '-30px',
                     'left': '0px',
-                    'overflow':'hidden',
                     'list-style': 'none',  
                     'padding': '0px 0px 0px 0px'
                 })
@@ -196,6 +195,10 @@
                             'overflow':'hidden',
                             'list-style': 'none',   
                             'padding': '0px 0px 0px 0px',
+                            'float': 'left',
+                            'font': 'bold 20px Arial',
+                            'color': '#FFF',
+                            'text-align': 'center',
                             'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) center center no-repeat'
                         })
                         .html(i + 1)
