@@ -180,6 +180,8 @@
                 .appendTo($('._showbox_main'))
                 .each(function()
                 {
+                    var x = 0;
+                    
                     for(i = 0; i < collection.length; i++)
                     {
                         $('<li />').attr(
@@ -206,9 +208,11 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            collection[i].click();
+                            collection[x].click();
                         })
-                        .appendTo($(this))
+                        .appendTo($(this));
+                        
+                        x++;
                     }                    
                 });                
             },
