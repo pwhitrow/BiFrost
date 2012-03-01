@@ -207,7 +207,14 @@
                             'color': '#FFF',
                             'text-align': 'center',
                             'cursor': 'pointer',
-                            'background': 'transparent url(' + thumb + ') 0px 0px no-repeat'
+                            '-moz-border-radius': '30px',
+                            '-webkit-border-radius': '30px',
+                            'border-radius': '30px',
+                            '-webkit-box-shadow': '1px 1px 3px rgba(90, 90, 90, 2)',
+                            '-moz-box-shadow':    '1px 1px 3px rgba(90, 90, 90, 2)',
+                            'box-shadow':         '1px 1px 3px rgba(90, 90, 90, 2)',
+                            'border': '2px solid #fff',
+                            'background': 'transparent url(' + thumb + ') center center no-repeat'
                         })
                         .html(i + 1)
                         .click(function()
