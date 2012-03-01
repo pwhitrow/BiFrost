@@ -161,75 +161,88 @@
             
             create_controls = function(collection)
             {
-                $('._showbox_control').remove();
+                $('._showbox_controls').remove();
                 
                 var collection = collection
                 var i = 0;
                 
-                var controls = $('<ul />').attr(
+                var controls = $('<div />').attr(
                 {
-                    'class': '_showbox_control'
+                    'class': '_showbox_controls'
                 })
                 .css(
                 {
                     'margin': '0px',
-                    'width': '100%',
                     'position': 'absolute',
                     'bottom': '-30px',
                     'left': '0px',
-                    'list-style': 'none',  
                     'padding': '0px 0px 0px 0px'
                 })
-                .appendTo($('._showbox_main'))
+                .appendTo($(',_showbox_main'))
                 .each(function()
                 {
-                    collection.each(function()
+                    $('<ul />').attr(
                     {
-                        var obj = $(this);
-                        
-                        var thumb = obj.find('img').attr('src');
-                        
-                        $('<li />').attr(
+                        'class': '_showbox_control'
+                    })
+                    .css(
+                    {
+                        'margin': '0px',
+                        'list-style': 'none',  
+                        'padding': '0px 0px 0px 0px'
+                    })
+                    .appendTo($(this))
+                    .each(function()
+                    {
+                        collection.each(function()
                         {
-                            'class': '_showbox_item'
-                        })
-                        .css(
-                        {
-                            'margin': '0px 5px 0px 0px',
-                            'height': '30px',
-                            'width': '30px',
-                            'display': 'inline',
-                            'overflow':'hidden',
-                            'list-style': 'none',   
-                            'padding': '0px 0px 0px 0px',
-                            'float': 'left',
-                            'font': 'bold 16px Arial',
-                            'color': '#FFF',
-                            'text-align': 'center',
-                            'cursor': 'pointer',
-                            '-moz-border-radius': '30px',
-                            '-webkit-border-radius': '30px',
-                            'border-radius': '30px',
-                            '-webkit-box-shadow': '1px 1px 3px #000',
-                            '-moz-box-shadow':    '1px 1px 3px #000',
-                            'box-shadow':         '1px 1px 3px #000',
-                            'border': '2px solid #fff',
-                            'background': 'transparent url(' + thumb + ') center center no-repeat'
-                        })
-                        .click(function()
-                        {
-                            close_showbox();
-                            obj.trigger('click');
-                        })
-                        .appendTo($('._showbox_control'))
-                        .each(function()
-                        {
-                            $('._showbox').fadeIn(settings.speed);
-                        });
-                        
-                        i++;
-                    });                    
-                });                
+                            var obj = $(this);
+
+                            var thumb = obj.find('img').attr('src');
+
+                            $('<li />').attr(
+                            {
+                                'class': '_showbox_item'
+                            })
+                            .css(
+                            {
+                                'margin': '0px 5px 0px 0px',
+                                'height': '30px',
+                                'width': '30px',
+                                'display': 'inline',
+                                'overflow':'hidden',
+                                'list-style': 'none',   
+                                'padding': '0px 0px 0px 0px',
+                                'float': 'left',
+                                'font': 'bold 16px Arial',
+                                'color': '#FFF',
+                                'text-align': 'center',
+                                'cursor': 'pointer',
+                                '-moz-border-radius': '30px',
+                                '-webkit-border-radius': '30px',
+                                'border-radius': '30px',
+                                '-webkit-box-shadow': '1px 1px 3px #000',
+                                '-moz-box-shadow':    '1px 1px 3px #000',
+                                'box-shadow':         '1px 1px 3px #000',
+                                'border': '2px solid #fff',
+                                'background': 'transparent url(' + thumb + ') center center no-repeat'
+                            })
+                            .click(function()
+                            {
+                                close_showbox();
+                                obj.trigger('click');
+                            })
+                            .appendTo($('._showbox_control'))
+                            .each(function()
+                            {
+                                $('._showbox').fadeIn(settings.speed);
+                            });
+
+                            i++;
+                        });                    
+                    });                
+
+                })
             },
                                 
             settings.obj.each(function()
