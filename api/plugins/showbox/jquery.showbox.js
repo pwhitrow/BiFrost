@@ -176,7 +176,7 @@
                         {
                             'class': '_showbox_item'
                         })
-                        .html("X")
+                        .html(i + 1)
                         .appendTo($(this))
                     }                    
                 });                
