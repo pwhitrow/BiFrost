@@ -69,9 +69,8 @@
             }
             
             
-            add_controls = function(collection)
+            add_close = function()
             {
-                console.log(collection)
                 $('<div />').attr(
                 {
                     'class': '_showbox_close',
@@ -136,7 +135,7 @@
                     var filename = $(this).attr('href');
                                         
                     var collection = $(this).parent().find('._bf_itemreviews_media_link');
-                    
+                    console.log(collection)
                     if(!$('._showbox_main').length)
                     {
                         $('<div />').attr(
@@ -213,8 +212,7 @@
                                         .each(function()
                                         {
                                             $('._showbox_main').fadeIn(settings.speed);  
-                                            
-                                            add_controls(collection);
+                                            add_close();
                                         })
                                     });
                                 });
@@ -258,7 +256,7 @@
 
                                 $('._showbox_main').fadeIn(settings.speed);   
 
-                                add_controls(collection);
+                                add_close();
                         
                             });
                         });
