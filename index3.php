@@ -15,7 +15,7 @@
       target    : 'content' 
   };
   </script>
-  <script src="http://bifrostplatform.co.uk/api/_bf.js"></script>
+  <script src="http://bifrostplatform.co.uk/api/_bf.js" defer="defer"></script>
 
 
 
