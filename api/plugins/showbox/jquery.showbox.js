@@ -207,7 +207,7 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            console.log(collection[i]);
+                            console.log(i);
                         })
                         .appendTo($(this));
                     }                    
