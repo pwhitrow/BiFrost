@@ -196,10 +196,11 @@
                             'list-style': 'none',   
                             'padding': '0px 0px 0px 0px',
                             'float': 'left',
-                            'font': 'bold 20px Arial',
+                            'font': 'bold 16px Arial',
                             'color': '#FFF',
                             'text-align': 'center',
-                            'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) center center no-repeat'
+                            'line-height' '32px',
+                            'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) 2px 0px no-repeat'
                         })
                         .html(i + 1)
                         .appendTo($(this))
