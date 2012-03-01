@@ -195,9 +195,9 @@
                         })
                         .css(
                         {
-                            'margin': '0px 0px 0px 0px',
-                            'height': '40px',
-                            'width': '40px',
+                            'margin': '0px 5px 0px 0px',
+                            'height': '30px',
+                            'width': '30px',
                             'display': 'inline',
                             'overflow':'hidden',
                             'list-style': 'none',   
@@ -216,7 +216,6 @@
                             'border': '2px solid #fff',
                             'background': 'transparent url(' + thumb + ') center center no-repeat'
                         })
-                        .html(i + 1)
                         .click(function()
                         {
                             close_showbox();
