@@ -162,6 +162,7 @@
             create_controls = function(collection)
             {
                 var collection = collection
+                var i = 0;
                 
                 var controls = $('<ul />').attr(
                 {
@@ -180,8 +181,6 @@
                 .appendTo($('._showbox_main'))
                 .each(function()
                 {
-                    var x = 0;
-                    
                     for(i = 0; i < collection.length; i++)
                     {
                         $('<li />').attr(
@@ -208,11 +207,9 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            console.log(collection[x]);
+                            console.log(collection[i]);
                         })
                         .appendTo($(this));
-                        
-                        x++;
                     }                    
                 });                
             },
