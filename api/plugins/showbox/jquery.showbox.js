@@ -175,6 +175,7 @@
                     'position': 'absolute',
                     'bottom': '-30px',
                     'left': '0px',
+                    'right': '0px',
                     'padding': '0px 0px 0px 0px',
                     'text-align': 'center'
                 })
