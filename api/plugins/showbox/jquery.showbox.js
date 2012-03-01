@@ -187,6 +187,8 @@
                     {
                         var obj = $(this);
                         
+                        var thumb = obj.find('img').attr('src');
+                        
                         $('<li />').attr(
                         {
                             'class': '_showbox_item'
@@ -204,9 +206,8 @@
                             'font': 'bold 16px Arial',
                             'color': '#FFF',
                             'text-align': 'center',
-                            'line-height': '32px',
                             'cursor': 'pointer',
-                            'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) 2px 0px no-repeat'
+                            'background': 'transparent url(' + thumb + ') 0px 0px no-repeat'
                         })
                         .html(i + 1)
                         .click(function()
@@ -214,7 +215,11 @@
                             close_showbox();
                             obj.trigger('click');
                         })
-                        .appendTo($('._showbox_control'));
+                        .appendTo($('._showbox_control'))
+                        .each(function()
+                        {
+                            $('._showbox').fadeIn(settings.speed);
+                        });
                         
                         i++;
                     });                    
@@ -231,13 +236,15 @@
                     
                     var filename = $(this).attr('href');
                     
-                    $('._showbox').fadeIn(settings.speed);
-                    
                     var collection = $(this).parent().find('a');
                     
                     if(collection.length > 1)
                     {
                         create_controls(collection);
+                    }
+                    else
+                    {
+                        $('._showbox').fadeIn(settings.speed);
                     }
                     
                     // are we an image?
