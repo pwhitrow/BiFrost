@@ -175,7 +175,8 @@
                     'position': 'absolute',
                     'bottom': '-30px',
                     'left': '0px',
-                    'padding': '0px 0px 0px 0px'
+                    'padding': '0px 0px 0px 0px',
+                    'text-align': 'center'
                 })
                 .appendTo($('._showbox_main'))
                 .each(function()
@@ -186,7 +187,8 @@
                     })
                     .css(
                     {
-                        'margin': '0px',
+                        'margin': '0px auto',
+                        'display': 'inline-block',
                         'list-style': 'none',  
                         'padding': '0px 0px 0px 0px'
                     })
