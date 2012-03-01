@@ -173,7 +173,7 @@
                 {
                     'margin': '0px',
                     'position': 'absolute',
-                    'bottom': '-30px',
+                    'bottom': '-40px',
                     'left': '0px',
                     'right': '0px',
                     'padding': '0px 0px 0px 0px',
