@@ -69,9 +69,42 @@
             }
             
             
+            create_main = function()
+            {
+                if(!$('._showbox_main').length)
+                {
+                    $('<div />').attr(
+                    {
+                        'class': '_showbox_main',
+                        'id': '_showbox_main'
+                    })
+                    .css(
+                    {
+                        'margin': 'auto',
+                        'height': '0px',
+                        'width': '0px',
+                        'position': 'relative',
+                        'padding': '2px',
+                        'background': '#fff',
+                        'background-clip': 'padding-box',
+                        'background-color': '#000',
+                        'border': '10px solid rgba(255, 255, 255, 0.28)',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        'border-radius': '10px',
+                        '-webkit-box-shadow': '0px 0px 30px #000',
+                        '-moz-box-shadow':    '0px 0px 30px #000',
+                        'box-shadow':         '0px 0px 30px #000',
+                        'display': 'none'
+
+                    })
+                    .appendTo($('._showbox'));                    
+                }
+            },
+            
             add_close = function()
             {
-                $('<div />').attr(
+                $('<dv />').attr(
                 {
                     'class': '_showbox_close',
                     'title': _bf.t('Close')
@@ -130,47 +163,18 @@
             {
                 $(this).click(function(event)
                 {
+                    create_main();
+                    
                     event.preventDefault();
                     
                     var filename = $(this).attr('href');
-                                        
+                    
+                    $('._showbox').fadeIn(settings.speed);
+                    
                     var collection = $(this).parent().find('._bf_itemreviews_media_link');
+                    
                     console.log(collection)
-                    if(!$('._showbox_main').length)
-                    {
-                        $('<div />').attr(
-                        {
-                            'class': '_showbox_main',
-                            'id': '_showbox_main'
-                        })
-                        .css(
-                        {
-                            'margin': 'auto',
-                            'height': '0px',
-                            'width': '0px',
-                            'position': 'relative',
-                            'padding': '2px',
-                            'background': '#fff',
-                            'background-clip': 'padding-box',
-                            'background-color': '#000',
-                            'border': '10px solid rgba(255, 255, 255, 0.28)',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            'border-radius': '10px',
-                            '-webkit-box-shadow': '0px 0px 30px #000',
-                            '-moz-box-shadow':    '0px 0px 30px #000',
-                            'box-shadow':         '0px 0px 30px #000',
-                            'display': 'none'
-
-                        })
-                        .appendTo($('._showbox'))
-                        .fadeIn(settings.speed);                  
-                    }
-                    else
-                    {
-                        $('._showbox').fadeIn(settings.speed);
-                    }
-
+                    
                     // are we an image?
                     if(_bf.mediaType('image', filename))
                     {
