@@ -210,9 +210,9 @@
                             '-moz-border-radius': '30px',
                             '-webkit-border-radius': '30px',
                             'border-radius': '30px',
-                            '-webkit-box-shadow': '1px 1px 3px rgba(90, 90, 90, 2)',
-                            '-moz-box-shadow':    '1px 1px 3px rgba(90, 90, 90, 2)',
-                            'box-shadow':         '1px 1px 3px rgba(90, 90, 90, 2)',
+                            '-webkit-box-shadow': '1px 1px 3px #000',
+                            '-moz-box-shadow':    '1px 1px 3px #000',
+                            'box-shadow':         '1px 1px 3px #000',
                             'border': '2px solid #fff',
                             'background': 'transparent url(' + thumb + ') center center no-repeat'
                         })
