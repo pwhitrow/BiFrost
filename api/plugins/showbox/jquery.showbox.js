@@ -200,9 +200,14 @@
                             'color': '#FFF',
                             'text-align': 'center',
                             'line-height': '32px',
+                            'cursor': 'pointer',
                             'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) 2px 0px no-repeat'
                         })
                         .html(i + 1)
+                        .click(function()
+                        {
+                            collection[i].click();
+                        })
                         .appendTo($(this))
                     }                    
                 });                
