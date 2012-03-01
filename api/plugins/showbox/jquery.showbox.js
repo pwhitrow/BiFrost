@@ -164,9 +164,8 @@
                 $('._showbox_controls').remove();
                 
                 var collection = collection
-                var i = 0;
                 
-                var controls = $('<div />').attr(
+                $('<div />').attr(
                 {
                     'class': '_showbox_controls'
                 })
@@ -178,7 +177,7 @@
                     'left': '0px',
                     'padding': '0px 0px 0px 0px'
                 })
-                .appendTo($(',_showbox_main'))
+                .appendTo($('._showbox_main'))
                 .each(function()
                 {
                     $('<ul />').attr(
@@ -237,11 +236,8 @@
                             {
                                 $('._showbox').fadeIn(settings.speed);
                             });
-
-                            i++;
                         });                    
                     });                
-
                 })
             },
                                 
