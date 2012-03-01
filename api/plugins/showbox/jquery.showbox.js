@@ -167,7 +167,7 @@
                 {
                     'class': '_showbox_control'
                 })
-                .appandTo($('._showbox_main'))
+                .appendTo($('._showbox_main'))
                 .each(function()
                 {
                     for(i = 0; i < collection.length; i++)
