@@ -185,6 +185,8 @@
                 {
                     collection.each(function()
                     {
+                        var obj = $(this);
+                        
                         $('<li />').attr(
                         {
                             'class': '_showbox_item'
@@ -209,7 +211,7 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            console.log(collection[i]);
+                            console.log(obj);
                         })
                         .appendTo($('._showbox_control'));
                         
