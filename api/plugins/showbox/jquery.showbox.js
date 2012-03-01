@@ -209,7 +209,7 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            console.log($(this));
+                            console.log(collection[i]);
                         })
                         .appendTo($('._showbox_control'));
                         
