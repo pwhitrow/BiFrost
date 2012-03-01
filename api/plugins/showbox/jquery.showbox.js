@@ -171,6 +171,8 @@
                     
                     $('._showbox').fadeIn(settings.speed);
                     
+                    console.log($(this).parent().find('._bf_itemreviews_media_link'))
+                    
                     // are we an image?
                     if(_bf.mediaType('image', filename))
                     {
