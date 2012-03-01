@@ -211,7 +211,7 @@
                         .html(i + 1)
                         .click(function()
                         {
-                            console.log(obj);
+                            obj.click();
                         })
                         .appendTo($('._showbox_control'));
                         
