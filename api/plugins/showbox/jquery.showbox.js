@@ -158,6 +158,29 @@
                 
                 return sizes
             },
+            
+            create_controls = function(collection)
+            {
+                var collection = collection
+                
+                var controls = $('<ul />').attr(
+                {
+                    'class': '_showbox_control'
+                })
+                .appandTo($('._showbox_main'))
+                .each(function()
+                {
+                    for(i = 0; i < collection.length; i++)
+                    {
+                        $('<li />').attr(
+                        {
+                            'class': '_showbox_item'
+                        })
+                        .html("X")
+                        .appendTo($(this))
+                    }                    
+                });                
+            },
                                 
             settings.obj.each(function()
             {
@@ -171,9 +194,12 @@
                     
                     $('._showbox').fadeIn(settings.speed);
                     
-                    var collection = $(this).parent().find('._bf_itemreviews_media_link');
+                    var collection = $(this).parent().find('a');
                     
-                    console.log(collection)
+                    if(collection.length > 1)
+                    {
+                        create_controls(collection);
+                    }
                     
                     // are we an image?
                     if(_bf.mediaType('image', filename))
