@@ -167,6 +167,17 @@
                 {
                     'class': '_showbox_control'
                 })
+                .css(
+                {
+                    'margin': '0px',
+                    'width': '100%',
+                    'position': 'absolute',
+                    'top': '0px',
+                    'left': '0px',
+                    'overflow':'hidden',
+                    'list-style': 'none',  
+                    'padding': '0px 0px 0px 0px'
+                })
                 .appendTo($('._showbox_main'))
                 .each(function()
                 {
@@ -175,6 +186,17 @@
                         $('<li />').attr(
                         {
                             'class': '_showbox_item'
+                        })
+                        .css(
+                        {
+                            'margin': '0px 0px 0px 0px',
+                            'height': '40px',
+                            'width': '40px',
+                            'display': 'inline',
+                            'overflow':'hidden',
+                            'list-style': 'none',   
+                            'padding': '0px 0px 0px 0px',
+                            'background': 'transparent url(' + _bf.host + 'api/plugins/showbox/blank.png) center center no-repeat'
                         })
                         .html(i + 1)
                         .appendTo($(this))
