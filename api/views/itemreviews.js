@@ -160,13 +160,13 @@ var _bf_itemreviews = {
                             var avg = 0;
                         }
 
-                        $(this).raty(
-                        {
-                            readOnly:  true,
-                            start:     avg,
-                            path: _bf.host + 'api/plugins/raty/img',
-                            half: false
-                        });
+//                        $(this).raty(
+//                        {
+//                            readOnly:  true,
+//                            start:     avg,
+//                            path: _bf.host + 'api/plugins/raty/img',
+//                            half: false
+//                        });
 
                         $('<em />').attr(
                         {
