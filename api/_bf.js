@@ -153,9 +153,9 @@ function _bf_begin()
 // loaded, let's go!
 function _bf_go()
 {
-    //$ = jQuery.noConflict();
+    jQuery.noConflict();
 
-    $(function()
+    jQuery(document).ready(function()
     {
         // create namespace
         _bf = {
