@@ -455,7 +455,14 @@ var _bf_itemdiscussions = {
                 'class': '_bf_clear'
             })
             .appendTo($(this));
-
+            
+            // social networks
+            $(this).socials(
+            {
+                path: _bf.host + 'api/plugins/socials/',
+                title: discussion.title,
+                href: $(location).attr('href') + '?track=discussion&item=' + discussion.id
+            });
         });
     }
 }
