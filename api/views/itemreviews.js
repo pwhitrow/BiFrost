@@ -507,7 +507,7 @@ var _bf_itemreviews = {
                 'class': '_bf_itemreviews_item_username reviewer',
                 title: review.gname + ' ' + review.fname
             })
-            .html(' <em>' + _bf.t('Posted by') + '</em> ' + review.gname + ' ' + review.fname + ' <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em>')
+            .html(review.gname + ' ' + review.fname + ', <em class="_bf_itemreviews_item_postdate postdate dtreviewed" title="'+review.isodate+'">' + review.fdate + '</em>')
             .appendTo($(this));
             
             $('<div />').attr(
