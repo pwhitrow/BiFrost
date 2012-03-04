@@ -588,9 +588,13 @@ AUTHENTICATORS
 
 ._bf_fb_linkpost
 {
-    position:absolute;
+    background:transparent url("../images/socials.png") -163px -180px no-repeat;
     bottom: 22px;
+    height: 26px;
     left: 150px;
+    padding-left: 30px;
+    position: absolute;
+    width: 140px;
 }
 
 .fb_post_review
@@ -601,7 +605,8 @@ AUTHENTICATORS
 
 .fb_post_label
 {
-    color: #888888;
+    color: #fff;
+    text-shadow:none;
     font-family: arial;
     font-size: 11px;    
 }
