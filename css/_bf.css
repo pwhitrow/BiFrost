@@ -854,7 +854,7 @@ POST REVIEW
 ._bf_multiselect_holder
 {
     position: absolute;
-    right:-30px;
+    left:130px;
     top:-218px;
     width:auto;
     width: 300px;
