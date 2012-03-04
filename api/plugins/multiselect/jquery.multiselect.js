@@ -24,34 +24,14 @@
 
     function init(form)
     {
-        // create multi selector!
-        var multi = $('<div />').attr(
+        $('._bf_review_tags').click(function()
         {
-            'class': '_bf_multi_tags'
+            $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
         })
-        .appendTo(form)
-        .each(function()
-        {
-            $('<div />').attr(
-            {
-                'class': '_bf_multiselect_item_default _bf_button'
-            })
-            .html(_bf.t('Select tags'))
-            .click(function()
-            {
-                $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
-            })
-            .appendTo($(this));
-            
-            $('._bf_review_tags').click(function()
-            {
-                $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
-            })
 
-            console.log($('._bf_review_tags'))
-            
-            getTags(form);
-        });
+        console.log($('._bf_review_tags'))
+
+        getTags(form);
     }
     
     function getTags(form)
@@ -86,7 +66,7 @@
                 {
                     'class': '_bf_multiselect_holder'
                 })
-                .appendTo($('._bf_multi_tags'))
+                .appendTo($('._bf_form_row_tags'))
                 .hide()
                 .each(function()
                 {

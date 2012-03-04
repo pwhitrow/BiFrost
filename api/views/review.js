@@ -68,9 +68,6 @@ if(_bf.loggedIn())
                     title: _bf.t('Tags')
                 });
                 
-                // load multi select plugin
-                $(form).multiselect();
-                
                 // create the submit button
                 var submit = $('<div />').attr(
                 {
@@ -121,6 +118,9 @@ if(_bf.loggedIn())
                     .html(_bf_review.filesTxt)
                     .appendTo($(this));   
                     
+                    // load multi select plugin
+                    $(form).multiselect();
+                
                 });
                 
                         
