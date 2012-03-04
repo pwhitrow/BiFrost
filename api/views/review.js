@@ -174,7 +174,7 @@ if(_bf.loggedIn())
                                 'for': 'fb_post_review',
                                 'class': 'fb_post_label'
                             })
-                            .html(_bf.t('Post to') +  ' Facebook')
+                            .html(_bf.t('Post to wall'))
                             .prependTo($(this));
                             
                             $('<input />').attr(
