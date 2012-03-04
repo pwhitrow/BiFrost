@@ -14,7 +14,7 @@
 var _bf_host = 'http://bifrostplatform.co.uk/';
 
 // do we need to load jQuery?
-if((typeof $ != 'function') || (parseInt($().jquery) < 1.7))
+if((typeof $ != 'function'))
 {
     _bf_loadscript(_bf_host + 'api/libs/jquery.1.7.min.js');
 }
