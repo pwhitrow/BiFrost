@@ -48,6 +48,8 @@
                 $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
             })
 
+            console.log($('._bf_review_tags'))
+            
             getTags(form);
         });
     }
