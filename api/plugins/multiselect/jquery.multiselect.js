@@ -24,9 +24,14 @@
 
     function init(form)
     {
-        $('._bf_review_tags').click(function()
+        $('._bf_review_tags')
+        .focus(function()
         {
-            $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
+            $('._bf_multiselect_holder').fadeIn(_bf.ani_speed);
+        })
+        .blur(function()
+        {
+            $('._bf_multiselect_holder').fadeOut(_bf.ani_speed);
         })
 
         getTags(form);
