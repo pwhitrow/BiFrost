@@ -588,13 +588,18 @@ AUTHENTICATORS
 
 ._bf_fb_linkpost
 {
-    background:transparent url("../images/socials.png") -163px -180px no-repeat;
+    background:transparent url("../images/socials.png") -4px -180px no-repeat;
     bottom: 22px;
     height: 26px;
     left: 20px;
     padding-left: 40px;
     position: absolute;
     width: 100px;
+}
+
+._bf_fb_linkpost:hover
+{
+    background-position: -163px -180px;
 }
 
 .fb_post_review
