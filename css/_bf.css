@@ -592,15 +592,15 @@ AUTHENTICATORS
     bottom: 22px;
     height: 26px;
     left: 150px;
-    padding-left: 30px;
+    padding-left: 40px;
     position: absolute;
-    width: 140px;
+    width: 100px;
 }
 
 .fb_post_review
 {
     float: left;
-    margin-top: 5px;    
+    margin-top: 6px;    
 }
 
 .fb_post_label
