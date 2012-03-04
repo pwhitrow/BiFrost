@@ -118,8 +118,6 @@ if(_bf.loggedIn())
                     .html(_bf_review.filesTxt)
                     .appendTo($(this));   
                     
-                    // load multi select plugin
-                    $(form).multiselect();
                 
                 });
                 
@@ -191,6 +189,8 @@ if(_bf.loggedIn())
                     }
                 }
                 
+                // load multi select plugin
+                $(form).multiselect();
                 
             },
             
