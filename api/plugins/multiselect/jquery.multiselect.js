@@ -28,11 +28,7 @@
         .focus(function()
         {
             $('._bf_multiselect_holder').fadeIn(_bf.ani_speed);
-        })
-        .blur(function()
-        {
-            $('._bf_multiselect_holder').fadeOut(_bf.ani_speed);
-        })
+        });
 
         getTags(form);
     }
