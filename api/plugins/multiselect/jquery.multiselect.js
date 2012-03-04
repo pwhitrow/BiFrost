@@ -42,6 +42,11 @@
                 $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
             })
             .appendTo($(this));
+            
+            $('._bf_review_tags').click(function()
+            {
+                $('._bf_multiselect_holder').fadeToggle(_bf.ani_speed);
+            })
 
             getTags(form);
         });
