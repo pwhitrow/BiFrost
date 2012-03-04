@@ -614,6 +614,7 @@ AUTHENTICATORS
     text-shadow:none;
     font-family: arial;
     font-size: 11px;    
+    margin-left:5px;
 }
 
 a.fb_button
