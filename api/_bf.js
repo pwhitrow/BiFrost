@@ -177,7 +177,7 @@ function _bf_go()
                 state: false,
                 state_panel: false,
                 state_width_default: 200,
-                state_height_default: 42,
+                state_height_default: 40,
                 state_actions: false,
                 custom_css: false,
                 ani_speed: 200,

@@ -151,15 +151,15 @@
     border: 0 none !important;
     border-radius: 0 0 0 0 !important;
     box-shadow: none !important;
-    height: 34px !important;
+    height: 32px !important;
     line-height: 26px !important;
     margin: 0 !important;
     position: absolute !important;
     right: 0 !important;
-    top: -2px !important;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-bottom-right-radius: 10px;
+    top: 0px !important;
+    -webkit-border-bottom-right-radius: 10px !important;
+    -moz-border-radius-bottomright: 10px !important;
+    border-bottom-right-radius: 10px !important;
 }
 
 ._bf_state_action:hover,
