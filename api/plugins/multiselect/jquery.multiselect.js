@@ -86,6 +86,7 @@
                         .click(function()
                         {
                             $('._bf_multiselect_holder').fadeOut(_bf.ani_speed);
+                            _bf.hideStateOverlay();
                         });
                     })
 
