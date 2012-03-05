@@ -152,11 +152,14 @@
     border-radius: 0 0 0 0 !important;
     box-shadow: none !important;
     height: 34px !important;
-    line-height: 24px !important;
+    line-height: 26px !important;
     margin: 0 !important;
     position: absolute !important;
     right: 0 !important;
-    top: 0px !important;
+    top: -2px !important;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 ._bf_state_action:hover,
