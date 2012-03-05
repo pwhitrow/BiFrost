@@ -772,33 +772,36 @@ function _bf_go()
 
 
                     // set a default time for display if not passed
-                    if(!close)
+                    if(close != 'persist')
                     {
-                        close = _bf.msg_display_time;
-                    }
-
-                    if(close == 'false')
-                    {
-                        // do we have a callback?
-                        if($.isFunction(callback))
+                        if(!close)
                         {
-                            callback.call(this);
+                            close = _bf.msg_display_time;
                         }
-                    }
-                    else
-                    {
-                        // self close after timeout
-                        _bf.timer = setTimeout(function()
+
+                        if(close == 'false')
                         {
                             // do we have a callback?
                             if($.isFunction(callback))
                             {
                                 callback.call(this);
                             }
+                        }
+                        else
+                        {
+                            // self close after timeout
+                            _bf.timer = setTimeout(function()
+                            {
+                                // do we have a callback?
+                                if($.isFunction(callback))
+                                {
+                                    callback.call(this);
+                                }
 
-                            _bf.hideStateOverlay();
+                                _bf.hideStateOverlay();
 
-                        },close);
+                            },close);
+                        }                       
                     }
                 },
 
