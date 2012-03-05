@@ -109,6 +109,7 @@ if(!$('._bf_' + formname + '_form').length)
 
         setNewAvatar: function(img)
         {
+            console.log(img)
             // update dashboard image
             $('._bf_dashboard_avatar').attr('src', img);
 
