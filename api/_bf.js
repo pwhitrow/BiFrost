@@ -1078,7 +1078,7 @@ function _bf_go()
                                 .html(_bf.t('Logout'))
                                 .attr(
                                 {
-                                    'class': '_bf_state_action',
+                                    'class': '_bf_state_action _bf_state_logout',
                                     'title': _bf.t('Click to logout')
                                 })
                                 .appendTo(_bf.state_actions)

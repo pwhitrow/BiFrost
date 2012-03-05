@@ -139,6 +139,13 @@
     width:auto !important;
 }
 
+._bf_state_logout
+{
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 ._bf_force_button_pos
 {
     position:absolute !important;
