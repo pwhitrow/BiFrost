@@ -98,6 +98,18 @@ if(!$('._bf_' + formname + '_form').length)
                     'fileExt'       : _bf.imagetypes,
                     'fileDesc'      : _bf.t('Image Files') + ' (' + _bf.imagetypes + ')',
                     'sizeLimit'     : _bf.maxfilesize,
+                    'onCancel'      : function()
+                                      {
+                                          _bf.hideStateOverlay();
+                                      },
+                    'onSelect'      : function()
+                                      {
+                                          // nada!
+                                      },
+                    'onOpen'        : function()
+                                      {
+                                          _bf.showStateOverlay(_bf.t('Uploading...'), 9999999);
+                                      },
                     'onComplete': function(event,queueID,fileObj,response,data)
                                   {
                                        _bf_changeavatar.setNewAvatar(response);
@@ -119,6 +131,8 @@ if(!$('._bf_' + formname + '_form').length)
                 avatar: _bf.host + img,
                 uploads: _bf.uploads
             });
+            
+            _bf.hideStateOverlay();
         }
 
         
