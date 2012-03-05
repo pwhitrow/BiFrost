@@ -277,9 +277,14 @@ FORMS
 ._bf_discuss_submit,
 ._bf_comment_submit
 {
-    bottom: -35px;
-    right: 70px;
-    position: absolute !important;    
+    border: 0 none !important;
+    border-radius: 0 0 0 0 !important;
+    bottom: -40px;
+    box-shadow: none !important;
+    height: 33px !important;
+    line-height: 26px !important;
+    position: absolute !important;
+    right: 58px;
 }
 
 ._bf_review_content
