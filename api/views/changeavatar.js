@@ -109,7 +109,6 @@ if(!$('._bf_' + formname + '_form').length)
 
         setNewAvatar: function(img)
         {
-            console.log(img)
             // update dashboard image
             $('._bf_dashboard_avatar').attr('src', img);
 
@@ -117,7 +116,7 @@ if(!$('._bf_' + formname + '_form').length)
             _bf.post(
             {
                 action: 'changeavatar',
-                avatar: img,
+                avatar: _bf.host + img,
                 uploads: _bf.uploads
             });
         }
