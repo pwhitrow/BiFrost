@@ -122,7 +122,7 @@ if(!$('._bf_' + formname + '_form').length)
         setNewAvatar: function(img)
         {
             // update dashboard image
-            $('._bf_dashboard_avatar').attr('src', img);
+            $('._bf_dashboard_avatar').attr('src', _bf.host + img);
 
             // post to api
             _bf.post(
