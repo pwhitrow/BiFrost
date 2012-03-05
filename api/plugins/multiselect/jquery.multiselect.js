@@ -27,11 +27,8 @@
         $('._bf_review_tags')
         .focus(function()
         {
-            _bf.showStateOverlay('', false, function()
-            {
-                $('._bf_multiselect_holder').fadeIn(_bf.ani_speed)
-            }, 
-            true);
+            _bf.showStateOverlay('', false, false, true)
+            $('._bf_multiselect_holder').fadeIn(_bf.ani_speed);
         });
 
         getTags(form);
