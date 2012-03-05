@@ -735,7 +735,7 @@ function _bf_go()
                         .addClass('_bf_state')
                         .css(
                         {
-                            height: $('._bf_state').height() + 'px',
+                            height: $('._bf_state').height() + 2 + 'px',
                             width: $('._bf_state').width() + 'px'
                         })
                         .each(function()
