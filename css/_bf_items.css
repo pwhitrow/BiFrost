@@ -222,7 +222,7 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_items_email
 {
     font:normal 10px Helvetica, Arial, sans-serif !important;
-    color:#BCBCBC !important;
+    color:#444 !important;
     position:absolute !important;
     top: 14px !important;
     width:40px !important;
@@ -234,22 +234,22 @@ ITEM REVIEWS, DISCUSSIONS & COMMENTS
 ._bf_items_rss
 {
     right:10px !important;
-    background-position:7px 16px !important;
+    background-position:7px -33px !important;
 }
 ._bf_items_email
 {
     right: 45px !important;
-    background-position:-38px 16px !important;
+    background-position:-38px -33px !important;
 }
 ._bf_items_rss:hover
 {
-    color:#444 !important;
-    background-position:7px -33px !important;
+    color:#bcbcbc !important;
+    background-position:7px 16px !important;
 }
 ._bf_items_email:hover
 {
-    color:#444 !important;
-    background-position:-38px -33px !important;
+    color:#bcbcbc !important;
+    background-position:-38px 16px !important;
 }
 
 ._bf_no_reviews,
