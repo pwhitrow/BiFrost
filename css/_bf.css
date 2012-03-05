@@ -148,9 +148,16 @@
 
 ._bf_force_button_pos
 {
-    position:absolute !important;
-    right:0px !important;
-    left:0px !important;    
+    border: 0 none !important;
+    border-radius: 0 0 0 0 !important;
+    box-shadow: none !important;
+    height: 34px !important;
+    line-height: 24px !important;
+    margin: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0px !important;
+    width:135px !important;
 }
 
 ._bf_state_action:hover,
