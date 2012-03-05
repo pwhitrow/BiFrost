@@ -563,6 +563,7 @@ function _bf_go()
                     _bf.openPanel('login', function()
                     {
                         _bf.state_action.html(_bf.t('Close'))
+                        .addClass('_bf_state_action')
                         .attr('title', _bf.t('Click to close'));
 
                         _bf.getForm(
@@ -989,7 +990,7 @@ function _bf_go()
                                 _bf.openPanel('login', function()
                                 {
                                     _bf.state_action
-                                    .removeClass('_bf_button _bf_closer')
+                                    .removeClass('_bf_button')
                                     .removeClass('_bf_force_button_pos')
                                     .html(_bf.t('Close'))
                                     .attr('title', _bf.t('Click to close'));
